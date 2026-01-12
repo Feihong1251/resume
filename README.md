@@ -22,7 +22,6 @@
 ### 👨‍💻 เกี่ยวกับผม (About Me)
 
 ผมชอบสร้างหน้าเว็บที่สวยงาม ใช้งานง่าย และตอบสนองได้รวดเร็ว (Responsive & Fast)
-- 🔭 ปัจจุบันกำลังพัฒนา: **[เช่น E-commerce Website ด้วย Next.js]**
 - 🌱 กำลังเรียนรู้: **[เช่น TypeScript, Three.js, หรือ Animation Library]**
 - 🎨 สิ่งที่ให้ความสำคัญ: **Pixel Perfect, Clean Code, User Experience (UX)**
 - ⚡ งานอดิเรก: **[เช่น เสพงาน Design บน Dribbble/Pinterest]**
@@ -35,11 +34,10 @@
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+
 
 **Frameworks & Libraries:**
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)
 
 **Styling:**
@@ -55,16 +53,7 @@
 
 ---
 
-### 🎨 ผลงานเด่น (Featured Projects)
 
-| โปรเจกต์ | รายละเอียด | Tech Stack |
-| :--- | :--- | :--- |
-| **[ชื่อ Project 1]** | [คำอธิบายสั้นๆ เช่น เว็บร้านขายของออนไลน์] | React, Tailwind |
-| **[ชื่อ Project 2]** | [คำอธิบายสั้นๆ เช่น Landing Page บริษัท] | HTML, SCSS, JS |
-
----
-
-### 📊 GitHub Stats
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=[YOUR_USERNAME]&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
