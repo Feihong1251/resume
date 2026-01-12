@@ -1,53 +1,72 @@
-<h1 align="center">สวัสดีครับ 👋, ผมชื่อ [ชื่อเล่น/ชื่อจริง]</h1>
-<h3 align="center">A passionate Full Stack Developer from Thailand 🇹🇭</h3>
+<h1 align="center">สวัสดีครับ 👋, ผมชื่อ [ชื่อของคุณ]</h1>
+<h3 align="center">🎨 Front-End Developer | UI/UX Enthusiast</h3>
 
 <p align="center">
-  <a href="[ใส่ลิงก์ LinkedIn]" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank" />
+  " Changing the world, one pixel at a time. "
+</p>
+
+<p align="center">
+  <a href="[ลิงก์ LinkedIn]" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
   </a>
-  <a href="mailto:[ใส่อีเมลของคุณ]" target="_blank">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank" />
+  <a href="[ลิงก์ Portfolio เว็บส่วนตัว]" target="_blank">
+    <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=html5&logoColor=white" />
   </a>
-  <a href="[ใส่ลิงก์ Portfolio/Website]" target="_blank">
-    <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=html5&logoColor=white" target="_blank" />
+  <a href="mailto:[อีเมลของคุณ]" target="_blank">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
 </p>
 
 ---
 
-### 🧐 เกี่ยวกับผม (About Me)
+### 👨‍💻 เกี่ยวกับผม (About Me)
 
-- 🔭 ปัจจุบันกำลังทำโปรเจกต์เกี่ยวกับ: **[ชื่อโปรเจกต์ หรือ เรื่องที่กำลังศึกษา]**
-- 🌱 กำลังเรียนรู้เรื่อง: **[เทคโนโลยีใหม่ๆ เช่น Next.js, Go, Flutter]**
-- 👯 เปิดรับโอกาสในการทำงานร่วมกันในด้าน: **[Web Development, Mobile App]**
-- 💬 ถามผมได้เกี่ยวกับ: **[React, Python, Database Design]**
-
+ผมชอบสร้างหน้าเว็บที่สวยงาม ใช้งานง่าย และตอบสนองได้รวดเร็ว (Responsive & Fast)
+- 🔭 ปัจจุบันกำลังพัฒนา: **[เช่น E-commerce Website ด้วย Next.js]**
+- 🌱 กำลังเรียนรู้: **[เช่น TypeScript, Three.js, หรือ Animation Library]**
+- 🎨 สิ่งที่ให้ความสำคัญ: **Pixel Perfect, Clean Code, User Experience (UX)**
+- ⚡ งานอดิเรก: **[เช่น เสพงาน Design บน Dribbble/Pinterest]**
 
 ---
 
-### 🛠 Tech Stack (เครื่องมือและภาษาที่ใช้)
+### 🛠️ Tech Stack (เครื่องมือหน้าบ้าน)
 
-**Languages:**
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+**Core & Languages:**
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
-**Frontend:**
+**Frameworks & Libraries:**
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)
+
+**Styling:**
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
-**Backend & Database:**
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
-
-**Tools:**
+**Design & Tools:**
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
-![VS Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
 ---
 
+### 🎨 ผลงานเด่น (Featured Projects)
 
+| โปรเจกต์ | รายละเอียด | Tech Stack |
+| :--- | :--- | :--- |
+| **[ชื่อ Project 1]** | [คำอธิบายสั้นๆ เช่น เว็บร้านขายของออนไลน์] | React, Tailwind |
+| **[ชื่อ Project 2]** | [คำอธิบายสั้นๆ เช่น Landing Page บริษัท] | HTML, SCSS, JS |
 
+---
 
+### 📊 GitHub Stats
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=[YOUR_USERNAME]&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+  <br/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=[YOUR_USERNAME]&layout=compact&theme=tokyonight" alt
