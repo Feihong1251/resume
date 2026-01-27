@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Workshop: Counter App</title>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        text-align: center;
+        width: 300px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        margin: 0 5px;
+        transition: background 0.3s;
+      }
+      .btn-inc { background-color: #4CAF50; color: white; }
+      .btn-dec { background-color: #f44336; color: white; }
+      .btn-inc:hover { background-color: #45a049; }
+      .btn-dec:hover { background-color: #d32f2f; }
+      .message { color: orange; margin-top: 15px; }
+      
+      /* Vue จะซ่อน element ที่มี attribute v-cloak จนกว่าแอปจะโหลดเสร็จ */
+      [v-cloak] { display: none; }
+    </style>
+  </head>
+  <body>
+
+    <div id="app" v-cloak>
+      <div class="card">
+        <div style="margin-bottom: 20px;">
+          <h1 style="color: #333; font-size: 24px;">{{ title }}</h1>
+          <p style="color: #666;">ฝึกเขียน Vue.js เบื้องต้น</p>
+        </div>
+
+        <h2 style="font-size: 48px; margin: 20px 0;">{{ count }}</h2>
+
+        <div>
+          <button class="btn-dec" @click="decrease">ลด (-)</button>
+          <button class="btn-inc" @click="increase">เพิ่ม (+)</button>
+        </div>
+
+        <p v-if="count > 5" class="message">
+          ★ ยอดเยี่ยม! ขายได้เยอะแล้ว
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          // --- ส่วนประกาศตัวแปร (State) ---
+          const title = ref('แอพนับสินค้า (Vue)');
+          const count = ref(0); // เหมือน useState(0) ใน React
+
+          // --- ส่วนฟังก์ชัน ---
+          const increase = () => {
+            count.value++; // Vue เข้าถึงค่าด้วย .value
+          };
+
+          const decrease = () => {
+            if (count.value > 0) {
+              count.value--;
+            }
+          };
+
+          // ส่งตัวแปรและฟังก์ชันออกไปให้ HTML ใช้
+          return {
+            title,
+            count,
+            increase,
+            decrease
+          };
+        }
+      }).mount('#app');
+    </script>
+    
+  </body>
+</html>
