@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลใบเพิ่มหนี้ (ฝั่งเจ้าหนี้)</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="head-box"> <!--กล่องใหญ่-->
+        <div id="sidemenuacc"></div> <!--กล่อง sidebar-->
+        <div class="main-project"><!--กล่อง main-->
+            <div class="navbar">
+                <div style="width: 100%;height: 100%; padding: 24px;">
+                    <div style=" width: 100%; height: 100%;display: flex;justify-content: space-between; ">
+                        <div style="width: 530px; height: 40px; padding: 6.5px 0;">
+                            <div class="nav-menu" style="width: 65%";>
+                                <div style="background-color: #FFFFFF; display: flex;width: 230px; border-radius: 32px;height: 100%;display: flex;align-items: center;justify-content: center; gap: 8px;">
+                                <div class="text-nav">หน้าหลัก</div>
+                                <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                <div class="text-nav">การเงิน</div>
+                                <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                <div class="text-nav">จ่ายเงิน</div>
+                                </div>
+                                <div style="width: 110px;display: flex;justify-content: center;align-items: center;">
+                                    <div style="color: #FFFFFF; font-weight: 700; font-size: 14px;">ใบเพิ่มหนี้</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style=" width: 30%; height: 100%; display: flex; justify-content: end; gap: 8px;">
+                            <div class="nav-pic-right" id="btnnone"><img src="picture/load.png"  class="nav-pic"></div>
+                            <!-- <div class="nav-pic-right"><img src="picture/upload.png"  class="nav-pic"></div>
+                            <div class="nav-pic-right"><img src="picture/send.png"  class="nav-pic"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="head-work">
+                <div class="work">
+                    <!-- khaow -->
+                    <div class="information"> <!--กล่องใหญ่กรอกข้อมูล-->
+                        <div class="navbar-information"><!--กร่องบาร์กรอกข้อมูล-->
+                            <div class="deposit-receipt">ใบเพิ่มหนี้</div>
+                        </div><!--กร่องบาร์กรอกข้อมูล-->
+                    </div>
+                    <div class="input-button-shell00"><!--กล่องinput and botton-->
+                        <div class="inputstar-inputend"><!--กล่องinput-->
+                            <div class="boxdata-day-item">
+                                <div class="word-day">ลงวันที่</div>
+                                <input type="date" class="input-date-day">
+                            </div>
+                            <div class="head-day">
+                                <div class="word-day">ครบกำหนดวันที่</div>
+                                <input type="date" class="input-date-day">
+                            </div>
+                        </div>
+                        <div class="buttonstart-buttonend"><!--กล่องbotton-->
+                            <div class="Upload">อัพโหลดไฟล์</div>
+                            <a href="create-buy-debit-note.html"><div class="build">สร้าง</div></a>
+                            <!-- <a href="create-cash-purchase.html"><div class="build">สร้าง</div></a> สำหรับไปหน้าไปซื้อสด -->
+                        </div>
+                    </div>
+                    <!-- ตารางข้อมูลที่ยังไม่มีข้อมูลจะแสดงหน้านี้ไว้ก่อน -->
+                    <div class="list-creation-page">
+                        <div class="head-list-creation-page">
+                            <div class="word-list-creation-page">รายการ</div>
+                            <div class="input-and-button-hover">
+                                <!-- ถ้ามีข้อมูลแล้วสองปุ่มนี้จะขึ้น -->
+                                  <div class="hover">ทั้งหมด</div>
+                                <div class="hover">อนุมัติ</div>
+                                <div class="hover">รออนุมัติ</div>
+                                <input type="search" class="search-deposit" placeholder="ค้นหา">
+                            </div>
+                        </div>
+                        <!-- ห้นาที่มีไม่มีข้อมูล -->
+                        <div class="Create-a-table">
+                            <div id="noDataBox">
+                                <table class="Create-data-table">
+                                    <thead>
+                                        <tr>
+                                        <th>ลำดับ</th>
+                                        <th>เลขที่ใบเพิ่มหนี้</th>
+                                        <th>รหัสลูกค้า</th>
+                                        <th>ชื่อลูกค้า</th>
+                                        <th>ชื่อรายการ</th>
+                                        <th></th>
+                                        <th>วันครบกำหนด</th>
+                                        <th>มูลค่าสุทธิ(บาท)</th>
+                                        <th>สถานะเอกสาร</th>
+                                        </tr>
+                                    </thead>  
+                                </table>
+                                <div class="box-picture-Create-data-table">
+                                <div class="picture-Create-data-table">
+                                <div class="picture-Create-data"><img src="picture/Subtract.png"></div> 
+                                <div class="word-in-picture-Create-data">ยังไม่มีข้อมูล</div>
+                                </div>
+                                </div>
+                            </div>    
+                        <!-- ห้นาที่มีไม่มีข้อมูล -->
+                        <!-- ห้นาที่มีข้อมูล -->
+                        <div class="class-createsell01" id="hasDataBox">
+                            <table class="data-table-createsell01">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>
+                                        <th>เลขที่ใบเพิ่มหนี้</th>
+                                        <th>รหัสลูกค้า</th>
+                                        <th>ชื่อลูกค้า</th>
+                                        <th>ชื่อเอกสาร</th>
+                                        <th></th>
+                                        <th>วันครบกำหนด</th>
+                                        <th>มูลค่าสุทธิ (บาท)</th>
+                                        <th>สถานะเอกสาร</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="data-row">
+                                        <td>1</td>
+                                        <td id="buyPurchaseOrderNoDisplay">QT-2025021900001</td>
+                                        <td id="buyNumberDisplay">AA-2345666</td>
+                                        <td id="buyVendorNameDisplay">บริษัททดสอบ1</td>
+                                        <td id="buyDepartmentDisplay">UX/UI design Ordering</td>
+                                        <td></td>
+                                        <td id="buyDayDisplay">26/02/2025</td>
+                                        <td>46,117.00</td>
+                                        <td>รอนุมัติ</td>
+                                        <td>
+                                            <div class="action-icons">
+                                                <img src="picture/pen.png" id="goToCreate">
+                                                <img src="picture/bin.png">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- <div class="top-pagination">
+                            <div class="pagination">
+                                <span class="page-info">1 of 5 pages</span>
+                                <a class="active" href="#">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <span class="dots">...</span>
+                                <a href="#">5</a>
+                                <a href="#" class="next"><img src="picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png"></a>
+                            </div>
+                        </div> -->
+                        <!--ปุ่มตัวเลือก-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="sidebarmain.js"></script>
+    <script>
+        $('.input-date-day').on('change', function () {
+            if ($(this).val()) {
+                $(this).css('color', '#000');
+            } else {
+                $(this).css('color', 'var(--input-stoke-gray-color200)');
+            }
+        });
+$(document).ready(function () {
+    if (performance.navigation.type === 1) { // 1 คือ reload
+        localStorage.removeItem('hasData');
+    }
+
+    const hasData = localStorage.getItem('hasData');
+
+    if (hasData === 'true') {
+        $('#noDataBox').hide();
+        $('#noDataImage').hide();
+        $('#hasDataBox').show();
+    } else {
+        $('#noDataBox').show();
+        $('#noDataImage').show();
+        $('#hasDataBox').hide();
+    }
+});
+
+$(document).ready(function () {
+    const buyPurchaseOrderNo = localStorage.getItem('buyPurchaseOrderNo') || 'QT-2025021900001';
+    const buyNumber = localStorage.getItem('buyNumber') || 'AA-2345666';
+    const buyVendorName = localStorage.getItem('buyVendorName') || 'บริษัททดสอบ1';
+    const buyDepartment = localStorage.getItem('buyDepartment') || 'UXUI Designer';
+    const buyDay = localStorage.getItem('buyDay') || '13/01/2025';
+    $('#buyDayDisplay').text(buyDay);
+    const buyDayRaw = localStorage.getItem('buyDay') || '2025-01-13'; // ควรเก็บในรูปแบบ YYYY-MM-DD
+    function formatDateToDDMMYYYY(dateStr) {// ฟังก์ชันแปลงรูปแบบวันที่
+        if (!dateStr || !dateStr.includes('-')) return dateStr;
+        const [year, month, day] = dateStr.split('-');
+        return `${day}/${month}/${year}`;
+    }
+    const formattedBuyDay = formatDateToDDMMYYYY(buyDayRaw); // แปลงวันและแสดงผล
+    // ดึงค่าจาก localStorage (ควรเก็บเป็น YYYY-MM-DD)
+    const rawDate = localStorage.getItem('buyReceivedDate') || '2025-01-13';
+    // ฟังก์ชันแปลงวันที่
+    function formatDateToDDMMYYYY(dateStr) {
+        if (!dateStr || !dateStr.includes('-')) return dateStr;
+        const [year, month, day] = dateStr.split('-');
+        return `${day}/${month}/${year}`;
+    }
+    // แปลงและแสดงผล
+    const formattedDate = formatDateToDDMMYYYY(rawDate);
+    $('#buyReceivedDateDisplay').text(formattedDate);
+    $('#buyDayDisplay').text(formattedBuyDay);
+    $('#buyPurchaseOrderNoDisplay').text(buyPurchaseOrderNo);
+    $('#buyNumberDisplay').text(buyNumber);
+    $('#buyVendorNameDisplay').text(buyVendorName);
+    $('#buyDepartmentDisplay').text(buyDepartment);
+    });
+
+    $(document).ready(function () {
+  // คลิกแถว ไปหน้า purchase-order.html
+  $('.data-row').css('cursor', 'pointer').click(function () {
+    window.location.href = 'buy-debit-note-details.html?from=table';
+  });
+
+  // คลิกปุ่ม <img> ไปหน้า create-purchase-order.html
+  $('#goToCreate').click(function (event) {
+    event.stopPropagation(); // ✅ ป้องกันไม่ให้ event ลามไปถึง .data-row
+    window.location.href = 'create-buy-debit-note.html';
+  });
+});
+    </script>
+</body>
+</html>

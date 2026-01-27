@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลใบเสร็จ</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="head-box"> <!--กล่องใหญ่-->
+        <div id="sidemenuacc"></div> <!--กล่อง sidebar-->
+        <div class="main-project"><!--กล่อง main-->
+            <div class="navbar"></div>
+            <div class="head-work">
+                <div class="work">
+                    <!-- khaow -->
+                    <div class="information"> <!--กล่องใหญ่กรอกข้อมูล-->
+                        <div class="navbar-information"><!--กร่องบาร์กรอกข้อมูล-->
+                            <div class="deposit-receipt">ใบเสร็จ</div> <!--กล่องใบเงินมัดจำ-->
+                        </div><!--กร่องบาร์กรอกข้อมูล-->
+                    </div>
+                    <div class="input-button-shell00"><!--กล่องinput and botton-->
+                        <div class="inputstar-inputend"><!--กล่องinput-->
+                            <div class="boxdata-day-item">
+                                <div class="word-day">ลงวันที่</div>
+                                <input type="date" class="input-date-day">
+                            </div>
+                            <div class="head-day">
+                                <div class="word-day">ครบกำหนดวันที่</div>
+                                <input type="date" class="input-date-day">
+                            </div>
+                        </div>
+                        <div class="buttonstart-buttonend"><!--กล่องbotton-->
+                            <div class="Upload">อัพโหลดไฟล์</div>
+                            <a href="payment-bill-sale.html">
+                                <div class="build">สร้าง</div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- ตารางข้อมูลที่ยังไม่มีข้อมูลจะแสดงหน้านี้ไว้ก่อน -->
+                    <div class="list-creation-page">
+                        <div class="head-list-creation-page">
+                            <div class="word-list-creation-page">รายการ</div>
+                            <div class="input-and-button-hover">
+                                <!-- ถ้ามีข้อมูลแล้วสองปุ่มนี้จะขึ้น -->
+                                  <div class="hover">ทั้งหมด</div>
+                                <div class="hover">อนุมัติ</div>
+                                <div class="hover">รออนุมัติ</div>
+                                <input type="search" class="search-deposit" placeholder="ค้นหา">
+                            </div>
+                        </div>
+                        <!-- ห้นาที่มีไม่มีข้อมูล -->
+                        <div class="Create-a-table">
+                            <div id="noDataImage">
+                                <table class="Create-data-table">
+                                    <thead>
+                                        <tr>
+                                        <th>ลำดับ</th>
+                                        <th>เลขที่ใบเสนอราคา</th>
+                                        <th>รหัสลูกค้า</th>
+                                        <th>ชื่อลูกค้า</th>
+                                        <th>ชื่อรายการ</th>
+                                        <th>วันที่เอกสาร</th>
+                                        <th>วันครบกำหนด</th>
+                                        <th>มูลค่าสุทธิ(บาท)</th>
+                                        <th>สถานะเอกสาร</th>
+                                        </tr>
+                                    </thead>  
+                                </table>
+                                <div class="box-picture-Create-data-table" id="noDataImage">
+                                <div class="picture-Create-data-table">
+                                <div class="picture-Create-data"><img src="picture/Subtract.png"></div> 
+                                <div class="word-in-picture-Create-data">ยังไม่มีข้อมูล</div>
+                                </div>
+                                </div>
+                            </div>
+                        <!-- ห้นาที่มีไม่มีข้อมูล -->
+                        <!-- ห้นาที่มีข้อมูล -->
+                        <div class="class-createsell01" id="hasDataBox">
+                            <table class="data-table-createsell01">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>
+                                        <th>เลขที่ใบเสร็จ</th>
+                                        <th>รหัสลูกค้า</th>
+                                        <th>ชื่อลูกค้า</th>
+                                        <th>ชื่อเอกสาร</th>
+                                        <th>วันที่เอกสาร</th>
+                                        <th>วันครบกำหนด</th>
+                                        <th>มูลค่าสุทธิ (บาท)</th>
+                                        <th>สถานะเอกสาร</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="data-row">
+                                        <td>1</td>
+                                        <td id="customerDepositReceiptNumberDisplay">RE-2025011300001</td>
+                                        <td id="customerCodeDisplay">BB-0000000000</td>
+                                        <td id="customerNameDisplay">บริษัททดสอบ1</td>
+                                        <td>UX/UI design Ordering</td>
+                                        <td id="customerDayDisplay">19/01/2025</td>
+                                        <td id="customerDayfullyDisplay">27/01/2025</td>
+                                        <td>21,000.00</td>
+                                        <td>รอนุมัติ</td>
+                                        <td>
+                                            <div class="action-icons">
+                                                <img src="picture/pen.png" id="goToCreate">
+                                                <img src="picture/bin.png">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- <div class="top-pagination">
+                            <div class="pagination">
+                                <span class="page-info">1 of 5 pages</span>
+                                <a class="active" href="#">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <span class="dots">...</span>
+                                <a href="#">5</a>
+                                <a href="#" class="next"><img
+                                        src="picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png"></a>
+                            </div>
+                        </div> -->
+                        <!--ปุ่มตัวเลือก-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="sidebarmain.js"></script>
+    <script>
+        $('.input-date-day').on('change', function () {
+            if ($(this).val()) {
+                $(this).css('color', '#000');
+            } else {
+                $(this).css('color', 'var(--input-stoke-gray-color200)');
+            }
+        });
+         $(document).ready(function () {
+// ✅ ลบ hasData เฉพาะตอน "reload จริง" (ไม่ใช่กด back)
+    if (performance.getEntriesByType("navigation")[0]?.type === "reload") {
+        localStorage.removeItem('hasData');
+    }
+
+    const hasData = localStorage.getItem('hasData');
+
+    if (hasData === 'true') {
+        $('#noDataBox').hide();
+        $('#noDataImage').hide();
+        $('#hasDataBox').show();
+    } else {
+        $('#noDataBox').show();
+        $('#noDataImage').show();
+        $('#hasDataBox').hide();
+    }
+});
+$(document).ready(function () {
+    const customerDepositReceiptNumber = localStorage.getItem('customerDepositReceiptNumber') || 'IV-202501130001';
+    const customerCode = localStorage.getItem('customerCode') || 'BB-0000000000';
+    const customerName = localStorage.getItem('customerName') || 'บริษัททดสอบ1';
+    const customerDay = localStorage.getItem('customerDay') || '13/01/2025';
+    const customerDayfully = localStorage.getItem('customerDayfully') || '27/01/2025';
+
+  // ใส่ค่าลงในตาราง
+    $('#customerDepositReceiptNumberDisplay').text(customerDepositReceiptNumber);
+    $('#customerCodeDisplay').text(customerCode);
+    $('#customerNameDisplay').text(customerName);
+    $('#customerDayDisplay').text(customerDay);
+    $('#customerDayfullyDisplay').text(customerDayfully);
+    function formatDateToDDMMYYYY(dateStr) {
+    if (!dateStr || !dateStr.includes('-')) return dateStr;
+    const [year, month, day] = dateStr.split('-');
+    return `${month}/${day}/${year}`;
+  }
+  const formattedDate = formatDateToDDMMYYYY(customerDayfully);
+  $('#customerDayfullyDisplay').text(formattedDate);
+  const formattedCustomerDay = formatDateToDDMMYYYY(customerDay);
+  $('#customerDayDisplay').text(formattedCustomerDay);
+});
+
+$(document).ready(function () {
+  // คลิกแถว ไปหน้า purchase-order.html
+  $('.data-row').css('cursor', 'pointer').click(function () {
+    window.location.href = 'payment-bill-sale-preview.html?from=table';
+  });
+
+  // คลิกปุ่ม <img> ไปหน้า create-purchase-order.html
+  $('#goToCreate').click(function (event) {
+    event.stopPropagation(); // ✅ ป้องกันไม่ให้ event ลามไปถึง .data-row
+    window.location.href = 'payment-bill-sale.html';
+  });
+});
+    </script>
+</body>
+</html>

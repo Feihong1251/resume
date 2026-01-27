@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ใบแจ้งหนี้</title>
+  <style>
+          body {
+            background-color: rgb(71, 71, 71);
+            margin: 0;
+            padding: 20px;
+        }
+        
+   @page { size: A4; margin: 10mm; } 
+  * { box-sizing: border-box; }
+
+  @media print {
+    body { margin: 0; padding: 0; background: transparent !important; }
+    .a4-sheet { width: 190mm; min-height: 277mm; margin: 0 auto; }
+    table { margin-left: auto; margin-right: auto; }
+  }
+
+  @media screen {
+    .a4-sheet { width: 210mm; min-height: 297mm; margin: 0 auto; }
+  }
+
+  /* สไตล์ปุ่มพิมพ์และดาวน์โหลด */
+  .print-button, .download-button {
+    position: fixed;
+    top: 20px;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+  }
+
+  .print-button {
+    right: 20px;
+    background-color: #4CAF50;
+  }
+
+  .download-button {
+    right: 140px;
+    background-color: #2196F3;
+  }
+
+  .print-button:hover {
+    background-color: #45a049;
+  }
+
+  .print-button:active {
+    background-color: #3d8b40;
+  }
+
+  .download-button:hover {
+    background-color: #1976D2;
+  }
+
+  .download-button:active {
+    background-color: #1565C0;
+  }
+
+  .button-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- ปุ่มพิมพ์และดาวน์โหลด -->
+<div class="button-container">
+  <button class="download-button" onclick="downloadPDF()">
+      📄 ดาวน์โหลด PDF
+  </button>
+  <button class="print-button" onclick="printDocument()">
+      🖨️ พิมพ์
+  </button>
+</div>
+<div class="a4-sheet">
+  <!-- หน้า A4 ใช้ table + inline -->
+  <table role="presentation" cellspacing="0" cellpadding="0" style="width:190mm;margin:12mm auto;border-collapse:collapse;background:#fff;color:#111827;">
+
+    <!-- แถวบน: โลโก้ (ซ้าย) + หัวบริษัท (ขวา)  == จบโซนโลโก้ที่นี่ -->
+    <tr>
+      <!-- ซ้าย: โลโก้ -->
+      <td style="width:12%;vertical-align:top;">
+        <table cellspacing="0" cellpadding="0" style="width:100%;border-collapse:collapse;">
+          <tr>
+            <td style="padding:4px 0; display: flex; justify-content: center;">
+              <table cellspacing="0" cellpadding="0" style="width:20mm;height:20mm;">
+                <tr><td style="text-align:center;font-size:12px;color:#6b7280;"><img src="picture/unit-logo.png" alt="" style="width: 100%; "></td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+
+      <!-- ขวา: ข้อมูลบริษัท -->
+      <td colspan="2" style="width:85%;vertical-align:middle;">
+        <table cellspacing="0" cellpadding="0" style="width:100%;border-collapse:collapse;">
+          <tr>
+            <td style="font-size:20px;line-height:1.25;font-weight:700;padding:2px 8px 6px 8px;">
+              บริษัท ยูนิท จำกัด
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:6px 0 0 0;">
+              <table cellspacing="0" cellpadding="0" style="width:100%;border-collapse:collapse;table-layout:fixed;">
+                <tr>
+                  <td style="width:44%;font-size:11px;padding:0 5px;text-align:left;">
+                   90 อาคารซีดับเบิ้ลยู ทาวเวอร์ ชั้น 3 ห้อง 310 ถนนรัชดาภิเษก แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพมหานคร 10310
+                  </td>
+                  <td style="width:28%;font-size:11px;text-align:center;">
+                    Tel.  098 264 2890&nbsp;&nbsp;Fax. 036-342146
+                  </td>
+                  <td style="width:28%;font-size:11px;padding:0 5px;text-align:right;">
+                    E-Mail : customerservice@unit.co.th
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- ========== จบแถวโลโก้/หัวบริษัท ========== -->
+
+    <!-- แถวใหม่เต็มความกว้าง: โค้ดอื่นๆ จะไม่ไปติดกล่องโลโก้ -->
+    <tr>
+      <td colspan="3">
+        <!-- วาง “โค้ดอื่น” ที่ต้องการต่อจากนี้ทั้งหมดได้อย่างปลอดภัย -->
+        <!-- ตัวอย่าง: 3–4 คอลัมน์ที่คุณทำไว้ -->
+        <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse; table-layout:fixed;">
+        <!-- แถวล่าง 3 (4 คอลัมน์) -->
+        <tr style="line-height:1.15;">
+            <td style="width:9.4%; font-size:11px; padding:0 6px; text-align: right;">
+              เลขประจำตัวผู้เสียภาษี/ Tax ID
+            </td>
+            <td style="width:5%; font-size:11px; padding:0 6px; text-align:left;">
+              1100110011001
+            </td>
+            <td style="width:4%; font-size:11px; padding:0 6px;">
+              สำนักงานใหญ่
+            </td>
+            <td style="width:10%; font-size:20px; padding:0 6px; text-align:center;">
+              ใบขายเชื่อ/ใบกำกับภาษี
+            </td>
+          </tr>
+
+          <!-- แถวล่าง 4 (4 คอลัมน์) -->
+          <tr style="line-height:1.15;">
+            <td style="width:10%; font-size:11px; padding:0 6px; text-align: right;"></td>
+            <td style="width:3%; font-size:11px; padding:0 6px; text-align:left;"></td>
+            <td style="width:3%; font-size:11px; padding:0 6px;"></td>
+            <td style="width:11%; font-size:14px; padding:0 6px; text-align:center;">
+              ต้นฉบับ (สำหรับลูกค้า)
+            </td>
+          </tr>
+        </table>
+
+<!-- กล่องข้อมูลลูกค้า + เงื่อนไขบิล (ขนาดเท่ากัน + มุมโค้ง 28px) -->
+<!-- กล่องข้อมูลลูกค้า + เงื่อนไขบิล (ขอบตรง + ขนาดเท่ากัน) -->
+<table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse; table-layout:fixed; margin-top:8px;    margin-bottom: 10px;">
+  <tr>
+    <!-- ซ้าย: กล่องลูกค้า -->
+    <td style="width:49%; vertical-align:top;">
+      <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;height: 193px;">
+        <tr>
+          <!-- ปรับเป็นขอบตรง + ความสูงเท่ากัน -->
+          <td style="border:1px solid black; border-radius:0; padding:10px 12px;vertical-align:top;">
+            <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;">
+              <tr>
+                <td style="font-size:12px; padding:2px 0;">
+                  <span style="display:inline-flex; flex-direction:column; font-size:12px;">
+                    ลูกค้า
+                    <span style="font-size:11px;">Customer</span>
+                  </span>
+                  <span style="margin-left:12px; font-size:11px;" id="customerno">ส026</span>
+                </td>
+              </tr>
+              <tr><td style="font-size:11px; padding:2px 0;" id="customerName">นาย สำเริง จันทร์ค้วง</td></tr>
+              <tr><td style="font-size:11px; padding:2px 0;" id="customerAddress">44/10 หมู่ที่ 5 ต.ทุ่งปรัง</td></tr>
+              <tr><td style="font-size:11px; padding:2px 0;" id="customerAddress2">อ.สิเกา จ.นครศรีธรรมราช</td></tr>
+              <tr><td style="font-size:11px; padding:2px 0;" id="customerAddress3">จ.นครศรีธรรมราช 90170</td></tr>
+              <tr><td style="font-size:11px; padding:2px 0;">โทร. <span id="customerPhone"></span></td></tr>
+              <tr>
+                <td style="font-size:12px; padding:6px 0 2px 0; white-space:nowrap;">
+                  <span style="font-size:11px;">เลขประจำตัวผู้เสียภาษี
+                    <span>Tax ID</span>
+                  </span>
+                  <span style="margin-left:10px; font-size:11px;">3930300309135</span>
+                  <span style="margin-left:14px; font-size:11px; display:inline-flex; align-items:center;">
+                    <span style="width:12px; height:12px; border:1px solid #111827; display:inline-flex; align-items:center; justify-content:center; font-size:11px; line-height:12px;">✓</span>
+                    <span style="margin-left:6px;">สำนักงานใหญ่</span>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-size:12px; padding:2px 0;">
+                  <span style="display:inline-flex; flex-direction:column; font-size:12px;">
+                    อ้างอิง
+                    <span style="font-size:11px; ">Reference</span>
+                  </span>
+                  <span style="margin-left:10px; font-size:11px;" id="customerReference"></span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <!-- ช่องว่างกลาง -->
+    <td style="width:2%;">&nbsp;</td>
+
+    <!-- ขวา: กล่องเลขที่/วันที่/เครดิต/ครบกำหนด -->
+    <td style="width:49%; vertical-align:top;">
+      <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;height: 193px;">
+        <tr>
+          <!-- ปรับเป็นขอบตรง + ความสูงเท่ากัน -->
+          <td style="border:1px solid black; border-radius:0; padding:10px 12px; height:176px; vertical-align:top;">
+            <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;">
+              <tr>
+                <td style="width:27%; font-size:11px; padding:2px 0;">
+                  เลขที่<br><span style="font-size:11px;">No.</span>
+                </td>
+                <td style="width:27%; font-size:11px; padding:2px 0; text-align:left;" id="quotationNumber">AI68-07001</td>
+              </tr>
+              <tr>
+                <td style="font-size:11px; padding:2px 0;">
+                  วันที่<br><span style="font-size:11px;">Date</span>
+                </td>
+                <td style="font-size:11px; padding:2px 0; text-align:left;" id="quotationDate">07/07/68</td>
+              </tr>
+              <tr>
+                <td style="font-size:11px; padding:8px 0 2px 0;">
+                  เครดิต<br><span style="font-size:11px;">Credit</span>
+                </td>
+                <td style="font-size:11px; padding:8px 0 2px 0; text-align:left;" id="quotationDueDate">
+                  0&nbsp;<span style="font-size:11px; ">วัน</span>
+                  <span style="font-size:11px; margin-left:8px;">Days</span>
+                </td>
+                                <td style="font-size:11px; padding:2px 0;">
+                  ครบกำหนด<br><span style="font-size:11px;">Due Date</span>
+                </td>
+                <td style="font-size:11px; padding:2px 0; text-align:left;" id="quotationDueDateTo">07/07/68</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- กรอบตารางตามภาพ (เส้นตรง คุมด้วย table+inline เท่านั้น) -->
+<table cellspacing="0" cellpadding="0"
+  style="width:100%; border-collapse:collapse; table-layout:fixed; font-size:12px;
+         border:1pt solid #000; outline:1pt solid #000; outline-offset:-1pt;">
+  <!-- แถวบน (หัวบนยาว) : 3 คอลัมน์ -->
+  <tr>
+    <td style="width:8%; height:36px; border-right:1pt solid #000; border-bottom:1pt solid #000; font-size: 11px;text-align: center;">ลำดับ<br>No.</td>
+    <td style="width:72%; height:36px; border-right:1pt solid #000; border-bottom:1pt solid #000; font-size: 11px;text-align: center;">รายการ<br>Items/Descriptions</td>
+    <td style="width:14%; height:36px;font-size: 11px;text-align: center; border-bottom:1pt solid #000;">จำนวนเงิน<br>Amount</td>
+  </tr>
+
+  <!-- Dynamic content will be inserted here by JavaScript -->
+  <tbody id="quotationItems">
+    <!-- Items will be populated dynamically -->
+  </tbody>
+
+  <!-- <tr>
+    <td style="border-right:1pt solid #000; border-top:1pt solid #000;height: 40px;font-size: 11px;text-align: center">1</td>
+    <td style="border-right:1pt solid #000; border-top:1pt solid #000;padding: 0 10px;font-size: 11px;">รับมัดจำค่าห้องพัก วันที่ 10 ก.ค. 68</td>
+    <td style="border-top:1pt solid #000;text-align: right;padding:4px 10px;">1,401,87</td>
+  </tr>
+    <tr>
+    <td style="border-right:1pt solid;height: 40px;font-size: 11px;text-align: center"></td>
+    <td style="border-right:1pt solid;padding: 0 10px;font-size: 11px;"></td>
+    <td style="text-align: right;padding:4px 10px;"></td>
+  </tr>
+    <tr>
+    <td style="border-right:1pt solid;height: 40px;font-size: 11px;text-align: center"></td>
+    <td style="border-right:1pt solid;padding: 0 10px;font-size: 11px;"></td>
+    <td style="text-align: right;padding:4px 10px;"></td>
+  </tr>
+    <tr>
+    <td style="border-right:1pt solid;height: 40px;font-size: 11px;text-align: center"></td>
+    <td style="border-right:1pt solid;padding: 0 10px;font-size: 11px;"></td>
+    <td style="text-align: right;padding:4px 10px;"></td>
+  </tr>
+    <tr>
+    <td style="border-right:1pt solid;height: 40px;font-size: 11px;text-align: center"></td>
+    <td style="border-right:1pt solid;padding: 0 10px;font-size: 11px;"></td>
+    <td style="text-align: right;padding:4px 10px;"></td>
+  </tr>
+    <tr>
+    <td style="border-right:1pt solid;height: 40px;font-size: 11px;text-align: center"></td>
+    <td style="border-right:1pt solid;padding: 0 10px;font-size: 11px;"></td>
+    <td style="text-align: right;padding:4px 10px;"></td>
+  </tr>
+    <tr>
+    <td style="border-right:1pt solid;height: 40px;font-size: 11px;text-align: center"></td>
+    <td style="border-right:1pt solid;padding: 0 10px;font-size: 11px;"></td>
+    <td style="text-align: right;padding:4px 10px;"></td>
+  </tr>
+    <tr>
+    <td style="border-right:1pt solid;height: 40px;font-size: 11px;text-align: center"></td>
+    <td style="border-right:1pt solid;padding: 0 10px;font-size: 11px;"></td>
+    <td style="text-align: right;padding:4px 10px;"></td>
+  </tr>
+    <tr>
+    <td style="border-right:1pt solid;height: 40px;font-size: 11px;text-align: center"></td>
+    <td style="border-right:1pt solid;padding: 0 10px;font-size: 11px;"></td>
+    <td style="text-align: right;padding:4px 10px;"></td>
+  </tr>
+    <tr>
+    <td style="border-right:1pt solid #000;height: 40px;font-size: 11px;text-align: center"></td>
+    <td style="border-right:1pt solid #000;;padding: 0 10px;font-size: 11px;"></td>
+    <td style="border-bottom:1pt solid #000;text-align: right;padding:4px 10px;"></td>
+  </tr> -->
+
+  <!-- แถวแถบล่างแถวที่ 1 (ยาวทั้งแถว) : 3 คอลัมน์ -->
+<tr>
+  <!-- รวม ซ้าย + กลาง -->
+<td colspan="2"
+    style="border-top:1pt solid #000; border-right:1pt solid #000; border-left:1pt solid #000; padding:0; height:14mm;">
+  <table cellspacing="0" cellpadding="0"
+         style="width:100%; border-collapse:collapse; table-layout:fixed; height:14mm;">
+    <!-- แถวแรก (ว่าง) -->
+    <tr>
+      <td style="width:60%; border-right:1pt solid #000; height:8mm;"></td>
+      <td style="padding:4px 10px; height: 30px;    font-size: 11px;">จำนวนเงินรวมทั้งสิ้นรวมเป็นเงิน<br>Grand Total</td>
+    </tr>
+    <tr>
+      <td style="width:60%; border-right:1pt solid #000; height:8mm;"></td>
+      <td style="padding:4px 10px; height: 30px;    font-size: 11px;">หัก ภาษี ณ ที่จ่าย<br>Withholding Tax</td>
+    </tr>
+    <!-- แถวสอง: วางข้อความให้ชิดล่าง -->
+    <tr>
+      <td style="width:60%; border-right:1pt solid #000; height:6mm; position:relative; padding:0 6px;">
+        <span style="position:absolute; left:6px; right:6px; bottom:2px; display:block; text-align:center;">
+          ผิด ตก ยกเว้น E.&amp;O.E.
+        </span>
+      </td>
+      <td style="height: 30px;padding:4px 10px;font-size: 11px;">จำนวนภาษีมูลค่าเพิ่ม <span style="padding-left: 8px;">7.00%</span><br>Vat</td>
+    </tr>
+  </table>
+</td>
+
+  <!-- ขวา: เหมือนเดิม -->
+ <td style="border-top:1pt solid #000; padding:0;">
+  <table cellspacing="0" cellpadding="0"
+         style="width:100%; height:14mm; border-collapse:collapse; table-layout:fixed;">
+    <tr>
+      <td style="height:30px;padding:4px 10px;text-align: right;font-size: 11px;" id="subtotal">1,401,81</td>     <!-- แถวที่ 1 -->
+    </tr>
+    <tr>
+      <td style="height:30px;padding:4px 10px;text-align: right;font-size: 11px;" id="taxAmount">98.13</td>     <!-- แถวที่ 1 -->
+    </tr>
+    <tr>
+      <td style="height:30px;padding:4px 10px;text-align: right; font-size: 11px;" id="vatAmount">98.13</td>     <!-- แถวที่ 2 -->
+    </tr>
+  </table>
+</td>
+</tr>
+
+
+  <!-- แถวแถบล่างแถวที่ 2 (มีเส้นตั้งตรงกลางเฉพาะสองแถบล่าง) -->
+<tr>
+  <!-- รวม ซ้าย + กลาง -->
+  <td colspan="2" style="border-top:1pt solid #000; border-right:1pt solid #000; border-left:1pt solid #000; padding:0; height:14mm;">
+    <!-- ข้างในยังเป็น 2 คอลัมน์เหมือนเดิม เพื่อให้มีเส้นตั้งกลาง -->
+    <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse; table-layout:fixed; height:14mm;">
+      <tr>
+        <td style="width:60%; border-right:1pt solid #000; text-align:center;    font-size: 18px;" id="totalText">(หนึ่งพันห้าร้อยบาทถ้วน).</td>
+        <td style="height: 30px;padding:4px 10px;font-size: 11px;">รวมเป็นเงิน<br>Amount</td>
+      </tr>
+    </table>
+  </td>
+
+  <!-- ขวา: เหมือนเดิม -->
+  <td style="border-top:1pt solid #000;padding:4px 10px;text-align: right; font-size: 11px;" id="grandTotal">1,500.00</td>
+</tr>
+</table>
+<!-- กล่องกรอบ + แบ่ง 3 คอลัมน์ (เติมข้อมูลแล้ว, font 11px) -->
+<table cellspacing="0" cellpadding="0"
+  style="width:190mm; height:160px; margin-top:10px; border-collapse:collapse; table-layout:fixed;
+         border:1pt solid #000; outline:1pt solid #000; outline-offset:-1pt; font-size:11px;
+         -webkit-print-color-adjust:exact; print-color-adjust:exact;">
+
+  <tr>
+    <!-- ซ้าย -->
+    <td style="width:40%; border-right:1pt solid #000; padding:8px 10px; vertical-align:top;">
+      <table cellspacing="0" cellpadding="0" style="width:100%; height:100%; border-collapse:collapse;">
+        <tr>
+          <td style="vertical-align:top; padding-bottom:6px;">
+            ใบรับเงินมัดจำฉบับนี้จะสมบูรณ์ต่อเมื่อมีลายเซ็นผู้รับมอบอำนาจและ
+            ลายเซ็นผู้รับเงิน และได้เรียกเก็บเงินตามเช็คเรียบร้อยแล้ว
+          </td>
+        </tr>
+        <tr>
+          <!-- เส้นสำหรับชื่อผู้เข้าพัก + ป้ายกำกับ ชิดล่าง -->
+          <td style="vertical-align:bottom;">
+            <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;">
+              <tr>
+                <td style="border-bottom:1pt solid #000; height:14px;"></td>
+              </tr>
+              <tr>
+                <td style="text-align:center; padding-top:4px;">ผู้เข้าพัก/ Guest name</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <!-- กลาง -->
+    <td style="width:35%; border-right:1pt solid #000; padding:8px 10px; vertical-align:top;">
+      <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;">
+        <tr>
+          <td colspan="4" style="padding-bottom:6px;">
+            ชำระเงิน โดย
+            <span style="display:inline-block; width:12px; height:12px; border:1pt solid #000; margin:0 6px 0 10px;"></span> เงินสด
+            <span style="display:inline-block; width:12px; height:12px; border:1pt solid #000; margin:0 6px 0 14px;"></span> เช็ค
+          </td>
+        </tr>
+
+        <!-- เช็คธนาคาร / สาขา -->
+<!-- เช็คธนาคาร / สาขา -->
+<table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse; table-layout:fixed;">
+  <tr>
+    <td style="white-space:nowrap; padding-right:6px; width:55px;">เช็คธนาคาร</td>
+    <td style="border-bottom:1pt solid #000;">&nbsp;</td>
+    <td style="white-space:nowrap; padding:0 6px 0 12px; width:40px;">สาขา</td>
+    <td style="border-bottom:1pt solid #000;">&nbsp;</td>
+  </tr>
+</table>
+<table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;"><tr><td style="height:8px;"></td></tr></table>
+
+<!-- เลขที่ / วันที่ -->
+<table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse; table-layout:fixed;">
+  <tr>
+    <td style="white-space:nowrap; padding-right:6px; width:30px;">เลขที่</td>
+    <td style="border-bottom:1pt solid #000;">&nbsp;</td>
+    <td style="white-space:nowrap; padding:0 6px 0 12px; width:30px;">วันที่</td>
+    <td>
+      <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse; table-layout:fixed;">
+        <tr>
+          <td style="border-bottom:1pt solid #000; width:28%;">&nbsp;</td>
+          <td style="width:8%; text-align:center;">/</td>
+          <td style="border-bottom:1pt solid #000; width:28%;">&nbsp;</td>
+          <td style="width:8%; text-align:center;">/</td>
+          <td style="border-bottom:1pt solid #000; width:28%;">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;"><tr><td style="height:8px;"></td></tr></table>
+
+<!-- จำนวนเงิน -->
+<table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse; table-layout:fixed;">
+  <tr>
+    <td style="white-space:nowrap; padding-right:6px; width:50px;">จำนวนเงิน</td>
+    <td colspan="3" style="border-bottom:1pt solid #000;">&nbsp;</td>
+  </tr>
+</table>
+<table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;"><tr><td style="height:8px;"></td></tr></table>
+
+<!-- ภาษีหัก ณ ที่จ่าย -->
+<table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse; table-layout:fixed;">
+  <tr>
+    <td style="white-space:nowrap; padding-right:6px; width:80px;">ภาษีหัก ณ ที่จ่าย</td>
+    <td colspan="3" style="border-bottom:1pt solid #000;">&nbsp;</td>
+  </tr>
+</table>
+
+<!-- เส้นลายเซ็นผู้จัดทำ + วันที่ -->
+<table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;"><tr><td style="height:14px;"></td></tr></table>
+<table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse; table-layout:fixed;">
+  <tr>
+    <td colspan="2" style="border-bottom:1pt solid #000;">&nbsp;</td>
+    <td style="width:10px;"></td>
+    <td style="border-bottom:1pt solid #000;    width: 105px;">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align:center; padding-top:4px;">ผู้จัดทำ/ Prepared by</td>
+    <td></td>
+    <td style="text-align:center; padding-top:4px;">วันที่/ Date</td>
+  </tr>
+</table>
+
+
+    <!-- ขวา -->
+    <td style="width:25%; padding:8px 10px; vertical-align:top;">
+      <table cellspacing="0" cellpadding="0" style="width:100%; height:100%; border-collapse:collapse;">
+        <tr>
+          <td style="vertical-align:top; padding-bottom:6px;">
+            ในนาม<br>
+            บริษัท เอสพีวี คอนโกลเมอเรท จำกัด
+          </td>
+        </tr>
+        <tr>
+          <!-- เส้นลายเซ็นชิดล่าง -->
+          <td style="vertical-align:bottom;">
+            <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse;">
+              <tr>
+                <td style="border-bottom:1pt solid #000; height:14px;"></td>
+              </tr>
+              <tr>
+                <td style="text-align:center; padding-top:4px;">ผู้รับมอบอำนาจ/ Authorized Signature</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+    </td>
+  </tr>
+</table>
+    </td>
+    </tr>
+</table>
+</div>
+<script>
+// ฟังก์ชันสำหรับรับ ID จาก URL parameter
+function getUrlParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// ฟังก์ชันสำหรับดึงข้อมูลจาก API
+function loadReceiptData(receiptId) {
+    if (!receiptId) {
+        console.error('ไม่พบ ID ของใบเสร็จ');
+        return;
+    }
+    
+    console.log('กำลังดึงข้อมูลสำหรับ ID:', receiptId);
+    
+    // กำหนด endpoint 
+    const endpoint = 'http://localhost:3000';
+    
+    $.ajax({
+        url: `${endpoint}/api/get_quotation_by_id`,
+        method: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            id: receiptId,
+            com_id: localStorage.getItem('com_id') || 8
+        }),
+        success: function(response) {
+            console.log('API Response:', response);
+            if (response.code === 200) {
+                // อัปเดตข้อมูลในหน้าเว็บ
+                updateReceiptDisplay(response.result);
+            } else {
+                console.error('เกิดข้อผิดพลาดในการดึงข้อมูล:', response.result);
+                alert('ไม่สามารถดึงข้อมูลได้: ' + (response.result || 'ไม่ทราบสาเหตุ'));
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('เกิดข้อผิดพลาดในการเชื่อมต่อ:', error);
+            alert('เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์');
+        }
+    });
+}
+
+// ข้อมูล Mock สำหรับทดสอบ
+const mockProductData = [
+  {
+    name: 'ค่ามัดจำห้องพัก',
+    description: 'มัดจำห้องพัก วันที่ 10-15 ก.ค. 68',
+    quantity: '3',
+    unit_price: '1000.00',
+    amount: '3000.00'
+  },
+  {
+    name: 'ค่าบริการเพิ่มเติม',
+    description: 'บริการเสริมต่างๆ',
+    quantity: '2',
+    unit_price: '500.00',
+    amount: '1000.00'
+  }
+];
+
+// ฟังก์ชันสำหรับอัปเดตข้อมูลในหน้าเว็บ
+function updateReceiptDisplay(data) {
+// ข้อมูลลูกค้า
+  $('#customerno').text(data.cus_detail.cus_no);
+  $('#customerName').text(data.cus_name);
+  
+  // แบ่งที่อยู่จาก customerAddress
+  var fullAddress = data.cus_detail.cus_addr || '';
+  
+  // หาตำแหน่งของคำสำคัญในที่อยู่
+  var tambonIndex = fullAddress.search(/ต\.|ตำบล|แขวง/);
+  var amphoeIndex = fullAddress.search(/อ\.|อำเภอ|เขต/);
+  var provinceIndex = fullAddress.search(/จ\.|จังหวัด|กรุงเทพมหานคร|กรุงเทพฯ|กรุงเทพ ฯ/);
+  
+  if (tambonIndex !== -1) {
+    // บรรทัดที่ 1: ที่อยู่หลัก (ก่อนตำบล)
+    $('#customerAddress').text(fullAddress.substring(0, tambonIndex).trim());
+    
+    if (provinceIndex !== -1) {
+      // บรรทัดที่ 2: ตำบล อำเภอ
+      $('#customerAddress2').text(fullAddress.substring(tambonIndex, provinceIndex).trim());
+      // บรรทัดที่ 3: จังหวัด รหัสไปรษณีย์
+      $('#customerAddress3').text(fullAddress.substring(provinceIndex).trim());
+    }
+  }
+  $('#customerPhone').text(data.cus_detail.cus_phone);
+  $('#customerReference').text(data.cus_detail.cus_refer);
+
+// ข้อมูลใบเสนอราคา
+  $('#quotationNumber').text(data.tx);
+  $('#quotationDate').text(data.doc_date);
+  $('#quotationDueDate').text(data.doc_detail.deadline);
+  $('#quotationDueDateTo').text(data.due_date);
+  $('#quotationPaymentTerms').text(data.quo_payment_terms);
+
+  // ข้อมูลสินค้า
+  const items = data.product_byuser;
+  
+  // ตรวจสอบว่ามีข้อมูลสินค้าหรือไม่
+  if (!items || items.length === 0) {
+    console.log('ไม่มีข้อมูลสินค้า - ใช้ข้อมูล Mock');
+    // ใช้ข้อมูล Mock เมื่อไม่มีข้อมูลสินค้า
+    const mockItems = mockProductData.slice(0, 9);
+    const emptyRows = [];
+    
+    // เพิ่มแถวว่างจนครบ 9 แถว
+    for (let i = mockItems.length; i < 9; i++) {
+      emptyRows.push(`
+        <tr>
+          <td style="border-right:1pt solid #000; border-top:0pt solid #000;height: 40px;font-size: 11px;text-align: center"></td>
+          <td style="border-right:1pt solid #000; border-top:0pt solid #000;padding: 0 10px;font-size: 11px;"></td>
+          <td style="border-top:0pt solid #000;text-align: right;padding:4px 10px;"></td>
+        </tr>
+      `);
+    }
+    
+    $('#quotationItems').html([
+      ...mockItems.map((item, index) => `
+        <tr>
+          <td style="border-right:1pt solid #000; border-top:0pt solid #000;height: 40px;font-size: 11px;text-align: center">${index + 1}</td>
+          <td style="border-right:1pt solid #000; border-top:0pt solid #000;padding: 0 10px;font-size: 11px;">${item.name}</td>
+          <td style="border-top:0pt solid #000;text-align: center;font-size: 11px;">${parseFloat(item.amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+        </tr>
+      `),
+      ...emptyRows
+    ].join(''));
+    
+    // ใช้ข้อมูล Mock สำหรับสรุปราคา
+    $('#subtotal').text('4,000.00');
+    $('#taxAmount').text('0.00');
+    $('#vatAmount').text('280.00');
+    $('#grandTotal').text('4,280.00');
+    $('#totalText').text('(สี่พันสองร้อยแปดสิบบาทถ้วน)');
+  } else {
+    // ใช้ข้อมูลจริงจาก API
+    const limitedItems = items.slice(0, 9);
+    const emptyRows = [];
+    
+    // เพิ่มแถวว่างจนครบ 9 แถว
+    for (let i = limitedItems.length; i < 9; i++) {
+      emptyRows.push(`
+        <tr>
+          <td style="border-right:1pt solid #000; border-top:0pt solid #000;height: 40px;font-size: 11px;text-align: center"></td>
+          <td style="border-right:1pt solid #000; border-top:0pt solid #000;padding: 0 10px;font-size: 11px;"></td>
+          <td style="border-top:0pt solid #000;text-align: right;padding:4px 10px;"></td>
+      </tr>
+      `);
+    }
+    
+    $('#quotationItems').html([
+      ...limitedItems.map((item, index) => `
+        <tr>
+          <td style="border-right:1pt solid #000; border-top:0pt solid #000;height: 40px;font-size: 11px;text-align: center">${index + 1}</td>
+          <td style="border-right:1pt solid #000; border-top:0pt solid #000;padding: 0 10px;font-size: 11px;">${item.name}</td>
+          <td style="border-top:0pt solid #000;text-align: center;font-size: 11px;">${parseFloat(item.deposit_amount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+        </tr>
+      `),
+      ...emptyRows
+    ].join(''));
+    
+    // ข้อมูลยอดรวมจากข้อมูลจริง
+    $('#subtotal').text(parseFloat(data.product_detail.product_totalAllProducts).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+    $('#totalDiscount').text(parseFloat(data.product_detail.product_totalDiscount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+    $('#afterDiscount').text(parseFloat(data.product_detail.product_totalAfterDiscount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+    $('#vatAmount').text(parseFloat(data.product_detail.product_totalTax).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+    
+    // รวม withholdingTax ทั้ง 3 อัน
+    const withholdingTax1 = parseFloat(data.product_detail.product_withholdingTax) || 0;
+    const withholdingTax2 = parseFloat(data.product_detail.product_withholdingTax2) || 0;
+    const withholdingTax3 = parseFloat(data.product_detail.product_withholdingTax3) || 0;
+    const totalWithholdingTax = withholdingTax1 + withholdingTax2 + withholdingTax3;
+    $('#taxAmount').text(totalWithholdingTax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+    
+    $('#grandTotal').text(parseFloat(data.product_detail.product_totalAll).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+
+    // แปลงตัวเลขเป็นตัวอักษรไทย
+    const grandTotalAmount = parseFloat(data.product_detail.product_totalAll);
+    const thaiText = convertToThaiText(grandTotalAmount);
+    $('#totalText').text(`ตัวอักษร: (${thaiText})`);
+  }
+
+  console.log('อัปเดตข้อมูลเรียบร้อยแล้ว');
+}
+
+// ฟังก์ชันสำหรับอัปเดตชื่อผู้จัดทำและสถานะ checkbox
+function updateCreatorDisplay() {
+    const creatorName = localStorage.getItem('quotationCreatorName');
+    const notShowName = localStorage.getItem('quotationNotShowName') === 'true';
+    const signatureOption = localStorage.getItem('quotationSignatureOption') === 'true';
+    
+    const creatorElement = document.getElementById('creatorName');
+    
+    if (creatorElement && creatorName) {
+        creatorElement.textContent = creatorName;
+    }
+    
+    // ควบคุมการแสดงชื่อผู้จัดทำตามสถานะ checkbox
+    if (creatorElement) {
+        if (notShowName) {
+            // ถ้าเลือก "ไม่แสดงชื่อผู้จัดทำ" ให้ซ่อนชื่อ
+            creatorElement.style.display = 'none';
+        } else if (signatureOption) {
+            // ถ้าเลือก "ลายเซ็นต์อิเล็กทรอนิก" ให้แสดงชื่อ
+            creatorElement.style.display = 'visible';
+        } else {
+            // ถ้าไม่เลือกอะไรเลย ให้ซ่อนชื่อ
+            creatorElement.style.display = 'none';
+        }
+    }
+}
+
+// ฟังก์ชันแปลงตัวเลขเป็นตัวอักษรไทย
+function convertToThaiText(number) {
+    const thaiNumbers = ['ศูนย์', 'หนึ่ง', 'สอง', 'สาม', 'สี่', 'ห้า', 'หก', 'เจ็ด', 'แปด', 'เก้า'];
+    const thaiUnits = ['', 'สิบ', 'ร้อย', 'พัน', 'หมื่น', 'แสน', 'ล้าน'];
+    
+    if (number === 0) return 'ศูนย์บาทถ้วน';
+    
+    const integerPart = Math.floor(number);
+    const decimalPart = Math.round((number - integerPart) * 100);
+    
+    let result = '';
+    
+    // แปลงส่วนจำนวนเต็ม
+    if (integerPart > 0) {
+        const numStr = integerPart.toString();
+        const len = numStr.length;
+        
+        for (let i = 0; i < len; i++) {
+            const digit = parseInt(numStr[i]);
+            const position = len - i - 1;
+            
+            if (digit !== 0) {
+                if (position === 1 && digit === 1 && len > 1) {
+                    result += 'สิบ';
+                } else if (position === 1 && digit === 2) {
+                    result += 'ยี่สิบ';
+                } else if (position === 0 && digit === 1 && len > 1) {
+                    result += 'เอ็ด';
+                } else {
+                    result += thaiNumbers[digit];
+                    if (position > 0) {
+                        result += thaiUnits[position];
+                    }
+                }
+            }
+        }
+        result += 'บาท';
+    }
+    
+    // แปลงส่วนทศนิยม
+    if (decimalPart > 0) {
+        const decimalStr = decimalPart.toString();
+        for (let i = 0; i < decimalStr.length; i++) {
+            const digit = parseInt(decimalStr[i]);
+            if (digit !== 0) {
+                result += thaiNumbers[digit];
+                if (i === 0) result += 'สิบ';
+            }
+        }
+        result += 'สตางค์';
+    } else {
+        result += 'ถ้วน';
+    }
+    
+    return result;
+}
+
+
+// ฟังก์ชันสำหรับดาวน์โหลด PDF
+function downloadPDF() {
+  const elements = document.querySelectorAll(".a4-sheet");
+  
+  // ดึงข้อมูล tx 
+  const txElement = document.getElementById('quotationNumber');
+  const txValue = txElement ? txElement.textContent : '';
+  const filename = `ใบขายเชื่อ${txValue}.pdf`;
+  
+  // สร้าง PDF ใหม่
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF('p', 'mm', 'a4');
+  
+  let pageIndex = 0;
+  
+  // ฟังก์ชันสำหรับประมวลผลหน้าต่อไป
+  function processNextPage(index) {
+    if (index >= elements.length) {
+      // บันทึก PDF เมื่อประมวลผลทุกหน้าเสร็จ
+      pdf.save(filename);
+
+      return;
+    }
+    
+    const element = elements[index];
+    
+    // สร้าง canvas จาก element
+    html2canvas(element, {
+      scale: 2,
+      useCORS: true,
+      allowTaint: true,
+      scrollX: 0,
+      scrollY: 0,
+      height: 1100,
+      windowHeight: 1100
+    }).then(function(canvas) {
+      const imgData = canvas.toDataURL('image/jpeg', 1.0);
+      
+      // เพิ่มหน้าใหม่ใน PDF (ยกเว้นหน้าแรก)
+      if (index > 0) {
+        pdf.addPage();
+      }
+      
+      const imgWidth = 210; // A4 width in mm
+      const pageHeight = 297; // A4 height in mm
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+      
+      pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+      
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+      
+      // ประมวลผลหน้าต่อไป
+      processNextPage(index + 1);
+    }).catch(function(error) {
+      console.error('เกิดข้อผิดพลาดในการสร้าง canvas:', error);
+      alert('เกิดข้อผิดพลาดในการสร้าง PDF: ' + error.message);
+    });
+  }
+  
+  // เริ่มประมวลผลทุกหน้า
+  processNextPage(0);
+}
+
+// ฟังก์ชันสำหรับพิมพ์
+function printDocument() {
+    // ซ่อนปุ่มพิมพ์และดาวน์โหลดก่อนพิมพ์
+    const buttons = document.querySelectorAll('.print-button, .download-button, .button-container');
+    buttons.forEach(button => {
+        button.style.display = 'none';
+    });
+    
+    // เรียกใช้ฟังก์ชันพิมพ์ของเบราว์เซอร์
+    window.print();
+    
+    // แสดงปุ่มกลับมาหลังพิมพ์เสร็จ
+    setTimeout(() => {
+        buttons.forEach(button => {
+            button.style.display = '';
+        });
+    }, 1000);
+}
+
+
+// เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเสร็จ
+$(document).ready(function() {
+    // อัปเดตการแสดงชื่อผู้จัดทำตามสถานะ checkbox
+    updateCreatorDisplay();
+    
+    const Id = getUrlParameter('id');
+    if (Id) {
+        console.log('ได้รับ ID :', Id);
+        // เรียกใช้ฟังก์ชันดึงข้อมูลจาก API
+        loadReceiptData(Id);
+    } else {
+        console.log('ไม่พบ ID');
+    }
+});
+</script>
+</body>
+</html>

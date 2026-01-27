@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ใบรับเงินมัดจำ</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="head-box"> <!--กล่องใหญ่-->
+        <div id="sidemenuacc"></div> <!--กล่อง sidebar-->
+        <div class="main-project"><!--กล่อง main-->
+            <div class="navbar"></div>
+            <div class="head-work">
+                <div class="work">
+                     <div class="information"> <!--กล่องใหญ่กรอกข้อมูล-->
+                        <div class="navbar-information"><!--กร่องบาร์กรอกข้อมูล-->
+                            <div class="deposit-receipt">ใบรับเงินมัดจำ</div> <!--กล่องใบเงินมัดจำ-->
+                        </div><!--กร่องบาร์กรอกข้อมูล-->
+                    </div>
+                     <div class="input-button-shell00"><!--กล่องinput and botton-->
+                        <div class="inputstar-inputend"><!--กล่องinput-->
+                            <div class="boxdata-day-item">
+                                        <div class="word-day">วันที่เริ่มต้น</div>
+                            <input type="date" class="input-date-day">
+                        </div>
+                        <div class="head-day">
+                            <div class="word-day">วันสิ้นสุด</div>
+                        <input type="date" class="input-date-day">
+                    </div>
+                        </div>
+                        <div class="buttonstart-buttonend"><!--กล่องbotton-->
+                            <div class="Upload">อัพโหลดไฟล์</div>
+                           <a href="#"> <div class="build">สร้าง</div></a>
+                        </div>
+                    </div>
+                         <!-- เมื่อมีข้อมูลจะแสดงตารางตรงนี้ที่ซ่อนเอาไว้ -->
+                    <div class="list-creation-page01">
+                        <div class="head-list-creation-page">
+                            <div class="word-list-creation-page">รายการ</div>
+                            <div class="input-and-button-hover">
+                                <!-- ถ้ามีข้อมูล3ปุ่มนี้จะขึ้น -->
+                                <div class="hover">อนุมัติ</div>
+                                <div class="hover">รออนุมัติ</div>
+                                <div class="hover">ไม่อนุมัติ</div>
+                              <input type="search" class="search-deposit" placeholder="ค้นหา">
+                            </div>
+                        </div>
+                         <div class="class-createsell01" id="container">
+                             <!-- ห้นาที่มีไม่มีข้อมูล -->
+                             <!-- <table class="Create-data-table">
+                                    <thead>
+                                        <tr>
+                                        <th>ลำดับ</th>
+                                        <th>เลขที่ใบเสนอราคา</th>
+                                        <th>รหัสลูกค้า</th>
+                                        <th>ชื่อลูกค้า</th>
+                                        <th>ชื่อรายการ</th>
+                                        <th>วันที่เอกสาร</th>
+                                        <th>วันครบกำหนด</th>
+                                        <th>มูลค่าสุทธิ(บาท)</th>
+                                        <th>สถานะเอกสาร</th>
+                                        </tr>
+                                    </thead>  
+                                </table>
+                                <div class="box-picture-Create-data-table">
+                                <div class="picture-Create-data-table">
+                                  <div class="picture-Create-data"><img src="picture/Subtract.png"></div> 
+                                 <div class="word-in-picture-Create-data">ยังไม่มีข้อมูล</div>
+                                </div>
+                                </div>  -->
+                                <!-- ห้นาที่มีไม่มีข้อมูล --> 
+                                <!-- ไม่มีข้อมูล -->
+                            <!-- มีข้อมูล -->
+                                    <table class="data-table-createsell01"  #myTextarea>
+                                        <thead>
+                                            <tr>
+                                                <th>ลำดับ</th>
+                                                <th>เลขที่ใบรับเงินมัดจำ</th>
+                                                <th>รหัสลูกค้า</th>
+                                                <th>ชื่อลูกค้า</th>
+                                                <th>ชื่อรายการ</th>
+                                                <th>วันที่เอกสาร</th>
+                                                <th>วันครบกำหนด</th>
+                                                <th>มูลค่าสุทธิ (บาท)</th>
+                                                <th>สถานะเอกสาร</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                          <tbody>
+                                            <tr class="data-row">
+                                                <td>1</td>
+                                                <td>AI-2025021900001</td>
+                                                <td>AA-2345666</td>
+                                                <td>บริษัททดสอบ1</td>
+                                                <td>UX/UI design Ordering</td>
+                                                <td>19/02/2025</td>
+                                                <td>26/02/2025</td>
+                                                <td>46,117.00</td>
+                                                <td>รอนุมัติ</td>
+                                                <td>
+                                                    <div class="action-icons">
+                                                        <img src="picture/pen.png">
+                                                        <img src="picture/bin.png">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>                                       
+                                    </table>
+                                </div>
+                                <!-- ส่วนที่เลื่อตัวเลข tap ขึ้นเมื่อข้อมูลครบ 10 รายการ-->
+                                    <div class="top-pagination">
+                                    <div class="pagination">
+                                        <span class="page-info">1 of 40 pages</span>
+                                        <a class="active" href="#">1</a>
+                                        <a href="#">2</a>
+                                        <a href="#">3</a>
+                                        <span class="dots">...</span>
+                                        <a href="#">40</a>
+                                        <a href="#" class="next"><img
+                                        src="picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png"></a>
+                                </div>
+                            </div>
+                             <!-- ส่วนที่เลื่อตัวเลข tap -->
+                    </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script src="sidebarmain.js"></script>
+    <script>
+$('.input-date-day').on('change', function () {
+  if ($(this).val()) {
+    $(this).css('color', '#000');
+  } else {
+    $(this).css('color', 'var(--input-stoke-gray-color200)');
+  }
+});
+let currentPage = 1;
+const totalPages = 40;
+function createPagination(current) {
+  const pagination = $('.pagination');
+  pagination.empty();
+  const pageInfo = `<span class="page-info">${current} of ${totalPages} pages</span>`;
+  pagination.append(pageInfo);
+  const pages = [];
+  if (current <= 2) {
+    pages.push(1, 2, 3, '...', totalPages);
+  } else if (current >= totalPages - 1) {
+    pages.push('...', totalPages - 2, totalPages - 1, totalPages);
+  } else {
+    pages.push('...', current, current + 1, current + 2, '...', totalPages);
+  }
+  pages.forEach(page => {
+    if (page === '...') {
+      pagination.append('<span class="dots">...</span>');
+    } else {
+      const isActive = page === current ? ' class="active"' : '';
+      const link = `<a href="javascript:void(0)"${isActive} data-page="${page}">${page}</a>`;
+      pagination.append(link);
+    }
+  });
+  if (current < totalPages) {
+    const nextBtn = `
+      <a href="javascript:void(0)" class="next">
+        <img src="picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png">
+      </a>`;
+    pagination.append(nextBtn);
+  }
+}
+function changePage(page) {
+  currentPage = page;
+  createPagination(currentPage);
+}
+$(document).ready(function () {
+  createPagination(currentPage);
+  $('.pagination').on('click', 'a:not(.next)', function (e) {
+    e.preventDefault();
+    const pageNum = parseInt($(this).data('page'));
+    if (pageNum && pageNum !== currentPage) {
+      changePage(pageNum);
+    }
+  });
+  $('.pagination').on('click', '.next', function (e) {
+    e.preventDefault();
+    if (currentPage < totalPages) {
+      changePage(currentPage + 1);
+    }
+  });
+});
+$('.hover').on('click', function() {
+  $('.hover').removeClass('selected');
+  $(this).addClass('selected');
+  console.log('องค์ประกอบ .hover ถูกคลิก และสถานะ selected ถูกอัปเดต.');
+});
+</script>
+</body>
+</html>

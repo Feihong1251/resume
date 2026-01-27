@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ใบจ่ายเงินมัดจำ</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+        <div class="head-box"> <!--กล่องใหญ่-->
+        <div id="sidemenuacc"></div> <!--กล่อง sidebar-->
+        <div class="main-project"><!--กล่อง main-->           
+            <div class="navbar">
+                <div style="width: 100%;height: 100%; padding: 24px;">
+                    <div style=" width: 100%; height: 100%;display: flex;justify-content: space-between; ">
+                        <div style="width: 530px; height: 40px; padding: 6.5px 0;">
+                            <div class="nav-menu" >
+                                <div style="background-color: #FFFFFF; display: flex;width: 400px; border-radius: 32px;height: 100%;display: flex;align-items: center;justify-content: center; gap: 8px;">
+                                <div class="text-nav">หน้าหลัก</div>
+                                <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                <div class="text-nav">ซื้อ</div>
+                                <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                <div class="text-nav">ใบจ่ายเงินมัดจำ</div>
+                                <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                <div class="text-nav">สร้างใบจ่ายเงินมัดจำ</div>
+                                
+                                
+                                </div>
+                                <div style="width: 135px;display: flex;justify-content: center;align-items: center;">
+                                    <div style="color: #FFFFFF; font-weight: 700; font-size: 14px;">AE-2025011300001</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style=" width: 30%; height: 100%; display: flex; justify-content: end; gap: 8px;">
+                            <div class="nav-pic-right" id="btnnone"><img src="picture/load.png"  class="nav-pic"></div>
+                            <!-- <div class="nav-pic-right"><img src="picture/upload.png"  class="nav-pic"></div>
+                            <div class="nav-pic-right"><img src="picture/send.png"  class="nav-pic"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="head-work">
+                    <div class="work">
+                        <div class="deposit-receipt-box">
+                    <div class="deposit-receipt-head-box">
+                        <div class="deposit-receipt-head-box-title" id="quotationTitle">ใบจ่ายเงินมัดจำ</div>
+                        <div class="deposit-receipt-head-box-title" id="historyTitle" style="display: none;"></div>
+                        <div class="deposit-receipt-head-box-title"  id="approveTitle">อนุมัติใบจ่ายเงินมัดจำ</div>
+                        <div class="deposit-receipt-box-mini">
+                            <div class="deposit-receipt-box-mini-in">
+                                <div class="deposit-receipt-box-mini-deposit">เลขที่ใบจ่ายเงินมัดจำ</div>
+                                <div id="buyPurchaseOrderNoDisplay" class="deposit-receipt-box-mini-number">AE-2025011300001</div>
+                            </div>
+                            <div class="deposit-receipt-box-mini-in-back">
+                                <div class="deposit-receipt-box-mini-deposit-in">มูลค่าสุทธิ (บาท)</div>
+                                <div class="deposit-receipt-box-mini-number-in">21,100.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="tabs">
+                        <input type="radio" id="radio-1" name="tabs" checked/>
+                        <label class="tab" for="radio-1">ข้อมูลเอกสาร<span></span></label>
+                        <input type="radio" id="radio-2" name="tabs"  />
+                        <label class="tab" for="radio-2">ข้อมูลการชำระ</label>
+                        <input type="radio" id="radio-3" name="tabs" />
+                        <label class="tab" for="radio-3">ข้อมูลประวัติ</label>
+                        <span class="glider"></span>
+                    </div>
+                    <!-- ถ้าจ่ายชำระแล้วตรงกลาง tab จะเปลี่ยนเป็น ข้อมูลการหักเงินมัดจำ -->
+                <!-- <div class="tabs-3">
+    <input type="radio" id="radio-1" name="tabs" checked />
+    <label class="tab-3" for="radio-1">ข้อมูลเอกสาร<span></span></label>
+    <input type="radio" id="radio-2" name="tabs" />
+    <label class="tab-3" for="radio-2">ข้อมูลการหักเงินมัดจำ</label>
+    <input type="radio" id="radio-3" name="tabs" />
+    <label class="tab-3" for="radio-3">ข้อมูลประวัติ</label>
+    <span class="glider-3"></span>
+</div> -->          
+<div id="pagepreviewdeposit1" class="tab-content-new active">
+                        <div class="head-second">
+                            <div class="head-second-box">
+                            <div class="second-box-in">
+                                    <div class="document-title">ข้อมูลผู้จำหน่าย</div>
+                                    <div class="data-box">
+                                        <div class="data-box-1">
+                                            <div class="data-customer-box">
+                                                <div class="text-thin">ชื่อผู้จำหน่าย</div>
+                                                <div id="buyVendorNameDisplay" class="text-bold">ผู้จำหน่ายทดสอบ1</div>
+                                            </div>
+                                            <div class="address-customer-box">
+                                                <div class="text-thin">ที่อยูผู้จำหน่าย</div>
+                                                <div id="buyAddressDisplay" class="text-bold">90 อาคารซีดับเบิ้ลยู ทาวเวอร์ ชั้น 3 ห้อง 310 ถนนรัชดาภิเษก แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพมหานคร 10310</div>
+                                            </div>
+                                            <div class="email-customer-box">
+                                                <div class="text-thin">อีเมล</div>
+                                                <div id="buyGmailDisplay" class="text-bold">Test_customer@test.co.th1</div>
+                                            </div>
+                                        </div>
+                                        <div class="cover-data-box-2-3">
+                                        <div class="data-box-2">
+                                            <div class="password-customer-box">
+                                            <div class="text-thin">รหัสผู้จำหน่าย</div>
+                                                <div id="buyNumberDisplay" class="text-bold">BB-0000000000</div>
+                                            </div>
+                                            <div class="address-office-box">
+                                            <div class="text-thin">ที่ตั้งธุรกิจ</div>
+                                                <div id="buyLocationDisplay" class="text-bold">ไทย</div>
+                                            </div>
+                                            <div class="office-customer-box">
+                                                <div class="text-thin">สำนักงาน / สาขา</div>
+                                                <div class="office-customer-two-box">
+                                                <div   class="text-bold">สาขาใหญ่ :</div>
+                                                <div id="buyBranchCodeDisplay" class="text-bold">nt1234</div>
+                                                <div id="buyBranchNameDisplay" class="text-bold">สาขาทดสอบ1</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="data-box-3">
+                                            <div class="phone-number-box">
+                                            <div class="text-thin">เบอร์โทร</div>
+                                                <div id="buyPhoneDisplay" class="text-bold">02-1234-0000</div>
+                                            </div>
+                                            <div class="contact-customer">
+                                            <div class="text-thin">ชื่อผู้ติดต่อ</div>
+                                                <div id="buyContactNameDisplay" class="text-bold">ผู้ติดต่อทดสอบ1</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="box-white-lines-70persen">
+                                    <hr class="white-lines-70persen">
+                                    </div>
+                                    <div class="data-box">
+                                        <div class="data-box-1">
+                                            <div class="data-customer-box">
+                                                <div class="text-thin">เลขที่บิล</div>
+                                                <div id="buyInvoiceNoDisplay" class="text-bold">BB-0000000000</div>
+                                            </div>
+                                            <div class="email-customer-box">
+                                                <div class="text-thin">หมายเหตุ</div>
+                                                <div id="buyRemarksDisplay" class="text-bold">บันทึกย้อนหลัง ทดสอบ01</div>
+                                            </div>
+                                        </div>
+                                        <div class="cover-data-box-2-3">
+                                        <div class="data-box-2">
+                                            <div class="password-customer-box">
+                                            <div class="text-thin">ลงวันที่</div>
+                                                <div id="buyDatedDisplay"  class="text-bold">13/01/2025</div>
+                                            </div>
+                                        </div>
+                                        <div class="data-box-3">
+                                            <div class="phone-number-box">
+                                            <div class="text-thin">ยื่นงวด</div>
+                                                <div id="buySubmitWorkPhaseDisplay" class="text-bold">01/25</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="head-three-deposit-payment-slip">
+                                    <div class="document-title">ข้อมูลเอกสาร</div>
+                                    <div class="sales-order-box">
+                                        <div class="text-thin">เลขที่ใบกำกับภาษี</div>
+                                        <div class="text-bold">AA-0000000000</div>
+                                    </div>
+                                    <div class="date-due-date-box">
+                                        <div class="date-box-in">
+                                            <div class="text-thin">แผนก</div>
+                                            <div id="buyDepartmentDisplay" class="text-bold">UXUI Designer</div>
+                                        </div>
+                                        <div class="due-date-box">
+                                            <div class="text-thin">วันที่</div>
+                                            <div id="buyDayDisplay" class="text-bold">00000</div>
+                                        </div>
+                                    </div>
+                                    <div class="date-due-date-box">
+                                        <div class="date-box-in">
+                                            <div class="text-thin">ครบกำหนดวันที่</div>
+                                            <div id="buyReceivedDateDisplay" class="text-bold">27/01/2025</div>
+                                        </div>
+                                        <div class="due-date-box">
+                                            <div class="text-thin">เครดิต (วัน)</div>
+                                            <div id="buyCreditDateDisplay" class="text-bold">14</div>
+                                        </div>
+                                    </div>
+                                    <div class="data-price-tax-currency-box">
+                                        <div class="data-price-tax-box">
+                                            <div class="text-thin">ข้อมูลราคาและภาษี</div>
+                                            <div id="buyPriceexcludingtaxDisplay" class="text-bold">รวมภาษี</div>
+                                        </div>
+                                        <div class="cuurrency-box">
+                                            <div class="text-thin">สกุลเงิน</div>
+                                            <div id="buyCurrencyDisplay" class="text-bold">THB - บาท</div>
+                                        </div>
+                                    </div>
+                                    <div class="data-price-tax-currency-box">
+                                        <div class="data-price-tax-box-debt">
+                                            <div class="text-thin">การออกใบกำกับภาษี</div>
+                                            <div class="text-bold">เป็นใบกำกับภาษี</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="head-four">
+                            <div class="list-bar-box">
+                                <div class="list-bar-title">
+                                    รายการ
+                                </div>
+                                <div class="list-bar-text">
+                                    บริการ
+                                </div>
+                                <div class="list-bar-box-in">
+                                    <div class="list-bar-data-box">
+                                        <div class="list-bar-number">
+                                            <div class="order-list-box">
+                                                <div class="data5-table">
+                                                    <!-- debt-increase-and-debt-reduction-data-table -->
+                                                    <table class="deposit-payment-slipdata-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ลำดับ</th>
+                                                                <th>เอกสารที่ตัด</th>
+                                                                <th>ชื่อรายการ</th>
+                                                                <th>รายละเอียด</th>
+                                                                <th>ยอดหลังหักส่วนลด</th>
+                                                                <th>ราคามัดจำ</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="data-row">
+                                                                <td>1</td>
+                                                                <td>SO-202501100001</td>
+                                                                <td>ระบบจัดเก็บข้อมูลภายในสำนักงาน</td>
+                                                                <td>จ่ายเงินมัดจำล่วงหน้า</td>
+                                                                <td>43,100.00</td>
+                                                                <td>20,000.00</td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="amount-money-box-kk">
+                                                    <div class="amount-money-box">
+                                                        <div class="amount-box-in-one">
+                                                            <div class="amount-box-in-text-number">
+                                                                <div class="amount-box-in-text">จำนวนเงิน
+                                                                </div>
+                                                                <div class="amount-money-box-in-number-box">
+                                                                    <div class="amount-money-box-in-number">
+                                                                        20,000.00</div>
+                                                                    <div class="amount-money-box-in-number-bart">บาท
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="amount-money-box-in-tax-seven">
+                                                                <div class="checkbox-box-disableb">
+                                                                    <div class="checkbox-box-1-force-seven">
+                                                                        <input type="checkbox" name="visits"
+                                                                            id="list-tax" class="checkbox-input-disableb" checked
+                                                                            disabled>
+                                                                        <label for="list-tax"></label>
+                                                                    </div>
+                                                                    <div class="seven-percent-box">
+                                                                        <div class="checkbox-box-1-text-seven">
+                                                                            รายการภาษี
+                                                                        </div>
+                                                                        <div class="seven-percent"> 7%</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="amount-money-box-in-tax-number-box">
+                                                                    <div class="amount-money-box-in-tax-number">1,400.00</div>
+                                                                    <div class="amount-money-box-in-tax-number-bart">
+                                                                        บาท
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="amount-money-box-in-tax-seven-drop">
+                                                                <div class="checkbox-box-disableb-drop">
+                                                                    <div class="checkbox-box-1-force-seven-drop">
+                                                                        <input type="checkbox" name="visits"
+                                                                            id="list-tax" class="checkbox-input-disableb" checked
+                                                                            disabled>
+                                                                        <label for="list-tax"></label>
+                                                                    </div>
+                                                                    <div class="seven-percent-box">
+                                                                        <div class="checkbox-box-1-text-seven">
+                                                                            ภาษีถูกหัก ณ ที่จ่าย
+                                                                        </div>
+                                                                        <div class="seven-percent">
+                                                                        <div class="dropdown-box-percentage-disableb">
+                                                                            <select name="percentage-disableb" id="percentage-items-disableb" disabled>
+                                                                                <option hidden selected>1.5%</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="amount-money-box-in-tax-number-box">
+                                                                    <div class="amount-money-box-in-tax-number">300.00
+                                                                    </div>
+                                                                    <div class="amount-money-box-in-tax-number-bart">
+                                                                        บาท
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        <div class="amount-money-box-in-tax-seven-toggle">
+                                                                <div class="amount-box-in-text">
+                                                                    ตัดมัดจำเรียบร้อย</div>
+                                                                <label class="toggle-switch">
+                                                                    <input type="checkbox"disabled>
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sell-all-box">
+                                                            <div class="sell-all-box-in-text-number">
+                                                                <div class="sell-all-box-in-text">ชำระรวมทั้งสิ้น</div>
+                                                                <div class="sell-all-box-in-box">
+                                                                    <div class="sell-all-box-in-number">21,100.00</div>
+                                                                    <div class="sell-all-box-in-number-bart">บาท
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cover-signature">
+                        <div class="signature-eltc-box">
+                            <div class="signature-eltc-box-in-one">
+                            <div class="checkbox-box-1">         
+                                        <input type="checkbox" name="visits" id="list-tax-1" class="checkbox-input-1"
+                                            disabled>
+                                        <label for="list-tax-1"></label>                              
+                                    <div class="checkbox-box-1-text">
+                                        ลายเซ็นต์อิเล็กทรอนิกและตารายาง
+                                    </div>
+                                </div>
+                                <div class=" footnote-box">
+                                    <div class="footnote-text-title">หมายเหตุ</div>
+                                    <div class="footnote-text" id="buyNotelistDisplay">ฟรีค่าจัดส่ง พร้อมอุปกรณ์ติดตั้ง</div>
+                                </div>
+                            </div>
+                            <div class="signature-eltc-box-in-two">
+                                <div class="signature-eltc-box-in-two-in">
+                                    <div class="signature-eltc-text-title">ผู้จัดทำ</div>
+                                    <div class="signature-eltc-text" id="name-Creator">ธิติรัตน์ สตาปรณ์ศิริ</div>
+                                </div>
+                                <div class="checkbox-container">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="visits" id="not-show-name"
+                                            class="my-checkbox-input">
+                                        <label for="not-show-name">ไม่แสดงชื่อผู้จัดทำ</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="signature" id="signature-option"
+                                            class="my-checkbox-input" checked >
+                                        <label for="signature-option">ลายเซ็นต์อิเล็กทรอนิก</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="attach-file">
+                                    <div class="attach-file-text-title">แนบไฟล์</div>
+                                    <div class="attach-file-box">
+                                        <div class="attach-file-box-pdf">
+                                            <div class="attach-file-box-pdf-img">
+                                                <img src="picture/file-pdf-fill.png" alt="PDF" />
+                                            </div>
+                                            <div class="document-pdf">document1</div>
+                                            <div class="mb-pdf">(32 MB)</div>
+                                        </div>
+                                        <div class="attach-file-box-word">
+                                            <div class="attach-file-box-word-img">
+                                                <img src="picture/file-word-fill.png" alt="word" />
+                                            </div>
+                                            <div class="document-word">document2</div>
+                                            <div class="mb-word">(10 MB)</div>
+                                        </div>
+                                        <div class="attach-file-box-image">
+                                            <div class="attach-file-box-image-img">
+                                                <img src="picture/file-image-fill.png" alt="image" />
+                                            </div>
+                                            <div class="document-image">document3</div>
+                                            <div class="mb-image">(24 MB)</div>
+                                        </div>
+                                        <div class="attach-file-box-subtract">
+                                            <div class="attach-file-box-subtract-img">
+                                                <img src="picture/xfile.png" alt="subtract" />
+                                            </div>
+                                            <div class="document-subtract">document4</div>
+                                            <div class="mb-subtract">(39 MB)</div>
+                                        </div>                                 
+                                    </div>
+                                </div>
+                    </div>
+                    <!-- กล่องใหญ่ของ3ปุ่ม ถ้ากดปุ่มอนุมัติจะขึ้นแค่ปุ่มกลับไปหน้าหลักและจะเปลี่ยนหัวข้อเป็นอนุมัติ-->
+                    <div class="tree-button">
+                            <div class="cover-box-home-edit-approve">
+                            <div class="Homepage-button" id="btnHome" onclick="setCancelState()"> <!-- กล่องกลับไปหน้าหลัก -->
+                                <a href="advance-payment-table.html"class="word-Homepage-button">กลับไปหน้าหลัก</a>
+                            </div>
+                            <!-- กล่องแก้ไข -->
+                            <div class="edit-button" id="btnEdit"> 
+                                <a href="deposit-payment-voucher.html"><div class="word-edit-button">แก้ไข</div></a>
+                            </div>
+                            <!-- กล่องอนุมัติ --> 
+                            <div class="approve-button"  id="btnApprove"> 
+                            <a href="" class="word-appvrove-button">อนุมัติ</a>
+                            </div>
+                            <div class="Homepage-button"  id="goBack" style="display:none;"> <!-- กล่องกลับไปหน้าหลัก -->
+                                    <a href="#"  class="word-Homepage-button">กลับไปหน้าหลัก</a>
+                            </div>
+                        </div>
+                        </div>                  
+                </div>
+                    <!--ข้อมูลการหักเงินมัดจำ-->
+                    <div id="pagepreviewdeposit2" class="tab-content-new ">
+                        <div class="box-deposittree">
+                        <div class="deposittree">
+                            <div class="depo-hub">
+                                <div>
+                                    <div class="depo-hub-text1">รอหักมัดจำ</div>
+                                    <div class="word-list">สินค้า/บริการ</div>
+                                </div>
+                                <div class="box-depo">
+                                    <div class="depo-hub-text3">ยอดรอรับชำระ</div>
+                                    <div class="depo-hub-text4">รับชำระครบได้ถึงวันที่: 27/01/2025</div>
+                                </div>
+                            </div>
+                            <div class="minus-deposit01">
+                                <div class="deposit-top">
+                                    <div class="deposit-payment">มูลค่ารวมภาษี</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">21,400.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-normal">
+                                    <div class="deposit-payment">ภาษีถูกหัก ณ ที่จ่าย 1.5%</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">300.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-buttom">
+                                    <div class="deposit-payment">ยอดชำระจริง</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">21,100.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="pay-box">
+                            <a href="print-buy-payment.html"><div class="pay-box-in" onclick="setVendorName(); window.location.href='print-buy-payment.html';">จ่ายเงิน</div></a>
+                                </div>
+                        </div>
+                        </div>
+                        <!-- อันนี้คือมีข้อมูลเมื่อชำระเสร็จเรียบร้อยเเล้ว -->
+                        <div class="box-deposittree invisible-one">
+                        <div class="deposittree">
+                            <div class="depo-hub">
+                                <div>
+                                    <div class="depo-hub-text1">ยอดชำระตามใบกำกับ</div>
+                                    <div class="word-list">สินค้า/บริการ</div>
+                                </div>
+                                <div class="box-depo">
+                                    <div class="depo-hub-text3">ชำระเงินแล้ว</div>
+                                    <div class="depo-hub-text4">รับชำระครบเมื่อวันที่: 27/01/2025</div>
+                                </div>
+                            </div>
+                            <div class="minus-deposit01">
+                                <div class="deposit-top">
+                                    <div class="deposit-payment">มูลค่ารวมภาษี</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">16,050.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-normal">
+                                    <div class="deposit-payment">ภาษีถูกหัก ณ ที่จ่าย 1.5%</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">0000.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-normal">
+                                    <div class="deposit-payment">ยอดคงค้าง</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">0000.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-buttom">
+                                    <div class="deposit-payment">ยอดชำระจริง</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">16,050.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-gray-lines">
+                                    <hr class="gray-lines">
+                            </div>
+                            <div class="depo-hub">
+                                <div>
+                                    <div class="depo-hub-text1">การจ่ายเงิน</div>
+                                    <div class="word-list">การชำระครั้งที่1</div>
+                                </div>
+                                <div class="box-depo">
+                                    <div class="depo-hub-text3">ยังไม่ได้รับใบเสร็จ</div>
+                                    <div class="depo-hub-text4">รับชำระครบเมื่อวันที่</div>
+                                </div>
+                            </div>
+                            <div class="bank-box">
+                                <div class="bank-box-in">
+                                    <div class="choice-sell-tilte">ช่องทางการชำระเงิน</div>
+                                    <div class="bank-title">ธนาคาร</div>
+                                    <div class="bank-box-name">
+                                        <div class="bank-box-name-page-two">
+                                        </div>
+                                        <div class="bank-box-name-page-two-in">
+                                            <div class="bank-name-text">ธ.ไทยพาณิชย์ ออมทรัพย์ -</div>&nbsp;
+                                            <div class="number-bank-pagetwo">xxx-x-x0004-x Test company</div>
+                                        </div>
+                                    </div>
+                                    <div class="time-box">
+                                        <div>
+                                            <div class="time-text">วันที่ชำระ</div>
+                                            <div class="time-number-text">27/01/2025</div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <div class="time-text">เวลา</div>
+                                                <div class="time-number-text">13:45</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="time-text">แนบรูปสลิป</div>
+                                    <div class="document-page-box">
+                                        <div class="document-page-two">Slip1.jpg</div>
+                                        <div class="mb-page-two">(32 MB)</div>
+                                    </div>
+                                    <div>
+                                        <div class="Attach-slip">แนบรูปสลิป</div>
+                                        <div class="upload-file-box">
+                                            <div class="upload-file-box">
+                                                <div class="openPopupBtnupload">
+                                                <div class="upload-file-box-in">
+                                                    <img src="picture/save.png" class="img-save">
+                                                    อัพโหลดไฟล์
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="file" id="upload-slip" class="hidden-input-file"
+                                            accept="image/jpeg,application/pdf">
+                                        <div style="display: flex; margin-top: 8px;gap: 8px;">
+                                            <div id="file-name-display" class="selected-file-info"></div>
+                                            <div id="file-size-display"></div>
+                                            <div class="additional-images">
+                                                <img src="picture/eye.png" id="image1" alt="รูปภาพเพิ่มเติม 1">
+                                                <img src="picture/bin.png" id="image2" alt="รูปภาพเพิ่มเติม 2">
+                                            </div>
+                                        </div>
+                                        <div id="after-selection-message" class="selected-file-info"></div>
+                                        <div class="file-detail">(ขนาดไฟล์เอกสาร pdf, jpg ไม่เกิน 40 MB)</div>
+                                    </div>
+                                </div>
+                                <div class="minus-deposit-sum-box">
+                                    <div class="minus-deposit-sum">
+                                        <div class="deposit-normal1">
+                                            <div class="deposit-payment">มูลค่ารวมภาษี</div>
+                                            <div class="deposit-gap">
+                                                <div class="money">21,400.00</div>
+                                                <div class="baht">บาท</div>
+                                            </div>
+                                        </div>
+                                        <div class="deposit-normal">
+                                            <div class="deposit-payment">ภาษีหัก ณ ที่จ่าย 1.5%</div>
+                                            <div class="deposit-gap">
+                                                <div class="money">300.00</div>
+                                                <div class="baht">บาท</div>
+                                            </div>
+                                        </div>
+                                        <div class="sell-all-box">
+                                            <div class="sell-all-box-in-text-number">
+                                                <div class="sell-all-box-in-text">
+                                                    ชำระรวมทั้งสิ้น</div>
+                                                <div class="sell-all-box-in-box">
+                                                    <div class="sell-all-box-in-number">
+                                                    21,100.00</div>
+                                                    <div class="sell-all-box-in-number-bart">บาท
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>       
+                                    </div>
+                                <div class="back-save-box">
+                <div class="back-save-box-box ">
+                    <div class="back-box-in-1">
+                    </div>
+                    <div class="save-box-in ">
+                        บันทึก
+                    </div>
+                </div>
+            </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>  
+                <!--ข้อมูลประวัติ-->
+                    <div id="pagepreviewdeposit3" class="tab-content-new">
+                        <div class="page-three-box">
+                        <div class="page-three-box-in">
+                            <ul class="timeline">
+                                <li>
+                                    <div class="timestamp">
+                                        <div class="text-date">27/01/25</div>
+                                        <div class="text-time">16:09:12</div>
+                                    </div>
+                                    <div class="dot-line">
+                                        <div class="dot active"></div>
+                                        <div class="line"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="user-box-in">
+                                            <div class="user-title">User test 02</div>
+                                            <div class="save-test">อนุมัติใบรับเงินมัดจำ</div>
+                                        </div>
+                                        <div class="day-box">
+                                            <div class="note-text">หมายเหตุ: รอเอกสารเพิ่มเติมจากลูกค้า</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timestamp">
+                                        <div class="text-date">17/01/25</div>
+                                        <div class="text-time">11:09:14</div>
+                                    </div>
+                                    <div class="dot-line">
+                                        <div class="dot"></div>
+                                        <div class="line"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="user-box-in">
+                                            <div class="user-title">User test 01</div>
+                                            <div class="save-test">บันทึกใบเสนอราคา</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timestamp">
+                                        <div class="text-date">12/01/25</div>
+                                        <div class="text-time">10:12:34</div>
+                                    </div>
+                                    <div class="dot-line">
+                                        <div class="dot"></div>
+                                        <div class="line"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="user-box-in">
+                                            <div class="user-title">User test 01</div>
+                                            <div class="save-test">ดูเอกสาร</div>
+                                        </div>
+                                        <div class="day-box">
+                                            <div class="note-text">หมายเหตุ: รอเอกสารเพิ่มเติมจากลูกค้า</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timestamp">
+                                        <div class="text-date">02/01/25</div>
+                                        <div class="text-time">10:45:34</div>
+                                    </div>
+                                    <div class="dot-line">
+                                        <div class="dot"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="user-box-in">
+                                            <div class="user-title">User test 01</div>
+                                            <div class="save-test">เริ่มสร้างใบเสนอราคา</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                    <!--ข้อมูลประวัติ-->
+                    </div> 
+                    </div> 
+                    </div> 
+                    </div>
+                    </div>
+                    <script src="sidebarmain.js"></script>
+                    <script>
+function setCancelState() {
+    localStorage.setItem('hasData', 'false');
+}
+    $(document).ready(function () {
+    let isApproved = false;
+    //------ส่วนกดทั้งแถวจากหน้าตาราง-------
+        $(document).ready(function () {
+        // อ่านค่า query string เช่น ?from=table
+        const urlParams = new URLSearchParams(window.location.search);
+        const from = urlParams.get('from');
+        if (from === 'table') {
+            // แสดง approveTitle และซ่อน quotationTitle
+            $('#approveTitle').show();
+            $('#quotationTitle').hide();
+            // แสดง goBack
+            $('#goBack').show();
+            // ซ่อนปุ่มอื่น ๆ
+            $('#btnApprove, #btnEdit, #btnHome').hide();
+        }
+        });
+//-----จบส่วนกดทั้งแถวจากหน้าตาราง-------
+
+    const $tabRadios = $('input[name="tabs"]');
+    const $tabContents = $('.tab-content-new');
+
+    const displaySelectedTabContent = () => {
+        const selectedRadioId = $tabRadios.filter(':checked').attr('id');
+        const tabNumber = selectedRadioId.split('-')[1];
+        const tabIdMap = {
+            '1': 'pagepreviewdeposit1',
+            '2': 'pagepreviewdeposit2',
+            '3': 'pagepreviewdeposit3'
+        };
+        $tabContents.removeClass('active');
+        $(`#${tabIdMap[tabNumber]}`).addClass('active');
+    };
+
+    $tabRadios.on('change', displaySelectedTabContent);
+    displaySelectedTabContent();
+
+    // -------------------------------
+    // จัดการหัวข้อแสดงผล
+    // -------------------------------
+    $('#quotationTitle').show();
+    $('#approveTitle').hide();
+    $('#historyTitle').hide();
+
+    $('#radio-1').on('click', function () {
+        if (isApproved) {
+            $('#quotationTitle').hide();
+            $('#historyTitle').hide();
+            $('#approveTitle').show();
+        } else {
+            $('#quotationTitle').show();
+            $('#historyTitle').hide();
+            $('#approveTitle').hide();
+        }
+    });
+
+    $('#radio-2').on('click', function () {
+        $('#quotationTitle').hide();
+        $('#approveTitle').hide();
+        $('#historyTitle').text('ข้อมูลการชำระเงินมัดจำ').show();
+    });
+
+    $('#radio-3').on('click', function () {
+        $('#quotationTitle').hide();
+        $('#approveTitle').hide();
+        $('#historyTitle').text('ประวัติการใช้งานใบจ่ายเงินมัดจำ').show();
+    });
+
+    $('#btnApprove').on('click', function () {
+        isApproved = true;
+        $('#quotationTitle').hide();
+        $('#historyTitle').hide();
+        $('#approveTitle').show();
+    });
+});
+
+        let currentPage = 1;
+                            let totalPages = 5;
+                            function createPagination(current, total) {
+                                const pagination = $('.pagination');
+                                pagination.empty();
+                                // สร้าง page info
+                                const pageInfo = `<span class="page-info">${current} of ${total} pages</span>`;
+                                pagination.append(pageInfo);
+                                // สร้างลอจิกสำหรับการแสดงหน้า
+                                let pages = [];
+                                // แสดงเฉพาะหน้าปัจจุบันและหน้าข้างเคียง พร้อม ...
+                                if (current <= 2) {
+                                    // ถ้าอยู่หน้าต้นๆ: 1, 2, 3, ..., 5
+                                    pages = [1, 2, 3, '...', 5];
+                                } else if (current >= 4) {
+                                    // ถ้าอยู่หน้าท้ายๆ: 1, ..., 3, 4, 5
+                                    pages = [1, '...', 3, 4, 5];
+                                } else {
+                                    // ถ้าอยู่กลางๆ (หน้า 3): 1, 2, 3, 4, 5
+                                    pages = [1, 2, 3, 4, 5];
+                                }
+                                // สร้าง links
+                                pages.forEach(page => {
+                                    if (page === '...') {
+                                        const dots = '<span class="dots">...</span>';
+                                        pagination.append(dots);
+                                    } else {
+                                        const activeClass = page === current ? ' class="active"' : '';
+                                        const link = `<a href="#"${activeClass}>${page}</a>`;
+                                        pagination.append(link);
+                                    }
+                                });
+                                // สร้าง next button
+                                const nextBtn = '<a href="#" class="next"><img src="picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png"></a>';
+                                pagination.append(nextBtn);
+                            }
+                            function changePage(page) {
+                                currentPage = page;
+                                createPagination(currentPage, totalPages);
+                            }
+                            $(document).ready(function () {
+                                // Event delegation สำหรับ pagination links
+                                $('.pagination').on('click', 'a:not(.next)', function (e) {
+                                    e.preventDefault();
+                                    const pageNum = parseInt($(this).text());
+                                    if (pageNum && pageNum !== currentPage) {
+                                        changePage(pageNum);
+                                    }
+                                });
+                                // Event สำหรับ next button
+                                $('.pagination').on('click', '.next', function (e) {
+                                    e.preventDefault();
+                                    if (currentPage < totalPages) {
+                                        changePage(currentPage + 1);
+                                    }
+                                });
+                                // เริ่มต้น
+                                createPagination(currentPage, totalPages);
+                            });
+        $(document).ready(function() {
+    // ซ่อนแถวที่เกิน 5
+    $('#tableBody .data-row:gt(4)').hide();
+    // หรือลบทิ้งเลย
+    // $('#tableBody .data-row:gt(4)').remove();
+});
+document.addEventListener('DOMContentLoaded', () => {
+        // เปลี่ยนชื่อคลาสใน JavaScript ให้ตรงกับที่แก้ไขใน HTML/CSS
+        const tabsContainer = document.querySelector('.tabs-3');
+        const glider = document.querySelector('.glider-3');
+        const radioButtons = document.querySelectorAll('input[name="tabs"]');
+        function updateGlider() {
+            const checkedRadio = document.querySelector('input[name="tabs"]:checked');
+            if (checkedRadio) {
+                // เปลี่ยนการอ้างอิงถึง label ให้ใช้ .tab-3
+                const correspondingTab = document.querySelector(`label.tab-3[for="${checkedRadio.id}"]`);
+                if (correspondingTab) {
+                    const tabRect = correspondingTab.getBoundingClientRect();
+                    const tabsContainerRect = tabsContainer.getBoundingClientRect();
+                    const translateX = tabRect.left - tabsContainerRect.left;
+                    
+                    glider.style.transform = `translateX(${translateX - 4}px)`; 
+                    glider.style.width = `${tabRect.width}px`;
+                }
+            }
+        }
+        updateGlider();
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', updateGlider);
+        });
+        window.addEventListener('resize', updateGlider);
+    });
+   //อันนี้จะติ้กได้แค่หน้าก่อนอนุมัติ
+        $(document).ready(function () {
+    function updateSignatureBox() {
+        const showSignature = $('#signature-option').is(':checked');
+        const showMaker = $('#not-show-name').is(':checked');
+
+        if (showMaker) {
+            $('#signature-maker-box').hide();
+        } else if (showSignature) {
+            $('#signature-maker-box').show();
+        } else {
+            $('#signature-maker-box').hide();
+        }
+    }
+
+    // ตั้งค่าตั้งต้น: ให้ติ๊ก "แสดงลายเซ็น"
+    $('#signature-option').prop('checked', true);
+    $('#not-show-name').prop('checked', false);
+    updateSignatureBox();
+
+    $('#not-show-name').on('change', function () {
+        if ($(this).is(':checked')) {
+            $('#signature-option').prop('checked', false);
+        }
+        updateSignatureBox();
+    });
+
+    $('#signature-option').on('change', function () {
+        if ($(this).is(':checked')) {
+            $('#not-show-name').prop('checked', false);
+        }
+        updateSignatureBox();
+    });
+});
+$(document).ready(function () {
+    const buyVendorName = localStorage.getItem('buyVendorName') || ' ';
+    $('#buyVendorNameDisplay').text(buyVendorName);
+
+    const buyAddress = localStorage.getItem('buyAddress') || ' ';
+    $('#buyAddressDisplay').text(buyAddress);
+
+    const buyLocation = localStorage.getItem('buyLocation') || '';
+    $('#buyLocationDisplay').text(buyLocation);
+
+        const buyNumber = localStorage.getItem('buyNumber') || '';
+    $('#buyNumberDisplay').text(buyNumber);
+
+    const buyPhone = localStorage.getItem('buyPhone') || ' ';
+    $('#buyPhoneDisplay').text(buyPhone);
+
+    const buyContactName = localStorage.getItem('buyContactName') || '';
+    $('#buyContactNameDisplay').text(buyContactName);
+
+    const buyGmail = localStorage.getItem('buyGmail') || ' ';
+    $('#buyGmailDisplay').text( buyGmail);
+
+    const buyBranchCode = localStorage.getItem('buyBranchCode') || '';
+    $('#buyBranchCodeDisplay').text(buyBranchCode);
+
+    const buyBranchName = localStorage.getItem('buyBranchName') || '';
+    $('#buyBranchNameDisplay').text(buyBranchName);
+
+    const buyPurchaseOrderNo = localStorage.getItem('buyPurchaseOrderNo') || '';
+    $('#buyPurchaseOrderNoDisplay').text(buyPurchaseOrderNo);
+
+    const buyDepartment = localStorage.getItem('buyDepartment') || ' ';
+    $('#buyDepartmentDisplay').text(buyDepartment);
+
+    const buyDay = localStorage.getItem('buyDay') || '';
+    $('#buyDayDisplay').text(buyDay);
+    const buyDayRaw = localStorage.getItem('buyDay') || ''; // ควรเก็บในรูปแบบ YYYY-MM-DD
+    function formatDateToDDMMYYYY(dateStr) {// ฟังก์ชันแปลงรูปแบบวันที่
+        if (!dateStr || !dateStr.includes('-')) return dateStr;
+        const [year, month, day] = dateStr.split('-');
+        return `${day}/${month}/${year}`;
+    }
+    const formattedBuyDay = formatDateToDDMMYYYY(buyDayRaw); // แปลงวันและแสดงผล
+    $('#buyDayDisplay').text(formattedBuyDay);
+
+    const buyCreditDate = localStorage.getItem('buyCreditDate') || '';
+    $('#buyCreditDateDisplay').text(buyCreditDate);
+
+// ดึงค่าจาก localStorage (ควรเก็บเป็น YYYY-MM-DD)
+    const rawDate = localStorage.getItem('buyReceivedDate') || '';
+    
+    // ฟังก์ชันแปลงวันที่
+    function formatDateToDDMMYYYY(dateStr) {
+        if (!dateStr || !dateStr.includes('-')) return dateStr;
+        const [year, month, day] = dateStr.split('-');
+        return `${day}/${month}/${year}`;
+    }
+    // แปลงและแสดงผล
+    const formattedDate = formatDateToDDMMYYYY(rawDate);
+    $('#buyReceivedDateDisplay').text(formattedDate);
+
+        const buyPriceexcludingtax = localStorage.getItem('buyPriceexcludingtax') || '';
+    $('#buyPriceexcludingtaxDisplay').text(buyPriceexcludingtax);
+
+    const buyCurrency = localStorage.getItem('buyCurrency') || '  ';
+    $('#buyCurrencyDisplay').text(buyCurrency);
+
+    const buyInvoiceNo = localStorage.getItem('buyInvoiceNo') || '';
+    $('#buyInvoiceNoDisplay').text(buyInvoiceNo);
+
+    const buySubmitWorkPhase = localStorage.getItem('buySubmitWorkPhase') || '';
+    $('#buySubmitWorkPhaseDisplay').text(buySubmitWorkPhase);
+
+    const buyNotelist = localStorage.getItem('buyNotelist') || '';
+    $('#buyNotelistDisplay').text(buyNotelist);
+
+    const buyDatedRaw = localStorage.getItem('buyDated') || '';
+
+// ฟังก์ชันแปลงวันที่จาก YYYY-MM-DD ➜ DD/MM/YYYY
+function formatDateToDDMMYYYY(dateStr) {
+    if (!dateStr || !dateStr.includes('-')) return dateStr;
+    const [year, month, day] = dateStr.split('-');
+    return `${day}/${month}/${year}`;
+}
+
+// แปลงแล้วแสดงผล
+const formattedBuyDated = formatDateToDDMMYYYY(buyDatedRaw);
+$('#buyDatedDisplay').text(formattedBuyDated);
+
+const buyRemarks = localStorage.getItem('buyRemarks') || '';
+$('#buyRemarksDisplay').text(buyRemarks);
+});
+
+function setVendorName() {
+    // ตรวจสอบก่อนว่ามีค่าหรือไม่ (ไม่จำเป็นก็ได้)
+    const buyVendorName = document.getElementById('buyVendorNameDisplay')?.innerText || '';
+    localStorage.setItem('buyVendorName', buyVendorName);
+    
+    const buyNumber = document.getElementById('buyNumberDisplay')?.innerText || '';
+    localStorage.setItem('buyNumber', buyNumber);
+
+    const buyPurchaseOrderNo = document.getElementById('buyPurchaseOrderNoDisplay')?.innerText || '';
+    localStorage.setItem('buyPurchaseOrderNo',buyPurchaseOrderNo);
+
+    const buyDepartment = document.getElementById('buyDepartmentDisplay')?.innerText || '';
+    localStorage.setItem('buyDepartment',buyDepartment);
+
+// สมมุติว่า buyDayDisplay เป็น "13/01/2025" ➜ ต้องแปลงก่อน
+function convertDDMMYYYYToYYYYMMDD(dateStr) {
+    const [day, month, year] = dateStr.split('/');
+    return `${year}-${month}-${day}`;
+}
+
+let rawBuyDay = document.getElementById('buyDayDisplay')?.innerText || '';
+if (rawBuyDay.includes('/')) {
+    rawBuyDay = convertDDMMYYYYToYYYYMMDD(rawBuyDay);
+}
+    localStorage.setItem('buyDay', rawBuyDay);
+
+    const buyBranchCode = document.getElementById('buyBranchCodeDisplay')?.innerText || '';
+    localStorage.setItem('buyBranchCode',buyBranchCode);
+
+    const buyBranchName = document.getElementById('buyBranchNameDisplay')?.innerText || '';
+    localStorage.setItem('buyBranchName',buyBranchName);
+
+    const formattedBuyDated = formatDateToDDMMYYYY('buyDatedRawDisplay')?.innerText || '';
+    localStorage.setItem('buyDatedRaw',buyDatedRaw);
+
+    const buyPhone = document.getElementById('buyPhoneDisplay')?.innerText || '';
+    localStorage.setItem('buyPhone',buyPhone);
+
+    const buyAddress = document.getElementById('buyAddressDisplay')?.innerText || '';
+    localStorage.setItem('buyAddress',buyAddress);
+
+    const buyLocation = document.getElementById('buyLocationDisplay')?.innerText || '';
+    localStorage.setItem('buyLocation',buyLocation);
+
+    const buyContactName = document.getElementById('buyContactNameDisplay')?.innerText || '';
+    localStorage.setItem('buyContactName',buyContactName);
+
+    const buyGmail = document.getElementById('buyGmailDisplay')?.innerText || '';
+    localStorage.setItem('buyGmail',buyGmail)?.innerText || '';
+
+    const buyInvoiceNo = document.getElementById('buyInvoiceNoDisplay')?.innerText || '';
+    localStorage.setItem('buyInvoiceN',buyInvoiceN);
+
+    const buySubmitWorkPhase = document.getElementById('buySubmitWorkPhaseDisplay')?.innerText || '';
+    localStorage.setItem('buySubmitWorkPhase',buySubmitWorkPhase); 
+}
+$(document).ready(function() {
+    // ซ่อนปุ่ม goBack ตอนโหลดหน้า
+    $('#goBack').hide();
+
+    // เมื่อกดปุ่ม อนุมัติ
+    $('#btnApprove a').click(function(e) {
+        e.preventDefault(); // กันลิงก์ไปหน้าจริง (ถ้าต้องการเปลี่ยนลิงก์แทน ให้แก้ที่นี่)
+
+        // ซ่อน 3 ปุ่มบน
+        $('#btnHome, #btnEdit, #btnApprove').hide();
+
+        // แสดงปุ่ม goBack
+        $('#goBack').show();
+    });
+});
+
+$(document).ready(function() {
+  // ซ่อนข้อความ "อนุมัติใบเสนอราคา" ตอนโหลดหน้า
+  $('#approveTitle').hide();
+
+  // เมื่อกดปุ่ม btnApprove
+  $('#btnApprove').click(function() {
+    $('#quotationTitle').hide();   // ซ่อน "ใบเสนอราคา"
+    $('#approveTitle').show();     // แสดง "อนุมัติใบเสนอราคา"
+  });
+});
+    //
+    $('#goBack').click(function () {
+      localStorage.setItem('hasData', 'true'); // ตั้งให้แสดงข้อมูลเมื่อย้อนกลับ
+      window.location.href = 'advance-payment-table.html'; // กลับไปหน้าแรก
+    });
+    </script>
+</body>
+</html>

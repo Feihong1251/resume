@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลใบวางบิล</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="head-box"> <!--กล่องใหญ่-->
+        <div id="sidemenuacc"></div> <!--กล่อง sidebar-->
+        <div class="main-project"><!--กล่อง main-->
+            <div class="navbar"></div>
+            <div class="head-work">
+                <div class="work">
+                    <!-- khaow -->
+                    <div class="information"> <!--กล่องใหญ่กรอกข้อมูล-->
+                        <div class="navbar-information"><!--กร่องบาร์กรอกข้อมูล-->
+                            <div class="deposit-receipt">ใบวางบิล</div>
+                        </div><!--กร่องบาร์กรอกข้อมูล-->
+                    </div>
+                    <div class="input-button-shell00"><!--กล่องinput and botton-->
+                        <div class="inputstar-inputend"><!--กล่องinput-->
+                            <div class="boxdata-day-item">
+                                <div class="word-day">ลงวันที่</div>
+                                <input type="date" class="input-date-day">
+                            </div>
+                            <div class="head-day">
+                                <div class="word-day">ครบกำหนดวันที่</div>
+                                <input type="date" class="input-date-day">
+                            </div>
+                        </div>
+                        <div class="buttonstart-buttonend"><!--กล่องbotton-->
+                            <div class="Upload">อัพโหลดไฟล์</div>
+                            <a href="billing-slip.html"><div class="build">สร้าง</div></a>
+                            <!-- <a href="create-cash-purchase.html"><div class="build">สร้าง</div></a> สำหรับไปหน้าไปซื้อสด -->
+                        </div>
+                    </div>
+                    <!-- ตารางข้อมูลที่ยังไม่มีข้อมูลจะแสดงหน้านี้ไว้ก่อน -->
+                    <div class="list-creation-page">
+                        <div class="head-list-creation-page">
+                            <div class="word-list-creation-page">รายการ</div>
+                            <div class="input-and-button-hover">
+                                <!-- ถ้ามีข้อมูลแล้วสองปุ่มนี้จะขึ้น -->
+                                  <div class="hover">ทั้งหมด</div>
+                                <div class="hover">อนุมัติ</div>
+                                <div class="hover">รออนุมัติ</div>
+                                <input type="search" class="search-deposit" placeholder="ค้นหา">
+                            </div>
+                        </div>
+                        <!-- ห้นาที่มีไม่มีข้อมูล -->
+                        <div class="Create-a-table">
+                                <table class="Create-data-table">
+                                    <thead>
+                                        <tr>
+                                        <th>ลำดับ</th>
+                                        <th>เลขที่ใบวางบิล</th>
+                                        <th>รหัสลูกค้า</th>
+                                        <th>ชื่อลูกค้า</th>
+                                        <th>ชื่อรายการ</th>
+                                        <th>วันที่เอกสาร</th>
+                                        <th>วันครบกำหนด</th>
+                                        <th>มูลค่าสุทธิ(บาท)</th>
+                                        <th>สถานะเอกสาร</th>
+                                        </tr>
+                                    </thead>  
+                                </table>
+                                <div class="box-picture-Create-data-table">
+                                <div class="picture-Create-data-table">
+                                <div class="picture-Create-data"><img src="picture/Subtract.png"></div> 
+                                <div class="word-in-picture-Create-data">ยังไม่มีข้อมูล</div>
+                                </div>
+                                </div>
+                        <!-- ห้นาที่มีไม่มีข้อมูล -->
+                        <!-- ห้นาที่มีข้อมูล -->
+                        <!-- <div class="class-createsell01">
+                            <table class="data-table-createsell01">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>
+                                        <th>เลขที่ใบวางบิล</th>
+                                        <th>รหัสลูกค้า</th>
+                                        <th>ชื่อลูกค้า</th>
+                                        <th>ชื่อเอกสาร</th>
+                                        <th>วันที่เอกสาร</th>
+                                        <th>วันครบกำหนด</th>
+                                        <th>มูลค่าสุทธิ (บาท)</th>
+                                        <th>สถานะเอกสาร</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="data-row">
+                                        <td>1</td>
+                                        <td>QT-2025021900001</td>
+                                        <td>AA-2345666</td>
+                                        <td>บริษัททดสอบ1</td>
+                                        <td>UX/UI design Ordering</td>
+                                        <td>19/02/2025</td>
+                                        <td>26/02/2025</td>
+                                        <td>46,117.00</td>
+                                        <td>รอนุมัติ</td>
+                                        <td>
+                                            <div class="action-icons">
+                                                <img src="picture/pen.png">
+                                                <img src="picture/bin.png">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div> -->
+                        <!-- <div class="top-pagination">
+                            <div class="pagination">
+                                <span class="page-info">1 of 5 pages</span>
+                                <a class="active" href="#">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <span class="dots">...</span>
+                                <a href="#">5</a>
+                                <a href="#" class="next"><img src="picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png"></a>
+                            </div>
+                        </div> -->
+                        <!--ปุ่มตัวเลือก-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="sidebarmain.js"></script>
+    <script>
+        $('.input-date-day').on('change', function () {
+            if ($(this).val()) {
+                $(this).css('color', '#000');
+            } else {
+                $(this).css('color', 'var(--input-stoke-gray-color200)');
+            }
+        });
+    </script>
+</body>
+</html>

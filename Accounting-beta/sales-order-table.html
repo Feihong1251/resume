@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อมูลใบสั่งขาย</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="head-box"> <!--กล่องใหญ่-->
+        <div id="sidemenuacc"></div>
+        <div class="main-project"><!--กล่อง main-->
+            <div class="navbar">
+                <div style="width: 100%;height: 100%; padding: 24px;">
+                    <div style=" width: 100%; height: 100%;display: flex;justify-content: space-between; ">
+                        <div style="width: 235px; height: 100%; padding: 6.5px 0;">
+                            <div class="nav-menu">
+                                <div class="nav-menu-in">
+                                    <div class="text-nav">หน้าหลัก</div>
+                                    <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                    <div class="text-nav">ขาย</div>
+                                </div>
+                                <div style="width: 50%;display: flex;justify-content: center;align-items: center;">
+                                 <div class="nav-menu-in-right">ใบสั่งขาย</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style=" width: 30%; height: 100%; display: flex; justify-content: end; gap: 8px;">
+                            <div class="nav-pic-right"><img src="picture/print.png"  class="nav-pic"></div>
+                            <div class="nav-pic-right"><img src="picture/upload.png" class="nav-pic" ></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="head-work">
+                <div class="work">
+                    <!-- khaow -->
+                    <div class="information"> <!--กล่องใหญ่กรอกข้อมูล-->
+                        <div class="navbar-information"><!--กร่องบาร์กรอกข้อมูล-->
+                            <div class="deposit-receipt">ใบสั่งขาย</div> <!--กล่องใบเงินมัดจำ-->
+                        </div><!--กร่องบาร์กรอกข้อมูล-->
+                    </div>
+                    <div class="input-button-shell00"><!--กล่องinput and botton-->
+                        <div class="inputstar-inputend"><!--กล่องinput-->
+                            <div class="boxdata-day-item">
+                                <div class="word-day">ลงวันที่</div>
+                                <input type="date" class="input-date-day">
+                            </div>
+                            <div class="head-day">
+                                <div class="word-day">วันสิ้นสุด</div>
+                                <input type="date" class="input-date-day">
+                            </div>
+                        </div>
+                        <div class="buttonstart-buttonend"><!--กล่องbotton-->
+                            <div class="openPopupBtnupload" style="cursor: pointer;">
+                                <div class="Upload">อัพโหลดไฟล์</div>
+                            </div>
+                            <a href="create-sales-order.html" onclick="clearEditData()">
+                                <div class="build">สร้าง</div>
+                            </a>
+                        </div>
+                    </div>  
+                    <!-- ตารางข้อมูลที่ยังไม่มีข้อมูลจะแสดงหน้านี้ไว้ก่อน -->
+                    <div class="list-creation-page">
+                        <div class="head-list-creation-page">
+                            <div class="word-list-creation-page">รายการ</div>
+                            <div class="input-and-button-hover">
+                                <!-- ถ้ามีข้อมูลแล้วสามปุ่มนี้จะขึ้น -->
+                                <div class="hover">ทั้งหมด</div>
+                                <div class="hover">อนุมัติ</div>
+                                <div class="hover">รออนุมัติ</div>
+                                <input type="search" class="search-deposit" placeholder="ค้นหา">
+                            </div>
+                        </div>
+                        <!-- ห้นาที่มีไม่มีข้อมูล -->
+                        <div class="Create-a-table">
+                                <table class="Create-data-table"  id="noDataBox">
+                                    <thead>
+                                        <tr>
+                                        <th>ลำดับ</th>
+                                        <th>เลขที่ใบสั่งขาย</th>
+                                        <th>รหัสลูกค้า</th>
+                                        <th>ชื่อลูกค้า</th>
+                                        <th>ชื่อเอกสาร</th>
+                                        <th>วันที่เอกสาร</th>
+                                        <th>ส่งของวันที่</th>
+                                        <th>มูลค่าสุทธิ(บาท)</th>
+                                        <th>สถานะเอกสาร</th>
+                                        </tr>
+                                    </thead>  
+                                </table>
+                            <div class="box-picture-Create-data-table" id="noDataImage">
+                                <div class="picture-Create-data-table">
+                                <div class="picture-Create-data"><img src="picture/Subtract.png"></div> 
+                                <div class="word-in-picture-Create-data">ยังไม่มีข้อมูล</div>
+                                </div>
+                            </div>
+                        <!-- ห้นาที่มีไม่มีข้อมูล -->
+                        <!-- ห้นาที่มีข้อมูล -->
+                        <div class="class-createsell01"   id="hasDataBox">
+                            <table class="data-table-createsell01">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>
+                                        <th>เลขที่ใบสั่งขาย</th>
+                                        <th>รหัสลูกค้า</th>
+                                        <th>ชื่อลูกค้า</th>
+                                        <th>ชื่อเอกสาร</th>
+                                        <th>วันที่เอกสาร</th>
+                                        <th>ส่งของวันที่</th>
+                                        <th>มูลค่าสุทธิ (บาท)</th>
+                                        <th>สถานะเอกสาร</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="get_all_tx_po">
+                                    <!-- <tr class="data-row">
+                                        <td>1</td>
+                                        <td id="customerDepositReceiptNumberDisplay">QT-2025021900001</td>
+                                        <td id="customerCodeDisplay">AA-2345666</td>
+                                        <td id="customerNameDisplay">บริษัททดสอบ1</td>
+                                        <td id="customerDayDisplay">19/02/2025</td>
+                                        <td>ชื่อเอกสาร</td>
+                                        <td id="customerDayfullyDisplay">26/02/2025</td>
+                                        <td>46,117.00</td>
+                                        <td>รอนุมัติ</td>
+                                        <td>
+                                            <div class="action-icons">
+                                                <img src="picture/pen.png"  id="goToCreate">
+                                                <img src="picture/bin.png">
+                                            </div>
+                                        </td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Pagination -->
+                            <div class="top-pagination" id="paginationBox" style="display: none;">
+                            <div class="pagination">
+                                <span class="page-info" id="pageInfo"><!--1 of 1 pages--></span>
+                            <div class="hedad-of-pagination">
+                                    <div class="pagination-nav">
+                                        <div class="btn-prev" id="btnPrev" disabled style="display: none; height: 27px;display: flex;align-items: center;justify-content: center;">
+                                            <img src="picture/arrow-left.png" alt="ก่อนหน้า" style="width: 16px; height: 16px; cursor: pointer;">
+                                        </div>
+                                    </div>
+                                    <div id="paginationButtons">
+                                        <!-- ปุ่ม pagination จะถูกสร้างด้วย JavaScript -->
+                                    </div>
+                                    <div class="pagination-nav">
+                                        <div class="btn-next" id="btnNext">
+                                            <img src="picture/arrow-right.png" alt="ถัดไป" style="width: 16px; height: 16px; cursor: pointer;">
+                                        </div>
+                                    </div>
+                            </div>
+                                </div>
+                            </div>
+                        <!-- Pagination -->
+                        <!--ปุ่มตัวเลือก-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+     <!--อัปโหลดไฟล์-->
+     <div class="popup-container myPopupupload">
+        <div class="popup-content-edit-sum-upload">
+            <div style="width: 100%;">
+                <div class="bold">อัปโหลดไฟล์</div>
+                <div class="regular">ชื่อไฟล์และไฟล์ที่แนบมาทั้งหมด</div>
+            </div>
+            <div style="display: flex;">
+                <div class="left-modal-upload">
+                    <div class="upload-modal">อัปโหลดไฟล์</div>
+                    <div class="bg-uplaod">
+                        <div>
+                            <div style="display: flex; justify-content: center;">
+                                <div>
+                                    <img src="picture/upload-gray.png" class="upload-gray">
+                                </div>
+                            </div>
+                            <div class="upload-name">อัพโหลดไฟล์</div>
+                        </div>
+                    </div>
+                    <div class="display-upload">(ขนาดไฟล์เอกสาร pdf, jpg, xls,
+                        doc ไม่เกิน 40 MB / ไฟล์)</div>
+                </div>
+                <div class="right-modal-upload">
+                    <div class="upload-modal">อัปโหลดไฟล์</div>
+                    <div class="x-upload-16">
+                        <div> <input type="text" placeholder="document3.pdf"
+                                class="code-edit-box-sum-edit-dis"></div>
+                        <div class="check-x">
+                            <img src="picture/check-green.png" class="upload-gray">
+                            <img src="picture/x-icon.png" class="upload-gray">
+                        </div>
+                    </div>
+                    <div class="x-upload-doc">
+                        <div class="doc-upload">
+                            <div class="doc-name">document1.pdf</div>
+                            <div class="MB-upload">(32 MB)</div>
+                        </div>
+                        <div class="check-x">
+                            <img src="picture/eye.png" class="upload-gray">
+                            <img src="picture/pen.png" class="upload-gray">
+                            <img src="picture/bin.png" class="upload-gray">
+                        </div>
+                    </div>
+                    <div class="x-upload-doc">
+                        <div class="doc-upload">
+                            <div class="doc-name">image_sell01.jpg</div>
+                            <div class="MB-upload">(5 MB)</div>
+                        </div>
+                        <div class="check-x">
+                            <img src="picture/eye.png" class="upload-gray">
+                            <img src="picture/pen.png" class="upload-gray">
+                            <img src="picture/bin.png" class="upload-gray">
+                        </div>
+                    </div>
+                    <div class="x-upload-doc">
+                        <div class="doc-upload">
+                            <div class="doc-name">document2.pdf</div>
+                            <div class="MB-upload">(32 MB)</div>
+                        </div>
+                        <div class="check-x">
+                            <img src="picture/eye.png" class="upload-gray">
+                            <img src="picture/pen.png" class="upload-gray">
+                            <img src="picture/bin.png" class="upload-gray">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cancel-save-under">
+                <div class="box-cancel-save">
+                    <div class="cancel cancelPopupBtn">ยกเลิก</div>
+                    <div class="save addAndHideBtn">อัปโหลด</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--ยกเลิกการลบ-->
+    <div class="popup-container myPopupdelete">
+    <div class="popup-content-modal-view">
+        <div style="width: 100%;">
+            <div class="bold">ลบรายการนี้หรือไม่</div>
+        </div>
+        <div style="width: 100%;">
+            <div class="cancel-save-under">
+                <div class="box-cancel-save" >
+                    <div class="cancel cancelPopupBtndetele" style="background: #AAC4BB;">ยกเลิก</div> 
+                </div>
+                <div class="box-cancel-save">
+                    <div class="save cancelPopupBtndetele" data-action="confirm">ตกลง</div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+<!--ตัวเรียก modal การลบ-->
+    <div class="openPopupBtndelete">Delete-confirm</div>
+
+
+    <script src="sidebarmain.js"></script>
+    <script>
+    // Global variables
+    const endpoint = 'http://localhost:3000';
+    let deleteQuotationId = null; // เก็บ ID ของรายการที่จะลบ
+
+    // ฟังก์ชันสำหรับล้างข้อมูลแก้ไขเมื่อกดปุ่มสร้าง
+    function clearEditData() {
+        localStorage.removeItem('editQuotationId');
+        localStorage.removeItem('editQuotationData');
+        console.log('ล้างข้อมูลแก้ไขเรียบร้อยแล้ว');
+    }
+
+$(document).ready(function () {
+    // เลือกองค์ประกอบของปุ่มเปิด Pop-up หลักแต่ละอัน (ใช้ class)
+    const $openPopupBtnsUpload = $('.openPopupBtnupload');
+    const $openPopupBtnsPenView = $('.openPopupBtnpenview');
+    const $openPopupBtnsView = $('.openPopupBtnview');
+    const $openPopupBtnsAdd = $('.openPopupBtnadd');
+    const $openPopupBtnsEditPen = $('.openPopupBtneditpen');
+    const $openPopupBtnsDeposit = $('.openPopupBtndeposit');
+    const $openPopupBtnsAddDate = $('.openPopupBtnadddate');
+    const $openPopupBtnsViewDate = $('.openPopupBtnviewdate');
+    const $openPopupBtnsAddSum = $('.openPopupBtnaddsum');
+    const $openPopupBtnsSalesOrder = $('.openPopupBtnsalesorder');
+    const $openPopupBtnsAddDeposit = $('.openPopupBtndeopsit');
+    const $openPopupBtnsSelectReceive = $('.openPopupBtnselectreceive');
+    const $openPopupBtnsSelectBill = $('.openPopupBtnselectbill');
+    const $openPopupBtnsTableSum = $('.openPopupBtntablesum');
+    const $openPopupBtnsTableBillingSlip = $('.openPopupBtnTableBillingSlip');
+    const $openPopupBtnsViewInvoice = $('.openPopupBtnViewInvoice');
+    const $openPopupBtnsViewVat = $('.openPopupBtnviewvat'); // Existing viewvat
+    // Added: ปุ่มสำหรับเปิด Pop-up viewtable9 และ viewtable10
+    const $openPopupBtnsViewTable9 = $('.openPopupBtnviewtable9');
+    const $openPopupBtnsViewTable10 = $('.openPopupBtnviewtable10');
+    const $openPopupBtndelete = $('.openPopupBtndelete');
+
+    // เลือกองค์ประกอบของ Pop-up หลักแต่ละอัน (ใช้ class)
+    const $myPopupsUpload = $('.myPopupupload');
+    const $myPopupsPenView = $('.myPopuppenview');
+    const $myPopupsView = $('.myPopupview');
+    const $myPopupsAdd = $('.myPopupadd');
+    const $myPopupsEditPen = $('.myPopupeditpen');
+    const $myPopupsDeposit = $('.myPopupdeposit');
+    const $myPopupsAddDate = $('.myPopupadddate');
+    const $myPopupsViewDate = $('.myPopupviewdate');
+    const $myPopupsAddSum = $('.myPopupaddsum');
+    const $myPopupsSalesOrder = $('.myPopupsalesorder');
+    const $myPopupsAddDeposit = $('.myPopupadddeopsit');
+    const $myPopupsSelectReceive = $('.myPopupselectreceive');
+    const $myPopupsSelectBill = $('.myPopupselectbill');
+    const $myPopupsTableSum = $('.myPopuptablesum');
+    const $myPopupsTableBillingSlip = $('.myPopupsTableBillingSlip');
+    const $myPopupsViewInvoice = $('.myPopupsviewinvoice');
+    const $myPopupsViewVat = $('.myPopupviewvat'); // Existing viewvat
+    // Added: Pop-up viewtable9 และ viewtable10
+    const $myPopupsViewTable9 = $('.myPopupviewtable9');
+    const $myPopupsViewTable10 = $('.myPopupviewtable10');
+    const $myPopupsdelete = $('.myPopupdelete');
+
+    // ปุ่มภายใน Pop-up หลักแต่ละอัน (Cancel และ Add/Hide/Save) (ใช้ class)
+    const $cancelPopupBtns = $('.cancelPopupBtn');
+    const $addAndHideBtns = $('.addAndHideBtn'); // สำหรับ myPopupupload (เปิด sideupload)
+
+    const $cancelPopupBtns2 = $('.cancelPopupBtn2');
+    const $addAndHideBtns2 = $('.addAndHideBtn2'); // สำหรับ myPopuppenview (ปิด popup)
+
+    const $cancelPopupBtns3 = $('.cancelPopupBtn3');
+    const $addAndHideBtns3 = $('.addAndHideBtn3'); // สำหรับ myPopupview (ปิด popup)
+
+    const $cancelPopupBtns4 = $('.cancelPopupBtn4');
+    const $addAndHideBtns4 = $('.addAndHideBtn4'); // สำหรับ myPopupadd (เปิด sideadd)
+
+    const $cancelPopupBtns5 = $('.cancelPopupBtn5');
+    const $addAndHideBtns5 = $('.addAndHideBtn5'); // สำหรับ myPopupeditpen (ปิด popup)
+
+    const $cancelPopupBtns6 = $('.cancelPopupBtn6');
+    const $addAndHideBtns6 = $('.addAndHideBtn6'); // สำหรับ myPopupdeposit (ปิด popup)
+
+    const $cancelPopupBtns7 = $('.cancelPopupBtn7');
+    const $addAndHideBtns7 = $('.addAndHideBtn7'); // สำหรับ myPopupadddate (ปิด popup)
+
+    const $cancelPopupBtns8 = $('.cancelPopupBtn8');
+    const $addAndHideBtns8 = $('.addAndHideBtn8'); // สำหรับ myPopup8 (ปิด popup)
+
+    const $cancelPopupBtns9 = $('.cancelPopupBtn9');
+    const $addAndHideBtns9 = $('.addAndHideBtn9'); // สำหรับ myPopup9 (ปิด popup)
+
+    const $cancelPopupBtns10 = $('.cancelPopupBtn10');
+    const $addAndHideBtns10 = $('.addAndHideBtn10'); // สำหรับ myPopup10 (ปิด popup)
+
+    const $cancelPopupBtns11 = $('.cancelPopupBtn11');
+    const $addAndHideBtns11 = $('.addAndHideBtn11'); // สำหรับ myPopup11 (เปิด sidetable)
+    const $hidePopupAdd11 = $('.hidePopupadd11'); // ปุ่มใหม่สำหรับซ่อน myPopup11
+
+    const $cancelPopupBtns12 = $('.cancelPopupBtn12');
+    const $addAndHideBtns12 = $('.addAndHideBtn12');
+    const $hidePopupAdd12 = $('.hidePopupadd12');
+
+    const $cancelPopupBtns13 = $('.cancelPopupBtn13');
+    const $addAndHideBtns13 = $('.addAndHideBtn13');
+    const $hidePopupAdd13 = $('.hidePopupadd13');
+
+    const $cancelPopupBtns14 = $('.cancelPopupBtn14');
+    const $addAndHideBtns14 = $('.addAndHideBtn14');
+    const $hidePopupAdd14 = $('.hidePopupadd14');
+
+    const $cancelPopupBtnsTableBillingSlip = $('.cancelPopupBtnTableBillingSlip');
+    const $addAndHideBtnsTableBillingSlip = $('.addAndHideBtnTableBillingSlip');
+    const $hidePopupAddTableBillingSlip = $('.hidePopupAddTableBillingSlip');
+
+    const $cancelPopupBtnsViewInvoice = $('.cancelPopupBtnViewInvoice');
+    const $addAndHideBtnsViewInvoice = $('.addAndHideBtnViewInvoice');
+    const $hidePopupAddViewInvoice = $('.hidePopupAddViewInvoice');
+
+    const $cancelPopupBtnsViewVat = $('.cancelPopupBtnviewvat');
+    const $addAndHideBtnsViewVat = $('.addAndHideBtnviewvat');
+    const $hidePopupAddViewVat = $('.hidePopupAddviewvat');
+
+    // Added: ปุ่มสำหรับ Pop-up viewtable9 และ viewtable10
+    const $cancelPopupBtnsViewTable9 = $('.cancelPopupBtnviewtable9');
+    const $addAndHideBtnsViewTable9 = $('.addAndHideBtnviewtable9');
+    const $hidePopupAddViewTable9 = $('.hidePopupAddviewtable9');
+
+    const $cancelPopupBtnsViewTable10 = $('.cancelPopupBtnviewtable10');
+    const $addAndHideBtnsViewTable10 = $('.addAndHideBtnviewtable10');
+    const $hidePopupAddViewTable10 = $('.hidePopupAddviewtable10');
+
+    const $cancelPopupBtnsdetele = $('.cancelPopupBtndetele');
+    const $addAndHideBtnsdetele = $('.addAndHideBtndetele');
+    const $hidePopupAddViewdetele = $('.hidePopupAdddetele');
+
+
+    // Pop-up ย่อย (.sideupload, .sideadd, .sidetable) และปุ่มภายใน (ใช้ class)
+    const $sideuploads = $('.sideupload');
+    const $sideuploadCancelBtns = $('.sideuploadCancelBtn');
+    const $sideuploadSaveBtns = $('.sideuploadSaveBtn');
+    const $uploadFileBtns = $('.uploadFileBtn');
+    const $openEditBtns = $('.openedit');
+
+    const $sideadds = $('.sideadd');
+    const $sideaddCancelBtns = $('.sideaddCancelBtn');
+    const $sideaddSaveBtns = $('.sideaddSaveBtn');
+
+    const $sidetables = $('.sidetable');
+    const $sidetableCancelBtns = $('.sidetableCancelBtn');
+    const $sidetableSaveBtns = $('.sidetableSaveBtn');
+
+    // 5 ปุ่มเสริมใน Pop-up ย่อย (ถ้ายังคงใช้) (ใช้ class)
+    const $newBtns1 = $('.newButton1');
+    const $newBtns2 = $('.newButton2');
+    const $newBtns3 = $('.newButton3');
+    const $newBtns4 = $('.newButton4');
+    const $newBtns5 = $('.newButton5');
+
+    // เลือกองค์ประกอบทั้งหมดที่มีคลาส 'data-search-long' และ 'data-search'
+    const searchItemsLong = $('.data-search-long');
+    const searchItemsShort = $('.data-search');
+
+    // กำหนดระยะเวลา transition ในหน่วยมิลลิวินาที (ตรงกับ 0.15s ใน CSS)
+    const TRANSITION_DURATION = 150;
+
+    // ตัวแปรสำหรับเก็บ Pop-up หลักปัจจุบัน เมื่อต้องกลับจาก Pop-up ย่อย
+    let currentMainPopup = null;
+
+    // --- ฟังก์ชันตัวช่วยสำหรับการจัดการ Popup ---
+
+    function showPopup($popupElement) {
+        $popupElement.css('display', 'flex');
+        setTimeout(() => {
+            $popupElement.addClass('show');
+            $('body').addClass('no-scroll'); // ป้องกันการ scroll ของ body
+        }, 10);
+    }
+
+    function hidePopup($popupElement) {
+        $popupElement.removeClass('show');
+        setTimeout(() => {
+            // ตรวจสอบว่าไม่มี popup หรือ side-panel อื่นๆ ที่กำลังแสดงอยู่ก่อนเอา class 'no-scroll' ออก
+            if (!$('.popup.show').length && !$('.sideupload.show').length && !$('.sideadd.show').length && !$('.sidetable.show').length) {
+                $('body').removeClass('no-scroll');
+            }
+            // ซ่อน display: none เมื่อไม่มี class 'show' แล้ว
+            if (!$popupElement.hasClass('show')) {
+                $popupElement.css('display', 'none');
+            }
+        }, TRANSITION_DURATION);
+    }
+
+    // ฟังก์ชันสำหรับซ่อน Pop-up ย่อย (.sideupload) และแสดง Pop-up หลักที่กำหนด
+    function hideSideuploadAndShowMainPopup() {
+        hidePopup($sideuploads);
+        setTimeout(() => {
+            if (currentMainPopup) {
+                showPopup(currentMainPopup);
+                currentMainPopup = null; // รีเซ็ตตัวแปร
+            }
+        }, TRANSITION_DURATION);
+    }
+
+    // ฟังก์ชันสำหรับซ่อน Pop-up ย่อย (.sideadd) และแสดง Pop-up หลักที่กำหนด
+    function hideSideaddAndShowMainPopup($mainPopupElement) {
+        hidePopup($sideadds);
+        setTimeout(() => {
+            showPopup($mainPopupElement);
+        }, TRANSITION_DURATION);
+    }
+
+    // ฟังก์ชันสำหรับซ่อน Pop-up ย่อย (.sidetable) และแสดง Pop-up หลักที่กำหนด
+    function hideSidetableAndShowMainPopup($mainPopupElement) {
+        hidePopup($sidetables);
+        setTimeout(() => {
+            showPopup($mainPopupElement);
+        }, TRANSITION_DURATION);
+    }
+
+    // --- การจัดการการเลือกแถวและเปลี่ยนรูปภาพ (One-click selection) ---
+    function setupRowSelection(items) {
+        items.each(function () {
+            const item = $(this);
+            item.on('click', function () {
+                // ลบคลาส 'selected' และเปลี่ยนรูปภาพกลับสำหรับทุกรายการในกลุ่มเดียวกัน
+                items.each(function () {
+                    const currentItem = $(this);
+                    currentItem.removeClass('selected');
+                    const eyeImg = currentItem.find('.eye-search');
+                    if (eyeImg.length) {
+                        eyeImg.attr('src', 'picture/eye.png'); // Path รูปเริ่มต้น
+                    }
+                });
+                // เพิ่มคลาส 'selected' และเปลี่ยนรูปภาพสำหรับรายการที่ถูกคลิก
+                item.addClass('selected');
+                const eyeImgSelected = item.find('.eye-search');
+                if (eyeImgSelected.length) {
+                    eyeImgSelected.attr('src', 'picture/eye-white.png'); // Path รูปเมื่อถูกเลือก
+                }
+                console.log('Item clicked and selected:', item.attr('class'));
+            });
+        });
+    }
+
+    // เรียกใช้ฟังก์ชันเพื่อตั้งค่าการเลือกแถวสำหรับทั้ง .data-search-long และ .data-search
+    setupRowSelection(searchItemsLong);
+    setupRowSelection(searchItemsShort);
+
+    // --- ตั้งค่า Event Listeners สำหรับปุ่มเปิด Pop-up หลัก ---
+    $openPopupBtnsUpload.on('click', function () { showPopup($myPopupsUpload); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupupload ถูกคลิก!`); });
+    $openPopupBtnsPenView.on('click', function () { showPopup($myPopupsPenView); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopuppenview ถูกคลิก!`); });
+    $openPopupBtnsView.on('click', function () { showPopup($myPopupsView); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupview ถูกคลิก!`); });
+    $openPopupBtnsAdd.on('click', function () { showPopup($myPopupsAdd); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupadd ถูกคลิก!`); });
+    $openPopupBtnsEditPen.on('click', function () { showPopup($myPopupsEditPen); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupeditpen ถูกคลิก!`); });
+    $openPopupBtnsDeposit.on('click', function () { showPopup($myPopupsDeposit); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupdeposit ถูกคลิก!`); });
+    $openPopupBtnsAddDate.on('click', function () { showPopup($myPopupsAddDate); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupadddate ถูกคลิก!`); });
+    $openPopupBtnsViewDate.on('click', function () { showPopup($myPopupsViewDate); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupviewdate ถูกคลิก!`); });
+    $openPopupBtnsAddSum.on('click', function () { showPopup($myPopupsAddSum); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupaddsum ถูกคลิก!`); });
+    $openPopupBtnsSalesOrder.on('click', function () { showPopup($myPopupsSalesOrder); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupsalesorder ถูกคลิก!`); });
+    $openPopupBtnsAddDeposit.on('click', function () { showPopup($myPopupsAddDeposit); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupadddeopsit ถูกคลิก!`); });
+    $openPopupBtnsSelectReceive.on('click', function () { showPopup($myPopupsSelectReceive); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupselectreceive ถูกคลิก!`); });
+    $openPopupBtnsSelectBill.on('click', function () { showPopup($myPopupsSelectBill); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupselectbill ถูกคลิก!`); });
+    $openPopupBtnsTableSum.on('click', function () { showPopup($myPopupsTableSum); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopuptablesum ถูกคลิก!`); });
+    $openPopupBtnsTableBillingSlip.on('click', function () { showPopup($myPopupsTableBillingSlip); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupsTableBillingSlip ถูกคลิก!`); });
+    $openPopupBtnsViewInvoice.on('click', function () { showPopup($myPopupsViewInvoice); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupsviewinvoice ถูกคลิก!`); });
+    $openPopupBtnsViewVat.on('click', function () { showPopup($myPopupsViewVat); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupviewvat ถูกคลิก!`); });
+    // Added: Event Listener สำหรับปุ่มเปิด Pop-up viewtable9 และ viewtable10
+    $openPopupBtnsViewTable9.on('click', function () { showPopup($myPopupsViewTable9); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupviewtable9 ถูกคลิก!`); });
+    $openPopupBtnsViewTable10.on('click', function () { showPopup($myPopupsViewTable10); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupviewtable10 ถูกคลิก!`); });
+    // ใช้ event delegation สำหรับปุ่มลบที่สร้างแบบ dynamic
+    $(document).on('click', '.openPopupBtndelete', function () { 
+        // เก็บ ID ของรายการที่จะลบ
+        deleteQuotationId = $(this).data('id');
+        showPopup($myPopupsdelete); 
+        console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupDelete ถูกคลิก! ID: ${deleteQuotationId}`); 
+    });
+
+    // --- ตั้งค่า Event Listeners สำหรับปุ่ม "ยกเลิก" ใน Pop-up หลัก ---
+    $cancelPopupBtns.on('click', function () { hidePopup($myPopupsUpload); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupupload ถูกคลิก!`); });
+    $cancelPopupBtns2.on('click', function () { hidePopup($myPopupsPenView); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopuppenview ถูกคลิก!`); });
+    $cancelPopupBtns3.on('click', function () { hidePopup($myPopupsView); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupview ถูกคลิก!`); });
+    $cancelPopupBtns4.on('click', function () { hidePopup($myPopupsAdd); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupadd ถูกคลิก!`); });
+    $cancelPopupBtns5.on('click', function () { hidePopup($myPopupsEditPen); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupeditpen ถูกคลิก!`); });
+    $cancelPopupBtns6.on('click', function () { hidePopup($myPopupsDeposit); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupdeposit ถูกคลิก!`); });
+    $cancelPopupBtns7.on('click', function () { hidePopup($myPopupsAddDate); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupadddate ถูกคลิก!`); });
+    $cancelPopupBtns8.on('click', function () { hidePopup($myPopupsViewDate); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupviewdate ถูกคลิก!`); });
+    $cancelPopupBtns9.on('click', function () { hidePopup($myPopupsAddSum); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupaddsum ถูกคลิก!`); });
+    $cancelPopupBtns10.on('click', function () { hidePopup($myPopupsSalesOrder); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupsalesorder ถูกคลิก!`); });
+    $cancelPopupBtns11.on('click', function () { hidePopup($myPopupsAddDeposit); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupadddeopsit ถูกคลิก!`); });
+    $cancelPopupBtns12.on('click', function () { hidePopup($myPopupsSelectReceive); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupselectreceive ถูกคลิก!`); });
+    $cancelPopupBtns13.on('click', function () { hidePopup($myPopupsSelectBill); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupselectbill ถูกคลิก!`); });
+    $cancelPopupBtns14.on('click', function () { hidePopup($myPopupsTableSum); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopup14 ถูกคลิก!`); });
+    $cancelPopupBtnsTableBillingSlip.on('click', function () { hidePopup($myPopupsTableBillingSlip); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupsTableBillingSlip ถูกคลิก!`); });
+    $cancelPopupBtnsViewInvoice.on('click', function () { hidePopup($myPopupsViewInvoice); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupsViewInvoice ถูกคลิก!`); });
+    $cancelPopupBtnsViewVat.on('click', function () { hidePopup($myPopupsViewVat); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupviewvat ถูกคลิก!`); });
+    // Added: Event Listener สำหรับปุ่ม "ยกเลิก" ของ Pop-up viewtable9 และ viewtable10
+    $cancelPopupBtnsViewTable9.on('click', function () { hidePopup($myPopupsViewTable9); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupviewtable9 ถูกคลิก!`); });
+    $cancelPopupBtnsViewTable10.on('click', function () { hidePopup($myPopupsViewTable10); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupviewtable10 ถูกคลิก!`); });
+    $cancelPopupBtnsdetele.on('click', function () { 
+        const action = $(this).data('action');
+        if (action === 'confirm') {
+            // ปุ่ม "ตกลง" - ลบข้อมูล
+            if (deleteQuotationId) {
+                console.log('ปุ่ม "ตกลง" ถูกคลิก! deleteQuotationId:', deleteQuotationId);
+                deleteQuotation(deleteQuotationId);
+                hidePopup($myPopupsdelete);
+                deleteQuotationId = null;
+            }
+        } else {
+            // ปุ่ม "ยกเลิก" - ปิด popup โดยไม่ลบ
+            hidePopup($myPopupsdelete); 
+            console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupviewdelete ถูกคลิก!`); 
+        }
+    });
+
+    // --- จัดการปุ่ม "เพิ่ม/บันทึก" ใน Pop-up หลักแต่ละอัน ---
+
+    // Pop-up ที่เปิด Pop-up ย่อย
+    $addAndHideBtns.on('click', function () { // myPopupupload -> sideupload
+        hidePopup($myPopupsUpload);
+        setTimeout(() => {
+            currentMainPopup = $myPopupsUpload;
+            showPopup($sideuploads);
+        }, TRANSITION_DURATION);
+        console.log('Div "เพิ่ม" สำหรับ .myPopupupload ถูกคลิก! .sideupload แสดง.');
+    });
+
+    $addAndHideBtns4.on('click', function () { // myPopupadd -> sideadd
+        hidePopup($myPopupsAdd);
+        setTimeout(() => {
+            currentMainPopup = $myPopupsAdd;
+            showPopup($sideadds);
+        }, TRANSITION_DURATION);
+        console.log('Div "เพิ่ม" สำหรับ .myPopupadd ถูกคลิก! .sideadd แสดง.');
+    });
+
+    $addAndHideBtns11.on('click', function () { // myPopupadddeopsit -> sidetable
+        hidePopup($myPopupsAddDeposit);
+        setTimeout(() => {
+            currentMainPopup = $myPopupsAddDeposit;
+            showPopup($sidetables);
+        }, TRANSITION_DURATION);
+        console.log('Div "เพิ่ม" สำหรับ .myPopupsadddeopsit ถูกคลิก! .sidetable แสดง.');
+    });
+
+    // ปุ่มที่ปิด Pop-up หลักที่เกี่ยวข้องทันที
+    $addAndHideBtns2.on('click', function () { hidePopup($myPopupsPenView); console.log('Div "เพิ่ม" สำหรับ .myPopuppenview ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns3.on('click', function () { hidePopup($myPopupsView); console.log('Div "เพิ่ม" สำหรับ .myPopupview ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns5.on('click', function () { hidePopup($myPopupsEditPen); console.log('Div "เพิ่ม" สำหรับ .myPopupeditpen ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns6.on('click', function () { hidePopup($myPopupsDeposit); console.log('Div "เพิ่ม" สำหรับ .myPopupdeposit ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns7.on('click', function () { hidePopup($myPopupsAddDate); console.log('Div "บันทึก" สำหรับ .myPopupadddate ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns8.on('click', function () { hidePopup($myPopupsViewDate); console.log('Div "เพิ่ม" สำหรับ .myPopupviewdate ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns9.on('click', function () { hidePopup($myPopupsAddSum); console.log('Div "เพิ่ม" สำหรับ .myPopupaddsum ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns10.on('click', function () { hidePopup($myPopupsSalesOrder); console.log('Div "เพิ่ม" สำหรับ .myPopupsalesorder ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns12.on('click', function () { hidePopup($myPopupsSelectReceive); console.log('Div "เพิ่ม" สำหรับ .myPopupselectreceive ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns13.on('click', function () { hidePopup($myPopupsSelectBill); console.log('Div "เพิ่ม" สำหรับ .myPopupselectbill ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns14.on('click', function () { hidePopup($myPopupsTableSum); console.log('Div "เพิ่ม" สำหรับ .myPopup14 ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtnsTableBillingSlip.on('click', function () { hidePopup($myPopupsTableBillingSlip); console.log('Div "เพิ่ม" สำหรับ .myPopupsTableBillingSlip ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtnsViewInvoice.on('click', function () { hidePopup($myPopupsViewInvoice); console.log('Div "เพิ่ม" สำหรับ .myPopupsViewInvoice ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtnsViewVat.on('click', function () { hidePopup($myPopupsViewVat); console.log('Div "เพิ่ม" สำหรับ .myPopupviewvat ถูกคลิก! และปิด Popup หลัก'); });
+    // Added: Event Listener สำหรับปุ่ม "เพิ่ม/บันทึก" ของ Pop-up viewtable9 และ viewtable10 (ตัวอย่าง: ปิด Pop-up ทันที)
+    $addAndHideBtnsViewTable9.on('click', function () { hidePopup($myPopupsViewTable9); console.log('Div "เพิ่ม" สำหรับ .myPopupviewtable9 ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtnsViewTable10.on('click', function () { hidePopup($myPopupsViewTable10); console.log('Div "เพิ่ม" สำหรับ .myPopupviewtable10 ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtnsdelete.on('click', function () { hidePopup($myPopupsdelete); console.log('Div "เพิ่ม" สำหรับ .myPopupviewdetele ถูกคลิก! และปิด Popup หลัก'); });
+
+    // --- ตั้งค่า Event Listeners สำหรับ Pop-up ย่อย (.sideupload, .sideadd, .sidetable) ---
+
+    // Event listeners สำหรับ sideupload
+    $sideuploadCancelBtns.on('click', function () { hideSideuploadAndShowMainPopup(); console.log('Div "ยกเลิก" ใน Popup ที่ 2 (.sideupload) ถูกคลิก! กลับไปที่ Popup หลักก่อนหน้า.'); });
+    $sideuploadSaveBtns.on('click', function () { hideSideuploadAndShowMainPopup(); console.log('Div "บันทึก" ใน Popup ที่ 2 (.sideupload) ถูกคลิก! กลับไปที่ Popup หลักก่อนหน้า.'); });
+    $uploadFileBtns.on('click', function () { console.log('Div "อัปโหลดไฟล์" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    $openEditBtns.on('click', function () { console.log('Div "Open Edit" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    $newBtns1.on('click', function () { console.log('Div "Div 1" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    $newBtns2.on('click', function () { console.log('Div "Div 2" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    $newBtns3.on('click', function () { console.log('Div "Div 3" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    $newBtns4.on('click', function () { console.log('Div "Div 4" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    $newBtns5.on('click', function () { console.log('Div "Div 5" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+
+    // Event listeners สำหรับ sideadd
+    $sideaddCancelBtns.on('click', function () { hideSideaddAndShowMainPopup($myPopupsAdd); console.log('Div "ยกเลิก" ใน .sideadd ถูกคลิก! กลับไปที่ .myPopupadd.'); });
+    $sideaddSaveBtns.on('click', function () { hideSideaddAndShowMainPopup($myPopupsAdd); console.log('Div "เพิ่ม" ใน .sideadd ถูกคลิก! กลับไปที่ .myPopupadd.'); });
+
+    // Event listeners สำหรับ sidetable
+    if ($sidetables.length) { // ตรวจสอบว่ามีองค์ประกอบนี้อยู่จริง
+        $sidetableCancelBtns.on('click', function () { hideSidetableAndShowMainPopup(currentMainPopup); console.log('Div "ยกเลิก" ใน .sidetable ถูกคลิก! กลับไปที่ Popup หลักก่อนหน้า.'); });
+        $sidetableSaveBtns.on('click', function () { hideSidetableAndShowMainPopup(currentMainPopup); console.log('Div "บันทึก" ใน .sidetable ถูกคลิก! กลับไปที่ Popup หลักก่อนหน้า.'); });
+    }
+
+    // --- Event Listeners สำหรับปุ่ม "เพิ่ม" (ซ่อน Pop-up) ---
+    $hidePopupAdd11.on('click', function () { hidePopup($myPopupsAddDeposit); console.log('ปุ่ม .hidePopupadd11 ถูกคลิก! ซ่อน .myPopup11.'); });
+    $hidePopupAdd12.on('click', function () { hidePopup($myPopupsSelectReceive); console.log('ปุ่ม .hidePopupadd12 ถูกคลิก! ซ่อน .myPopupselectreceive.'); });
+    $hidePopupAdd13.on('click', function () { hidePopup($myPopupsSelectBill); console.log('ปุ่ม .hidePopupadd13 ถูกคลิก! ซ่อน .myPopupselectbill.'); });
+    $hidePopupAdd14.on('click', function () { hidePopup($myPopupsTableSum); console.log('ปุ่ม .hidePopupadd14 ถูกคลิก! ซ่อน .myPopup14.'); });
+    $hidePopupAddTableBillingSlip.on('click', function () { hidePopup($myPopupsTableBillingSlip); console.log('ปุ่ม .hidePopupAddTableBillingSlip ถูกคลิก! ซ่อน .myPopupsTableBillingSlip.'); });
+    $hidePopupAddViewInvoice.on('click', function () { hidePopup($myPopupsViewInvoice); console.log('ปุ่ม .hidePopupAddViewInvoice ถูกคลิก! ซ่อน .myPopupsViewInvoice.'); });
+    $hidePopupAddViewVat.on('click', function () { hidePopup($myPopupsViewVat); console.log('ปุ่ม .hidePopupAddviewvat ถูกคลิก! ซ่อน .myPopupviewvat.'); });
+    // Added: Event Listener สำหรับปุ่ม "ซ่อน" ของ Pop-up viewtable9 และ viewtable10
+    $hidePopupAddViewTable9.on('click', function () { hidePopup($myPopupsViewTable9); console.log('ปุ่ม .hidePopupAddviewtable9 ถูกคลิก! ซ่อน .myPopupviewtable9.'); });
+    $hidePopupAddViewTable10.on('click', function () { hidePopup($myPopupsViewTable10); console.log('ปุ่ม .hidePopupAddviewtable10 ถูกคลิก! ซ่อน .myPopupviewtable10.'); });
+    $hidePopupAdddelete.on('click', function () { hidePopup($myPopupsdelete); console.log('ปุ่ม .hidePopupAddviewtable10 ถูกคลิก! ซ่อน .myPopupviewtable10.'); });
+
+
+    // --- จัดการสีของ Dropdown (select) เมื่อมีการเลือกค่า ---
+    // รวม .right-under-long, .right-under, .modal-select เข้าด้วยกันใน event listener เดียว
+    $('.right-under-long, .right-under, .modal-select').on('change', function() {
+        // ตรวจสอบค่าที่เลือก ถ้าเป็นค่าเริ่มต้นที่แสดงว่ายังไม่ได้เลือก (เช่น "เลือกประเภทเอกสาร", "เลือก...", หรือสตริงว่าง)
+        // ให้ลบคลาสที่เปลี่ยนสีออก เพื่อให้กลับไปใช้สีเริ่มต้น
+        if ($(this).val() === 'เลือกประเภทเอกสาร' || $(this).val() === 'เลือก...' || $(this).val() === '') {
+            $(this).removeClass('text-black-select-modal');
+            // หากคุณต้องการเปลี่ยนสีด้วย CSS variable โดยตรงเมื่อไม่ได้เลือก
+            $(this).css('color', ''); // ลบ inline style เพื่อให้ CSS เดิมมีผล
+        } else {
+            // ถ้ามีการเลือกค่าอื่นที่ไม่ใช่ค่าเริ่มต้น ให้เพิ่มคลาสเพื่อเปลี่ยนสี
+            $(this).addClass('text-black-select-modal');
+            // หรือเปลี่ยนสีด้วย CSS variable โดยตรง
+            $(this).css('color', 'var(--input-text-black)');
+        }
+    });
+
+    // ตั้งค่าสีเริ่มต้นของ dropdowns เมื่อหน้าโหลด (ถ้ามีค่าที่ถูกเลือกอยู่แล้ว)
+    // ลูปผ่านทุก dropdown ที่เกี่ยวข้องเพื่อตั้งค่าสีตามค่าปัจจุบัน
+    $('.right-under-long, .right-under, .modal-select').each(function() {
+        if ($(this).val() !== 'เลือกประเภทเอกสาร' && $(this).val() !== 'เลือก...' && $(this).val() !== '') {
+            $(this).addClass('text-black-select-modal');
+            $(this).css('color', 'var(--input-text-black)');
+        } else {
+            $(this).removeClass('text-black-select-modal');
+            $(this).css('color', '');
+        }
+    });
+});
+
+$(document).ready(function () {
+    // จัดการ input date
+    $('.input-date-day').on('change', function () {
+        if ($(this).val()) {
+            $(this).css('color', '#000');
+        } else {
+            $(this).css('color', 'var(--input-stoke-gray-color200)');
+        }
+        
+        // กรองข้อมูลทั้งหมด
+        filterAllData();
+    });
+
+    // ตรวจสอบว่าเป็น reload หรือไม่
+    if (performance.navigation.type === 1) { // 1 คือ reload
+        localStorage.removeItem('hasData');
+    }
+
+        // ตัวแปรสำหรับ pagination
+        let currentPage = 1;
+        const itemsPerPage = 10; // แสดง 10 รายการต่อหน้า
+        let filteredQuotations = [];
+        
+        // ฟังก์ชันสำหรับดึงข้อมูลจริงจากฐานข้อมูล
+        function loadQuotationData() {
+            // เรียก API ที่มีอยู่แล้วใน server.js
+            $.ajax({
+                url: `${endpoint}/api/get_all_quotation_bycom`,
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    com_id: 4, // เปลี่ยนเป็น com_id จริง
+                    doc_name: 'ใบสั่งขาย' // เปลี่ยนเป็น doc_name จริง
+                },
+                success: function(response) {
+                    // console.log('API Response:', response);
+                    if (response.code === 200 && response.result && response.result.length > 0) {
+                        // มีข้อมูล - แสดงตารางข้อมูล
+                        $('#noDataBox').hide();
+                        $('#noDataImage').hide();
+                        $('#hasDataBox').show();
+                        
+                        // แปลงข้อมูลจาก API ให้ตรงกับโครงสร้างที่ใช้
+                        mockQuotations = response.result.map(item => ({
+                            id: item.id,
+                            tx: item.tx,
+                            cus_no: item.cus_no,
+                            cus_name: item.cus_name,
+                            doc_date: item.doc_date,
+                            sending_date: item.sending_date,
+                            doc_name: 'ใบสั่งขาย', // ใช้ชื่อคงที่เพราะ API ไม่ส่งมา
+                            net_amount: parseFloat(item.net_amount),
+                            doc_status: item.doc_status
+                        }));
+                        
+                        // console.log('Converted data:', mockQuotations);
+                        
+                        filteredQuotations = [...mockQuotations];
+                        // console.log('Filtered quotations:', filteredQuotations);
+                        
+                        // แสดงข้อมูลในตารางพร้อม pagination
+                        displayQuotationData();
+                        // console.log('After displayQuotationData called');
+                        
+                        // บันทึกสถานะว่ามีข้อมูล
+                        localStorage.setItem('hasData', 'true');
+                        
+                        // เพิ่ม event listener สำหรับการคลิกแถว
+                        addRowClickEvents();
+                    } else {
+                        // ไม่มีข้อมูล - แสดงหน้าไม่มีข้อมูล
+                        $('#noDataBox').show();
+                        $('#noDataImage').show();
+                        $('#hasDataBox').hide();
+                        
+                        // บันทึกสถานะว่าไม่มีข้อมูล
+                        localStorage.setItem('hasData', 'false');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error loading quotations:', error);
+                    console.error('XHR:', xhr);
+                    console.error('Status:', status);
+                    alert('เกิดข้อผิดพลาดในการโหลดข้อมูล: ' + error);
+                    
+                    // แสดงหน้าไม่มีข้อมูลเมื่อเกิดข้อผิดพลาด
+                    $('#noDataBox').show();
+                    $('#noDataImage').show();
+                    $('#hasDataBox').hide();
+                }
+            });
+        }
+    
+    // ฟังก์ชันสำหรับแสดงข้อมูลในตาราง (รวม pagination และการค้นหา)
+    function displayQuotationData(quotations = null, usePagination = true) {
+        // console.log('displayQuotationData called with:', quotations, usePagination);
+        const tbody = $('#get_all_tx_po');
+        tbody.empty(); // ล้างข้อมูลเก่า
+        
+        let dataToShow = quotations || (filteredQuotations && Array.isArray(filteredQuotations) ? filteredQuotations : []);
+        // เรียงข้อมูลตามวันที่เอกสาร 
+        dataToShow = dataToShow.sort((a, b) => {
+            const dateA = new Date(a.doc_date) || new Date(0);
+            const dateB = new Date(b.doc_date) || new Date(0);
+            return dateA - dateB; // เรียงจากเก่าไปใหม่
+        });
+        // console.log('dataToShow:', dataToShow);
+        let startIndex = 0;
+        
+        if (usePagination) {
+            // ใช้ pagination - แสดง 10 รายการต่อหน้า
+            startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            dataToShow = dataToShow.slice(startIndex, endIndex);
+        }
+        
+                    // แสดงข้อมูลในตาราง
+            //  console.log('About to create rows for dataToShow:', dataToShow);
+            dataToShow.forEach((quotation, index) => {
+                //  console.log('Creating row for quotation:', quotation);
+                const actualIndex = usePagination ? startIndex + index + 1 : index + 1;
+                const row = `
+                    <tr class="data-row" data-id="${quotation.id}">
+                        <td>${actualIndex}</td>
+                        <td>${quotation.tx || '-'}</td>
+                        <td>${quotation.cus_no || '-'}</td>
+                        <td>${quotation.cus_name || '-'}</td>   
+                        <td>${quotation.doc_name || '-'}</td>
+                        <td>${formatDate(quotation.doc_date) || '-'}</td>
+                        <td>${formatDate(quotation.sending_date) || '-'}</td>   
+                        <td>${formatCurrency(quotation.net_amount) || '-'}</td>
+                        <td>${getStatusText(quotation.doc_status)}</td>
+                        <td>
+                            <div class="action-icons" style="cursor: pointer;">
+                                ${quotation.doc_status === 'approved' ? 
+                                    '<img src="picture/pen.png" data-action="edit" data-id="' + quotation.id + '" style="opacity: 0; cursor: not-allowed;" title="ไม่สามารถแก้ไขได้ เนื่องจากเอกสารได้รับการอนุมัติแล้ว">' : 
+                                    '<img src="picture/pen.png" data-action="edit" data-id="' + quotation.id + '">'
+                                }
+                                <img src="picture/bin.png" class="openPopupBtndelete" data-action="delete" data-id="${quotation.id}">
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                //  console.log('Appending row:', row);
+                tbody.append(row);
+            });
+            //  console.log('All rows appended, tbody length:', tbody.children().length);
+            
+            // แสดง pagination ถ้าใช้
+            if (usePagination) {
+                displayPagination();
+            }
+            
+            // เพิ่ม event listener สำหรับการคลิกแถวหลังจากแสดงข้อมูล
+            addRowClickEvents();
+        }
+    
+    // ฟังก์ชันสำหรับเพิ่ม event listener สำหรับการคลิกแถว
+    function addRowClickEvents() {
+        $('.data-row').css('cursor', 'pointer').off('click').on('click', function(e) {
+            // ตรวจสอบว่าคลิกที่ action-icons หรือไม่
+            if ($(e.target).closest('.action-icons').length > 0) {
+                console.log('Clicked on action-icons, preventing row click');
+                return; // หยุดการทำงานของ row click
+            }
+            
+            const quotationId = $(this).data('id');
+            console.log('Row clicked, navigating to preview for ID:', quotationId);
+            // ไปยังหน้ารายละเอียดใบเสนอราคา
+            window.location.href = `sales-order-details.html?id=${quotationId}`;
+        });
+        
+        // ใช้ event delegation สำหรับ action icons
+        $(document).off('click', '.action-icons img').on('click', '.action-icons img', function (event) {
+            event.stopPropagation(); // หยุดไม่ให้ไปทำงาน event ของ parent
+            event.preventDefault(); // ป้องกัน default behavior
+            
+            const action = $(this).data('action');
+            const id = $(this).data('id');
+            
+            if (action === 'edit') {
+                // ตรวจสอบว่าเป็นปุ่มที่ disabled หรือไม่
+                if ($(this).css('opacity') === '0.5' || $(this).css('cursor') === 'not-allowed') {
+                    console.log('ไม่สามารถแก้ไขได้ เนื่องจากเอกสารได้รับการอนุมัติแล้ว');
+                    return; // หยุดการทำงาน
+                }
+                editQuotation(id);
+            } else if (action === 'delete') {
+                // เก็บ ID และเปิด popup ยืนยันแทนการลบทันที
+                deleteQuotationId = id;
+                // ใช้ jQuery selector โดยตรงแทนตัวแปรที่อาจจะไม่เข้าถึงได้
+                $('.myPopupdelete').css('display', 'flex');
+                $('.myPopupdelete').addClass('show');
+                $('body').addClass('no-scroll');
+                console.log(`เปิด popup ยืนยันการลบ ID: ${id}`);
+            }
+        });
+    }
+    
+    // ฟังก์ชันสำหรับจัดรูปแบบวันที่
+    function formatDate(dateStr) {
+        if (!dateStr) return '-';
+        
+        // ถ้าเป็นรูปแบบ YYYY-MM-DD ให้แปลงเป็น DD/MM/YYYY
+        if (dateStr.includes('-') && dateStr.split('-')[0].length === 4) {
+            const [year, month, day] = dateStr.split('-');
+            return `${day}/${month}/${year}`;
+        }
+        
+        // ถ้าเป็นรูปแบบ DD/MM/YYYY อยู่แล้ว ให้ส่งคืนตามเดิม
+        return dateStr;
+    }
+    
+    // ฟังก์ชันสำหรับจัดรูปแบบเงิน
+    function formatCurrency(amount) {
+        if (!amount) return '-';
+        return parseFloat(amount).toLocaleString('th-TH', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    }
+    
+    // ฟังก์ชันสำหรับแปลงสถานะเอกสาร
+    function getStatusText(status) {
+        switch(status) {
+            case 'pending': return 'รออนุมัติ';
+            case 'approved': return 'อนุมัติแล้ว';
+            case 'rejected': return 'ไม่อนุมัติ';
+            default: return status || '-';
+        }
+    }
+//------------------Start pagination -------------------------------     
+    // ฟังก์ชันสำหรับแสดง pagination
+    function displayPagination() {
+        const totalPages = Math.ceil(filteredQuotations.length / itemsPerPage);
+        
+        // ซ่อน pagination เมื่อมีข้อมูลไม่ถึง 11 รายการ
+        if (filteredQuotations.length <= 10) {
+            $('#paginationBox').hide();
+            return;
+        }
+        
+        $('#paginationBox').show();
+        
+        // อัปเดตข้อมูลหน้า
+        $('#pageInfo').text(`${currentPage} of ${totalPages} pages`);
+
+// --------- สร้างปุ่ม pagination (แทนที่บล็อกเดิมนี้ทั้งหมด) ----------
+const paginationButtons = $('#paginationButtons');
+paginationButtons.empty();
+
+// helper สร้างปุ่มเลขหน้า
+const addBtn = (i) => {
+    const buttonClass = i === currentPage ? 'active' : '';
+    paginationButtons.append(`<a class="num-btn ${buttonClass}" href="#" data-page="${i}">${i}</a>`);
+};
+
+const addDots = () => paginationButtons.append('<span class="dots">...</span>');
+
+// เลือกเลขที่จะโชว์ 3 ตัว + ... + กล่องค้นหา (ค่าเริ่มต้นเป็นหน้าสุดท้าย)
+let pagesToShow = [];
+if (totalPages <= 3) {
+    for (let i = 1; i <= totalPages; i++) pagesToShow.push(i);
+    } else if (currentPage <= 2) {
+    pagesToShow = [1, 2, 3];
+    } else if (currentPage >= totalPages - 1) {
+    pagesToShow = [Math.max(1, totalPages - 2), totalPages - 1, totalPages];
+    } else {
+        pagesToShow = [currentPage - 1, currentPage, currentPage + 1];
+    }
+
+// ใส่เลข 3 ตัว
+pagesToShow.forEach(addBtn);
+
+// ถ้าหน้ามากกว่า 3 และยังมีหน้าที่ซ่อนไว้ด้านขวา ค่อยใส่ "..."
+if (totalPages > 3) addDots()
+// กล่องค้นหาหน้า (ค่าในช่องคือหน้าสุดท้าย เริ่มต้นพิมพ์ได้ทันที)
+const jumpHtml = `
+    <div class="page-jump-wrap">
+        <input
+        type="text"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        class="page-jump"
+        id="pageJump"
+        placeholder="${totalPages}"
+        aria-label="ไปหน้าที่..."
+        />
+    </div>`;
+paginationButtons.append(jumpHtml);
+
+// events ปุ่มเลข
+$('.pagination a.num-btn').off('click').on('click', function (e) {
+    e.preventDefault();
+    const page = parseInt($(this).data('page'));
+    goToPage(page);
+});
+
+// events กล่องค้นหา (Enter/blur เพื่อกระโดดหน้า)
+(function attachJumpHandlers() {
+    const commit = () => {
+        const last = totalPages;
+        let v = parseInt($('#pageJump').val(), 10);
+        if (isNaN(v)) v = last;
+        v = Math.max(1, Math.min(last, v));
+        goToPage(v);
+    };
+    $('#pageJump')
+    .off('keydown.jump blur.jump')
+    .on('keydown.jump', function (e) { if (e.key === 'Enter') commit(); })
+    .on('blur.jump', commit);
+})();
+        
+        // อัปเดตสถานะปุ่มนำทาง
+$('#btnPrev').show().toggleClass('disabled', currentPage === 1);
+$('#btnNext').show().toggleClass('disabled', currentPage === totalPages);
+        
+        // เพิ่ม event listener สำหรับปุ่ม pagination
+        $('.pagination a').off('click').on('click', function(e) {
+            e.preventDefault();
+            const page = parseInt($(this).data('page'));
+            goToPage(page);
+        });
+    }
+    
+        // ฟังก์ชันสำหรับเปลี่ยนหน้า
+    function goToPage(page) {
+        currentPage = page;
+        displayQuotationData();
+    }
+    
+    // Event listener สำหรับปุ่มนำทาง
+    $('#btnPrev').on('click', function() {
+        if (currentPage > 1) {
+            goToPage(currentPage - 1);
+        }
+    });
+    
+    $('#btnNext').on('click', function() {
+        const totalPages = Math.ceil(filteredQuotations.length / itemsPerPage);
+        if (currentPage < totalPages) {
+            goToPage(currentPage + 1);
+        }
+    });
+//------------------End pagination -------------------------------    
+    // ฟังก์ชันรวมสำหรับกรองข้อมูลทั้งหมด
+    function filterAllData() {
+        const searchTerm = $('.search-deposit').val().toLowerCase();
+        const startDate = $('.boxdata-day-item .input-date-day').val();
+        const endDate = $('.head-day .input-date-day').val();
+        const activeStatus = $('.hover.active').text();
+        
+        // เริ่มต้นด้วยข้อมูลทั้งหมด
+        let filtered = [...mockQuotations];
+        
+        // กรองตามคำค้นหา
+        if (searchTerm) {
+            filtered = filtered.filter(quotation => 
+            quotation.tx.toLowerCase().includes(searchTerm) ||
+            quotation.cus_name.toLowerCase().includes(searchTerm) ||
+            quotation.cus_no.toLowerCase().includes(searchTerm)
+        );
+        }
+        
+        // กรองตามสถานะ
+        if (activeStatus === 'ทั้งหมด') {
+            // แสดงข้อมูลทั้งหมด ไม่กรอง
+        } else if (activeStatus === 'อนุมัติ') {
+            filtered = filtered.filter(q => q.doc_status === 'approved');
+        } else if (activeStatus === 'รออนุมัติ') {
+            filtered = filtered.filter(q => q.doc_status === 'pending');
+        }
+        
+        // กรองตามช่วงวันที่เอกสาร
+        if (startDate) {
+            filtered = filtered.filter(q => {
+                if (!q.doc_date) return false;
+                
+                // แปลงวันที่เป็น YYYY-MM-DD format เพื่อเปรียบเทียบ
+                let docDateStr = q.doc_date;
+                if (docDateStr.includes('/')) {
+                    // แปลงจาก DD/MM/YYYY เป็น YYYY-MM-DD
+                    const parts = docDateStr.split('/');
+                    if (parts.length === 3) {
+                        docDateStr = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+                    }
+                }
+                
+                return docDateStr >= startDate;
+            });
+        }
+        
+        // กรองตามวันครบกำหนด
+        if (endDate) {
+            filtered = filtered.filter(q => {
+                if (!q.doc_date) return false;
+                
+                // แปลงวันที่เป็น YYYY-MM-DD format เพื่อเปรียบเทียบ
+                let dueDateStr = q.doc_date;
+                if (dueDateStr.includes('/')) {
+                    // แปลงจาก DD/MM/YYYY เป็น YYYY-MM-DD
+                    const parts = dueDateStr.split('/');
+                    if (parts.length === 3) {
+                        dueDateStr = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+                    }
+                }
+                
+                return dueDateStr <= endDate;
+            });
+        }
+        
+        // อัปเดตข้อมูลที่กรองแล้ว
+        filteredQuotations = filtered;
+        
+        // รีเซ็ตหน้าเป็นหน้าแรก
+        currentPage = 1;
+        
+        // แสดงผลลัพธ์
+        if (filteredQuotations.length > 0) {
+            displayQuotationData();
+        } else {
+            $('#get_all_tx_po').empty();
+            $('#paginationBox').hide();
+        }
+    }
+    
+    // Event listener สำหรับการค้นหา
+    $('.search-deposit').on('input', function() {
+        filterAllData();
+    });
+    
+    // ฟังก์ชันสำหรับกรองสถานะ
+    $('.hover').on('click', function() {
+        const status = $(this).text();
+        // ยกเลิกปุ่มอื่นและเลือกปุ่มนี้
+        $('.hover').removeClass('active');
+        $(this).addClass('active');
+        
+        // เรียกใช้ฟังก์ชันกรองข้อมูลทั้งหมด
+        filterAllData();
+    });
+    
+    // คลิกปุ่ม <img> ไปหน้า create-sales-order.html
+    $('#goToCreate').click(function (event) {
+        event.stopPropagation(); // ✅ ป้องกันไม่ให้ event ลามไปถึง .data-row
+        clearEditData(); // ล้างข้อมูลแก้ไขก่อนไปหน้าใหม่
+        window.location.href = 'create-sales-order.html';
+    });
+    
+    // เรียกใช้ฟังก์ชันโหลดข้อมูล
+    loadQuotationData();
+});
+
+// ฟังก์ชันสำหรับแก้ไขใบเสนอราคา
+function editQuotation(id) {
+    // เก็บ ID ไว้ใน localStorage เพื่อส่งไปหน้าถัดไป
+    localStorage.setItem('editQuotationId', id);
+    
+    // ดึงข้อมูลจากฐานข้อมูลก่อนไปหน้าแก้ไข
+    $.ajax({
+        url: `${endpoint}/api/get_quotation_by_id`,
+        method: 'POST',
+        dataType: 'json',
+        data: {
+            id: id,
+            com_id: localStorage.getItem('com_id') || 4
+        },
+        success: function(response) {
+            if (response.code === 200) {
+                // เก็บข้อมูลไว้ใน localStorage
+                localStorage.setItem('editQuotationData', JSON.stringify(response.result));
+    // ไปยังหน้าแก้ไข
+    window.location.href = 'create-sales-order.html';
+            } else {
+                alert('ไม่พบข้อมูลที่ต้องการแก้ไข');
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Error loading quotation data:', error);
+            alert('เกิดข้อผิดพลาดในการโหลดข้อมูล');
+        }
+    });
+}
+
+// ฟังก์ชันสำหรับลบใบเสนอราคา
+function deleteQuotation(id) {
+    const com_id = localStorage.getItem('com_id');
+    console.log('Delete quotation - ID:', id, 'COM_ID:', com_id);
+    // เรียก API เพื่อลบข้อมูลจากฐานข้อมูล
+    $.ajax({
+            url: `${endpoint}/api/delete_quotation_bycom`,
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                id: id,
+                com_id: com_id || 4 // ใช้ com_id จาก localStorage หรือ 4 เป็นค่าเริ่มต้น
+            },
+            beforeSend: function() {
+                const finalComId = com_id || 4;
+                console.log('Sending delete request with data:', {id: id, com_id: finalComId});
+            },
+            success: function(response) {
+                // console.log('Delete API Response:', response);
+                if (response.code === 200) {
+                    // ลบข้อมูลออกจาก array
+                    const index = mockQuotations.findIndex(q => q.id === id);
+                    if (index > -1) {
+                        mockQuotations.splice(index, 1);
+                        
+                        // ลบแถวออกจากตารางทันที
+                        $(`.data-row[data-id="${id}"]`).remove();
+                        
+                        // อัปเดต index ในตารางให้เรียงใหม่
+                        $('#get_all_tx_po tr.data-row').each(function(index) {
+                            $(this).find('td:first').text(index + 1);
+                        });
+                        // alert('ลบใบเสนอราคาเรียบร้อยแล้ว');
+                    }
+                } else {
+                    alert('เกิดข้อผิดพลาดในการลบข้อมูล: ' + response.result);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error deleting quotation:', error);
+                alert('เกิดข้อผิดพลาดในการลบข้อมูล');
+            }
+        });
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Noto+Sans+Thai:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="sty    lesheet">
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="input.css">
+    <script src="Script.js"></script>
+</head>
+
+<body>
+    <div class="Bighead-project">
+<!--Start Fei-->
+     
+        <div class="customnameheader">
+            <div style="width: 50%;height: 100%;">
+                <div class="text-label">ชื่อลูกค้า</div>
+                <input class="input-customer" type="text" placeholder="ชื่อลูกค้า">
+            </div>
+            <div style="width: 50%;height: 100%;">
+                <div class="text-label">รหัสลูกค้า</div>
+                <input class="input-customer" type="text" placeholder="รหัสลูกค้า">
+            </div>
+        </div>
+
+
+        <div class="bg-customer">
+        <div class="supplier-info">
+    <div class="supplier-address">
+        <div class="text-label4">ที่อยู่ผู้จำหน่าย</div>
+        <textarea class="input-field1" placeholder="ที่อยู่ผู้จำหน่าย"></textarea>
+    </div>
+    <div class="supplier-contact">
+        <div class="text-label4">เบอร์โทร</div>
+        <input class="input-field" type="text" placeholder="เบอร์โทร">
+        <div class="text-label4">ที่ตั้งธุรกิจ</div>
+        <input class="input-field" type="text" placeholder="ที่ตั้งธุรกิจ">
+    </div>
+</div>
+
+
+
+        <div style="width: 100%;height: 65px;">
+            <div style="width: 100%;height: 22px;">อ้างอิงใบสั่งขาย</div>
+            <div style="display: flex;gap: 16px;">
+                <div style="width: 49.5%;"><input type="text" class="input-customer" placeholder="ใบสั่งขาย"></div>
+                <div class="select-refer">เลือกใบอ้างอิง</div>
+            </div>
+        </div>
+        
+    
+
+         
+        
+        <div style="width: 100%;height: 65px; display: flex; gap: 16px;">
+            <div style="width: 50%;">
+  <label for="myDropdown" style="display: block; margin-bottom: 8px;">name</label>
+  <div class="dropdown-wrapper">
+    <select id="myDropdown" required>
+      <option value="" disabled selected>-- กรุณาเลือก --</option>
+      <option value="option1">ตัวเลือกที่ 1</option>
+      <option value="option2">ตัวเลือกที่ 2</option>
+      <option value="option3">ตัวเลือกที่ 3</option>
+    </select>
+  </div>
+</div>
+<div style="width: 50%;">
+  <label for="myDropdown" style="display: block; margin-bottom: 8px;">name</label>
+  <div class="dropdown-wrapper1">
+    <select id="myDropdown" required>
+      <option value="" disabled selected>-- กรุณาเลือก --</option>
+      <option value="option1">ตัวเลือกที่ 1</option>
+      <option value="option2">ตัวเลือกที่ 2</option>
+      <option value="option3">ตัวเลือกที่ 3</option>
+    </select>
+  </div>
+</div>
+            </div>
+        </div>
+
+    <div style="width: 100%;height: 65px; display: flex; gap: 16px;">
+            <div style="width: 50%;">
+  <label for="myDropdown" style="display: block; margin-bottom: 8px;">name</label>
+  <div class="dropdown-wrapper">
+    <select id="myDropdown" required>
+      <option value="" disabled selected>-- กรุณาเลือก --</option>
+      <option value="option1">ตัวเลือกที่ 1</option>
+      <option value="option2">ตัวเลือกที่ 2</option>
+      <option value="option3">ตัวเลือกที่ 3</option>
+    </select>
+  </div>
+</div>
+                <div style="width: 50%;height: 65px;">
+                <div style="width: 100%;height: 22px;margin-bottom: 8px;">name</div>
+                <input type="text" class="input-id-bank" placeholder="xxxx-xxxx-xxxx-xxxx">
+                </div>
+            </div>
+            
+
+    <div class="refer-label">วันที่</div>
+    <input type="date" class="input-date-time" >
+    
+
+    <div style="width: 100%;height: 16px;">
+        <div style="display: flex; gap: 8px; margin: 8px 0;">
+            <div class="icon"><img src="picture/eye.png" ></div>
+            <div class="icon"><img src="picture/pen.png" ></div>
+            <div class="icon"><img src="picture/bin.png" ></div>
+        </div>
+    </div>
+
+    <div style="width: 100%;height: 116px;">
+        <div style="width: 100%;height: 27px;margin: 8px 0;">ใบรับเงินมัดจำ</div>
+        <div style=" width: 100%;height: 65px;margin-top: 24px;display: flex; gap: 16px; ">
+            <div style=" width: 100%;height: 65px;display: flex; gap: 8px;justify-content: flex-end; ">
+            <div style="width:8% ;height: 40px;">
+                <div style="margin-top: 25px;"></div>
+                <div class="crate1">อัพโหลดไฟล์</div>
+            </div>
+            <div style="width:6% ;height: 65px;">
+                <div style="margin-top: 25px;"></div>
+                
+                <div class="crate">สร้าง</div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div style="width: 100%;height: 36px;margin-top: 8px; display: flex; gap: 8px;">
+        <div class="hover">อนุมัติ</div>
+        <div class="hover">รออนุมัติ</div>
+        <div class="hover">ไม่อนุมัติ</div>
+        <input type="search" class="search-deposit" placeholder="ค้นหา">
+        
+    </div>
+
+    <div style="width: 100%;height: 40px;margin-top: 8px; display: flex; gap: 8px ;">
+        <div class="function"><img src="picture/print.png" alt=""></div>
+        <div class="function"><img src="picture/upload.png" alt=""></div>
+        <div class="function"><img src="picture/send.png" alt=""></div>
+    </div>
+     <div style="width: 100%;height: 40px;margin-top: 8px; display: flex; gap: 8px ;">
+        <div class="function"><img src="picture/upload.png" alt=""></div>
+        <div class="function"><img src="picture/send.png" alt=""></div>
+    </div>
+     <div style="width: 100%;height: 40px;margin-top: 8px; display: flex; gap: 8px ;">
+        <div class="function"><img src="picture/print.png" alt=""></div>
+        <div class="function"><img src="picture/upload.png" alt=""></div>
+    </div>
+     <div style="width: 100%;height: 40px;margin-top: 8px; display: flex; gap: 8px ;">
+        <div class="function"><img src="picture/load.png" alt=""></div>
+    </div>
+    <div style="width: 100%;height: 38px;margin-top: 8px;">
+        
+	        <div class="tabs">
+		<input type="radio" id="radio-1" name="tabs" checked />
+		<label class="tab" for="radio-1">ข้อมูลเอกสาร<span ></span></label>
+		<input type="radio" id="radio-2" name="tabs" />
+		<label class="tab" for="radio-2">ข้อมูลการชำระ</label>
+		<input type="radio" id="radio-3" name="tabs" />
+		<label class="tab" for="radio-3">ข้อมูลประวัติ</label>
+		<span class="glider"></span>
+	    </div>
+        </div>
+
+
+    
+
+
+
+
+
+
+    
+
+    
+        <div style="display:flex;gap: 16px; margin-top: 10px; width: 100%;height: 40px;">
+            <div class="cancel">ยกเลิก</div>
+            <div class="save">บันทึก</div>
+        </div>
+
+
+    
+
+
+
+
+
+        <!--End  Fei-->
+        <!--Start khaow-->
+        <!--Start khaow-->
+<!--อ้างอิงลูกค้า-->
+        <div class="refer">
+            <div class="title">
+                <b> อ้างอิงลูกค้า</b>
+            </div>
+            <div style="width: 100%;">
+            <input class="refer-input" type="text" placeholder="อ้างอิง">
+            </div>
+        </div>
+<!--อ้างอิงลูกค้า-->
+<!--สำนักงาน-->
+        <div class="office">
+            <div class="head-office"><b>สำนักงาน/สาขา</b></div>
+            <!--กล่องของ สำนักงาน-->
+            <div class="button-input">
+                <!--ปุ่มradio-->
+                <div class="office-label">
+                <div class="office-option-big">
+                <label class="custom-radio">
+                <input type="radio" id="big-office" name="fav_language" value="สำนักงานใหญ่" disabled >
+                <span class="radio-btn"></span> 
+                <div class="word-big-office">สำนักงานใหญ่</div>
+                </label>
+                </div>
+                <div class="office-option-small">
+                <label class="custom-radio">
+                <input type="radio" id="small-office" name="fav_language" value="สาขาย่อย" disabled >
+                <span class="radio-btn"></span>
+                <div class="word-small-office">สาขาย่อย</div>
+                </label>
+                </div>
+                </div>
+                <!--ปุ่มradio-->
+                <!-- Input fields -->
+                <div class="office-input">
+                    <input type="text" class="input-field" placeholder="รหัสสาขา">
+                    <input type="text" class="input-field" placeholder="ชื่อสาขา">
+                </div>
+                <!-- Input fields -->
+            </div>
+                <!--กล่องของ สำนักงาน-->
+        </div>
+<!--สำนักงาน-->
+<!--รายการ-->
+            <div class="list">
+                <div class="head-list">รายการ</div><!--กล่องไว้ใส่หัวข้อ-->   
+                <div class="word-list">สินค้า/บริการ</div><!--หัวข้อ-->   
+                <div class="list-label"><!--กล่องใหญ่ของ radio-->   
+                <div class="list-option"><!--กล่อง radio สินค้า-->   
+                <label class="custom-radio">
+                <input type="radio" id="list" name="fav_language" value="สำนักงานใหญ่">
+                <span class="radio-btn"></span> 
+                <div class="choice-list">สินค้า</div><!--ข้อความ สินค้า-->
+                </label>
+                </div>
+                 <div class="list-option"><!--กล่องใหญ่ของ radio--> 
+                <label class="custom-radio"><!--กล่อง radio สินค้า--> 
+                <input type="radio" id="list" name="fav_language" value="สำนักงานใหญ่">
+                <span class="radio-btn"></span> 
+                <div class="choice-list">บริการ</div><!--ข้อความ บริการ-->
+                </label>
+                </div>
+                </div>
+            </div>
+<!--รายการ-->
+<!--ช่องทางชำระเงิน-->
+            <div class="Make-payment">
+                <div class="head-make-payment">ช่องทางชำระเงิน</div>
+                <div class="make-payment-label"><!--กล่องใหญ่ของ radio--> 
+                <div class="make-payment-option"><!--กล่อง radio เงินสด-->   
+                <label class="custom-radio">
+                <input type="radio" id="make-payment" name="fav_language" value="สำนักงานใหญ่">
+                <span class="radio-btn"></span> 
+                <div class="choice-make-payment">เงินสด</div><!--ข้อความ เงินสด-->
+                </label>
+                </div>
+                <div class="make-payment-option"><!--กล่อง radio ธนาคาร-->   
+                <label class="custom-radio">
+                <input type="radio" id="make-payment" name="fav_language" value="สำนักงานใหญ่">
+                <span class="radio-btn"></span> 
+                <div class="choice-make-payment">ธนาคาร</div><!--ข้อความ ธนาคาร-->
+                </label>
+                </div>
+                <div class="make-payment-option"><!--กล่อง radio พร้อมเพย์ QR Code-->   
+                <label class="custom-radio">
+                <input type="radio" id="make-payment" name="fav_language" value="สำนักงานใหญ่">
+                <span class="radio-btn"></span> 
+                <div class="choice-make-payment">พร้อมเพย์ QR Code</div><!--ข้อความ พร้อมเพย์ QR Code-->
+                </label>
+                </div>
+                <div class="make-payment-option"><!--กล่อง radio บัตรเครดิต/เดบิต-->   
+                <label class="custom-radio">
+                <input type="radio" id="make-payment" name="fav_language" value="สำนักงานใหญ่">
+                <span class="radio-btn"></span> 
+                <div class="choice-make-payment">บัตรเครดิต/เดบิต</div><!--ข้อความ บัตรเครดิต/เดบิต-->
+                </label>
+                </div>
+                <div class="make-payment-option"><!--กล่อง radio e-Wallet-->   
+                <label class="custom-radio">
+                <input type="radio" id="make-payment" name="fav_language" value="สำนักงานใหญ่" disabled>
+                <span class="radio-btn"></span> 
+                <div class="choice-make-payment">e-Wallet</div><!--ข้อความ e-Wallet-->
+                </label>
+                </div>
+                <div class="make-payment-option"><!--กล่อง radio >สำรองรับ/จ่าย-->   
+                <label class="custom-radio">
+                <input type="radio" id="make-payment" name="fav_language" value="สำนักงานใหญ่" disabled>
+                <span class="radio-btn"></span> 
+                <div class="choice-make-payment">สำรองรับ/จ่าย</div><!--ข้อความ >สำรองรับ/จ่าย-->
+                </label>
+                </div>
+                <div class="make-payment-option"><!--กล่อง radio เช็ค-->   
+                <label class="custom-radio">
+                <input type="radio" id="make-payment" name="fav_language" value="สำนักงานใหญ่" disabled>
+                <span class="radio-btn"></span> 
+                <div class="choice-make-payment">เช็ค</div><!--ข้อความเช็ค-->
+                </label>
+                </div>
+                </div>
+            </div>
+<!--ช่องทางชำระเงิน-->
+        <div class="Bill-number"><!--กล่องใหญ่เลขที่บิล-->
+            <div class="top-Bill-number"><!--กล่องบนเลขที่บิล-->
+                <div class="Billnumber"><!--กล่องเลขบิล-->
+                    <div class="head-Bill-number"><!--กล่องหัวขอ-->
+                        <div class="word-billnumber">เลขที่บิล</div>
+                        <input type="text" class="input-Billnumber" placeholder="AA-0000000000">
+                    </div>
+                </div>
+                <div class="day-Billnumber"><!--กล่องหัวเวลา ยื่นงวด-->
+                    <div><!--กล่องเวลา-->
+                        <div class="head-day">
+                            <div class="word-day">ลงวันที่</div>
+                            <input type="date" class="input-date-day" >
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="period"><!--กล่องยื่นงวด-->
+                        <div class="word-period">ยื่นงวด</div>
+                        <input type="text" class="input-periods" placeholder="00/00">
+                    </div>
+                </div>
+            </div>
+            
+        <div class="Under-Bill-number"><!--กล่องล่างเลขที่บิล-->
+            <div class="title-period">หมายเหตุ</div>
+            <textarea class="period-text" type="text" placeholder="หมายเหตุ"></textarea>
+        </div>
+        </div>
+<!--ช่องทางชำระเงิน-->
+<!--เวลาคู่-->
+        <div class="twain-day">
+         <div class="head-day">
+            <div class="word-day">ลงวันที่</div>
+            <input type="date" class="input-date-day">
+        </div>
+         <div class="head-day">
+            <div class="word-day">ครบกำหนดวันที่</div>
+            <input type="date" class="input-date-day">
+        </div>
+        </div>
+        <div class="twain-day">
+         <div class="head-day">
+            <div class="word-day">ลงวันที่</div>
+            <input type="date" class="input-date-day1">
+        </div>
+         <div class="head-day">
+            <div class="word-day">ครบกำหนดวันที่</div>
+            <input type="date" class="input-date-day1">
+        </div>
+        </div>
+<!--เวลาคู่-->
+<!--เวลาเดี่ยว-->
+        <div class="head-day">
+            <div class="word-day">ลงวันที่</div>
+            <input type="date" class="input-date-day">
+        </div>
+<!-- เวลาเดี่ยว-->
+<!-- ปุ่มเพิ่มรายการเอกสาร-->
+        <div class="Add-product-list">
+            <div class="word-button-product">เพิ่มรายการสินค้า</div>
+        </div>
+<!-- ปุ่มเพิ่มรายการเอกสาร -->
+<!-- วันที่ชำระ เวลา ค่าธรรมเนียม -->
+<div class="Payment-date">
+    <div class="day-Payment-date">
+        <div class="word-day-Payment">วันที่ชำระ</div>
+            <input type="date" class="input-day-Payment">
+    </div>
+    <div class="time-Payment-date">
+        <div class="word-time-Payment">เวลา</div>
+        <input type="time" class="input-day-Payment1">
+    </div>
+    <div class="charge-Payment-date">
+        <div class="word-charge-Payment">ค่าธรรมเนียม</div>
+        <input type="text" class="input-period" placeholder="000.00">
+    </div>
+</div>
+<!--วันที่ชำระ เวลา ค่าธรรมเนียม-->
+<!--วันที่ชำระ เวลา -->
+<div class="Payment-date">
+    <div class="day-Payment-date">
+        <div class="word-day-Payment">วันที่ชำระ</div>
+            <input type="date" class="input-day-Payment">
+    </div>
+    <div class="time-Payment-date">
+        <div class="word-time-Payment">เวลา</div>
+        <input type="time" class="input-day-Payment1">
+    </div>
+</div>
+<!--วันที่ชำระ เวลา -->
+<!--* กลับหน้าหลัก แก้ไข ยกเลิก *-->
+    <div class="tree-button"><!-- กล่องใหญ่ของ3ปุ่ม -->
+        <div class="Homepage-button"> <!-- กล่องกลับไปหน้าหลัก -->
+            <div class="word-Homepage-button">กลับไปหน้าหลัก</div>
+        </div>
+        <div class="edit-button"> <!-- กล่องแก้ไข -->
+          <div class="word-edit-button">แก้ไข</div> 
+        </div>
+        <div class="approve-button"> <!-- กล่องอนุมัติ -->
+            <div class="word-appvrove-button">อนุมัติ</div>
+        </div>
+    </div>
+<!-- กลับหน้าหลัก แก้ไข ยกเลิก-->
+<!--ออกใบเสร็จ -->
+        <div class="one-button"> <!--กล่องปุ่มออกใบเสร็จ-->
+            <div class="receipt-button"><!--ปุ่มออกใบเสร็จ-->
+                <div class="word-receipt">ออกใบเสร็จ</div>
+            </div>
+        </div>
+<!--ออกใบเสร็จ -->
+<!-- ใบกำกับภาษี -->
+        <div style="width: 100%;height: 65px; display: flex; gap: 16px;">
+            <div style="width: 50%;height: 65px;">
+                <div style="width: 100%;height: 22px; ">name</div>
+                <select name="myDropdown" id="myDropdown" class="dropdown-new">
+                    <option value="">-- กรุณาเลือก --</option>
+                    <option value="option1">ตัวเลือกที่ 1</option>
+                    <option value="option2">ตัวเลือกที่ 2</option>
+                    <option value="option3">ตัวเลือกที่ 3</option>
+                </select>
+                </div>
+                <div style="width: 50%;height: 65px;">
+                <div style="width: 100%;height: 22px;">name</div>
+                <select name="myDropdown" id="myDropdown" class="dropdown-new">
+                    <option value="">-- กรุณาเลือก --</option>
+                    <option value="option1">ตัวเลือกที่ 1</option>
+                    <option value="option2">ตัวเลือกที่ 2</option>
+                    <option value="option3">ตัวเลือกที่ 3</option>
+                </select>
+                </div>
+            </div>
+<!-- ใบกำกับภาษี -->
+<!--กลับหน้าหลัก -->
+        <div class="go-back">
+            <div class="go-back-button">
+                <div class="word-go-back">กลับหน้าหลัก</div>     
+            </div>
+        </div>
+<!-- กลับหน้าหลัก  -->
+<!-- ภาษีและสกุลเงิน  -->
+        <div style="width: 100%;height: 65px; display: flex; gap: 16px;">
+            <div style="width: 50%;height: 65px;">
+                <div style="width: 100%;height: 22px; ">name</div>
+                <select name="myDropdown" id="myDropdown" class="dropdown-new">
+                    <option value="">-- กรุณาเลือก --</option>
+                    <option value="option1">ตัวเลือกที่ 1</option>
+                    <option value="option2">ตัวเลือกที่ 2</option>
+                    <option value="option3">ตัวเลือกที่ 3</option>
+                </select>
+                </div>
+                <div style="width: 50%;height: 65px;">
+                <div style="width: 100%;height: 22px;">name</div>
+                <select name="myDropdown" id="myDropdown" class="dropdown-new">
+                    <option value="">-- กรุณาเลือก --</option>
+                    <option value="option1">ตัวเลือกที่ 1</option>
+                    <option value="option2">ตัวเลือกที่ 2</option>
+                    <option value="option3">ตัวเลือกที่ 3</option>
+                </select>
+                </div>
+            </div>
+<!-- ภาษีและสกุลเงิน -->
+        <!--End khaow-->
+        <!--Start Beam-->
+        
+
+     
+    
+    <label class="toggle-switch">
+  <input type="checkbox"checked>
+  <span class="slider round"></span>
+  </label>
+
+<label class="toggle-switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+  </label>
+
+  <label class="toggle-switch">
+  <input type="checkbox" disabled>
+  <span class="slider round"></span>
+  </label>
+  
+
+    <div class="search-box">
+        <div class="search-box1">
+            <input type="search" class="search-input" placeholder="ค้นหา">
+            </div>
+    </div>
+        
+    <div class="checkbox-main">
+    <div class="checkbox-box">
+        <input type="checkbox" name="visits" id="list-tax" class="checkbox-input">
+        <label for="list-tax">รายการภาษี 7%</label>
+    </div>
+</div>
+            <div class="pay-box">
+                <div class="pay-box-in">
+                    รับชำระเงิน
+                </div>
+            </div>
+            <div class="pay-money-box">
+                <div class="pay-money-box-in">
+                    จ่ายเงิน
+                </div>
+            </div>
+            <div class="back-box">
+                <div class="back-box-in">
+                    กลับ
+                </div>
+            </div>
+            <div class="selece-paper-box">
+                <div class="selece-paper-box-in">
+                    <img src="picture/save.png" class="img-save">   
+                    เลือกใบจ่ายมัดจำ
+                </div>
+            </div>
+            <div class="upload-file-box">
+                <div class="upload-file-box-in">
+                    <img src="picture/save.png" class="img-save">   
+                    อัพโหลดไฟล์
+                </div>
+            </div>
+            <div class="back-save-box">
+                <div class="back-save-box-box">
+                    <div class="back-box-in-1">
+                        กลับหน้าหลัก
+                    </div>
+                    <div class="save-box-in">
+                        บันทึก
+                    </div>
+                </div>
+            </div>
+             <div class="checkbox-main-1">
+    <div class="checkbox-box-1">
+        <input type="checkbox" name="visits" id="list-tax-1" class="checkbox-input-1" disabled>
+        <label for="list-tax-1">รายการภาษี 7%</label>
+    </div>
+</div>
+        <div class="amount-discount-priceafterdiscount">
+            <div class="amount-discount-priceafterdiscount-box">
+            <div class="amount">
+    <div class="amount-title">จำนวนเงิน</div>
+    <input type="text" value="43,200.00" class="amount-value" disabled>
+    </div>
+    <div class="discount">
+    <div class="discount-title">ส่วนลด</div>
+    <input type="text" value="100.00" class="discount-value" disabled>
+    </div>
+    <div class="priceafterdiscount">
+    <div class="priceafterdiscount-title">ยอดหลังหักส่วนลด</div>
+    <input type="text" value="43,100.00" class="priceafterdiscount-value" disabled>
+    </div>
+        </div>
+        </div>
+        <div class="checkbox-container">
+    <div class="checkbox-item">
+        <input type="checkbox" name="visits" id="not-show-name" class="my-checkbox-input">
+        <label for="not-show-name">ไม่แสดงชื่อผู้จัดทำ</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" name="signature" id="signature-option" class="my-checkbox-input">
+        <label for="signature-option">ลายเซ็นต์อิเล็กทรอนิก</label>
+    </div>
+</div>
+<div class="amount-tax">
+    <div class="amount-tax-title"> จำนวนเงิน</div>
+    <div class="amount-tax-box-1">
+    <div class="vat-box">
+        <div class="amount-vat">
+            <div class="amount-vat-tilte">ภาษีมูลค่าเพิ่ม 7%</div>
+    <input type="text" value="3,017.00" class="amount-value-1" disabled>
+        </div>
+    </div>
+    <div class="list-box">
+        <div  class="checkbox-list-box">
+        <input type="checkbox" name="visits" id="list-tax-data" class="checkbox-list-input">
+        <label for="list-tax-data">รายการที่ 1: ระบบจัดเก็บข้อมูลภายในสำนักงาน</label>
+    </div>
+     <input type="text" value="3,017.00" class="list-tax-data">
+    </div>
+    </div>
+    <div class="amount-tax-box-2">
+        <div class="withholding-tax">
+            <div class="withholding-tax-box-1">
+                <div class="withholding-tax-title">ภาษีหัก ณ ที่จ่าย</div>
+                <input type="text" value="0000.00" class="amount-value-2" disabled>
+            </div>
+            <div class="withholding-tax-box-2">
+                <div class="withholding-tax-title-2">%</div>
+                <div class="dropdown-percentage">
+            <div class="dropdown-box-percentage">
+                <select name="percentage" id="percentage-items">
+                    <option hidden selected>0.00</option>
+                    <option value="1.00">1.00</option>
+                    <option value="1.50">1.50</option>
+                    <option value="2.00">2.00</option>
+                </select>
+            </div>
+            </div>
+            </div>
+        </div>
+        <div class="list-box-2">
+        <div  class="checkbox-list-box-2">
+        <input type="checkbox" name="visits" id="list-tax-data-2" class="checkbox-list-input-2">
+        <label for="list-tax-data-2">รายการที่ 1: ระบบจัดเก็บข้อมูลภายในสำนักงาน</label>
+    </div>
+     <input type="text" value="0000.00" class="list-tax-data-2">
+    </div>
+    </div>
+</div>
+<div class="password-unit-price-unit">
+            <div class="password-unit-price-unit-box">
+            <div class="password">
+    <div class="password-title">รหัส</div>
+    <div class="password-box">
+                <div class="password-box-in">
+                    <img src="picture/save.png" class="img-save">   
+                    เลือกรหัส
+                </div>
+            </div>
+    </div>
+    <div class="unit">
+    <div class="unit-title">หน่วย</div>
+    <div class="dropdown-unit">
+            <div class="dropdown-box-unit">
+                <select name="unit" id="unit-items">
+                    <option hidden selected>เลือกหน่วย</option>
+                    <option value="1.00">1.00</option>
+                    <option value="1.50">1.50</option>
+                    <option value="2.00">2.00</option>
+                </select>
+            </div>
+            </div>
+    </div>
+    <div class="price-unit">
+    <div class="price-unit-title">ราคา/หน่วย</div>
+    <input type="text" placeholder="ราคา" class="price-unit-class" >
+    </div>
+        </div>
+        </div>
+    <!--End Beam --> 
+    </div>
+</body>
+
+</html>

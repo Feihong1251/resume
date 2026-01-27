@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รับชำระหนี้ (ฝั่งเจ้าหนี้)</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+            <div class="head-box"> <!--กล่องใหญ่-->
+        <div id="sidemenuacc"></div> <!--กล่อง sidebar-->
+        <div class="main-project"><!--กล่อง main-->
+            <div class="navbar">
+                <div style="width: 100%;height: 100%; padding: 24px;">
+                    <div style=" width: 100%; height: 100%;display: flex;justify-content: space-between; ">
+                        <div style="width: 530px; height: 40px; padding: 6.5px 0;">
+                            <div class="nav-menu">
+                                <div style="background-color: #FFFFFF; display: flex;width: 400px; border-radius: 32px;height: 100%;display: flex;align-items: center;justify-content: center; gap: 8px;">
+                                <div class="text-nav">หน้าหลัก</div>
+                                <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                <div class="text-nav">การเงิน</div>
+                                <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                <div class="text-nav">รับเงิน</div>
+                                <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                <div class="text-nav">รับชำระหนี้</div>
+                                <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                <div class="text-nav">สร้างใบเสร็จ</div>
+                                </div>
+                                <div style="width: 135px;display: flex;justify-content: center;align-items: center;">
+                                    <div style="color: #FFFFFF; font-weight: 700; font-size: 14px;">RE-2025011900001</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style=" width: 30%; height: 100%; display: flex; justify-content: end; gap: 8px;">
+                            <div class="nav-pic-right" id="btnnone"><img src="picture/load.png"  class="nav-pic"></div>
+                            <!-- <div class="nav-pic-right"><img src="picture/upload.png"  class="nav-pic"></div>
+                            <div class="nav-pic-right"><img src="picture/send.png"  class="nav-pic"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="head-work">
+                    <div class="work">
+                        <div class="deposit-receipt-box">
+                    <div class="deposit-receipt-head-box">
+                        <div class="deposit-receipt-head-box-title">ใบเสร็จ</div>
+                        <div class="deposit-receipt-box-mini">
+                            <div class="deposit-receipt-box-mini-in">
+                                <div class="deposit-receipt-box-mini-deposit">เลขที่ใบเสร็จ</div>
+                                <div id="buyPurchaseOrderDisplay" class="deposit-receipt-box-mini-number">RE-2025011300001</div>
+                            </div>
+                            <div class="deposit-receipt-box-mini-in-back">
+                                <div class="deposit-receipt-box-mini-deposit-in">มูลค่าสุทธิ (บาท)</div>
+                                <div class="deposit-receipt-box-mini-number-in">16,050.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="tabs">
+                        <input type="radio" id="radio-1" name="tabs" checked/>
+                        <label class="tab" for="radio-1">ข้อมูลเอกสาร<span></span></label>
+                        <input type="radio" id="radio-2" name="tabs"  />
+                        <label class="tab" for="radio-2">ข้อมูลการชำระ</label>
+                        <input type="radio" id="radio-3" name="tabs" />
+                        <label class="tab" for="radio-3">ข้อมูลประวัติ</label>
+                        <span class="glider"></span>
+                    </div>
+<div id="pagepreviewdeposit1" class="tab-content-new active">
+                        <div class="head-second">
+                            <div class="head-second-box">
+                            <div class="second-box-in">
+                                    <div class="document-title">ข้อมูลลูกค้า</div>
+                                    <div class="data-box">
+                                        <div class="data-box-1">
+                                            <div class="data-customer-box">
+                                                <div class="text-thin">ชื่อลูกค้า</div>
+                                                <div id="buyVendorNameDisplay" class="text-bold">ลูกค้าทดสอบ1</div>
+                                            </div>
+                                            <div class="address-customer-box">
+                                                <div class="text-thin">ที่อยู่ลูกค้า</div>
+                                                <div id="buyAddressDisplay" class="text-bold">90 อาคารซีดับเบิ้ลยู ทาวเวอร์ ชั้น 3 ห้อง 310 ถนนรัชดาภิเษก แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพมหานคร 10310</div>
+                                            </div>
+                                            <div class="email-customer-box">
+                                                <div class="text-thin">อีเมล</div>
+                                                <div id="buyGmailDisplay" class="text-bold">Test_customer@test.co.th1</div>
+                                            </div>
+                                           <div class="office-customer-box">
+                                                <div class="text-thin">สำนักงาน / สาขา</div>
+                                                <div class="office-customer-two-box">
+                                                <div class="text-bold">สาขาย่อย:</div>
+                                                 <div id="buyBranchCodeDisplay" class="text-bold">nt1234</div>
+                                                <div id="buyBranchNameDisplay" class="text-bold">สาขาทดสอบ1</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cover-data-box-2-3">
+                                        <div class="data-box-2">
+                                            <div class="password-customer-box">
+                                            <div class="text-thin">รหัสลูกค้า</div>
+                                                <div id="buyNumberDisplay" class="text-bold">BB-0000000000</div>
+                                            </div>
+                                            <div class="address-office-box">
+                                            <div class="text-thin">ที่ตั้งธุรกิจ</div>
+                                                <div id="buyLocationDisplay" class="text-bold">ไทย</div>
+                                            </div>
+                                            <div class="refer-data-box-save-the-receipt">
+                                            <div class="text-thin">หมายเหตุ</div>
+                                                <div id="buyRemarkstwoDisplay" class="text-bold">วางบิลทุกวันที่ 15 และ 30 ของเดือน</div>
+                                            </div>
+                                        </div>
+                                        <div class="data-box-3">
+                                            <div class="phone-number-box">
+                                            <div class="text-thin">เบอร์โทร</div>
+                                                <div id="buyPhoneDisplay" class="text-bold">02-1234-0000</div>
+                                            </div>
+                                            <div class="contact-customer">
+                                            <div class="text-thin">ชื่อผู้ติดต่อ</div>
+                                                <div id="buyContactNameDisplay" class="text-bold">ผู้ติดต่อทดสอบ1</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="head-three-kk">
+                                    <div class="document-title">ข้อมูลเอกสาร</div>
+                                    <div class="date-due-date-box">
+                                        <div class="date-box-in">
+                                            <div class="text-thin">แผนก</div>
+                                        <div id="buyDepartmentDisplay" class="text-bold">UXUI Designer</div>
+                                        </div>
+                                        <div class="due-date-box">
+                                            <div class="text-thin">วันที่</div>
+                                            <div id="buyDayDisplay" class="text-bold">19/01/2025</div>
+                                        </div>
+                                    </div>
+                                    <div class="data-price-tax-currency-box">
+                                        <div class="data-price-tax-box">
+                                                <div class="text-thin">วันที่รับชำระ</div>
+                                            <div id="buyPaymentdateDisplay" class="text-bold">30/01/2025</div>
+                                        </div>
+                                        <div class="cuurrency-box">
+                                            <div class="text-thin invisible-one">พนักงานขาย</div>
+                                            <div id="buySalespersonDisplay" class="text-bold invisible-one">พนักงาน01</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="head-four">
+                            <div class="list-bar-box">
+                                <div class="list-bar-title">รายการบิลรับชำระ</div>
+                                <div class="list-bar-text">สินค้า/บริการ</div>
+                                <div class="list-bar-box-in">
+                                    <div class="list-bar-data-box">
+                                        <div class="list-bar-number">
+                                            <div class="order-list-box">
+                                                <div class="data5-table">
+                                                    <table class="data-table-preview-deposit9">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ลำดับ</th>
+                                                                <th>เลขใบกำกับ</th>
+                                                                <th>วันที่</th>
+                                                                <th>ใบวางบิล</th>
+                                                                <th>ราคารวม</th>
+                                                                <th>วันที่ครบกำหนด</th>
+                                                                <th>ยอดชำระ</th>
+                                                                <th>ยอดคงค้าง</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="data-row">
+                                                                <td>1</td>
+                                                                <td>IV-202501130001</td>
+                                                                <td>30/01/2025</td>
+                                                                <td>IV-202501130001</td>
+                                                                <td>15,000.00</td>
+                                                                <td>30/01/2025</td>
+                                                                <td>15,000.00</td>
+                                                                <td>0000.00</td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="amount-money-box-kk">
+                                                    <div class="amount-money-box">
+                                                        <div class="amount-box-in-one">
+                                                            <div class="amount-box-in-text-number">
+                                                                <div class="amount-box-in-text">จำนวนเงิน
+                                                                </div>
+                                                                <div class="amount-money-box-in-number-box">
+                                                                    <div class="amount-money-box-in-number">
+                                                                        15,000.00</div>
+                                                                    <div class="amount-money-box-in-number-bart">บาท
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="amount-money-box-in-tax-seven">
+                                                                <div class="checkbox-box-disableb">
+                                                                    <div class="checkbox-box-1-force-seven">
+                                                                        <input type="checkbox" name="visits"
+                                                                            id="list-tax" class="checkbox-input-disableb" checked
+                                                                            disabled>
+                                                                        <label for="list-tax"></label>
+                                                                    </div>
+                                                                    <div class="seven-percent-box">
+                                                                        <div class="checkbox-box-1-text-seven">
+                                                                            รายการภาษี
+                                                                        </div>
+                                                                        <div class="seven-percent"> 7%</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="amount-money-box-in-tax-number-box">
+                                                                    <div class="amount-money-box-in-tax-number">1,050.00</div>
+                                                                    <div class="amount-money-box-in-tax-number-bart">
+                                                                        บาท
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="amount-money-box-in-tax-seven-drop">
+                                                                <div class="checkbox-box-disableb-drop">
+                                                                    <div class="checkbox-box-1-force-seven-drop">
+                                                                        <input type="checkbox" name="visits"
+                                                                            id="list-tax" class="checkbox-input-disableb" 
+                                                                            disabled>
+                                                                        <label for="list-tax"></label>
+                                                                    </div>
+                                                                    <div class="seven-percent-box">
+                                                                        <div class="checkbox-box-1-text-seven">
+                                                                            ภาษีถูกหัก ณ ที่จ่าย 1.5%
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sell-all-box">
+                                                            <div class="sell-all-box-in-text-number">
+                                                                <div class="sell-all-box-in-text">จำนวนเงินรวมทั้งสิ้น</div>
+                                                                <div class="sell-all-box-in-box">
+                                                                    <div class="sell-all-box-in-number">16,050.00</div>
+                                                                    <div class="sell-all-box-in-number-bart">บาท
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cover-signature">
+                        <div class="signature-eltc-box">
+                            <div class="signature-eltc-box-in-one">
+                                <div class="checkbox-box-1">         
+                                        <input type="checkbox" name="visits" id="list-tax-1" class="checkbox-input-1"
+                                            disabled>
+                                        <label for="list-tax-1"></label>                              
+                                    <div class="checkbox-box-1-text">
+                                        ลายเซ็นต์อิเล็กทรอนิกและตารายาง
+                                    </div>
+                                </div>
+                                <div class=" footnote-box">
+                                    <div class="footnote-text-title">หมายเหตุ</div>
+                                    <div class="footnote-text">ฟรีค่าจัดส่ง พร้อมอุปกรณ์ติดตั้ง</div>
+                                </div>
+                            </div>
+                            <div class="signature-eltc-box-in-two">
+                                <div class="signature-eltc-box-in-two-in">
+                                    <div class="signature-eltc-text-title">ผู้จัดทำ</div>
+                                    <div class="signature-eltc-text" id="name-Creator">ธิติรัตน์ สตาปรณ์ศิริ</div>
+                                </div>
+                                <div class="checkbox-container">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="visits" id="not-show-name"
+                                            class="my-checkbox-input" >
+                                        <label for="not-show-name">ไม่แสดงชื่อผู้จัดทำ</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="signature" id="signature-option"
+                                            class="my-checkbox-input" checked >
+                                        <label for="signature-option">ลายเซ็นต์อิเล็กทรอนิก</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="attach-file">
+                                    <div class="attach-file-text-title">แนบไฟล์</div>
+                                    <div class="attach-file-box">
+                                        <div class="attach-file-box-pdf">
+                                            <div class="attach-file-box-pdf-img">
+                                                <img src="picture/file-pdf-fill.png" alt="PDF" />
+                                            </div>
+                                            <div class="document-pdf">document1</div>
+                                            <div class="mb-pdf">(32 MB)</div>
+                                        </div>
+                                        <div class="attach-file-box-word">
+                                            <div class="attach-file-box-word-img">
+                                                <img src="picture/file-word-fill.png" alt="word" />
+                                            </div>
+                                            <div class="document-word">document2</div>
+                                            <div class="mb-word">(10 MB)</div>
+                                        </div>
+                                        <div class="attach-file-box-image">
+                                            <div class="attach-file-box-image-img">
+                                                <img src="picture/file-image-fill.png" alt="image" />
+                                            </div>
+                                            <div class="document-image">document3</div>
+                                            <div class="mb-image">(24 MB)</div>
+                                        </div>
+                                        <div class="attach-file-box-subtract">
+                                            <div class="attach-file-box-subtract-img">
+                                                <img src="picture/xfile.png" alt="subtract" />
+                                            </div>
+                                            <div class="document-subtract">document4</div>
+                                            <div class="mb-subtract">(39 MB)</div>
+                                        </div>                                 
+                                    </div>
+                                </div>
+                    </div>
+                    <!-- กล่องใหญ่ของ3ปุ่ม ถ้ากดปุ่มอนุมัติจะขึ้นแค่ปุ่มกลับไปหน้าหลัก-->
+                    <div class="tree-button">
+                            <div class="cover-box-home-edit-approve">
+                            <!-- กล่องกลับไปหน้าหลัก -->    
+                            <div class="Homepage-button"> 
+                                <a href="creditor-credit-note-table.html" class="word-Homepage-button">กลับไปหน้าหลัก</a>
+                            </div>
+                            <!-- กล่องแก้ไข -->
+                            <div class="edit-button"> 
+                                <a href="buy-creditnote-payment.html"><div class="word-edit-button">แก้ไข</div></a>
+                            </div>
+                            <!-- กล่องอนุมัติ -->
+                            <div class="approve-button"> 
+                            <a href="" class="word-appvrove-button">อนุมัติ</a>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+                    <!--ข้อมูลการหักเงินมัดจำ-->
+                    <!--ข้อมูลการหักเงินมัดจำ-->
+                    <div id="pagepreviewdeposit2" class="tab-content-new">
+                        <div class="box-deposittree">
+                        <div class="deposittree">
+                            <div class="depo-hub">
+                                <div>
+                                    <div class="depo-hub-text1">ยอดชำระตามใบกำกับ</div>
+                                    <div class="word-list">สินค้า/บริการ</div><!--หัวข้อ-->
+                                </div>
+                                <div class="box-depo">
+                                    <div class="depo-hub-text3">ชำระเงินแล้ว</div>
+                                    <div class="depo-hub-text4">รับชำระครบเมื่อวันที่: 27/01/2025</div>
+                                </div>
+                            </div>
+                            <div class="minus-deposit01">
+                                <div class="deposit-top">
+                                    <div class="deposit-payment">มูลค่ารวมภาษี</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">16,050.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-normal">
+                                    <div class="deposit-payment">ภาษีถูกหัก ณ ที่จ่าย 1.5%</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">0000.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-normal">
+                                    <div class="deposit-payment">ยอดคงค้าง</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">0000.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-buttom">
+                                    <div class="deposit-payment">ยอดชำระจริง</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">16,050.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="box-deposittree">
+                        <div class="deposittree">
+                            <div class="depo-hub">
+                                <div>
+                                    <div class="depo-hub-text1">รายการรับชำระ</div>
+                                    <div class="depo-hub-text2">สินค้า/บริการ</div>
+                                </div>
+                            </div>
+                            <div class="bank-box">
+                                <div class="bank-box-in">
+                                    <div class="choice-sell-tilte">ช่องทางการชำระเงิน</div>
+                                    <div class="bank-title">ธนาคาร</div>
+                                    <div class="bank-box-name">
+                                        <div class="bank-box-name-page-two">
+                                        </div>
+                                        <div class="bank-box-name-page-two-in">
+                                            <div class="bank-name-text">ธ.ไทยพาณิชย์ ออมทรัพย์ -</div>&nbsp;
+                                            <div class="number-bank-pagetwo">xxx-x-x0004-x Test company</div>
+                                        </div>
+                                    </div>
+                                    <div class="time-box">
+                                        <div>
+                                            <div class="time-text">วันที่ชำระ</div>
+                                            <div class="time-number-text">27/01/2025</div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <div class="time-text">เวลา</div>
+                                                <div class="time-number-text">13:45</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="time-text">แนบรูปสลิป</div>
+                                    <div class="document-page-box">
+                                        <div class="document-page-two">Slip1.jpg</div>
+                                        <div class="mb-page-two">(32 MB)</div>
+                                    </div>
+                                    <div>
+                                        <div class="Attach-slip">แนบรูปสลิป</div>
+                                        <div class="upload-file-box">
+                                                <div class="openPopupBtnupload">
+                                                <div class="upload-file-box-in">
+                                                    <img src="picture/save.png" class="img-save">
+                                                    อัพโหลดไฟล์
+                                                </div>
+                                                </div>
+                                            </div>
+                                        <input type="file" id="upload-slip" class="hidden-input-file"
+                                            accept="image/jpeg,application/pdf">
+                                        <div style="display: flex; margin-top: 8px;gap: 8px;">
+                                            <div id="file-name-display" class="selected-file-info"></div>
+                                            <div id="file-size-display"></div>
+                                            <div class="additional-images">
+                                                <img src="picture/eye.png" id="image1" alt="รูปภาพเพิ่มเติม 1">
+                                                <img src="picture/bin.png" id="image2" alt="รูปภาพเพิ่มเติม 2">
+                                            </div>
+                                        </div>
+                                        <div id="after-selection-message" class="selected-file-info"></div>
+                                        <div class="file-detail">(ขนาดไฟล์เอกสาร pdf, jpg, xls, doc ไม่เกิน 40 MB / ไฟล์)</div>
+                                    </div>
+                                </div>
+                                <div class="minus-deposit-sum-box">
+                                    <div class="minus-deposit-sum">
+                                        <div class="deposit-normal1">
+                                            <div class="deposit-payment">ภาษีถูกหัก ณ ที่จ่าย 1.5%</div>
+                                            <div class="deposit-gap">
+                                                <div class="money">0000.00</div>
+                                                <div class="baht">บาท</div>
+                                            </div>
+                                        </div>
+                                        <div class="deposit-normal">
+                                            <div class="deposit-payment">จำนวนเงินรวมทั้งสิ้น</div>
+                                            <div class="deposit-gap">
+                                                <div class="money">16,050.00</div>
+                                                <div class="baht">บาท</div>
+                                            </div>
+                                        </div>
+                                        <div class="sell-all-box">
+                                            <div class="sell-all-box-in-text-number">
+                                                <div class="sell-all-box-in-text">
+                                                    ชำระรวมทั้งสิ้น</div>
+                                                <div class="sell-all-box-in-box">
+                                                    <div class="sell-all-box-in-number">16,050.00</div>
+                                                    <div class="sell-all-box-in-number-bart">บาท
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="back-save-box">
+                <div class="back-save-box-box">
+                    <a href="creditor-credit-note-table.html"><div class="back-box-in-1">กลับหน้าหลัก</div></a>
+                    <a href="creditor-credit-note-table.html"><div class="save-box-in">บันทึก</div></a>
+                </div>
+            </div>
+                        </div>
+                    </div>
+                <!--ข้อมูลประวัติ-->
+                    <div id="pagepreviewdeposit3" class="tab-content-new">
+                        <div class="page-three-box">
+                        <div class="page-three-box-in">
+                            <ul class="timeline">
+                                <li>
+                                    <div class="timestamp">
+                                        <div class="text-date">27/01/25</div>
+                                        <div class="text-time">16:09:12</div>
+                                    </div>
+                                    <div class="dot-line">
+                                        <div class="dot active"></div>
+                                        <div class="line"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="user-box-in">
+                                            <div class="user-title">User test 02</div>
+                                            <div class="save-test">อนุมัติใบรับเงินมัดจำ</div>
+                                        </div>
+                                        <div class="day-box">
+                                            <div class="note-text">หมายเหตุ: รอเอกสารเพิ่มเติมจากลูกค้า</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timestamp">
+                                        <div class="text-date">17/01/25</div>
+                                        <div class="text-time">11:09:14</div>
+                                    </div>
+                                    <div class="dot-line">
+                                        <div class="dot"></div>
+                                        <div class="line"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="user-box-in">
+                                            <div class="user-title">User test 01</div>
+                                            <div class="save-test">บันทึกใบเสนอราคา</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timestamp">
+                                        <div class="text-date">12/01/25</div>
+                                        <div class="text-time">10:12:34</div>
+                                    </div>
+                                    <div class="dot-line">
+                                        <div class="dot"></div>
+                                        <div class="line"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="user-box-in">
+                                            <div class="user-title">User test 01</div>
+                                            <div class="save-test">ดูเอกสาร</div>
+                                        </div>
+                                        <div class="day-box">
+                                            <div class="note-text">หมายเหตุ: รอเอกสารเพิ่มเติมจากลูกค้า</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="timestamp">
+                                        <div class="text-date">02/01/25</div>
+                                        <div class="text-time">10:45:34</div>
+                                    </div>
+                                    <div class="dot-line">
+                                        <div class="dot"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="user-box-in">
+                                            <div class="user-title">User test 01</div>
+                                            <div class="save-test">เริ่มสร้างใบเสนอราคา</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                    <!--ข้อมูลประวัติ-->
+                    </div> 
+                    </div> 
+                    </div> 
+                    </div>
+                    </div>
+                    <!--upload-->
+    <div class="popup-container myPopupupload">
+        <div class="popup-content-edit-sum-upload">
+            <div style="width: 100%;">
+                <div class="bold">อัปโหลดไฟล์</div>
+                <div class="regular">ชื่อไฟล์และไฟล์ที่แนบมาทั้งหมด</div>
+            </div>
+            <div style="display: flex;">
+                <div class="left-modal-upload">
+                    <div class="upload-modal">อัปโหลดไฟล์</div>
+                    <div class="bg-uplaod">
+                        <div>
+                            <div style="display: flex; justify-content: center;">
+                                <div>
+                                    <img src="picture/upload-gray.png" class="upload-gray">
+                                </div>
+                            </div>
+                            <div class="upload-name">อัพโหลดไฟล์</div>
+                        </div>
+                    </div>
+                    <div class="display-upload">(ขนาดไฟล์เอกสาร pdf, jpg, xls,
+                        doc ไม่เกิน 40 MB / ไฟล์)</div>
+                </div>
+                <div class="right-modal-upload">
+                    <div class="upload-modal">อัปโหลดไฟล์</div>
+                    <div class="x-upload-16">
+                        <div> <input type="text" placeholder="document3.pdf" class="code-edit-box-sum-edit-dis"></div>
+                        <div class="check-x">
+                            <img src="picture/check-green.png" class="upload-gray">
+                            <img src="picture/x-icon.png" class="upload-gray">
+                        </div>
+                    </div>
+                    <div class="x-upload-doc">
+                        <div class="doc-upload">
+                            <div class="doc-name">document1.pdf</div>
+                            <div class="MB-upload">(32 MB)</div>
+                        </div>
+                        <div class="check-x">
+                            <img src="picture/eye.png" class="upload-gray">
+                            <img src="picture/pen.png" class="upload-gray">
+                            <img src="picture/bin.png" class="upload-gray">
+                        </div>
+                    </div>
+                    <div class="x-upload-doc">
+                        <div class="doc-upload">
+                            <div class="doc-name">image_sell01.jpg</div>
+                            <div class="MB-upload">(5 MB)</div>
+                        </div>
+                        <div class="check-x">
+                            <img src="picture/eye.png" class="upload-gray">
+                            <img src="picture/pen.png" class="upload-gray">
+                            <img src="picture/bin.png" class="upload-gray">
+                        </div>
+                    </div>
+                    <div class="x-upload-doc">
+                        <div class="doc-upload">
+                            <div class="doc-name">document2.pdf</div>
+                            <div class="MB-upload">(32 MB)</div>
+                        </div>
+                        <div class="check-x">
+                            <img src="picture/eye.png" class="upload-gray">
+                            <img src="picture/pen.png" class="upload-gray">
+                            <img src="picture/bin.png" class="upload-gray">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cancel-save-under">
+                <div class="box-cancel-save">
+                    <div class="cancel cancelPopupBtn">ยกเลิก</div>
+                    <div class="save addAndHideBtn">อัปโหลด</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="sidebarmain.js"></script>
+                    <script>
+    $(document).ready(function () {
+        
+    const buyBranchCode = localStorage.getItem('buyBranchCode') || '';
+    $('#buyBranchCodeDisplay').text(buyBranchCode);
+
+    const buyDepartment = localStorage.getItem('buyDepartment') || '';
+    $('#buyDepartmentDisplay').text(buyDepartment);
+
+    const buyBranchName = localStorage.getItem('buyBranchName') || '';
+    $('#buyBranchNameDisplay').text(buyBranchName);
+
+    const buyVendorName = localStorage.getItem('buyVendorName') || '';
+    $('#buyVendorNameDisplay').text(buyVendorName);
+
+    const buyNumber = localStorage.getItem('buyNumber') || '';
+    $('#buyNumberDisplay').text(buyNumber);
+
+    const buyAddress = localStorage.getItem('buyAddress') || '';
+    $('#buyAddressDisplay').text(buyAddress);
+
+            const buyPurchaseOrderNo = localStorage.getItem('buyPurchaseOrderNo') || '';
+    $('#buyPurchaseOrderDisplay').text(buyPurchaseOrderNo);
+
+    const buyLocation = localStorage.getItem('buyLocation') || '';
+    $('#buyLocationDisplay').text(buyLocation);
+
+    const buyPhone = localStorage.getItem('buyPhone') || '';
+    $('#buyPhoneDisplay').text(buyPhone);
+
+    const buyContactName = localStorage.getItem('buyContactName') || '';
+    $('#buyContactNameDisplay').text(buyContactName);
+
+    const buyGmail = localStorage.getItem('buyGmail') || '';
+    $('#buyGmailDisplay').text( buyGmail);
+
+    const formattedBuyDated = formatDateToDDMMYYYY(buyDatedRaw);
+    $('#buyDatedDisplay').text(formattedBuyDated);
+});
+        $(document).ready(function () {
+    const buyRemarkstwo = localStorage.getItem('buyRemarkstwo') || '';
+    $('#buyRemarkstwoDisplay').text(buyRemarkstwo);
+
+        const buySalesperson = localStorage.getItem('buySalesperson') || '';
+    $('#buySalespersonDisplay').text(buySalesperson);
+
+    // ดึงค่าจาก localStorage (ควรเก็บเป็น YYYY-MM-DD)
+    const rawDate = localStorage.getItem('buyPaymentdate') || '';
+    
+    // ฟังก์ชันแปลงวันที่
+function formatDateToDDMMYYYY(dateStr) {
+        if (!dateStr || !dateStr.includes('-')) return dateStr;
+        const [year, month, day] = dateStr.split('-');
+        return `${day}/${month}/${year}`;
+    }
+    // แปลงและแสดงผล
+    const formattedDate = formatDateToDDMMYYYY(rawDate);
+    $('#buyPaymentdateDisplay').text(formattedDate);
+
+    const rawbuyDay = localStorage.getItem('buyDay') || '';
+    
+    // ฟังก์ชันแปลงวันที่
+function formatDateToDDMMYYYY(dateStr) {
+        if (!dateStr || !dateStr.includes('-')) return dateStr;
+        const [year, month, day] = dateStr.split('-');
+        return `${day}/${month}/${year}`;
+    }
+    // แปลงและแสดงผล
+    const formattedbuyDay = formatDateToDDMMYYYY(rawbuyDay);
+    $('#buyDayDisplay').text(formattedbuyDay);
+});
+        $(document).ready(function () {
+            // เก็บ Selector ของ jQuery ไว้ในตัวแปรเพื่อประสิทธิภาพและความอ่านง่าย
+            const $tabRadios = $('input[name="tabs"]'); // ปุ่มวิทยุที่ควบคุมแท็บ
+            const $tabContents = $('.tab-content-new');    // เนื้อหาของแต่ละแท็บ
+            /**
+             * ซ่อนเนื้อหาแท็บทั้งหมดและแสดงเนื้อหาที่ตรงกับปุ่มวิทยุที่ถูกเลือก
+             */
+            const displaySelectedTabContent = () => {
+                // รับค่า id ของปุ่มวิทยุที่ถูกเลือก (เช่น "radio-1", "radio-2")
+                const selectedRadioId = $tabRadios.filter(':checked').attr('id');
+                // หาเลขลำดับของแท็บจาก id ของปุ่มวิทยุ (เช่น "radio-1" -> 1)
+                // เพื่อนำไปสร้าง id ของเนื้อหาแท็บ (เช่น "page1")
+                const tabNumber = selectedRadioId.split('-')[1];
+                const selectedTabContentId = `page${tabNumber}`;
+                // ลบ class 'active' ออกจากเนื้อหาแท็บทั้งหมดเพื่อซ่อน
+                $tabContents.removeClass('active');
+                // เพิ่ม class 'active' ให้กับเนื้อหาแท็บที่ถูกเลือกเพื่อแสดงผล
+                $(`#${selectedTabContentId}`).addClass('active');
+            };
+            // ผูก Event Listener ประเภท 'change' เข้ากับปุ่มวิทยุทั้งหมด
+            // เมื่อปุ่มวิทยุถูกเลือก ให้เรียกใช้ฟังก์ชัน displaySelectedTabContent
+            $tabRadios.on('change', displaySelectedTabContent);
+            // เรียกใช้ฟังก์ชันหนึ่งครั้งเมื่อโหลดหน้าเว็บครั้งแรก เพื่อแสดงเนื้อหาแท็บเริ่มต้นที่ถูกเลือก
+            displaySelectedTabContent();
+        });
+            $(document).ready(function () {
+            const $tabRadios = $('input[name="tabs"]');
+            const $tabContents = $('.tab-content-new');
+            const displaySelectedTabContent = () => {
+                const selectedRadioId = $tabRadios.filter(':checked').attr('id');
+                const tabNumber = selectedRadioId.split('-')[1];
+                const tabIdMap = {
+                    '1': 'pagepreviewdeposit1',
+                    '2': 'pagepreviewdeposit2',
+                    '3': 'pagepreviewdeposit3'
+                };
+                $tabContents.removeClass('active');
+                $(`#${tabIdMap[tabNumber]}`).addClass('active');
+            };
+            $tabRadios.on('change', displaySelectedTabContent);
+            displaySelectedTabContent();
+        });
+$(document).ready(function () {
+    $('input[name="tabs"]').on('change', function () {
+        const selectedId = $('input[name="tabs"]:checked').attr('id');
+        if (selectedId === 'radio-1') {
+            $('.deposit-receipt-head-box-title').text('ใบเสร็จ');
+        } else if (selectedId === 'radio-2') {
+            $('.deposit-receipt-head-box-title').text('ข้อมูลการรับชำระ');
+        } else if (selectedId === 'radio-3') {
+            $('.deposit-receipt-head-box-title').text('ข้อมูลการหักใบมัดจำ'); // You can change this text
+        }
+    });
+});
+$(document).ready(function () {
+    // เลือกองค์ประกอบของปุ่มเปิด Pop-up หลักแต่ละอัน (ใช้ class)
+    const $openPopupBtnsUpload = $('.openPopupBtnupload');
+    const $openPopupBtnsPenView = $('.openPopupBtnpenview');
+    const $openPopupBtnsView = $('.openPopupBtnview');
+    const $openPopupBtnsAdd = $('.openPopupBtnadd');
+    const $openPopupBtnsEditPen = $('.openPopupBtneditpen');
+    const $openPopupBtnsDeposit = $('.openPopupBtndeposit');
+    const $openPopupBtnsAddDate = $('.openPopupBtnadddate');
+    const $openPopupBtnsViewDate = $('.openPopupBtnviewdate');
+    const $openPopupBtnsAddSum = $('.openPopupBtnaddsum');
+    const $openPopupBtnsSalesOrder = $('.openPopupBtnsalesorder');
+    const $openPopupBtnsAddDeposit = $('.openPopupBtndeopsit');
+    const $openPopupBtnsSelectReceive = $('.openPopupBtnselectreceive');
+    const $openPopupBtnsSelectBill = $('.openPopupBtnselectbill');
+    const $openPopupBtnsTableSum = $('.openPopupBtntablesum');
+    const $openPopupBtnsTableBillingSlip = $('.openPopupBtnTableBillingSlip');
+    const $openPopupBtnsViewInvoice = $('.openPopupBtnViewInvoice');
+    // เลือกองค์ประกอบของ Pop-up หลักแต่ละอัน (ใช้ class)
+    const $myPopupsUpload = $('.myPopupupload');
+    const $myPopupsPenView = $('.myPopuppenview');
+    const $myPopupsView = $('.myPopupview');
+    const $myPopupsAdd = $('.myPopupadd');
+    const $myPopupsEditPen = $('.myPopupeditpen');
+    const $myPopupsDeposit = $('.myPopupdeposit');
+    const $myPopupsAddDate = $('.myPopupadddate');
+    const $myPopupsViewDate = $('.myPopupviewdate');
+    const $myPopupsAddSum = $('.myPopupaddsum');
+    const $myPopupsSalesOrder = $('.myPopupsalesorder');
+    const $myPopupsAddDeposit = $('.myPopupadddeopsit');
+    const $myPopupsSelectReceive = $('.myPopupselectreceive');
+    const $myPopupsSelectBill = $('.myPopupselectbill');
+    const $myPopupsTableSum = $('.myPopuptablesum');
+    const $myPopupsTableBillingSlip = $('.myPopupsTableBillingSlip');
+    const $myPopupsViewInvoice = $('.myPopupsviewinvoice');
+    // ปุ่มภายใน Pop-up หลักแต่ละอัน (Cancel และ Add/Hide/Save) (ใช้ class)
+    const $cancelPopupBtns = $('.cancelPopupBtn');
+    const $addAndHideBtns = $('.addAndHideBtn'); // สำหรับ myPopupupload (เปิด sideupload)
+    const $cancelPopupBtns2 = $('.cancelPopupBtn2');
+    const $addAndHideBtns2 = $('.addAndHideBtn2'); // สำหรับ myPopuppenview (ปิด popup)
+    const $cancelPopupBtns3 = $('.cancelPopupBtn3');
+    const $addAndHideBtns3 = $('.addAndHideBtn3'); // สำหรับ myPopupview (ปิด popup)
+    const $cancelPopupBtns4 = $('.cancelPopupBtn4');
+    const $addAndHideBtns4 = $('.addAndHideBtn4'); // สำหรับ myPopupadd (เปิด sideadd)
+    const $cancelPopupBtns5 = $('.cancelPopupBtn5');
+    const $addAndHideBtns5 = $('.addAndHideBtn5'); // สำหรับ myPopupeditpen (ปิด popup)
+    const $cancelPopupBtns6 = $('.cancelPopupBtn6');
+    const $addAndHideBtns6 = $('.addAndHideBtn6'); // สำหรับ myPopupdeposit (ปิด popup)
+    const $cancelPopupBtns7 = $('.cancelPopupBtn7');
+    const $addAndHideBtns7 = $('.addAndHideBtn7'); // สำหรับ myPopupadddate (ปิด popup)
+    const $cancelPopupBtns8 = $('.cancelPopupBtn8');
+    const $addAndHideBtns8 = $('.addAndHideBtn8'); // สำหรับ myPopup8 (ปิด popup)
+    const $cancelPopupBtns9 = $('.cancelPopupBtn9');
+    const $addAndHideBtns9 = $('.addAndHideBtn9'); // สำหรับ myPopup9 (ปิด popup)
+    const $cancelPopupBtns10 = $('.cancelPopupBtn10');
+    const $addAndHideBtns10 = $('.addAndHideBtn10'); // สำหรับ myPopup10 (ปิด popup)
+    const $cancelPopupBtns11 = $('.cancelPopupBtn11');
+    const $addAndHideBtns11 = $('.addAndHideBtn11'); // สำหรับ myPopup11 (เปิด sidetable)
+    const $hidePopupAdd11 = $('.hidePopupadd11'); // ปุ่มใหม่สำหรับซ่อน myPopup11
+    const $cancelPopupBtns12 = $('.cancelPopupBtn12');
+    const $addAndHideBtns12 = $('.addAndHideBtn12');
+    const $hidePopupAdd12 = $('.hidePopupadd12');
+    const $cancelPopupBtns13 = $('.cancelPopupBtn13');
+    const $addAndHideBtns13 = $('.addAndHideBtn13');
+    const $hidePopupAdd13 = $('.hidePopupadd13');
+    const $cancelPopupBtns14 = $('.cancelPopupBtn14');
+    const $addAndHideBtns14 = $('.addAndHideBtn14');
+    const $hidePopupAdd14 = $('.hidePopupadd14');
+    const $cancelPopupBtnsTableBillingSlip = $('.cancelPopupBtnTableBillingSlip');
+    const $addAndHideBtnsTableBillingSlip = $('.addAndHideBtnTableBillingSlip');
+    const $hidePopupAddTableBillingSlip = $('.hidePopupAddTableBillingSlip');
+    const $cancelPopupBtnsViewInvoice = $('.cancelPopupBtnViewInvoice');
+    const $addAndHideBtnsViewInvoice = $('.addAndHideBtnViewInvoice');
+    const $hidePopupAddViewInvoice = $('.hidePopupAddViewInvoice');
+    // Pop-up ย่อย (.sideupload, .sideadd, .sidetable) และปุ่มภายใน (ใช้ class)
+    const $sideuploads = $('.sideupload');
+    const $sideuploadCancelBtns = $('.sideuploadCancelBtn');
+    const $sideuploadSaveBtns = $('.sideuploadSaveBtn');
+    const $uploadFileBtns = $('.uploadFileBtn');
+    const $openEditBtns = $('.openedit');
+    const $sideadds = $('.sideadd');
+    const $sideaddCancelBtns = $('.sideaddCancelBtn');
+    const $sideaddSaveBtns = $('.sideaddSaveBtn');
+    const $sidetables = $('.sidetable');
+    const $sidetableCancelBtns = $('.sidetableCancelBtn');
+    const $sidetableSaveBtns = $('.sidetableSaveBtn');
+    // 5 ปุ่มเสริมใน Pop-up ย่อย (ถ้ายังคงใช้) (ใช้ class)
+    const $newBtns1 = $('.newButton1');
+    const $newBtns2 = $('.newButton2');
+    const $newBtns3 = $('.newButton3');
+    const $newBtns4 = $('.newButton4');
+    const $newBtns5 = $('.newButton5');
+    // เลือกองค์ประกอบทั้งหมดที่มีคลาส 'data-search-long' และ 'data-search'
+    const searchItemsLong = $('.data-search-long');
+    const searchItemsShort = $('.data-search');
+    // กำหนดระยะเวลา transition ในหน่วยมิลลิวินาที (ตรงกับ 0.15s ใน CSS)
+    const TRANSITION_DURATION = 150;
+    // ตัวแปรสำหรับเก็บ Pop-up หลักปัจจุบัน เมื่อต้องกลับจาก Pop-up ย่อย
+    let currentMainPopup = null;
+    // --- ฟังก์ชันตัวช่วยสำหรับการจัดการ Popup ---
+    function showPopup($popupElement) {
+        $popupElement.css('display', 'flex');
+        setTimeout(() => {
+            $popupElement.addClass('show');
+            $('body').addClass('no-scroll'); // ป้องกันการ scroll ของ body
+        }, 10);
+    }
+    function hidePopup($popupElement) {
+        $popupElement.removeClass('show');
+        setTimeout(() => {
+            // ตรวจสอบว่าไม่มี popup หรือ side-panel อื่นๆ ที่กำลังแสดงอยู่ก่อนเอา class 'no-scroll' ออก
+            if (!$('.popup.show').length && !$('.sideupload.show').length && !$('.sideadd.show').length && !$('.sidetable.show').length) {
+                $('body').removeClass('no-scroll');
+            }
+            // ซ่อน display: none เมื่อไม่มี class 'show' แล้ว
+            if (!$popupElement.hasClass('show')) {
+                $popupElement.css('display', 'none');
+            }
+        }, TRANSITION_DURATION);
+    }
+    // ฟังก์ชันสำหรับซ่อน Pop-up ย่อย (.sideupload) และแสดง Pop-up หลักที่กำหนด
+    function hideSideuploadAndShowMainPopup() {
+        hidePopup($sideuploads);
+        setTimeout(() => {
+            if (currentMainPopup) {
+                showPopup(currentMainPopup);
+                currentMainPopup = null; // รีเซ็ตตัวแปร
+            }
+        }, TRANSITION_DURATION);
+    }
+    // ฟังก์ชันสำหรับซ่อน Pop-up ย่อย (.sideadd) และแสดง Pop-up หลักที่กำหนด
+    function hideSideaddAndShowMainPopup($mainPopupElement) {
+        hidePopup($sideadds);
+        setTimeout(() => {
+            showPopup($mainPopupElement);
+        }, TRANSITION_DURATION);
+    }
+    // ฟังก์ชันสำหรับซ่อน Pop-up ย่อย (.sidetable) และแสดง Pop-up หลักที่กำหนด
+    function hideSidetableAndShowMainPopup($mainPopupElement) {
+        hidePopup($sidetables);
+        setTimeout(() => {
+            showPopup($mainPopupElement);
+        }, TRANSITION_DURATION);
+    }
+    // --- การจัดการการเลือกแถวและเปลี่ยนรูปภาพ (One-click selection) ---
+    function setupRowSelection(items) {
+        items.each(function () {
+            const item = $(this);
+            item.on('click', function () {
+                // ลบคลาส 'selected' และเปลี่ยนรูปภาพกลับสำหรับทุกรายการในกลุ่มเดียวกัน
+                items.each(function () {
+                    const currentItem = $(this);
+                    currentItem.removeClass('selected');
+                    const eyeImg = currentItem.find('.eye-search');
+                    if (eyeImg.length) {
+                        eyeImg.attr('src', 'picture/eye.png'); // Path รูปเริ่มต้น
+                    }
+                });
+                // เพิ่มคลาส 'selected' และเปลี่ยนรูปภาพสำหรับรายการที่ถูกคลิก
+                item.addClass('selected');
+                const eyeImgSelected = item.find('.eye-search');
+                if (eyeImgSelected.length) {
+                    eyeImgSelected.attr('src', 'picture/eye-white.png'); // Path รูปเมื่อถูกเลือก
+                }
+                console.log('Item clicked and selected:', item.attr('class'));
+            });
+        });
+    }
+    // เรียกใช้ฟังก์ชันเพื่อตั้งค่าการเลือกแถวสำหรับทั้ง .data-search-long และ .data-search
+    setupRowSelection(searchItemsLong);
+    setupRowSelection(searchItemsShort);
+    // --- ตั้งค่า Event Listeners สำหรับปุ่มเปิด Pop-up หลัก ---
+    $openPopupBtnsUpload.on('click', function () { showPopup($myPopupsUpload); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupupload ถูกคลิก!`); });
+    $openPopupBtnsPenView.on('click', function () { showPopup($myPopupsPenView); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopuppenview ถูกคลิก!`); });
+    $openPopupBtnsView.on('click', function () { showPopup($myPopupsView); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupview ถูกคลิก!`); });
+    $openPopupBtnsAdd.on('click', function () { showPopup($myPopupsAdd); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupadd ถูกคลิก!`); });
+    $openPopupBtnsEditPen.on('click', function () { showPopup($myPopupsEditPen); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupeditpen ถูกคลิก!`); });
+    $openPopupBtnsDeposit.on('click', function () { showPopup($myPopupsDeposit); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupdeposit ถูกคลิก!`); });
+    $openPopupBtnsAddDate.on('click', function () { showPopup($myPopupsAddDate); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupadddate ถูกคลิก!`); });
+    $openPopupBtnsViewDate.on('click', function () { showPopup($myPopupsViewDate); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupviewdate ถูกคลิก!`); });
+    $openPopupBtnsAddSum.on('click', function () { showPopup($myPopupsAddSum); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupaddsum ถูกคลิก!`); });
+    $openPopupBtnsSalesOrder.on('click', function () { showPopup($myPopupsSalesOrder); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupsalesorder ถูกคลิก!`); });
+    $openPopupBtnsAddDeposit.on('click', function () { showPopup($myPopupsAddDeposit); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupadddeopsit ถูกคลิก!`); });
+    $openPopupBtnsSelectReceive.on('click', function () { showPopup($myPopupsSelectReceive); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupselectreceive ถูกคลิก!`); });
+    $openPopupBtnsSelectBill.on('click', function () { showPopup($myPopupsSelectBill); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupselectbill ถูกคลิก!`); });
+    $openPopupBtnsTableSum.on('click', function () { showPopup($myPopupsTableSum); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopuptablesum ถูกคลิก!`); });
+    $openPopupBtnsTableBillingSlip.on('click', function () { showPopup($myPopupsTableBillingSlip); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupsTableBillingSlip ถูกคลิก!`); });
+    $openPopupBtnsViewInvoice.on('click', function () { showPopup($myPopupsViewInvoice); console.log(`องค์ประกอบ "เปิด" สำหรับ .myPopupsviewinvoice ถูกคลิก!`); });
+    // --- ตั้งค่า Event Listeners สำหรับปุ่ม "ยกเลิก" ใน Pop-up หลัก ---
+    $cancelPopupBtns.on('click', function () { hidePopup($myPopupsUpload); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupupload ถูกคลิก!`); });
+    $cancelPopupBtns2.on('click', function () { hidePopup($myPopupsPenView); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopuppenview ถูกคลิก!`); });
+    $cancelPopupBtns3.on('click', function () { hidePopup($myPopupsView); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupview ถูกคลิก!`); });
+    $cancelPopupBtns4.on('click', function () { hidePopup($myPopupsAdd); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupadd ถูกคลิก!`); });
+    $cancelPopupBtns5.on('click', function () { hidePopup($myPopupsEditPen); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupeditpen ถูกคลิก!`); });
+    $cancelPopupBtns6.on('click', function () { hidePopup($myPopupsDeposit); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupdeposit ถูกคลิก!`); });
+    $cancelPopupBtns7.on('click', function () { hidePopup($myPopupsAddDate); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupadddate ถูกคลิก!`); });
+    $cancelPopupBtns8.on('click', function () { hidePopup($myPopupsViewDate); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupviewdate ถูกคลิก!`); });
+    $cancelPopupBtns9.on('click', function () { hidePopup($myPopupsAddSum); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupaddsum ถูกคลิก!`); });
+    $cancelPopupBtns10.on('click', function () { hidePopup($myPopupsSalesOrder); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupsalesorder ถูกคลิก!`); });
+    $cancelPopupBtns11.on('click', function () { hidePopup($myPopupsAddDeposit); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupadddeopsit ถูกคลิก!`); });
+    $cancelPopupBtns12.on('click', function () { hidePopup($myPopupsSelectReceive); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupselectreceive ถูกคลิก!`); });
+    $cancelPopupBtns13.on('click', function () { hidePopup($myPopupsSelectBill); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupselectbill ถูกคลิก!`); });
+    $cancelPopupBtns14.on('click', function () { hidePopup($myPopupsTableSum); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopuptablesum ถูกคลิก!`); });
+    $cancelPopupBtnsTableBillingSlip.on('click', function () { hidePopup($myPopupsTableBillingSlip); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupsTableBillingSlip ถูกคลิก!`); });
+    $cancelPopupBtnsViewInvoice.on('click', function () { hidePopup($myPopupsViewInvoice); console.log(`องค์ประกอบ "ยกเลิก" สำหรับ .myPopupsviewinvoice ถูกคลิก!`); });
+    // --- จัดการปุ่ม "เพิ่ม/บันทึก" ใน Pop-up หลักแต่ละอัน ---
+    // Pop-up ที่เปิด Pop-up ย่อย
+    $addAndHideBtns.on('click', function () { // myPopupupload -> sideupload
+        hidePopup($myPopupsUpload);
+        setTimeout(() => {
+            currentMainPopup = $myPopupsUpload;
+            showPopup($sideuploads);
+        }, TRANSITION_DURATION);
+        console.log('Div "เพิ่ม" สำหรับ .myPopupupload ถูกคลิก! .sideupload แสดง.');
+    });
+    $addAndHideBtns4.on('click', function () { // myPopupadd -> sideadd
+        hidePopup($myPopupsAdd);
+        setTimeout(() => {
+            currentMainPopup = $myPopupsAdd;
+            showPopup($sideadds);
+        }, TRANSITION_DURATION);
+        console.log('Div "เพิ่ม" สำหรับ .myPopupadd ถูกคลิก! .sideadd แสดง.');
+    });
+    $addAndHideBtns11.on('click', function () { // myPopupadddeopsit -> sidetable
+        hidePopup($myPopupsAddDeposit);
+        setTimeout(() => {
+            currentMainPopup = $myPopupsAddDeposit;
+            showPopup($sidetables);
+        }, TRANSITION_DURATION);
+        console.log('Div "เพิ่ม" สำหรับ .myPopupsadddeopsit ถูกคลิก! .sidetable แสดง.');
+    });
+    // ปุ่มที่ปิด Pop-up หลักที่เกี่ยวข้องทันที
+    $addAndHideBtns2.on('click', function () { hidePopup($myPopupsPenView); console.log('Div "เพิ่ม" สำหรับ .myPopuppenview ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns3.on('click', function () { hidePopup($myPopupsView); console.log('Div "เพิ่ม" สำหรับ .myPopupview ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns5.on('click', function () { hidePopup($myPopupsEditPen); console.log('Div "เพิ่ม" สำหรับ .myPopupeditpen ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns6.on('click', function () { hidePopup($myPopupsDeposit); console.log('Div "เพิ่ม" สำหรับ .myPopupdeposit ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns7.on('click', function () { hidePopup($myPopupsAddDate); console.log('Div "บันทึก" สำหรับ .myPopupadddate ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns8.on('click', function () { hidePopup($myPopupsViewDate); console.log('Div "เพิ่ม" สำหรับ .myPopupviewdate ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns9.on('click', function () { hidePopup($myPopupsAddSum); console.log('Div "เพิ่ม" สำหรับ .myPopupaddsum ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns10.on('click', function () { hidePopup($myPopupsSalesOrder); console.log('Div "เพิ่ม" สำหรับ .myPopupsalesorder ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns12.on('click', function () { hidePopup($myPopupsSelectReceive); console.log('Div "เพิ่ม" สำหรับ .myPopupselectreceive ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns13.on('click', function () { hidePopup($myPopupsSelectBill); console.log('Div "เพิ่ม" สำหรับ .myPopupselectbill ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtns14.on('click', function () { hidePopup($myPopupsTableSum); console.log('Div "เพิ่ม" สำหรับ .myPopup14 ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtnsTableBillingSlip.on('click', function () { hidePopup($myPopupsTableBillingSlip); console.log('Div "เพิ่ม" สำหรับ .myPopupsTableBillingSlip ถูกคลิก! และปิด Popup หลัก'); });
+    $addAndHideBtnsViewInvoice.on('click', function () { hidePopup($myPopupsViewInvoice); console.log('Div "เพิ่ม" สำหรับ .myPopupsviewinvoice ถูกคลิก! และปิด Popup หลัก'); });
+    // --- ตั้งค่า Event Listeners สำหรับ Pop-up ย่อย (.sideupload, .sideadd, .sidetable) ---
+    // Event listeners สำหรับ sideupload
+    $sideuploadCancelBtns.on('click', function () { hideSideuploadAndShowMainPopup(); console.log('Div "ยกเลิก" ใน Popup ที่ 2 (.sideupload) ถูกคลิก! กลับไปที่ Popup หลักก่อนหน้า.'); });
+    $sideuploadSaveBtns.on('click', function () { hideSideuploadAndShowMainPopup(); console.log('Div "บันทึก" ใน Popup ที่ 2 (.sideupload) ถูกคลิก! กลับไปที่ Popup หลักก่อนหน้า.'); });
+    $uploadFileBtns.on('click', function () { console.log('Div "อัปโหลดไฟล์" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    $openEditBtns.on('click', function () { console.log('Div "Open Edit" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    $newBtns1.on('click', function () { console.log('Div "Div 1" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    $newBtns2.on('click', function () { console.log('Div "Div 2" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    $newBtns3.on('click', function () { console.log('Div "Div 3" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    $newBtns4.on('click', function () { console.log('Div "Div 4" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    $newBtns5.on('click', function () { console.log('Div "Div 5" ใน Popup ที่ 2 (.sideupload) ถูกคลิก!'); hideSideuploadAndShowMainPopup(); });
+    // Event listeners สำหรับ sideadd
+    $sideaddCancelBtns.on('click', function () { hideSideaddAndShowMainPopup($myPopupsAdd); console.log('Div "ยกเลิก" ใน .sideadd ถูกคลิก! กลับไปที่ .myPopupadd.'); });
+    $sideaddSaveBtns.on('click', function () { hideSideaddAndShowMainPopup($myPopupsAdd); console.log('Div "เพิ่ม" ใน .sideadd ถูกคลิก! กลับไปที่ .myPopupadd.'); });
+    // Event listeners สำหรับ sidetable
+    if ($sidetables.length) { // ตรวจสอบว่ามีองค์ประกอบนี้อยู่จริง
+        $sidetableCancelBtns.on('click', function () { hideSidetableAndShowMainPopup(currentMainPopup); console.log('Div "ยกเลิก" ใน .sidetable ถูกคลิก! กลับไปที่ Popup หลักก่อนหน้า.'); });
+        $sidetableSaveBtns.on('click', function () { hideSidetableAndShowMainPopup(currentMainPopup); console.log('Div "บันทึก" ใน .sidetable ถูกคลิก! กลับไปที่ Popup หลักก่อนหน้า.'); });
+    }
+    // --- Event Listeners สำหรับปุ่ม "เพิ่ม" (ซ่อน Pop-up) ---
+    $hidePopupAdd11.on('click', function () { hidePopup($myPopupsAddDeposit); console.log('ปุ่ม .hidePopupadd11 ถูกคลิก! ซ่อน .myPopup11.'); });
+    $hidePopupAdd12.on('click', function () { hidePopup($myPopupsSelectReceive); console.log('ปุ่ม .hidePopupadd12 ถูกคลิก! ซ่อน .myPopupselectreceive.'); });
+    $hidePopupAdd13.on('click', function () { hidePopup($myPopupsSelectBill); console.log('ปุ่ม .hidePopupadd13 ถูกคลิก! ซ่อน .myPopupselectbill.'); });
+    $hidePopupAdd14.on('click', function () { hidePopup($myPopupsTableSum); console.log('ปุ่ม .hidePopupadd14 ถูกคลิก! ซ่อน .myPopup14.'); });
+    $hidePopupAddTableBillingSlip.on('click', function () { hidePopup($myPopupsTableBillingSlip); console.log('ปุ่ม .hidePopupAddTableBillingSlip ถูกคลิก! ซ่อน .myPopupsTableBillingSlip.'); });
+    $hidePopupAddViewInvoice.on('click', function () { hidePopup($myPopupsViewInvoice); console.log('ปุ่ม .hidePopupAddViewInvoice ถูกคลิก! ซ่อน .myPopupsviewinvoice.'); });
+    // --- จัดการสีของ Dropdown (select) เมื่อมีการเลือกค่า ---
+    // รวม .right-under-long, .right-under, .modal-select เข้าด้วยกันใน event listener เดียว
+    $('.right-under-long, .right-under, .modal-select').on('change', function() {
+        // ตรวจสอบค่าที่เลือก ถ้าเป็นค่าเริ่มต้นที่แสดงว่ายังไม่ได้เลือก (เช่น "เลือกประเภทเอกสาร", "เลือก...", หรือสตริงว่าง)
+        // ให้ลบคลาสที่เปลี่ยนสีออก เพื่อให้กลับไปใช้สีเริ่มต้น
+        if ($(this).val() === 'เลือกประเภทเอกสาร' || $(this).val() === 'เลือก...' || $(this).val() === '') {
+            $(this).removeClass('text-black-select-modal');
+            // หากคุณต้องการเปลี่ยนสีด้วย CSS variable โดยตรงเมื่อไม่ได้เลือก
+            $(this).css('color', ''); // ลบ inline style เพื่อให้ CSS เดิมมีผล
+        } else {
+            // ถ้ามีการเลือกค่าอื่นที่ไม่ใช่ค่าเริ่มต้น ให้เพิ่มคลาสเพื่อเปลี่ยนสี
+            $(this).addClass('text-black-select-modal');
+            // หรือเปลี่ยนสีด้วย CSS variable โดยตรง
+            $(this).css('color', 'var(--input-text-black)');
+        }
+    });
+    // ตั้งค่าสีเริ่มต้นของ dropdowns เมื่อหน้าโหลด (ถ้ามีค่าที่ถูกเลือกอยู่แล้ว)
+    // ลูปผ่านทุก dropdown ที่เกี่ยวข้องเพื่อตั้งค่าสีตามค่าปัจจุบัน
+    $('.right-under-long, .right-under, .modal-select').each(function() {
+        if ($(this).val() !== 'เลือกประเภทเอกสาร' && $(this).val() !== 'เลือก...' && $(this).val() !== '') {
+            $(this).addClass('text-black-select-modal');
+            $(this).css('color', 'var(--input-text-black)');
+        } else {
+            $(this).removeClass('text-black-select-modal');
+            $(this).css('color', '');
+        }
+    });
+});
+//อันนี้จะติ้กได้แค่หน้าก่อนอนุมัติ
+        $(document).ready(function () {
+    function updateSignatureBox() {
+        const showSignature = $('#signature-option').is(':checked');
+        const showMaker = $('#not-show-name').is(':checked');
+
+        if (showMaker) {
+            $('#signature-maker-box').hide();
+        } else if (showSignature) {
+            $('#signature-maker-box').show();
+        } else {
+            $('#signature-maker-box').hide();
+        }
+    }
+
+    // ตั้งค่าตั้งต้น: ให้ติ๊ก "แสดงลายเซ็น"
+    $('#signature-option').prop('checked', true);
+    $('#not-show-name').prop('checked', false);
+    updateSignatureBox();
+
+    $('#not-show-name').on('change', function () {
+        if ($(this).is(':checked')) {
+            $('#signature-option').prop('checked', false);
+        }
+        updateSignatureBox();
+    });
+
+    $('#signature-option').on('change', function () {
+        if ($(this).is(':checked')) {
+            $('#not-show-name').prop('checked', false);
+        }
+        updateSignatureBox();
+    });
+});
+    </script>
+</body>       
+</html>

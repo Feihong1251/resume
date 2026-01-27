@@ -1,0 +1,3292 @@
+ @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Noto+Sans+Thai:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    background-color: var(--bg-color300) ;
+    font-family: "Noto Sans Thai", sans-serif;
+}
+ :root {
+    /*********************************************color***********************************************/
+    /********************************************FEi start********************************************/
+    /*Color Start*/
+    --secondary-color50: #EFF8F7;
+    --secondary-color100: #E2ECEB;
+    --secondary-color200: #C89D2D;
+    --primary-color300: #C6D8D3;
+    --primary-color400: #AAC4BB;
+    --primary-color500: #425C59;
+    /*Color End*/
+
+    /*Gray Start*/
+    --gray-color50: #F6F7F9;
+    --gray-color100: #ECEEF2;
+    --gray-color200: #D5D9E2;
+    --gray-color300: #B1B9C8;
+    --gray-color400: #606D85;
+    --gray-color500: #444D60;
+    /*Gray End*/
+
+    /*Black-white Start*/
+    --black: #000000;
+    --white: #FFFFFF;
+    /*Black-white End*/
+
+    /*Opacity Start*/
+    --white-20: rgba(255, 255, 255, 0.2);
+    --white-60: rgba(255, 255, 255, 0.6);
+    --gray-color300-20: rgba(177, 185, 200, 0.2);
+    --gray-color300-60: rgba(177, 185, 200, 0.6);
+    /*Opacity End*/
+
+    /*Background Start*/
+    --bg-white: #FFFFFF;
+    --bg-color100: #E2ECEB;
+    --bg-color300: #C6D8D3;
+    --bg-color500: #425C59;
+    /*Background End*/
+
+    /*Text Start*/
+    --text-white: #FFFFFF;
+    --text-gray-color200: #D5D9E2;
+    --text-gray-color300: #B1B9C8;
+    --text-black: #000000;
+    --text-color-file: #056888;
+    --text-color-alert: #FF0000;
+    --text-color200:#C89D2D;/*new*/
+    --text-color400: #AAC4BB;
+    --text-color500: #425C59;
+    /*Text End*/
+
+    /*Stoke Start*/
+    --stoke-color-alert: #FF0000;
+    --stoke-white: #FFFFFF;
+    --stoke-gray-color200: #D5D9E2;
+    --stoke-color400: #AAC4BB;
+    /*Stoke End*/
+
+    /*Button Start*/ 
+    /**none bg*/ 
+    /*new*/
+    --bnt-n-bg-white: #FFFFFF;
+    --btn-n-bg-secondary: #C89D2D;
+    --btn-n-bg-primary400: #AAC4BB;
+    --btn-n-bg-primary500: #425C59;
+    /*none bg*/
+    /* hover-bg start*/
+    --btn-hv-bg-white:#FFFFFF;
+    /* hover end*/
+    --btn-hv-stoke-color100:#E2ECEB;
+    --btn-hv-stoke-color400:#AAC4BB;
+    --btn-hv-stoke-secondary:#C89D2D;
+    --btn-hv-stoke-primary: #425C59;
+    /* hover start*/
+    /*disable-bg start*/
+    --btn-di-bg-gray100:#ECEEF2;
+    --btn-di-bg-gray200:#D5D9E2;
+    --btn-di-bg-secondary:#EDDBAE;
+    --btn-di-bg-primary:#AAC4BB;
+    /*disable-bg end*/
+    /*new*/
+     /*Button End*/
+    /*FEi End*/
+
+    /********************************************Khaow Start*********************************************/
+    /*Star Text*/
+    /*Tab*/
+    --tab-text-disable: #FFFFFF;
+    --tab-bg-disable: #425C59;
+    /*End Text*/
+    /*Tab*/
+
+    /*Star Line*/
+    --line-white: #FFFFFF;
+    --line-color300: #C6D8D3;
+    /*End Line*/
+
+    /*Star Background*/
+    /*Action*/
+    --action-bg-color-non: #FFFFFF;
+    --action-bg-color-hover: #F6F7F9;
+    --action-bg-color-click: #E2ECEB;
+    --action-bg-color-select: #AAC4BB;
+    /*End Background*/
+    /*Action*/
+
+    /*Star Text*/
+    /*Action*/
+    --action-text-select: #FFFFFF;
+    --action-text-non: #000000;
+    /*End Text*/
+    /*Action*/
+
+    /*Star Table*/
+    --table-bg-color-content: #FFFFFF;
+    --table-bg-color-line: #C6D8D3;
+    --table-bg-color-title: #425C59;
+    /*End Table*/
+
+    /*Scroll bar*/
+    --scroll-gray: #D5D9E2;
+    --scroll-color: #E2ECEB;
+    /*Scroll bar*/
+    /*Khaow End*/
+    /*******************************************Beam Start*********************************************/
+    /*input*/
+    /*background*/
+    --input-bg-white: #FFFFFF;
+    --input-bg-gray-color100: #ECEEF2;
+    --input-bg-color50: #EFF8F7;
+    /*background*/
+    /*input*/
+    /*Stoke (Line)*/
+    --input-stoke-color-alert: #FF0000;
+    --input-stoke-gray-color100: #ECEEF2;
+    --input-stoke-gray-color200: #D5D9E2;
+    --input-stoke-color400: #AAC4BB;
+    /*Stoke (Line)*/
+    /*Text*/
+    --input-text-color-alert: #FF0000;
+    --input-text-white: #FFFFFF;
+    --input-text-gray-color100: #ECEEF2;
+    --input-text-gray-color200: #D5D9E2;
+    --Input-text-black: #000000;
+    --input-text-color400: #AAC4BB;
+    /*Text*/
+    /*Place holder*/
+    --input-place-gray-color100: #ECEEF2;
+    --input-place-color50: #EFF8F7;
+    /*Place holder*/
+    /*toggle*/
+    --toggle-white: #FFFFFF;
+    --toggle-gray-color200: #D5D9E2;
+    --toggle-color400: #AAC4BB;
+    /*toggle*/
+    /*Radio*/
+    --radio-gray-color50: #F6F7F9;
+    --radio-gray-color100: #ECEEF2;
+    --radio-gray-color200: #D5D9E2;
+    --radio-gray-color300: #B1B9C8;
+    --radio-color500: #425C59;
+    /*Radio*/
+    /*Checkbox*/
+    --checkbox-gray-color50: #F6F7F9;
+    --checkbox-gray-color100: #ECEEF2;
+    --checkbox-gray-color200: #D5D9E2;
+    --checkbox-gray-color300: #B1B9C8;
+    --checkbox-color500: #425C59;
+    /*Checkbox*/
+    /*tab*/
+    /*Background*/
+    --tab-bg-active: #FFFFFF;
+    --tab-bg-disable: #425C59;
+    /*Background*/
+    /*tab*/
+    /*Beam End*/
+    /**color*/
+
+    /*********************************************Font***********************************************/
+    /*******************************************Start Fei************************************************/
+
+    --font-weight-extrabold: 800;
+    --font-weight-bold: 700;
+    --font-weight-regular: 400;
+    --font-weight-light: 300;
+
+    /*End Fei/
+/*******************************************Start khaow*******************************************/
+    --font-size-56: 56px;
+    --font-size-48: 48px;
+    --font-size-40: 40px;
+    --font-size-32: 32px;
+    --font-size-24: 24px;
+    --font-size-20: 20px;
+    --font-size-16: 16px;
+    --font-size-14: 14px;
+    --font-size-12: 12px;
+    --font-size-8: 8px;
+    /*End khaow*/
+    /*******************************************Start Beam*******************************************/
+    /* Font Line Height*/
+    --font-lineheight-default: 1.0;
+    --font-lineheight-medium: 1.2;
+    --font-lineheight-large: 1.8;
+    /*Font Line Height*/
+    /*End Beam*/
+    /*********************************************Font***********************************************/
+    /**/
+    /**/
+ }
+/*************************************************Table color************************************************/
+.Bighead-project{
+    padding: 20px;
+}
+/*Start Fei*/
+
+.customnameheader{
+    width: 100%;
+    height: 65px;
+    display: flex;
+    gap: 16px;
+}
+
+.name1{
+    width: 49.5%;
+    height: 100%;
+}
+.name2{
+    width: 50%;
+    height: 100%;
+}
+.name3{
+    width: 50%;
+    height: 100%;
+
+    
+}
+.name4{
+    width: 80%;
+    height: 100%;
+    display: flex;
+}
+.input-customer4    {
+    width: 100%;
+    height: 35px;
+    border-radius: 8px;
+    border: var(--input-stoke-gray-color200);
+    background-color: var(--input-bg-color50);
+    margin: 8px 0;
+    border: none;
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box;
+    
+
+}
+.icon{
+    height: 16px;
+    width: 16px;
+}
+.icon img {
+    height: 16px;
+    width: 16px; 
+    cursor: pointer;
+}
+.function{
+    background-color: var(--secondary-color200);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 26.67px;
+    cursor: pointer;
+
+}
+.function img{
+    width: 14px;
+    height: 14px;
+    background-color: var(--secondary-color200);
+}
+.input-customer4::placeholder    {
+    color: var(--Input-text-black);
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+
+}
+.refer-label3{
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-16);
+    color: var(--input-text-white);
+    margin-bottom: 2px;
+}
+
+/* Styling for the select dropdown */
+select[name="bank"] {
+        height: 35px;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid var(--input-stoke-gray-color200);
+    margin-top: 8px;
+    background-color: var(--input-bg-color50);
+    font-size: var(--font-size-14);
+    appearance: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: var(--font-weight-regular);
+    background-image: url(picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png);
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    color: var(--input-text-color400);
+}
+
+/* Styling for options within the select dropdown */
+select[name="bank"] option {
+    padding: 10px; /* เพิ่มช่องว่างภายในแต่ละ option */
+    background-color: #fff; /* สีพื้นหลังของแต่ละ option */
+    color: #333; /* สีข้อความของแต่ละ option */
+    font-size: 16px;
+}
+
+/* Styling when the select dropdown is hovered */
+select[name="bank"]:hover {
+    border-color: #999; /* เปลี่ยนสีเส้นขอบเมื่อวางเมาส์ */
+    background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังเล็กน้อยเมื่อวางเมาส์ */
+}
+
+/* Styling when the select dropdown is focused (clicked) */
+select[name="bank"]:focus {
+    border-color: #007bff; /* เปลี่ยนสีเส้นขอบเป็นสีฟ้าเมื่อถูกโฟกัส */
+    outline: none; /* ลบ outline เริ่มต้นของเบราว์เซอร์ */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* เพิ่มเงาเมื่อถูกโฟกัส */
+}
+.input-field-data{
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: 1px solid var(--input-stoke-gray-color200);
+    font-size: var(--font-size-14);
+    background-color: var(--input-bg-color50);
+    border-radius: 8px;
+    height: 35px;
+    font-weight: var(--font-weight-regular);
+    
+}
+.input-customer {
+  width: 100%; 
+  padding: 8px;
+  margin: 6px 0;
+  box-sizing: border-box; /* ให้ padding และ border รวมอยู่ในความกว้างที่กำหนด */
+  border: 1px solid var(--input-stoke-gray-color200); 
+  font-size: var(--font-size-14); 
+  background-color: var(--input-bg-color50);
+  border-radius: 8px; 
+  height: 35px; /* กำหนดความสูงของ input */
+  font-weight: var(--font-weight-regular);
+}
+.input-field-data{
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: var(--input-bg-color50); /* สีพื้นหลังของช่อง input/textarea (ปรับให้เข้ากับภาพ) */
+    box-sizing: border-box;
+    height: 35px;
+    outline: none;
+}
+
+.input-customer::placeholder {
+  color: var(--input-text-color400); /* กำหนดสีของ placeholder */
+  
+}
+.input-customer2::placeholder {
+  color: var(--input-text-color400); /* กำหนดสีของ placeholder */
+  
+}
+.date-select {
+    color: var(--input-text-gray-color200); /* สีเริ่มต้น */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular);
+    width: 100%;
+    background-color: var(--input-bg-color50);
+    height: 35px;
+    outline: none;
+    padding: 6px;
+}
+
+.date-select.selected {
+    color: black; /* สีเมื่อมีการเลือก */
+    padding: 6.5px;
+    
+}
+
+.date-deposit{
+    outline: none;
+    border: none;
+    height: 35px;
+    margin-top: 8px;
+    border-radius: 8px; width: 100%;
+    color: var(--input-text-gray-color200);
+    background-color: var(--input-bg-white);
+    border: 1px solid var(--input-stoke-gray-color200);
+      
+  height: 34px; 
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+   position: relative; /* สำคัญสำหรับการจัดวาง ::-webkit-calendar-picker-indicator */
+  background-image: none;
+  background-image: url('picture/icondateblack.png'); /* **เปลี่ยนเป็นที่อยู่รูปไอคอนปฏิทินของคุณ** */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* จัดตำแหน่งรูปไอคอน: ห่างจากขวา 10px, อยู่กึ่งกลางแนวตั้ง */
+  background-size: 14px;
+}
+.date-deposit::-webkit-calendar-picker-indicator {
+  opacity: 0; /* ทำให้มองไม่เห็น */
+  display: block; /* ทำให้กินพื้นที่ */
+  position: absolute; /* จัดตำแหน่งสัมพันธ์กับ parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer; /* ยังคงให้คลิกได้ */
+  z-index: 1; /* ให้มันอยู่ด้านบน เพื่อให้คลิกแล้วปฏิทินโผล่ */
+}
+.crate{
+    width: 100%;
+    height: 40px;
+    background-color: var(--bg-color500);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-12);
+    color: var(--text-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+.crate1{
+    width: 100%;
+    height: 40px;
+    background-color: var(--btn-di-bg-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-12);
+    color: var(--text-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.date-deposit-name{
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--Input-text-black);
+}
+.reference-input{
+    width: 100%;
+    height: 14px;
+    background-color: var(--btn-n-bg-secondary);
+    padding: 10px; /* เพิ่มพื้นที่ว่างด้านใน */
+    margin: 8px 0; /* เว้นระยะห่างด้านบนและล่าง */
+    border: 1px solid var(--input-stoke-gray-color200); /* เพิ่มเส้นขอบสีเทาอ่อน */
+    border-radius: 8px; /* ทำให้มุมของ input โค้งมนเล็กน้อย */
+    font-size: var(--font-size-16);
+}
+.input-customer2{
+    
+    width: 100%; /* ทำให้ input มีความกว้างเต็มพื้นที่ */
+    height: 14px;
+    background-color: var(--input-bg-color50);
+     /* ทำให้ textarea มีความกว้างเต็มพื้นที่ */
+    padding: 10px; /* เพิ่มพื้นที่ว่างด้านใน */
+    margin: 8px 0; /* เว้นระยะห่างด้านบนและล่าง */
+   /* ให้ padding และ border รวมอยู่ในความกว้างที่กำหนด */
+    border: 1px solid var(--input-stoke-gray-color200); /* เพิ่มเส้นขอบสีเทาอ่อน */
+    border-radius: 8px; /* ทำให้มุมของ textarea โค้งมนเล็กน้อย */
+    font-size: var(--font-size-16);
+}
+.input-customer:focus {
+  
+  outline: none; 
+  
+}
+
+.text-customer5{
+    height: 22px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-16);
+
+}
+.input-textarea {
+  width: 100%; /* ทำให้ textarea มีความกว้างเต็มพื้นที่ */
+  padding: 10px; /* เพิ่มพื้นที่ว่างด้านใน */
+  margin: 6px 0; /* เว้นระยะห่างด้านบนและล่าง */
+  box-sizing: border-box; /* ให้ padding และ border รวมอยู่ในความกว้างที่กำหนด */
+  border: 1px solid var(--input-stoke-gray-color200); /* เพิ่มเส้นขอบสีเทาอ่อน */
+  border-radius: 8px; /* ทำให้มุมของ textarea โค้งมนเล็กน้อย */
+  font-size: var(--font-size-14); /* กำหนดขนาดตัวอักษร */
+  min-height: 100px; /* กำหนดความสูงขั้นต่ำ */
+  background-color: var(--input-bg-color50);
+  resize: none;
+  height: 110px; /* กำหนดความสูงของ textarea */
+  font-weight: var(--font-weight-regular); /* กำหนดน้ำหนักตัวอักษร */
+}
+.input-customer1{
+    height: 100%;
+    background-color: var(--input-bg-color50);
+     width: 100%; /* ทำให้ textarea มีความกว้างเต็มพื้นที่ */
+  padding: 10px; /* เพิ่มพื้นที่ว่างด้านใน */
+  margin: 8px 0; /* เว้นระยะห่างด้านบนและล่าง */
+  ; /* ให้ padding และ border รวมอยู่ในความกว้างที่กำหนด */
+  border: 1px solid var(--input-stoke-gray-color200); /* เพิ่มเส้นขอบสีเทาอ่อน */
+  border-radius: 8px; /* ทำให้มุมของ textarea โค้งมนเล็กน้อย */
+  font-size: var(--font-size-16);
+}
+
+.input-textarea::placeholder {
+  color: var(--input-text-color400);
+}
+
+.input-textarea:focus {
+  
+  outline: none; /* ลบเส้นกรอบเริ่มต้นของเบราว์เซอร์ */
+  
+}
+
+
+.bg-credit{
+    width: 8%;
+    height: 65px;
+    
+    
+    
+}
+.credit{
+    background-color: var(--background-bg-color500);
+}
+.credit-value{
+    background-color: var(--input-bg-color50);
+    border-radius: 8px;
+    height: 35px;
+    width: 75%;
+    margin: 8px 0;
+}
+.credit-value input[type="text"]{
+    background-color: var(--input-bg-color50);
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+
+
+.cancel{
+    width: 50%;
+    height: 40px;
+    background-color: var(--bnt-n-bg-white);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color500);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-12);
+}
+.save{
+    width: 50%;
+    height: 40px;
+    background-color: var(--btn-n-bg-primary500);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-12);
+}
+.button1{
+    width: 50%;
+    height: 36px;
+    background-color: var(--btn-n-bg-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.refer-name{
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-16);
+    color: var(--input-text-white);
+    margin: 8px 0;
+
+
+
+}
+.refer1{
+    width: 100%;
+    height: 65px;
+}
+.refer-label{
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-16);
+    color: var(--input-text-white);
+}
+.refer-label1{
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-16);
+    color: var(--Input-text-black);
+}
+.input-customer3::placeholder {
+  color: var(--input-text-gray-color200); /* กำหนดสีของ placeholder */
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+
+}
+.input-customer3{
+    width: 100%; 
+  padding: 10px;
+  margin: 6px 0;
+  box-sizing: border-box; /* ให้ padding และ border รวมอยู่ในความกว้างที่กำหนด */
+  border: 1px solid var(--input-stoke-gray-color200); 
+  font-size: var(--font-size-14); 
+  background-color: var(--input-bg-color50);
+  border-radius: 8px; 
+  height: 35px; /* กำหนดความสูงของ input */
+  
+  font-weight: var(--font-weight-regular);
+
+}
+
+.customer-title1{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.input-customer-refer{
+    width: 100%; 
+    background-color: var(--input-bg-color50);
+    padding: 10px;
+    margin: 8px 0; 
+    border: 1px solid var(--input-stoke-gray-color200);
+    font-size: var(--font-size-16);
+    border-radius: 8px;
+    box-sizing: border-box; /* ให้ padding และ border รวมอยู่ในความกว้างที่กำหนด */
+    height: 35px;
+    outline: none;
+    
+}
+.input-customer-refer input[type="text"]{
+  color: var(--input-text-color400); 
+}
+
+
+.pt-5{
+    margin-top: 8px;
+}
+.text-customer{
+    height: 22px;
+    margin-bottom: 2px;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-16);
+    
+}
+.dropdown-new{
+    width: 100%;
+    height: 35px;
+    background-color: var(--input-bg-color50);
+    border-radius: 8px;
+    margin-top: 8px;
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none;
+}
+.dropdown {
+  position: relative; /* สำคัญสำหรับการจัดวางไอคอนลูกศร */
+  display: inline-block; /* ทำให้ div มีขนาดพอดีกับเนื้อหา */
+  width: 100%; /* กำหนดความกว้างของ dropdown */
+  margin: 8px 0; /* เว้นระยะห่างด้านบนและล่าง */
+  height: 35px; /* กำหนดความสูงของ dropdown */
+  font-weight: var(--font-weight-regular);
+}
+.dropdown-all{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 16px;
+}
+.dropdown-all1{
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+}
+
+.select-refer{
+    background-color: var(--btn-n-bg-secondary);
+    width: 95px;
+    height: 34.5px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6px 0;
+    border-radius: 8px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-white);
+    cursor: pointer;
+}
+
+/* สไตล์สำหรับ container หลักที่ครอบ dropdown ทั้งหมด */
+.container-wrapper {
+    width: 100%;
+    height: 65px;
+    display: flex; /* ใช้ Flexbox เพื่อจัดเรียง dropdowns เคียงข้างกัน */
+    gap: 16px; /* กำหนดช่องว่างระหว่าง dropdowns */
+}
+
+/* สไตล์สำหรับแต่ละ dropdown container ย่อย */
+.dropdown-container {
+    width: 50%; /* ให้แต่ละ dropdown ใช้พื้นที่ 50% ของ container หลัก */
+    height: 65px;
+    position: relative; /* สำคัญสำหรับการวางตำแหน่งไอคอนภายใน */
+}
+
+/* สไตล์สำหรับชื่อ dropdown */
+.dropdown-container .name {
+    width: 100%;
+    height: 22px;
+    margin-bottom: 5px; /* เพิ่มระยะห่างระหว่างชื่อกับ dropdown */
+}
+
+/* สไตล์สำหรับ dropdown หลัก */
+.dropdown-new {
+    width: 100%;
+    height: 35px; /* ปรับความสูงให้พอดี */
+    padding: 8px 12px;
+    border: 1px solid var(--input-stoke-gray-color200);
+    border-radius: 8px;
+    background-color: var(--input-bg-color50);
+    appearance: none; /* ซ่อนลูกศร dropdown เริ่มต้นสำหรับเว็บคิต (Chrome, Safari) */
+    -webkit-appearance: none; /* สำหรับ Safari */
+    -moz-appearance: none;    /* สำหรับ Firefox */
+    background-image: url('picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png'); /* ไอคอนลูกศร SVG */
+    background-repeat: no-repeat;
+    background-position: right 8px center; /* วางตำแหน่งไอคอน */
+    background-size: 14px; /* ขนาดไอคอน */
+    cursor: pointer;
+    
+}
+.dropdown-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .dropdown-wrapper select {
+    width: 100%;
+    height: 35px;
+    padding-left: 8px;
+    color: var(--input-text-color400);
+    background-color: var(--input-bg-color50);
+    border-radius: 8px;
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none;
+  }
+    .dropdown-wrapper1 select {
+    width: 100%;
+    height: 35px;
+    padding-left: 8px;
+    color: var(--input-text-color400);
+    background-color: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none;
+  }
+
+  /* When selected value is not empty, use black text */
+  .dropdown-wrapper:has(select:valid) select {
+    color: black;
+  }
+
+  /* Optional: make first option disabled so it's not valid */
+  .dropdown-wrapper select option[disabled][value=""] {
+    display: none;
+  }
+.dropdown-new::placeholder{
+    color: green;
+}
+/* สไตล์สำหรับเมื่อ dropdown โฟกัส */
+.dropdown-new:focus {
+    outline: none;
+}
+.dropdown-new:valid {
+    color: black; /* **เปลี่ยนเป็นสีดำเมื่อมีค่าถูกเลือก** */
+}
+.dropdown-new1 { /* ใช้คลาส dropdown-new1 ตามที่คุณระบุใน HTML */
+    width: 100%;
+    height: 35px; /* ปรับความสูงให้พอดี */
+    padding: 8px 12px;
+    border: 1px solid var(--input-stoke-gray-color200);
+    border-radius: 8px;
+    background-color: var(--input-bg-white);
+    appearance: none; /* ซ่อนลูกศร dropdown เริ่มต้นสำหรับเว็บคิต (Chrome, Safari) */
+    -webkit-appearance: none; /* สำหรับ Safari */
+    -moz-appearance: none;    /* สำหรับ Firefox */
+    background-image: url('picture/dropblack.png'); /* ไอคอนลูกศร SVG */
+    background-repeat: no-repeat;
+    background-position: right 8px center; /* ไอคอนห่างจากขวา 8px */
+    background-size: 14px; /* ขนาดไอคอน */
+    cursor: pointer;
+}
+
+
+
+/* สไตล์สำหรับเมื่อ dropdown โฟกัส */
+.dropdown-new1:focus {
+    outline: none;
+    
+}
+.tabs {
+    display: flex;
+    position: relative;
+    background-color: #49635e;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15), 0 6px 12px 0 rgba(0, 0, 0, 0.15);
+
+    height: 38px;
+    width: 361px;
+    padding: 4px;
+    border-radius: 8px;
+    /* Outer container still has rounded ends */
+}
+
+.tabs>* {
+    z-index: 2;
+}
+
+input[type="radio"] {
+    display: none;
+}
+.input-id-bank{
+    width: 100%;
+    height: 35px;
+    background-color: var(--input-bg-white);
+    outline: none;
+    border: 1px solid var(--input-stoke-gray-color200);
+    border-radius: 8px;
+    padding: 0 8px;
+    box-sizing: border-box;
+    
+}
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: calc((100% - (2 * 0px)) / 3);
+    font-size: 16px;
+    /* กำหนด font-size เป็น 16px */
+    font-weight: 400;
+    /* กำหนด font-weight เป็น 400 */
+    border-radius: 0;
+    cursor: pointer;
+    color: white;
+    transition: color 0.15s ease-in, font-weight 0.15s ease-in; 
+    padding: 0 10px;
+}
+
+input[type="radio"]:checked+.tab {
+    color: #49635e;
+    font-weight: 700;
+}
+
+input[type="radio"]:checked+.tab>.notification {
+    background-color: #49635e;
+    color: #fff;
+}
+
+
+input[id="radio-1"]:checked~.glider {
+    transform: translateX(0);
+}
+
+input[id="radio-2"]:checked~.glider {
+    transform: translateX(100%);
+}
+
+input[id="radio-3"]:checked~.glider {
+    transform: translateX(200%);
+}
+
+/* โค้ด CSS ส่วนบนที่เหลือเหมือนเดิม */
+
+.glider {
+    position: absolute;
+    /* *** กำหนดตำแหน่งเริ่มต้นให้ห่างจากขอบ 4px *** */
+    left: 4px;
+    top: 4px;
+
+    display: flex;
+    /* *** ความสูงของ Glider: ความสูงของ Container (38px) ลบด้วย padding บน-ล่าง (4px + 4px = 8px) *** */
+    height: calc(38px - 8px);
+    /* ผลลัพธ์คือ 30px */
+
+    /* *** ความกว้างของ Glider: ความกว้างของ Container (361px) ลบด้วย padding ซ้าย-ขวา (4px + 4px = 8px) แล้วหาร 3 Tab *** */
+    width: calc((361px - 8px) / 3);
+    /* ผลลัพธ์คือประมาณ 117.66px */
+
+    background-color: white;
+    z-index: 1;
+    border-radius: 8px;
+    transition: 0.25s ease-out;
+}
+
+/* โค้ด CSS ส่วนล่างที่เหลือเหมือนเดิม */
+
+@media (max-width: 700px) {
+    .tabs {
+        transform: scale(0.6);
+    }
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+#meun-items {
+    height: 35px; /* กำหนดความสูงของ select box */
+    width: 100%;
+    padding: 5px; /* เพิ่ม padding ด้านใน (รวมด้านขวาสำหรับลูกศร) */
+    border: 1px solid var(--input-stoke-gray-color200);
+    background-color: var(--input-bg-color50);
+    font-size: var(--font-size-14);
+  ; /* สีข้อความปกติ */
+    appearance: none; /* ลบสไตล์เริ่มต้นของเบราว์เซอร์ */
+    cursor: pointer; /* แสดง cursor เป็นรูปมือเมื่อชี้ */
+    border-radius: 8px; /* ทำให้มุมของ select box โค้งมน */
+    background-image: url(picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png); /* **เปลี่ยนเป็นที่อยู่รูปไอคอนลูกศรของคุณ** */
+    background-repeat: no-repeat;
+    background-position: right 15px center; /* จัดตำแหน่งรูปไอคอน: ห่างจากขวา 15px, อยู่กึ่งกลางแนวตั้ง */
+    background-size: 14px; /* ขนาดของรูปไอคอนลูกศร (ปรับได้ตามต้องการ) */
+    color: var(--input-text-color400); /* กำหนดสีข้อความของ select box */
+}
+select{
+    color:"#000";
+}
+/* สไตล์สำหรับ placeholder (option ที่ถูกเลือกเริ่มต้น) */
+#meun-items option[disabled][selected] {
+  color: var(--Input-text-black); /* สีเทาสำหรับ placeholder */
+  
+}
+
+/* สไตล์เมื่อ select box ถูกโฟกัส */
+#meun-items:focus {
+  
+  outline: none;
+  
+}
+.refer-div{
+
+    background-color: var(--btn-n-bg-secondary);
+    color: var(--text-white);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 95px;
+    height: 36px;
+    border-radius: 8px;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-12);
+    
+}
+.input-refer-sell{
+    width: 100%;
+    height: 35px;
+    padding: 8px;
+    
+}
+.hover{
+    background-color: var(--btn-hv-bg-white);
+    color: var(--text-color400);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-12);
+    width: 79px;
+    height: 33.5px;
+    border: 1px solid var(--primary-color400);
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transition: 0.3s;
+}
+.hover:hover {
+  background-color: var(--btn-hv-stoke-color400);
+  color: var(--btn-hv-bg-white);
+}
+.search-deposit{
+    border: 1px solid var(--input-stoke-gray-color200);
+    border-radius: 8px;
+    outline: none;
+    height: 35px;
+    background-color: var(--bg-white);
+    padding: 10px;
+    background-image: url('picture/search.png'); /* SVG ไอคอนกากบาทสีเทา */
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 49%;
+    background-size: 14px;
+    cursor: pointer;
+    
+    
+}
+.search-deposit::placeholder{
+    color: var(--input-text-gray-color200);
+    
+}
+.search-deposit::-webkit-search-cancel-button {
+    -webkit-appearance: none; /* ลบสไตล์เริ่มต้น */
+    height: 20px;
+    width: 20px;
+    
+    
+    /* margin-right: 5px; */ /* ปรับระยะห่างถ้าต้องการ */
+}
+
+
+/* สไตล์เมื่อเลือก option */
+#meun-items option {
+  color: var(--Input-text-black); /* สีข้อความของ option ปกติ */
+  background-color: var(--input-bg-color50);
+}
+
+#meun-items option:hover {
+  background-color: var(--input-bg-color50); /* สีพื้นหลังเมื่อ hover ที่ option (อาจไม่ทำงานในทุกเบราว์เซอร์) */
+}
+.input-date-time {
+  width: 100%; /* กำหนดความกว้างเต็มพื้นที่ของ parent element */
+  padding: 8px; /* เพิ่มพื้นที่ padding ภายใน input */
+  margin: 8px 0; /* กำหนดระยะห่างภายนอก (บน/ล่าง 8px, ซ้าย/ขวา 0) */
+  box-sizing: border-box; /* ทำให้ padding และ border รวมอยู่ใน width */
+  border: 1px solid var(--input-stoke-gray-color200); /* เพิ่มเส้นขอบสีเทาอ่อน */
+  border-radius: 4px; /* ทำให้มุมของ input โค้งมนเล็กน้อย */
+  font-family: Arial, sans-serif; /* กำหนด Font ให้สวยงาม */
+  font-size: 16px; /* กำหนดขนาดตัวอักษร */
+   
+  background-color: var(--input-bg-color50);
+ color: var(--input-text-color400);
+   /* ลบสไตล์เริ่มต้นของเบราว์เซอร์ */
+  height: 35px; 
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+   position: relative; /* สำคัญสำหรับการจัดวาง ::-webkit-calendar-picker-indicator */
+  background-image: none;
+  background-image: url('picture/blank-calendar--blank-calendar-date-day-month-empty.png'); /* **เปลี่ยนเป็นที่อยู่รูปไอคอนปฏิทินของคุณ** */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* จัดตำแหน่งรูปไอคอน: ห่างจากขวา 10px, อยู่กึ่งกลางแนวตั้ง */
+  background-size: 14px;
+  
+  /* ในบางเบราว์เซอร์ การเปลี่ยนสี placeholder ใน input[type="date"] อาจทำได้จำกัด */
+}
+.input-date-time.has-value {
+    color: var(--text-black);
+}
+#menu-items.has-value {
+    color: var(--text-black);
+}
+.input-date-time::-webkit-calendar-picker-indicator {
+  opacity: 0; /* ทำให้มองไม่เห็น */
+  display: block; /* ทำให้กินพื้นที่ */
+  position: absolute; /* จัดตำแหน่งสัมพันธ์กับ parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer; /* ยังคงให้คลิกได้ */
+  z-index: 1; /* ให้มันอยู่ด้านบน เพื่อให้คลิกแล้วปฏิทินโผล่ */
+}
+/* สไตล์เมื่อ input ถูกโฟกัส */
+.input-date-time:focus {
+  
+  outline: none; /* ลบเส้น outline เริ่มต้นของเบราว์เซอร์ */
+  
+  
+}
+
+/* คุณอาจต้องใช้ Webkit-specific pseudo-elements เพื่อปรับแต่งลูกศรหรือไอคอนปฏิทินในบางเบราว์เซอร์ */
+/* ตัวอย่าง (อาจใช้ไม่ได้ในทุกเบราว์เซอร์และมีการเปลี่ยนแปลงตามเวอร์ชัน) */
+.input-date-time::-webkit-calendar-picker-indicator {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg); /* เปลี่ยนสีไอคอนปฏิทิน */
+  cursor: pointer;
+}
+
+.dropdown-menu{
+    width: 49.5%;
+}
+.dropdown1{
+    width: 49.5%;
+}
+
+
+
+/*End Fei*/
+/*Start khaow*/
+.refer{
+    width: 100%;
+    height: 65px;
+}
+.title{
+    width: 100%;
+    height: 22px;  
+    margin-bottom: 5px; 
+}
+.title b{
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--black);
+}
+.refer-input{
+    box-sizing: border-box;
+    width: 100%;
+    height: 35px;
+    padding: 8px ; /* เพิ่มพื้นที่ภายใน input */
+    border-radius: 8px;
+    background-color: var(--input-bg-color50);
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none; 
+}
+.refer-input::placeholder{
+    color: var(--input-text-color400);
+    font-size: var(--font-size-14);
+    font-weight: var( --font-weight-regular);
+}
+
+.office{
+    width: 100%;
+    height: 65px;
+    gap: 8px;
+}
+.head-office{
+    width: 100%;
+    height: 22px;
+    margin-bottom: 5px;
+}
+.head-office b{
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--black);
+    
+}
+.button-input{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.office-label{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    gap: 8px;
+}
+.office-input{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    gap: 16px;
+}
+.office-option-big{ /*กล่องสำนักงานใหญ่*/
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 22px;
+}
+.office-option-small{/*กล่องสาขาย้อย*/
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 22px;
+}
+.word-big-office{
+    width: 104px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-regular);
+    color: var(--text-black);
+}
+.word-small-office{
+    width: 104px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-regular);
+    color: var(--text-black);
+}
+.custom-radio input[type="radio"] {
+  display: none; /* ซ่อน radio ปกติ */
+}
+.radio-btn {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--radio-gray-color300);
+  background-color: var(--radio-gray-color50);
+  vertical-align: middle;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.custom-radio input[type="radio"]:checked + .radio-btn {
+  border-color: var(--radio-color500);
+  background-color: var(--radio-gray-color50);
+}
+.custom-radio input[type="radio"]:checked + .radio-btn::after {
+  content: '';
+  position: absolute;
+  left: 2.5px; 
+  top: 2.5px;  
+  width: 10px;
+  height: 10px;
+  background-color: var(--radio-color500);
+  border-radius: 50%;
+}
+/* ปรับปุ่มด้านในตอน disabled + checked ให้ขนาดเท่า checked ปกติ (10px) */
+.custom-radio input[type="radio"]:disabled + .radio-btn::after {
+  content: '';
+  position: absolute;
+  left: 2.4px; /* (15 - 10) / 2 = 2.5 */
+  top: 2.5px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--radio-gray-color300); /* ใช้สีเทาเข้ม */
+  border-radius: 50%;
+}
+
+/* ปุ่ม disabled เฉย ๆ (ยังไม่ถูกเลือก) */
+.custom-radio input[type="radio"]:disabled + .radio-btn {
+  background-color: var(--radio-gray-color100); /* พื้นหลังเทาอ่อน */
+  border: 1px solid var(--radio-gray-color300);
+  cursor: not-allowed;
+}
+.custom-radio {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+/******************************************** รายการ *****************************************************/
+.list{
+    width: 100%;
+    height: 100px;
+    gap: 8px;
+}
+.head-list{ /*หัวข้อใหญ่กของ รายการสินค้า*/
+    width: 100%;
+    height: 27px;
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-bold);
+}
+.word-list{ /*หัวข้อเล็กของ รายการสินค้า*/
+    width: 100%;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-regular);
+}
+.list-label{  /*กล่องใหญ่ของ radio รายการสินค้า*/
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    gap: 8px;
+}
+.list-option{ /*กล่อง ปุ่มradio*/
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 22px;
+}
+.choice-list{ /*กล่อง สินค้าและบริการ*/
+    width: 104px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-regular);
+    color: var(--text-black);
+}
+/******************************************** รายการ *****************************************************/
+/******************************************** ช่องทางชำระเงิน *********************************************/
+.Make-payment{ /*กล่องใหญ่ชำระเงิน*/
+    width: 100%;
+    height: 52px;
+    gap: 8px;
+}
+.head-make-payment{
+    width: 100%;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-black);
+}
+.make-payment-label{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 22px;
+    gap: 24px;
+}
+.make-payment-option{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 22px;
+}
+.cash{
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-regular);
+    color:  var(--text-black);
+}
+/******************************************** ช่องทางชำระเงิน *********************************************/
+.input-field{
+    width: 100%;
+    padding: 10px;
+    border: none; /* ไม่มีเส้นขอบตามภาพ */
+    border-radius: 8px;
+    background-color: var(--input-bg-color50); /* สีพื้นหลังของช่อง input/textarea (ปรับให้เข้ากับภาพ) */
+    box-sizing: border-box;
+    height: 35px;
+    outline: none;
+    border: 1px solid var(--input-stoke-gray-color200);
+    
+}
+.refer-label2{
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-16);
+    color: var(--Input-text-black);
+    
+}
+.input-field::placeholder{
+    color: var(--input-text-color400);
+    font-size: var(--font-size-14);
+    font-weight: var( --font-weight-regular);
+}
+.supplier-info {
+    display: flex;
+    gap: 16px; /* ระยะห่างระหว่างช่อง 'ที่อยู่' กับ 'เบอร์โทร' */
+    background-color: var(--color-primary-300); /* สีพื้นหลังตามภาพ (อาจจะต้องปรับให้ตรงเป๊ะ) */
+     /* ระยะห่างจากขอบด้านใน */
+    border-radius: 8px; /* ขอบโค้งเล็กน้อย */
+    /* เส้นประสีเขียวตามภาพ (อาจจะต้องปรับให้ตรงเป๊ะ) */
+}
+
+/* สำหรับ div ที่อยู่ผู้จำหน่าย (ซ้ายมือ) */
+.supplier-address {
+    flex: 1; /* ทำให้กินพื้นที่เท่าๆ กับอีกฝั่ง */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* ระยะห่างระหว่าง label กับ textarea */
+}
+
+/* สำหรับ div เบอร์โทรและที่ตั้งธุรกิจ (ขวามือ) */
+.supplier-contact {
+    flex: 1; /* ทำให้กินพื้นที่เท่าๆ กับอีกฝั่ง */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* ระยะห่างระหว่าง label กับ input */
+}
+.text-label3{
+    margin-top: 8px; /* ระยะห่างจากด้านบน */
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-16);
+    color: var(--Input-text-black);
+}
+/* สำหรับ label ข้อความ เช่น ที่อยู่ผู้จำหน่าย, เบอร์โทร */
+.text-label {
+   font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-16);
+    color: var(--Input-text-black);
+     /* ระยะห่างจาก label ถึง input/textarea */
+}
+.text-label4{
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-16);
+    color: var(--Input-text-black);
+    margin-top: 10px; /* ระยะห่างจากด้านบน */
+}
+.input-field1 {
+    width: 100%;
+    padding: 10px;
+    border: none; /* ไม่มีเส้นขอบตามภาพ */
+    outline: none;
+    border-radius: 8px;
+    background-color: var(--input-bg-color50); /* สีพื้นหลังของช่อง input/textarea (ปรับให้เข้ากับภาพ) */
+    box-sizing: border-box;
+    resize: none;
+    height: 120px;
+    border: 1px solid var(--input-text-gray-color200);
+}
+.input-field1::placeholder{
+    color: var(--input-text-color400);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-14);
+}
+
+.Product-list{
+    width: 90%;
+    height: 100px;
+    gap: 8px;
+}
+.head-Product-list{
+    width: 1120px;
+    height: 27px;
+    margin-bottom: 5px;
+}
+.head-Product-list b{
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-bold);
+    color: var(--black);
+    margin-bottom: 5px;
+}
+.title-Product-list{
+    width: 1120px;
+    height: 22px;
+    font-size: var(--font-size-16);
+}
+.title-Product-list p{
+    font-size: var(--font-size-16);
+    color: var(--black);
+}
+.Product-list-input{
+    display: flex;
+    align-items: center;
+    height: 35px;
+    gap: 16px;
+}
+/* test end */
+/*เลขที่บิล*/
+.Bill-number{
+    width: 100%;
+    height: 227px;
+    gap: 8px;
+}
+.top-Bill-number{
+    width: 100%;
+    height: 65px;
+    gap: 16px;
+    display: flex;
+    align-items: center;
+}
+.Billnumber{
+    width: 100%;
+    height: 65px;
+    gap: 8px;
+}
+.head-Bill-number{
+    width: 100%;
+    height: 22px;
+}
+.word-billnumber{
+    height: 22px;
+    margin-bottom: 8px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--Input-text-black);
+}
+.input-Billnumber{
+    width: calc(100% - 6px);
+    height: 29px;
+    padding: 3px;
+    font-size: var(--font-size-14);
+    background-color: var(--input-bg-color50);
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none;
+    border-radius: 8px;
+}
+.input-Billnumber::placeholder{
+    color: var(--input-text-color400);
+}
+.day-Billnumber{
+    width: 100%;
+    height: 65px;
+    display: flex;
+    gap: 10px;
+}
+/*twain-day*/
+.twain-day{
+    width: 428px;
+    height: 65px;
+    gap: 16px;
+    display: flex;
+    align-items: center;
+}
+.head-day{
+    width: 206px;
+    height: 65px;
+    gap: 20px;
+}
+.word-day{
+    width: 206px;
+    height: 22px;
+    margin-bottom: 8px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--Input-text-black);
+}
+.input-date-day {
+    width: calc(100% - 6px);
+    height: 29px;
+    padding: 3px;
+    border-radius:8px;
+    color: var(--input-stoke-gray-color200);
+    background-color: var(--input-bg-color50);
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none;
+    font-size: var(--font-size-14);
+    appearance: none;
+  -webkit-appearance: none;
+   position: relative; /* สำคัญสำหรับการจัดวาง ::-webkit-calendar-picker-indicator */
+  background-image: none;
+  background-image: url('picture/iconca.png'); /* **เปลี่ยนเป็นที่อยู่รูปไอคอนปฏิทินของคุณ** */
+  background-repeat: no-repeat;
+  background-position: right 8px center; /* จัดตำแหน่งรูปไอคอน: ห่างจากขวา 10px, อยู่กึ่งกลางแนวตั้ง */
+  background-size: 14px  
+}
+.input-date-day::-webkit-calendar-picker-indicator {
+  opacity: 0; /* ทำให้มองไม่เห็น */
+  display: block; /* ทำให้กินพื้นที่ */
+  position: absolute; /* จัดตำแหน่งสัมพันธ์กับ parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer; /* ยังคงให้คลิกได้ */
+  z-index: 1; /* ให้มันอยู่ด้านบน เพื่อให้คลิกแล้วปฏิทินโผล่ */
+}
+.input-date-day1 {
+    width: calc(100% - 6px);
+    height: 29px;
+    padding: 3px;
+    border-radius:8px;
+    color: var(--input-stoke-gray-color200);
+    background-color: var(--input-bg-color50);
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none;
+    font-size: var(--font-size-14);
+    appearance: none;
+  -webkit-appearance: none;
+   position: relative; /* สำคัญสำหรับการจัดวาง ::-webkit-calendar-picker-indicator */
+  background-image: none;
+  background-image: url('picture/blank-calendar--blank-calendar-date-day-month-empty.png'); /* **เปลี่ยนเป็นที่อยู่รูปไอคอนปฏิทินของคุณ** */
+  background-repeat: no-repeat;
+  background-position: right 8px center; /* จัดตำแหน่งรูปไอคอน: ห่างจากขวา 10px, อยู่กึ่งกลางแนวตั้ง */
+  background-size: 14px
+    
+    
+}
+.input-date-day1::-webkit-calendar-picker-indicator {
+  opacity: 0; /* ทำให้มองไม่เห็น */
+  display: block; /* ทำให้กินพื้นที่ */
+  position: absolute; /* จัดตำแหน่งสัมพันธ์กับ parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer; /* ยังคงให้คลิกได้ */
+  z-index: 1; /* ให้มันอยู่ด้านบน เพื่อให้คลิกแล้วปฏิทินโผล่ */
+}
+.period{
+    width: 100%;
+    height: 65px;
+    gap: 8px;
+}
+.word-period{
+    width: 95px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--Input-text-black);
+    margin-bottom: 8px;
+}
+.input-periods{
+        width: 100%;
+    height: 35px;
+    padding: 8px;
+    border-radius:8px;
+    font-size: var(--font-size-14);
+    background-color: var(--input-bg-color50);
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none;
+    box-sizing: border-box;
+}
+.input-period{
+    width: 100%;
+    height: 35px;
+    padding: 8px;
+    border-radius:8px;
+    font-size: var(--font-size-14);
+    background-color: var(--input-bg-white);
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none;
+    box-sizing: border-box;
+}
+.title-period{
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--black);
+    margin-bottom: 8px;
+}
+.input-period::placeholder{
+    color: var(--input-text-color400);
+}
+.Under-Bill-number{
+    width: 100%;
+    height: 100%;
+    gap: 8px;
+
+}
+.period-text{
+    width: 100%;
+    height: 100px;
+    background-color: var(--input-bg-color50);
+    border-radius: 8px;
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none;
+    padding: 8px;
+    resize: none;
+    box-sizing: border-box;
+}
+.period-text::placeholder {
+  color: var(--input-text-gray-color200); 
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular); 
+  text-align: start;  
+}
+.Add-product-list{
+    margin-top: 10px;
+    width: 356px;
+    height: 32px;
+    border-radius: 8px;
+    background-color: var(--btn-n-bg-primary500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.word-button-product{
+    width: 100%;
+    background-color: var(--btn-n-bg-primary500);
+    height: 16px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-white);
+    text-align: center;
+}
+.Payment-date{
+    width: 100%;
+    height: 65px;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+.day-Payment-date{
+    width: 33%;
+    height: 65px;
+    gap: 8px;
+}
+.word-day-Payment{
+    margin-bottom: 8px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--Input-text-black);
+}
+.time-Payment-date{
+    width: 33%;
+    height: 65px;
+    gap: 8px;
+}
+
+.charge-Payment-date{
+    width: 33%;
+    height: 65px;
+    gap: 10px;
+}
+.input-day-Payment{
+    width: 100%;
+    height: 35px;
+    padding: 3px;
+    box-sizing: border-box;
+    border-radius:8px;
+    color: var(--input-stoke-gray-color200);
+    background-color: var(--input-bg-white);
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none;
+    font-size: var(--font-size-14);
+    appearance: none;
+  -webkit-appearance: none;
+   position: relative; /* สำคัญสำหรับการจัดวาง ::-webkit-calendar-picker-indicator */
+  background-image: none;
+  background-image: url('picture/iconca.png'); /* **เปลี่ยนเป็นที่อยู่รูปไอคอนปฏิทินของคุณ** */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* จัดตำแหน่งรูปไอคอน: ห่างจากขวา 10px, อยู่กึ่งกลางแนวตั้ง */
+  background-size: 14px;
+    
+}
+.input-day-Payment1{
+    width: 100%;
+    height: 35px;
+    padding: 3px;
+    border-radius:8px;
+    box-sizing: border-box;
+    color: var(--input-stoke-gray-color200);
+    background-color: var(--input-bg-white);
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none;
+    font-size: var(--font-size-14);
+    appearance: none;
+  -webkit-appearance: none;
+   position: relative; /* สำคัญสำหรับการจัดวาง ::-webkit-calendar-picker-indicator */
+  background-image: none;
+  background-image: url('picture/circle-clock--clock-loading-measure-time-circle.png'); /* **เปลี่ยนเป็นที่อยู่รูปไอคอนปฏิทินของคุณ** */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* จัดตำแหน่งรูปไอคอน: ห่างจากขวา 10px, อยู่กึ่งกลางแนวตั้ง */
+  background-size: 14px;
+}
+.input-day-Payment1::-webkit-calendar-picker-indicator {
+  opacity: 0; /* ทำให้มองไม่เห็น */
+  display: block; /* ทำให้กินพื้นที่ */
+  position: absolute; /* จัดตำแหน่งสัมพันธ์กับ parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer; /* ยังคงให้คลิกได้ */
+  z-index: 1; /* ให้มันอยู่ด้านบน เพื่อให้คลิกแล้วปฏิทินโผล่ */
+}
+.input-day-Payment::-webkit-calendar-picker-indicator {
+  opacity: 0; /* ทำให้มองไม่เห็น */
+  display: block; /* ทำให้กินพื้นที่ */
+  position: absolute; /* จัดตำแหน่งสัมพันธ์กับ parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer; /* ยังคงให้คลิกได้ */
+  z-index: 1; /* ให้มันอยู่ด้านบน เพื่อให้คลิกแล้วปฏิทินโผล่ */
+}
+.word-time-Payment{
+    margin-bottom: 8px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--Input-text-black);
+}
+.word-charge-Payment{
+    margin-bottom: 8px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--Input-text-black);
+}
+.input-day-Payments{
+      width: 100%;
+    height: 35px;
+    padding: 3px;
+    box-sizing: border-box;
+    border-radius:8px;
+    color: var(--input-stoke-gray-color200);
+    background-color: var(--input-bg-color50);
+    border: 1px solid var(--input-stoke-gray-color200);
+    outline: none;
+    font-size: var(--font-size-14);
+    appearance: none;
+  -webkit-appearance: none;
+   position: relative; /* สำคัญสำหรับการจัดวาง ::-webkit-calendar-picker-indicator */
+  background-image: none;
+  background-image: url('picture/iconca.png'); /* **เปลี่ยนเป็นที่อยู่รูปไอคอนปฏิทินของคุณ** */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* จัดตำแหน่งรูปไอคอน: ห่างจากขวา 10px, อยู่กึ่งกลางแนวตั้ง */
+  background-size: 14px;
+}
+/*  กลับหน้าหลัก แก้ไข อนุมัต */
+.tree-button{ /* กล่องคุมสามกล่อง */
+    width: 100%;
+    height: 40px;
+    display: flex;
+     justify-content: space-between;
+    margin-bottom: 30px;
+}
+.Homepage-button{ /* กล่องกลับไปหน้าหลัก */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 40px;
+    border-radius: 8px;
+    gap: 8px;
+    background-color: var(--btn-hv-bg-white);
+}
+.word-Homepage-button{ /* ข้อความ หลับไปหน้าหลัก */
+    text-align: center;
+    width: 100%;
+    height: 16px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-bold);
+    background-color: var(--btn-hv-bg-white);
+    color: var(--text-color500);
+}
+.edit-button{ /* กล่องแก้ไข */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 40px;
+    border-radius: 8px;
+    gap: 8px;
+    background-color: var(--btn-n-bg-secondary);
+}
+.word-edit-button{ /* กล่องข้อความ แก้ไข */
+    text-align: center;
+    width: 100%;
+    height: 16px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-bold);
+    background-color: var(--btn-n-bg-secondary);
+    color: var(--text-white);
+}
+.approve-button{ /* กล่องอนุมัติ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 40px;
+    border-radius: 8px;
+    gap: 8px;
+    background-color: var(--btn-n-bg-primary500);
+}
+.word-appvrove-button{ /* กล่องข้อความอนุมัติ */
+    text-align: center;
+    width: 100%;
+    height: 16px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-bold);
+    background-color: var(--btn-n-bg-primary500);
+    color: var(--text-white);
+}
+/* กลับหน้าหลัก แก้ไข อนุมัต */
+/* ออกใบเสร็จ */
+.one-button{
+    width: 100%;
+    height: 40px;
+    gap: 16px;
+    margin-bottom: 25px;
+}
+.receipt-button{
+    height: 40px;
+    border-radius: 8px;
+    gap: 8px;
+    background-color: var(--btn-n-bg-primary500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.word-receipt{
+    width: 58px;
+    height: 16px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-bold);
+    background-color: var(--btn-n-bg-primary500);
+    color: var(--text-white);
+}
+/*********************************************** ออกใบเสร็จ *************************************************/
+/********************************************** ใบกำกับภาษี **********************************************/
+.tax-invoice{/* กล่องใหญ่ */
+    width: 100%;
+    height: 65px;
+    gap: 16px;
+    margin-bottom: 10px;
+}
+.Customer-and-type{ /* กล่องประเภทและลูกค้า */
+    width: 100%;
+    height: 65px;
+    gap: 16px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.box-Customer{ /* กล่องประเภท */
+    width: 50%;
+    height: 65px;
+    
+}
+.word-box-Customer{  /* กล่อง "ข้อความประเภท" */
+    width: 100%;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-black);
+    margin-bottom: 8px;
+}
+.box-type{ /* กล่องลูกค้า */
+    width: 50%;
+    height: 65px;
+    gap: 8px;
+}
+.word-box-type{ /* กล่อง "ข้อความลูกค้า" */
+    width: 100%;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-black);
+    margin-bottom: 8px;
+}
+#meun-team {
+    height: 35px; /* กำหนดความสูงของ select box */
+  width: 100%;
+  padding: 5px; /* เพิ่ม padding ด้านใน (รวมด้านขวาสำหรับลูกศร) */
+  border: 1px solid var(--input-stoke-gray-color200);
+  background-color: var(--input-bg-color50);
+  font-size: var(--font-size-14);
+  ; /* สีข้อความปกติ */
+    appearance: none; /* ลบสไตล์เริ่มต้นของเบราว์เซอร์ */
+  cursor: pointer; /* แสดง cursor เป็นรูปมือเมื่อชี้ */
+  border-radius: 8px; /* ทำให้มุมของ select box โค้งมน */
+  font-weight: var(--font-weight-regular);
+   background-image: url(picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png); /* **เปลี่ยนเป็นที่อยู่รูปไอคอนลูกศรของคุณ** */
+  background-repeat: no-repeat;
+  background-position: right 15px center; /* จัดตำแหน่งรูปไอคอน: ห่างจากขวา 15px, อยู่กึ่งกลางแนวตั้ง */
+  background-size: 14px; /* ขนาดของรูปไอคอนลูกศร (ปรับได้ตามต้องการ) */
+  color: var(--input-text-color400); /* กำหนดสีข้อความของ select box */
+}
+#meun-group {
+    height: 35px; /* กำหนดความสูงของ select box */
+  width: 100%;
+  padding: 5px; /* เพิ่ม padding ด้านใน (รวมด้านขวาสำหรับลูกศร) */
+  border: 1px solid var(--input-stoke-gray-color200);
+  background-color: var(--input-bg-white);
+  font-size: var(--font-size-14);
+  ; /* สีข้อความปกติ */
+  outline: none;
+    appearance: none; /* ลบสไตล์เริ่มต้นของเบราว์เซอร์ */
+  cursor: pointer; /* แสดง cursor เป็นรูปมือเมื่อชี้ */
+  border-radius: 8px; /* ทำให้มุมของ select box โค้งมน */
+  font-weight: var(--font-weight-regular);
+   background-image: url(picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png); /* **เปลี่ยนเป็นที่อยู่รูปไอคอนลูกศรของคุณ** */
+  background-repeat: no-repeat;
+  background-position: right 15px center; /* จัดตำแหน่งรูปไอคอน: ห่างจากขวา 15px, อยู่กึ่งกลางแนวตั้ง */
+  background-size: 14px; /* ขนาดของรูปไอคอนลูกศร (ปรับได้ตามต้องการ) */
+  color: var(--input-text-color400); /* กำหนดสีข้อความของ select box */
+}
+select{
+    color:"#000";
+}
+/* สไตล์สำหรับ placeholder (option ที่ถูกเลือกเริ่มต้น) */
+#meun-team option[disabled][selected] {
+  color: var(--Input-text-black); /* สีเทาสำหรับ placeholder */
+  
+}
+
+/* สไตล์เมื่อ select box ถูกโฟกัส */
+#meun-team:focus {
+  
+  outline: none;
+  
+}
+.Department-and-Taxpayer-Number{ /*กล่องหมายเลขกรมและเลขประจำตัวผู้เสียภาษี*/
+    width: 100%;
+    height: 65px;
+    gap: 16px;
+    display: flex;
+    align-items: center;
+}
+.box-Department{ /*กล่องแผนก*/
+    width: 50%;
+    height: 65px;
+    gap: 8px;
+}
+.word-box-department{ /*กล่องข้อความแผนก*/
+    width: 100%;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-black);
+    margin-bottom: 8px;
+}
+.box-Taxpayer-Number{ /*กล่องเลขผู้เสียภาษี*/
+    width: 50%;
+    height: 65px;
+    gap: 8px; 
+}
+.word-Taxpayer-Number{ /*ข้อความเลขผู้เสียภาษี*/
+    width: 100%;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-black);
+    margin-bottom: 8px; 
+}
+/********************************************** ใบกำกับภาษี **********************************************/
+/********************************************** กลับไปหน้าหลัก ********************************************/
+.go-back{ /*กล่องใหญ่*/
+    width: 100%;
+    height: 40px;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.go-back-button{/*กล่องปุ่ม*/
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    gap: 8px;
+    background-color: var(--bnt-n-bg-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.word-go-back{
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color500);
+    height: 16px;
+    background-color: var(--bnt-n-bg-white);
+}
+/********************************************** กลับไปหน้าหลัก ********************************************/
+/**********************************************  ภาษีและสกุลเงิน ********************************************/
+.Tax-and-currency-prices{ /*กล่องใหญ่*/
+    width: 100%;
+    height: 65px;
+    gap: 16px;
+    display: flex;
+    align-items: center;
+}
+.box-data-Tax{ /*กล่องข้อมูลภาษี*/
+    width: 100%;
+    height: 65px;
+    gap: 8px;
+}
+.word-data-Tax{ /*กล่อง ข้อความข้อมุลภาษี*/
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-white);
+    margin-bottom: 8px;
+}
+.box-currency-prices{ /*กล่องสกุลเงิน*/
+    width: 100%;
+    height: 65px;
+    gap: 8px;
+}
+.word-currency-prices{ /*กล่องข้อความสกุลเงิน*/
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-white);
+    margin-bottom: 8px;
+}
+/**********************************************  ภาษีและสกุลเงิน ********************************************/
+/*End khaow*/
+/*Start Beam*/
+.address{
+    width: 100%;
+    height: 146px;
+    margin-bottom: 8px;
+}
+.add-title{
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-16);
+    margin-bottom: 8px;
+}
+
+.date-tax{
+    width: 100%;
+    height: 65px;
+}
+.date-title{    
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-16);
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+.input-date-tax {
+    width: 100%;
+    height: 35px;
+    border-radius:8px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    color: var(--input-stoke-gray-color200);
+    background-color: var(--input-bg-color50);
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: var(--font-size-14);
+    appearance: none;
+  -webkit-appearance: none;
+   position: relative; 
+  background-image: none;
+  background-image: url('picture/iconca.png'); 
+  background-repeat: no-repeat;
+  background-position: right 10px center; 
+  background-size: 20px
+  
+}
+.input-date-tax::-webkit-calendar-picker-indicator {
+  opacity: 0; /* ทำให้มองไม่เห็น */
+  display: block; /* ทำให้กินพื้นที่ */
+  position: absolute; /* จัดตำแหน่งสัมพันธ์กับ parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer; /* ยังคงให้คลิกได้ */
+  z-index: 1; /* ให้มันอยู่ด้านบน เพื่อให้คลิกแล้วปฏิทินโผล่ */
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.toggle-switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-gray-color200);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--toggle-white);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--toggle-color400);
+}
+
+
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(24px);
+  -ms-transform: translateX(24px);
+  transform: translateX(24px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+.checkbox-main {
+    width: 100%;
+    height: 22px;/* ไม่จำเป็นต้องกำหนด height ตรงนี้ ให้เนื้อหาภายในกำหนดความสูงเอง */
+}
+
+/* เพิ่มการใช้ Flexbox ใน .checkbox-box เพื่อจัดเรียง input และ label */
+.checkbox-box {
+    display: flex; /* เปิดใช้งาน Flexbox */
+    align-items: center; /* จัดแนวรายการในแนวตั้งให้อยู่ตรงกลาง */
+    height: 22px;
+    margin-top: 8px;
+    margin-bottom: 8px; /* กำหนดความสูงสำหรับ checkbox-box เพื่อให้เนื้อหาจัดตรงกลาง */
+}
+
+.checkbox-input {
+    opacity: 0;
+    /* ตำแหน่งเดิมของ input ที่ซ่อนไว้ */
+    width: 0; /* ทำให้ input ไม่ใช้พื้นที่ */
+    height: 0; /* ทำให้ input ไม่ใช้พื้นที่ */
+    margin: 0; /* ลบ margin เริ่มต้นของ input */
+    padding: 0; /* ลบ padding เริ่มต้นของ input */
+    /* border-radius: 4px; -- ลบออกเพราะ input ถูกซ่อน */
+}
+
+.checkbox-input + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    display: inline-block; /* ยังคงเป็น inline-block แต่ตอนนี้อยู่ใน flex container */
+    color: var(--text-black);
+    line-height: 16px; /* กำหนด line-height ให้เท่ากับความสูงของ pseudo-element เพื่อช่วยในการจัดแนวข้อความ */
+}
+
+.checkbox-input + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0; /* top: 0; ร่วมกับ line-height จะช่วยจัดแนว */
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    outline: 1px solid var(--checkbox-gray-color300);
+    background-color: var(--checkbox-gray-color50);
+}
+
+.checkbox-input:checked + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    outline: 1px solid var(--checkbox-color500);
+    background-color: var(--checkbox-gray-color50);
+}
+
+.checkbox-input:checked + label::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 10px;
+    height: 10px;
+    background-image: url(picture/checkbox10px.png);
+    background-size: 100%;
+    background-color: var(--checkbox-gray-color50);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.search-box{
+    width: 100%;
+    height: 35px;
+    
+}
+.search-box1{
+    width: calc(100% - 1.6px);
+    height: 35px;
+    display: flex;  
+    align-items: center;
+     border: 1px solid var(--input-stoke-gray-color200);
+     background-color: var(--input-bg-white);
+     border-radius: 8px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.search-input{
+    width: 100%;
+    height: 35px;
+    border-radius:8px;
+    box-sizing: border-box;
+    background-color: var(--input-bg-color50);
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: var(--font-size-14);
+    appearance: none;
+  -webkit-appearance: none;
+   position: relative; /* สำคัญสำหรับการจัดวาง ::-webkit-calendar-picker-indicator */
+  background-image: none;
+  background-image: url('picture/search.png'); /* **เปลี่ยนเป็นที่อยู่รูปไอคอนปฏิทินของคุณ** */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* จัดตำแหน่งรูปไอคอน: ห่างจากขวา 10px, อยู่กึ่งกลางแนวตั้ง */
+  background-size: 16px
+    
+}
+.search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none; 
+    appearance: none;
+    display: none;
+}
+.search-input::placeholder{
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular);
+    color: var(--) var(--input-text-gray-color200);
+}
+
+.pay-box{
+    width: 100%;
+    height: 40px;
+     margin-bottom: 8px;
+    margin-top: 8px;   
+}
+.pay-box-in{
+    width: 120px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--btn-n-bg-primary500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+    font-size: var(--font-size-12);
+    font-weight:var(--font-weight-bold);
+}
+.pay-money-box{
+    width: 100%;
+    height: 40px; 
+     margin-bottom: 8px;
+    margin-top: 8px;  
+}
+.pay-money-box-in{
+    width: 102px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--btn-n-bg-primary500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+    font-size: var(--font-size-12);
+    font-weight:var(--font-weight-bold);
+}
+.back-box{
+    width: 100%;
+    height: 40px;
+     margin-bottom: 8px;
+    margin-top: 8px;
+}
+.back-box-in{
+    width: 98px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--btn-n-bg-primary500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+    font-size: var(--font-size-12);
+    font-weight:var(--font-weight-bold);
+}
+.selece-paper-box{
+    width: 100%;
+    height: 35px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+.selece-paper-box-in{
+    width: 147px;
+    height: 35px;
+    border-radius: 8px;
+    background-color: var(--btn-n-bg-primary500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+    font-size: var(--font-size-12);
+    font-weight:var(--font-weight-bold);
+    gap: 8px;
+}
+.img-save{
+    width: 16px;
+    height: 16px;
+    background-color: var(--btn-n-bg-primary500);
+}
+
+.upload-file-box{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+.upload-file-box-in{
+    width: 149px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--btn-n-bg-primary500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+    font-size: var(--font-size-12);
+    font-weight:var(--font-weight-bold);
+    gap: 8px;
+}
+.img-save{
+    width: 16px;
+    height: 16px;
+    background-color: var(--btn-n-bg-primary500);
+}
+.back-save-box{
+    width: 100%;
+    height: 40px;
+}
+.back-save-box-box{
+    width: 212px;
+    height: 40px;
+    display: flex;
+    gap: 16px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+.back-box-in-1{
+width: 98px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--bnt-n-bg-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color500);
+    font-size: var(--font-size-12);
+    font-weight:var(--font-weight-bold);
+    
+}
+.save-box-in{
+width: 98px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--btn-n-bg-primary500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+    font-size: var(--font-size-12);
+    font-weight:var(--font-weight-bold);
+
+}
+.checkbox-main-1 {
+    width: 100%;
+    /* Let height adjust based on content for flexibility */
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    /* Use flexbox to vertically center the checkbox-box-1 inside */
+    display: flex;
+    align-items: center;
+}
+
+/* New wrapper to align the input and label */
+.checkbox-box-1 {
+    display: flex; /* Makes input and label align vertically */
+    align-items: center; /* Vertically centers the custom checkbox with the label text */
+    min-height: 16px; /* Ensures the box has at least the height of your custom checkbox */
+}
+
+/* Hide the native checkbox input.
+   Positioning it off-screen improves accessibility while hiding it visually. */
+.checkbox-input-1 {
+    opacity: 0;
+    position: absolute;
+    left: -9999px; /* Move far off-screen */
+    pointer-events: none; /* Prevents accidental interaction with the hidden input */
+}
+
+/* Style the label to act as the clickable custom checkbox area */
+.checkbox-input-1 + label {
+    position: relative;
+    /* Adjust padding-left to provide space for the 16px wide custom checkbox
+       plus desired gap (e.g., 16px checkbox + 8px gap = 24px) */
+    padding-left: 24px;
+    cursor: pointer;
+    display: inline-flex; /* Allows for internal alignment if needed */
+    align-items: center; /* Ensures text within label is centered with the custom box if padding isn't enough */
+    color: var(--text-black);
+    line-height: 1.2; /* A consistent line-height helps with vertical alignment */
+}
+
+/* Create the custom checkbox box (unchecked state) */
+.checkbox-input-1 + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%; /* Position the top edge at 50% of the label's height */
+    transform: translateY(-50%); /* Pull it up by half its own height for perfect vertical centering */
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    outline: 1px solid var(--checkbox-gray-color300);
+    background-color: var(--checkbox-gray-color50);
+    transition: all 0.2s ease-in-out; /* Smooth transition for visual changes */
+}
+
+/* Style for the custom checkbox box when checked */
+.checkbox-input-1:checked + label::before {
+    outline: 1px solid var(--checkbox-color500);
+    background-color: var(--checkbox-color500); /* Example: Fill with accent color when checked */
+}
+
+/* Create the custom checkmark (checked state) */
+.checkbox-input-1:checked + label::after {
+    content: "";
+    position: absolute;
+    left: 4.5px; /* Adjust left for checkmark centering within the 16px box */
+    top: 50%; /* Vertically center the checkmark */
+    transform: translateY(-50%) rotate(45deg); /* Pull up and rotate for checkmark shape */
+    width: 6px; /* Width of the checkmark arm */
+    height: 12px; /* Height of the checkmark arm */
+    border-bottom: 2px solid var(--checkbox-gray-color50); /* Use borders for the checkmark */
+    border-right: 2px solid var(--checkbox-gray-color50);
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+
+/* Disabled state for the label (changes cursor and opacity) */
+.checkbox-input-1:disabled + label {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Disabled state for the custom checkbox box */
+.checkbox-input-1:disabled + label::before {
+    content: ""; /* Ensure content is present */
+    background-image: url(picture/checkbox-gray.png); /* Your custom disabled image */
+    background-size: 10px 10px;
+    background-color: var(--checkbox-gray-color100);
+    background-position: center;
+    background-repeat: no-repeat;
+    outline: 1px solid var(--checkbox-gray-color300);
+}
+
+/* If you want the checkmark to be faded when disabled and checked */
+.checkbox-input-1:disabled:checked + label::after {
+    opacity: 0.6; /* Fades the checkmark */
+    border-bottom-color: var(--checkbox-gray-color300); /* Example: change checkmark color */
+    border-right-color: var(--checkbox-gray-color300);
+}
+
+.img-save {
+   width: 16px;
+    height: 16px;
+    background-color: var(--btn-n-bg-primary500);
+}
+
+.amount-discount-priceafterdiscount{
+    width: 100%;
+    height: 65px;
+    gap: 16px;
+}
+
+.amount-discount-priceafterdiscount-box{
+    display: flex;
+     gap: 16px;
+}
+
+.amount{
+    width: 206px;
+    height: 65px;
+    gap: 8px;
+    
+}
+
+.amount-title{
+    width: 206px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 8px;
+}
+/*
+Assuming this input is inside your .amount container.
+The .amount container itself should still have its layout properties (display: flex, flex-direction: column, gap).
+*/
+
+.amount-value {
+    /* Sizing */
+    width: 206px;
+    height: 35px;
+
+    /* Corners */
+    border-radius: 8px;
+
+    /* Spacing */
+    padding: 8px;
+    box-sizing: border-box; /* Crucial: Ensures padding is included within the specified width/height */
+
+    /* Colors */
+     background-color:var(--input-bg-gray-color100);
+    color: var(--Input-text-black); /* Common text color for input */
+
+    /* Borders */
+    border: 1px solid var(--gray-color200);
+
+    /* Visuals for disabled state (apply only if disabled) */
+    /* This can be combined with .amount-value[disabled] or managed with JS/another class */
+
+    /* Optional: Font styles, align text etc. */
+
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular);
+}
+
+/* If you want to ensure these specific disabled styles only apply when it's truly disabled,
+   you can use this more specific selector: */
+.amount-value[disabled] {
+    cursor: not-allowed;
+    /* opacity: 0.8; /* Uncomment if you want a slightly faded look when disabled */
+}
+
+
+.discount{
+    width: 206px;
+    height: 65px;
+    gap: 8px;
+    
+}
+
+.discount-title{
+    width: 206px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 8px;
+}
+
+
+.discount-value {
+    /* Sizing */
+    width: 206px;
+    height: 35px;
+
+    /* Corners */
+    border-radius: 8px;
+
+    /* Spacing */
+    padding: 8px;
+    box-sizing: border-box; 
+    /* Colors */
+    background-color:var(--input-bg-gray-color100);
+    color: var(--Input-text-black); 
+    /* Borders */
+    border: 1px solid var(--gray-color200);
+ 
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular);
+}
+
+
+.discount-value[disabled] {
+    cursor: not-allowed;
+   
+}
+
+.priceafterdiscount{
+    width: 206px;
+    height: 65px;
+    gap: 8px;
+    
+}
+
+.priceafterdiscount-title{
+    width: 206px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 8px;
+}
+
+
+.priceafterdiscount-value {
+    /* Sizing */
+    width: 206px;
+    height: 35px;
+
+    /* Corners */
+    border-radius: 8px;
+
+    /* Spacing */
+    padding: 8px;
+    box-sizing: border-box; 
+
+    /* Colors */
+   background-color:var(--input-bg-gray-color100);
+    color: var(--Input-text-black); 
+
+    /* Borders */
+    border: 1px solid var(--gray-color200);
+
+
+     font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular);
+}
+
+
+.priceafterdiscount-value[disabled] {
+    cursor: not-allowed;
+    
+}
+
+
+.checkbox-container {
+    display: flex; /* ทำให้เช็คบ็อกซ์แสดงผลในบรรทัดเดียวกัน */
+    align-items: center; /* จัดแนวรายการในแนวตั้งให้อยู่ตรงกลาง */
+    gap: 20px; /* เพิ่มระยะห่างระหว่างเช็คบ็อกซ์แต่ละอัน */
+    width: 100%;
+    margin-top: 8px;
+     margin-bottom: 8px;
+}
+
+.checkbox-item {
+    display: flex; /* เปิดใช้งาน Flexbox สำหรับ input และ label ภายในแต่ละรายการ */
+    align-items: center; /* จัด input และ label ให้อยู่ตรงกลางแนวตั้ง */
+    height: 22px; /* กำหนดความสูงที่สม่ำเสมอสำหรับแต่ละเช็คบ็อกซ์ */
+}
+
+.my-checkbox-input {
+    opacity: 0; /* ซ่อน input จริง */
+    width: 0; /* ทำให้ input ไม่ใช้พื้นที่ */
+    height: 0; /* ทำให้ input ไม่ใช้พื้นที่ */
+    margin: 0;
+    padding: 0;
+}
+
+.my-checkbox-input + label {
+    position: relative;
+    padding-left: 30px; /* เพิ่มพื้นที่สำหรับ custom checkbox */
+    cursor: pointer;
+    display: inline-block;
+    color: var(--text-black);
+    line-height: 16px; /* กำหนด line-height ให้เท่ากับความสูงของ pseudo-element */
+}
+
+.my-checkbox-input + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    outline: 1px solid var(--checkbox-gray-color300); /* เส้นขอบของกล่องเช็คบ็อกซ์ */
+    background-color: var(--checkbox-gray-color50); /* สีพื้นหลังของกล่องเช็คบ็อกซ์ */
+}
+
+.my-checkbox-input:checked + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    outline: 1px solid var(--checkbox-color500); /* เส้นขอบเมื่อถูกเลือก */
+    background-color: var(--checkbox-gray-color50);
+}
+
+.my-checkbox-input:checked + label::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 10px;
+    height: 10px;
+    background-image: url(picture/checkbox10px.png); /* รูปไอคอนเครื่องหมายถูก */
+    background-size: 100%;
+    background-color: var(--checkbox-gray-color50);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.amount-tax{
+    width: 100%;
+    height: 286px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.amount-tax-box-1{
+    width: 650px;
+    height: 116px;
+}
+
+.amount-tax-title{
+    width: 650px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-regular);
+    margin-bottom: 16px;
+}
+
+.vat-box{
+    width: 206px;
+    height: 65px;
+    gap: 16px;
+}
+
+.amount-value-1 {
+    width: 206px;
+    height: 35px;  
+    border-radius: 8px;
+    padding: 8px;
+    box-sizing: border-box;
+     background-color:var(--input-bg-gray-color100);
+    color: var(--Input-text-black); 
+    border: 1px solid var(--gray-color200);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular);
+}
+
+.amount-value-1[disabled] {
+    cursor: not-allowed;
+}
+
+.amount-vat-tilte{
+    width: 206px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 8px;
+}
+
+
+.amount-vat-value {
+    width: 206px;
+    height: 35px;
+    border-radius: 8px;
+    padding: 8px;
+    box-sizing: border-box; 
+     background-color:var(--input-bg-gray-color100);
+    color: var(--Input-text-black); 
+    border: 1px solid var(--gray-color200);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular);
+}
+
+.amount-vat-value[disabled] {
+    cursor: not-allowed;
+}
+ .list-box{
+    width: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 8px;
+ }
+ .checkbox-list-box {
+    display: flex;
+    align-items: center; 
+    height: 22px; 
+}
+
+.checkbox-list-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.checkbox-list-input + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    display: flex; 
+    align-items: center;
+    color: var(--text-black);
+    
+}
+
+.checkbox-list-input + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+   
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    outline: 1px solid var(--checkbox-gray-color300);
+    background-color: var(--checkbox-gray-color50);
+}
+
+.checkbox-list-input:checked + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    outline: 1px solid var(--checkbox-color500);
+    background-color: var(--checkbox-gray-color50);
+}
+
+.checkbox-list-input:checked + label::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+  
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-image: url(picture/checkbox10px.png);
+    background-size: 100%;
+    background-color: var(--checkbox-gray-color50);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.list-tax-data{
+   width: 206px;
+    height: 35px;
+    border-radius: 8px;
+    padding: 8px;
+    box-sizing: border-box; 
+     background-color:var(--input-bg-gray-color100);
+    color: var(--Input-text-black); 
+    border: 1px solid var(--gray-color200);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular); 
+}
+
+.amount-tax-box-1{
+    width: 650px;
+    height: 116px;
+    gap: 16px;
+}
+
+.amount-tax-box-2{
+    width: 650px;
+    height: 116px;
+    margin-top: 8px;
+}
+.withholding-tax{
+    width: 317px;
+    height: 65px;
+    display: flex;
+    gap: 8px;
+}
+
+.withholding-tax-box-1{
+    width: 206px;
+    height: 65px;
+}
+
+.withholding-tax-title{
+    width: 206px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 8px;
+}
+
+.amount-value-2 {
+    width: 206px;
+    height: 35px;  
+    border-radius: 8px;
+    padding: 8px;
+    box-sizing: border-box;
+     background-color:var(--input-bg-gray-color100);
+    color: var(--Input-text-black); 
+    border: 1px solid var(--gray-color200);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular);
+}
+
+.amount-value-2[disabled] {
+    cursor: not-allowed;
+}
+
+.withholding-tax-box-2{
+    width: 95px;
+    height: 65px;
+}
+
+.withholding-tax-title-2{
+    width: 206px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 8px;     
+}
+
+select[name="percentage"] {
+    height: 35px;
+    width: 95px;
+    padding: 8px;
+    border: 1px solid var(--input-stoke-gray-color200); 
+    background-color: var(--input-bg-white );
+    font-size: var(--font-size-14);
+    appearance: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: var(--font-weight-regular);
+    background-image: url(picture/dropblack.png);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    color: var(--input-text-gray-color100);
+}
+
+
+select[name="percentage"] option {
+    padding: 10px; 
+    background-color: var(--input-bg-white); 
+    color: var(--Input-text-black); 
+    font-size: 16px;
+}
+
+
+select[name="percentage"]:hover {
+    border-color:var(--input-stoke-gray-color200); 
+    background-color:var(--input-bg-white); 
+}
+
+
+select[name="percentage"]:focus { 
+    outline: none; 
+}
+
+.list-box-2{
+    width: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+ }
+ .checkbox-list-box-2 {
+    display: flex;
+    align-items: center; 
+    height: 22px; 
+}
+
+.checkbox-list-input-2 {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.checkbox-list-input-2 + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    display: flex; 
+    align-items: center; 
+    color: var(--text-black);
+   
+}
+
+.checkbox-list-input-2 + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    outline: 1px solid var(--checkbox-gray-color300);
+    background-color: var(--checkbox-gray-color50);
+}
+
+.checkbox-list-input-2:checked + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    outline: 1px solid var(--checkbox-color500);
+    background-color: var(--checkbox-gray-color50);
+}
+
+.checkbox-list-input-2:checked + label::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+   
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-image: url(picture/checkbox10px.png);
+    background-size: 100%;
+    background-color: var(--checkbox-gray-color50);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.list-tax-data-2{
+   width: 206px;
+    height: 35px;
+    border-radius: 8px;
+    padding: 8px;
+    box-sizing: border-box; 
+     background-color:var(--input-bg-white);
+    color: var(--input-text-gray-color200); 
+    border: 1px solid var(--input-stoke-gray-color200);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular);
+    outline: none; 
+}
+
+  
+
+.password-unit-price-unit{
+    width: 100%;
+    height: 65px;
+    gap: 16px;
+}
+
+.password-unit-price-unit-box{
+    display: flex;
+     gap: 16px;
+}
+
+.password{
+    width: 206px;
+    height: 65px;
+    gap: 8px;
+    
+}
+
+.password-title{
+    width: 206px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 8px;
+}
+
+
+.password-box{
+    width: 100%;
+    height: 40px;
+}
+.password-box-in{
+    width: 206px;
+    height: 35px;
+    border-radius: 8px;
+    background-color: var(--btn-n-bg-primary500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-white);
+    font-size: var(--font-size-12);
+    font-weight:var(--font-weight-bold);
+    gap: 8px;
+}
+.img-save{
+    width: 16px;
+    height: 16px;
+    background-color: var(--btn-n-bg-primary500);
+}
+
+
+.unit{
+    width: 206px;
+    height: 65px;
+    gap: 8px;
+    
+}
+
+.unit-title{
+    width: 206px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 8px;
+}
+
+
+select[name="unit"] {
+    height: 35px;
+    width: 206px;
+    padding: 8px;
+    border: 1px solid var(--input-stoke-gray-color200); 
+    background-color: var(--input-bg-white );
+    font-size: var(--font-size-14);
+    appearance: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: var(--font-weight-regular);
+    background-image: url(picture/dropblack.png);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    color: var(--input-text-gray-color100);
+}
+
+
+select[name="unit"] option {
+    padding: 10px; 
+    background-color: var(--input-bg-white); 
+    color: var(--Input-text-black);
+    font-size: 16px;
+}
+
+
+select[name="unit"]:hover {
+    border-color:var(--input-stoke-gray-color200); 
+    background-color:var(--input-bg-white); 
+}
+
+
+select[name="unit"]:focus { 
+    outline: none;
+}
+
+.price-unit{
+    width: 206px;
+    height: 65px;
+    gap: 8px;
+    
+}
+
+.price-unit-title{
+    width: 206px;
+    height: 22px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 8px;
+}
+
+
+.price-unit-class {   
+    width: 206px;
+    height: 35px;   
+    border-radius: 8px;    
+    padding: 8px;
+    box-sizing: border-box;   
+   background-color:var(--input-bg-white);   
+    border: 1px solid var(--input-stoke-gray-color200);
+     font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular);
+    outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

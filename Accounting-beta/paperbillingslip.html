@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ใบวางบิล</title>
+  <style>
+    body { background-color:#474747; margin:0; padding:20px; }
+    @page { size: A4; margin: 10mm; }
+    * { box-sizing: border-box; }
+    @media print {
+      body { margin:0; padding:0; background: transparent !important; }
+      .a4-sheet { width:190mm; min-height:277mm; margin:0 auto; }
+      table { margin-left:auto; margin-right:auto; }
+    }
+    @media screen {
+      .a4-sheet { width:210mm; min-height:297mm; margin:0 auto; }
+    }
+
+    /* สไตล์ตารางหลัก */
+    td, th {  padding:4px; font-size:13px; }
+    .no-border td, .no-border th { border:none; }
+    .tight td, .tight th { padding:3px 4px; }
+    .row-tall td { height:30px; } /* ความสูงแถว */
+  </style>
+</head>
+<body>
+  <div class="a4-sheet" style="background:#fff;">
+
+    <!-- ส่วนหัวบริษัท -->
+    <table role="presentation" cellspacing="0" cellpadding="0" style="width:190mm; margin:12mm auto 4mm; border-collapse:collapse; background:#ffffff; color:#111827; font-family:Tahoma, 'Noto Sans Thai', sans-serif;">
+      <tr>
+        <td style="padding-top:6mm; text-align:center; font-size:18px; font-weight:700;">
+          บริษัท ซีพี แล็กรังสิต จำกัด (มหาชน)
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-size:14px; padding-top:2mm;">
+          สาขาที่ 000039 สาขาสระบุรี : 66/3 หมู่ที่ 2 ต.คลองชัน
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-size:14px; line-height:1.6;">
+          อ.เมืองสระบุรี จ.สระบุรี 18000
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-size:14px; line-height:1.6;">
+          โทร. 036-731100 โทรสาร 036-731111-2
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-size:14px; line-height:1.6;">
+          เลขประจำตัวผู้เสียภาษี : 0107567000414
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-size:18px; font-weight:700; padding-top:3mm;">
+          ใบวางบิล
+        </td>
+      </tr>
+    </table>
+
+<!-- กล่องใหญ่ครอบทั้งหมด -->
+<table cellspacing="0" cellpadding="0" style="width:190mm; border-collapse:collapse; margin:0 auto 3mm; font-family:Tahoma, 'Noto Sans Thai', sans-serif; border:1px solid black;">
+  <tr>
+    <td style="padding:0;">
+
+<!-- กล่องหัวบิล -->
+<table cellspacing="0" cellpadding="0" 
+       style="width:100%; border-collapse:collapse; font-family:Tahoma, 'Noto Sans Thai', sans-serif;">
+  <tr>
+    <td style="padding:6px 8px; vertical-align:top;">
+      <div style="float:left; width:70%;">
+        <strong>เรียน</strong> : คุณปกเขตร รัชชิปประการ<br/>
+        <strong>ที่อยู่</strong> : บริษัท เอพีซิริ คอนโดเมอเรท จำกัด<br/>
+        45 หมู่ 8 ต.มิตรภาพ อ.มวกเหล็ก จ.สระบุรี<br/>
+        <strong>ณ วันที่</strong> : 16/09/2025 ได้รับเอกสารการวางบิลจากบริษัท
+      </div>
+      <div style="float:right; width:28%; text-align:left;">
+        เลขที่ใบวางบิล : ARBC 25090022<br/>
+        หน้าที่ : 1 / 1
+      </div>
+    </td>
+  </tr>
+</table>
+
+
+
+
+      <!-- ตารางรายการ -->
+      <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse; font-family:Tahoma, 'Noto Sans Thai', sans-serif;">
+        <thead>
+          <tr style="background:#fff;">
+            <th style="width:6%;height: 30px; border-bottom: 1px solid black;border-top: 1px solid black;">ลำดับ</th>
+            <th style="width:27%;height: 30px; border-bottom: 1px solid black;border-top: 1px solid black;">เลขที่เอกสาร</th>
+            <th style="width:14%;height: 30px;border-bottom: 1px solid black;border-top: 1px solid black;">วันที่เอกสาร</th>
+            <th style="width:16%;height: 30px;border-bottom: 1px solid black;border-top: 1px solid black;">มูลค่าไม่รวม VAT</th>
+            <th style="width:9%;height: 30px;border-bottom: 1px solid black;border-top: 1px solid black;">VAT</th>
+            <th style="width:16%;height: 30px;border-bottom: 1px solid black;border-top: 1px solid black;">มูลค่ารวม VAT</th>
+            <th style="width:12%;height: 30px;border-bottom: 1px solid black;border-top: 1px solid black;">หมายเหตุ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- แถว 1 มีข้อมูล -->
+          <tr style="height:30px;">
+            <td style="text-align:center;">1</td>
+            <td>IVID 25038151516642</td>
+            <td style="text-align:center;">15/09/2025</td>
+            <td style="text-align:right;">15,046.39</td>
+            <td style="text-align:right">187.36</td>
+            <td style="text-align:right;">15,233.75</td>
+            <td></td>
+          </tr>
+          <!-- แถว 2-10 เว้นว่าง -->
+        <tr style="height:30px;">
+            <td style="text-align:center;"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    <tr style="height:30px;">
+        <td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr style="height:30px;">
+        <td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr style="height:30px;">
+        <td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr style="height:30px;">
+        <td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr style="height:30px;">
+        <td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr style="height:30px;">
+        <td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr style="height:30px;"><td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr style="height:30px;">
+        <td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+        <tr style="height:30px;">
+        <td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr style="height:30px;">
+        <td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr style="height:30px;">
+        <td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr style="height:30px;">
+        <td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr style="height:30px;"><td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr style="height:30px;">
+        <td style="text-align:center;"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+        </tbody>
+      </table>
+
+      <!-- กล่องสรุปท้ายบิล -->
+      <table cellspacing="0" cellpadding="0" style="width:100%; border-collapse:collapse; font-family:Tahoma, 'Noto Sans Thai', sans-serif;">
+        <tr>
+          <td colspan="7" style="padding:6px; border-top:1px solid black;">
+            รวมจำนวนเอกสาร 1 รายการ
+          </td>
+        </tr>
+        <tr>
+          <td colspan="7" style="padding:6px;     border-bottom: 1px solid black;">
+            หมายเหตุท้ายบิล : โปรดชำระค่าสินค้าตามกำหนดเวลา หากชำระล่าช้าจะต้องชำระค่าปรับเพิ่มเติมตามที่ได้ตกลงกันไว้
+          </td>
+        </tr>
+<tr>
+  <!-- ช่องข้อความ -->
+  <td style="text-align:right; font-weight:bold; width: 380px; white-space:nowrap;">
+    รวมทั้งสิ้น :
+  </td>
+  <!-- ช่องจำนวนเงินที่ 1 -->
+  <td style="text-align:right; font-weight:bold; width: 50px; padding:4px 6px;">
+    15,233.75
+  </td>
+  <!-- ช่องจำนวนเงินที่ 2 -->
+  <td style="text-align:right; font-weight:bold; width: 50px;  padding:4px 6px;">
+    15,233.75
+  </td>
+</tr>
+        <tr>
+          <td colspan="7" style="border:none; text-align:right; padding-top:2mm;">
+            (หนึ่งหมื่นห้าพันสองร้อยสามสิบสามบาทเจ็ดสิบห้าสตางค์)
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+<!-- ส่วนท้ายบิล -->
+<table cellspacing="0" cellpadding="0" 
+       style="width:190mm; border-collapse:collapse; font-family:Tahoma, 'Noto Sans Thai', sans-serif;     margin: 12mm auto 4mm;">
+  <tr>
+    <td colspan="4" style="padding:6px;">
+      นัดชำระวันที่ : ____ / ____ / ______ &nbsp;&nbsp; 
+      นัดชำระเป็น : 
+      <input type="checkbox"> เงินสด 
+      <input type="checkbox"> เช็ค 
+      <input type="checkbox"> อื่นๆ (ระบุ) ......................
+    </td>
+  </tr>
+  <tr>
+<tr>
+      <td class="sign-box" id="sign-created" 
+      style="width:25%; padding:20px 6px 6px 6px; text-align:center; vertical-align:bottom;">
+  <td class="sign-box" id="sign-created" 
+      style="width:25%; padding:20px 6px 6px 6px; text-align:center; vertical-align:bottom;">
+    ผู้วางบิล : ___________________<br/>
+    วันที่ : ____ / ____ / ______
+  </td>
+  
+  <td class="sign-box" id="sign-received" 
+      style="width:25%; padding:20px 6px 6px 6px; text-align:center; vertical-align:bottom;">
+    ผู้รับบิล : ___________________<br/>
+    วันที่ : ____ / ____ / ______
+  </td>
+</tr>
+
+</table>
+
+
+  </div>
+  <script>
+// ฟังก์ชันสำหรับรับ ID จาก URL parameter
+function getUrlParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// ฟังก์ชันสำหรับดึงข้อมูลจาก API
+function loadReceiptData(receiptId) {
+    if (!receiptId) {
+        console.error('ไม่พบ ID ของใบเสร็จ');
+        return;
+    }
+    
+    console.log('กำลังดึงข้อมูลสำหรับ ID:', receiptId);
+    
+    // กำหนด endpoint 
+    const endpoint = 'http://localhost:3000';
+    
+    $.ajax({
+        url: `${endpoint}/api/get_quotation_by_id`,
+        method: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            id: receiptId,
+            com_id: localStorage.getItem('com_id') || 1
+        }),
+        success: function(response) {
+            console.log('API Response:', response);
+            if (response.code === 200) {
+                // อัปเดตข้อมูลในหน้าเว็บ
+                updateReceiptDisplay(response.result);
+            } else {
+                console.error('เกิดข้อผิดพลาดในการดึงข้อมูล:', response.result);
+                alert('ไม่สามารถดึงข้อมูลได้: ' + (response.result || 'ไม่ทราบสาเหตุ'));
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('เกิดข้อผิดพลาดในการเชื่อมต่อ:', error);
+            alert('เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์');
+        }
+    });
+}
+
+// ฟังก์ชันสำหรับอัปเดตข้อมูลในหน้าเว็บ
+function updateReceiptDisplay(data) {
+// ข้อมูลลูกค้า
+  $('#customerName').text(data.cus_name);
+  
+  // แบ่งที่อยู่จาก customerAddress
+  var fullAddress = data.cus_detail.cus_addr || '';
+  
+  // หาตำแหน่งของคำสำคัญในที่อยู่
+  var tambonIndex = fullAddress.search(/ต\.|ตำบล|แขวง/);
+  var amphoeIndex = fullAddress.search(/อ\.|อำเภอ|เขต/);
+  var provinceIndex = fullAddress.search(/จ\.|จังหวัด|กรุงเทพมหานคร|กรุงเทพฯ|กรุงเทพ ฯ/);
+  
+  if (tambonIndex !== -1) {
+    // บรรทัดที่ 1: ที่อยู่หลัก (ก่อนตำบล)
+    $('#customerAddress').text(fullAddress.substring(0, tambonIndex).trim());
+    
+    if (provinceIndex !== -1) {
+      // บรรทัดที่ 2: ตำบล อำเภอ
+      $('#customerAddress2').text(fullAddress.substring(tambonIndex, provinceIndex).trim());
+      // บรรทัดที่ 3: จังหวัด รหัสไปรษณีย์
+      $('#customerAddress3').text(fullAddress.substring(provinceIndex).trim());
+    }
+  }
+  $('#customerPhone').text(data.cus_detail.cus_phone);
+  $('#customerReference').text(data.cus_detail.cus_refer);
+
+// ข้อมูลใบเสนอราคา
+  $('#quotationNumber').text(data.tx);
+  $('#quotationDate').text(data.doc_date);
+  $('#quotationDueDate').text(data.doc_detail.deadline);
+  $('#quotationDueDateTo').text(data.due_date);
+  $('#quotationPaymentTerms').text(data.quo_payment_terms);
+
+// ข้อมูลสินค้า
+  const items = data.product_byuser.slice(0, 10);
+  const emptyRows = [];
+  
+  // เพิ่มแถวว่างจนครบ 10 แถว
+  for (let i = items.length; i < 10; i++) {
+    emptyRows.push(`
+      <tr>
+        <td style="border-left: 1px solid black; height:40px;text-align: center;font-size: 11px;"></td>
+        <td style="border-left: 1px solid black;padding: 0 10px; border-left: 1px solid black;font-size: 11px;">&nbsp;</td>
+        <td style="border-left: 1px solid black;text-align: center;font-size: 11px;">&nbsp;</td>
+        <td style="border-left: 1px solid black;font-size: 11px;text-align: right;padding: 0 10px;">&nbsp;</td>
+        <td style="border-left: 1px solid black;font-size: 11px;text-align: right;padding: 0 10px;">&nbsp;</td>
+        <td style="border-left: 1px solid black;border-right: 1px solid black;font-size: 11px;text-align: right;padding: 0 10px;">&nbsp;</td>
+      </tr>
+    `);
+  }
+  
+  $('#quotationItems').html([
+    ...items.map((item, index) => `
+      <tr>
+        <td style="border-left: 1px solid black; height:40px;text-align: center;font-size: 11px;">${index + 1}</td>
+        <td style="border-left: 1px solid black;padding: 0 10px; border-left: 1px solid black;font-size: 11px;">${item.desc_product}</td>
+        <td style="border-left: 1px solid black;text-align: center;font-size: 11px;">${parseFloat(item.qty).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}</td>
+        <td style="border-left: 1px solid black;font-size: 11px;text-align: right;padding: 0 10px;">${parseFloat(item.price).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+        <td style="border-left: 1px solid black;font-size: 11px;text-align: right;padding: 0 10px;">${parseFloat(item.discount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+        <td style="border-left: 1px solid black;border-right: 1px solid black;font-size: 11px;text-align: right;padding: 0 10px;">${parseFloat(item.total).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+      </tr>
+    `),
+    ...emptyRows
+  ].join(''));
+
+  
+  // ข้อมูลยอดรวม
+  $('#subtotal').text(parseFloat(data.product_detail.product_totalAllProducts).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+  $('#totalDiscount').text(parseFloat(data.product_detail.product_totalDiscount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+  $('#afterDiscount').text(parseFloat(data.product_detail.product_totalAfterDiscount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+  $('#vatAmount').text(parseFloat(data.product_detail.product_totalTax).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+  
+  // รวม withholdingTax ทั้ง 3 อัน
+  const withholdingTax1 = parseFloat(data.product_detail.product_withholdingTax) || 0;
+  const withholdingTax2 = parseFloat(data.product_detail.product_withholdingTax2) || 0;
+  const withholdingTax3 = parseFloat(data.product_detail.product_withholdingTax3) || 0;
+  const totalWithholdingTax = withholdingTax1 + withholdingTax2 + withholdingTax3;
+  $('#taxAmount').text(totalWithholdingTax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+  
+  $('#grandTotal').text(parseFloat(data.product_detail.product_totalAll).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}));
+
+  // แปลงตัวเลขเป็นตัวอักษรไทย
+  const grandTotalAmount = parseFloat(data.product_detail.product_totalAll);
+  const thaiText = convertToThaiText(grandTotalAmount);
+  $('#totalText').text(`ตัวอักษร: (${thaiText})`);
+
+  // อัปเดตการแสดงลายเซ็นต์อิเล็กทรอนิกและตารายาง  
+  if (data.cus_detail && data.cus_detail.cus_visits !== undefined) {
+    updateSignatureDisplay(data.cus_detail.cus_visits);
+  }
+
+  console.log('อัปเดตข้อมูลเรียบร้อยแล้ว');
+  createNewPage(data);
+}
+
+// ฟังก์ชันสำหรับอัปเดตชื่อผู้จัดทำและสถานะ checkbox
+function updateCreatorDisplay() {
+    const creatorName = localStorage.getItem('quotationCreatorName');
+    const notShowName = localStorage.getItem('quotationNotShowName') === 'true';
+    const signatureOption = localStorage.getItem('quotationSignatureOption') === 'true';
+    
+    const creatorElement = document.getElementById('creatorName');
+    
+    if (creatorName) {
+        creatorElement.textContent = creatorName;
+    }
+    
+    // ควบคุมการแสดงชื่อผู้จัดทำตามสถานะ checkbox
+    if (notShowName) {
+        // ถ้าเลือก "ไม่แสดงชื่อผู้จัดทำ" ให้ซ่อนชื่อ
+        creatorElement.style.display = 'none';
+    } else if (signatureOption) {
+        // ถ้าเลือก "ลายเซ็นต์อิเล็กทรอนิก" ให้แสดงชื่อ
+        creatorElement.style.display = 'visible';
+    } else {
+        // ถ้าไม่เลือกอะไรเลย ให้ซ่อนชื่อ
+        creatorElement.style.display = 'none';
+    }
+}
+
+// ฟังก์ชันสำหรับลายเซ็นต์อิเล็กทรอนิกและตารางลายเซ็นตาม cus_visits
+function updateSignatureDisplay(cusVisits) {
+    const unitLogo = document.getElementById('unitLogo');
+    
+    // ตรวจสอบ cus_visits
+    if (cusVisits === true || cusVisits === 'true') {
+        // ถ้า cus_visits เป็น true ให้แสดงลายเซ็น
+        unitLogo.style.display = 'block';
+    } else {
+        // ถ้า cus_visits ไม่เป็น true ให้ซ่อนลายเซ็น
+        unitLogo.style.display = 'none';
+    }
+}
+
+// ฟังก์ชันแปลงตัวเลขเป็นตัวอักษรไทย
+function convertToThaiText(number) {
+    const thaiNumbers = ['ศูนย์', 'หนึ่ง', 'สอง', 'สาม', 'สี่', 'ห้า', 'หก', 'เจ็ด', 'แปด', 'เก้า'];
+    const thaiUnits = ['', 'สิบ', 'ร้อย', 'พัน', 'หมื่น', 'แสน', 'ล้าน'];
+    
+    if (number === 0) return 'ศูนย์บาทถ้วน';
+    
+    const integerPart = Math.floor(number);
+    const decimalPart = Math.round((number - integerPart) * 100);
+    
+    let result = '';
+    
+    // แปลงส่วนจำนวนเต็ม
+    if (integerPart > 0) {
+        const numStr = integerPart.toString();
+        const len = numStr.length;
+        
+        for (let i = 0; i < len; i++) {
+            const digit = parseInt(numStr[i]);
+            const position = len - i - 1;
+            
+            if (digit !== 0) {
+                if (position === 1 && digit === 1 && len > 1) {
+                    result += 'สิบ';
+                } else if (position === 1 && digit === 2) {
+                    result += 'ยี่สิบ';
+                } else if (position === 0 && digit === 1 && len > 1) {
+                    result += 'เอ็ด';
+                } else {
+                    result += thaiNumbers[digit];
+                    if (position > 0) {
+                        result += thaiUnits[position];
+                    }
+                }
+            }
+        }
+        result += 'บาท';
+    }
+    
+    // แปลงส่วนทศนิยม
+    if (decimalPart > 0) {
+        const decimalStr = decimalPart.toString();
+        for (let i = 0; i < decimalStr.length; i++) {
+            const digit = parseInt(decimalStr[i]);
+            if (digit !== 0) {
+                result += thaiNumbers[digit];
+                if (i === 0) result += 'สิบ';
+            }
+        }
+        result += 'สตางค์';
+    } else {
+        result += 'ถ้วน';
+    }
+    
+    return result;
+}
+
+// ฟังก์ชันสำหรับสร้างหลายหน้า
+function createNewPage(data) {
+  const items = data.product_byuser;
+  
+  // ถ้ามีรายการเกิน 10 รายการ ให้สร้างหน้าใหม่
+  if (items.length > 10) {
+    const totalPages = Math.ceil(items.length / 10);
+    
+    // ตั้งค่าหน้าแสดงยอดรวมหน้าแรก
+    $('#subtotal').text('0.00');
+    $('#totalDiscount').text('0.00');
+    $('#afterDiscount').text('0.00');
+    $('#vatAmount').text('0.00');
+    $('#taxAmount').text('0.00');
+    $('#grandTotal').text('0.00');
+    $('#totalText').text('ตัวอักษร: (ศูนย์บาทถ้วน)');
+    
+    for (let pageIndex = 1; pageIndex < totalPages; pageIndex++) {
+      const startIndex = pageIndex * 10;
+      const endIndex = Math.min(startIndex + 10, items.length);
+      const pageItems = items.slice(startIndex, endIndex);
+      const isLastPage = (pageIndex === totalPages - 1);
+      
+      // สร้าง div ใหม่สำหรับหน้าใหม่
+      const newPageDiv = document.createElement('div');
+      newPageDiv.className = 'a4-sheet';
+      
+      // คัดลอกโครงสร้างจากหน้าแรก
+      const originalDiv = document.querySelector('.a4-sheet');
+      newPageDiv.innerHTML = originalDiv.innerHTML;
+      
+      // ลบรายการสินค้าเก่าออก
+      const tbody = newPageDiv.querySelector('#quotationItems');
+      tbody.innerHTML = '';
+      
+      // เพิ่มรายการสินค้าสำหรับหน้านี้
+      const emptyRows = [];
+      
+      // เพิ่มแถวว่างจนครบ 10 แถว
+      for (let i = pageItems.length; i < 10; i++) {
+        emptyRows.push(`
+          <tr>
+            <td style="border-left: 1px solid black; height:40px;text-align: center;font-size: 11px;"></td>
+            <td style="border-left: 1px solid black;padding: 0 10px; border-left: 1px solid black;font-size: 11px;">&nbsp;</td>
+            <td style="border-left: 1px solid black;text-align: center;font-size: 11px;">&nbsp;</td>
+            <td style="border-left: 1px solid black;font-size: 11px;text-align: right;padding: 0 10px;">&nbsp;</td>
+            <td style="border-left: 1px solid black;font-size: 11px;text-align: right;padding: 0 10px;">&nbsp;</td>
+            <td style="border-left: 1px solid black;border-right: 1px solid black;font-size: 11px;text-align: right;padding: 0 10px;">&nbsp;</td>
+          </tr>
+        `);
+      }
+      
+      tbody.innerHTML = [
+        ...pageItems.map((item, index) => `
+          <tr>
+            <td style="border-left: 1px solid black; height:40px;text-align: center;font-size: 11px;">${startIndex + index + 1}</td>
+            <td style="border-left: 1px solid black;padding: 0 10px; border-left: 1px solid black;font-size: 11px;">${item.desc_product}</td>
+            <td style="border-left: 1px solid black;text-align: center;font-size: 11px;">${parseFloat(item.qty).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}</td>
+            <td style="border-left: 1px solid black;font-size: 11px;text-align: right;padding: 0 10px;">${parseFloat(item.price).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+            <td style="border-left: 1px solid black;font-size: 11px;text-align: right;padding: 0 10px;">${parseFloat(item.discount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+            <td style="border-left: 1px solid black;border-right: 1px solid black;font-size: 11px;text-align: right;padding: 0 10px;">${parseFloat(item.total).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+          </tr>
+        `),
+        ...emptyRows
+      ].join('');
+      
+      // ตั้งค่ายอดรวมสำหรับหน้านี้
+      if (isLastPage) {
+        // หน้าสุดท้าย: แสดงยอดรวมจริง
+        newPageDiv.querySelector('#subtotal').textContent = parseFloat(data.product_detail.product_totalAllProducts).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        newPageDiv.querySelector('#totalDiscount').textContent = parseFloat(data.product_detail.product_totalDiscount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        newPageDiv.querySelector('#afterDiscount').textContent = parseFloat(data.product_detail.product_totalAfterDiscount).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        newPageDiv.querySelector('#vatAmount').textContent = parseFloat(data.product_detail.product_totalTax).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        
+        // รวม withholdingTax ทั้ง 3 อัน
+        const withholdingTax1 = parseFloat(data.product_detail.product_withholdingTax) || 0;
+        const withholdingTax2 = parseFloat(data.product_detail.product_withholdingTax2) || 0;
+        const withholdingTax3 = parseFloat(data.product_detail.product_withholdingTax3) || 0;
+        const totalWithholdingTax = withholdingTax1 + withholdingTax2 + withholdingTax3;
+        newPageDiv.querySelector('#taxAmount').textContent = totalWithholdingTax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        
+        newPageDiv.querySelector('#grandTotal').textContent = parseFloat(data.product_detail.product_totalAll).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        
+        // แสดงตัวอักษรเฉพาะหน้าสุดท้าย
+        const grandTotalAmount = parseFloat(data.product_detail.product_totalAll);
+        const thaiText = convertToThaiText(grandTotalAmount);
+        newPageDiv.querySelector('#totalText').textContent = `ตัวอักษร: (${thaiText})`;
+      } else {
+        // หน้าก่อนหน้า: แสดงยอดรวมเป็น 0.00
+        newPageDiv.querySelector('#subtotal').textContent = '0.00';
+        newPageDiv.querySelector('#totalDiscount').textContent = '0.00';
+        newPageDiv.querySelector('#afterDiscount').textContent = '0.00';
+        newPageDiv.querySelector('#vatAmount').textContent = '0.00';
+        newPageDiv.querySelector('#taxAmount').textContent = '0.00';
+        newPageDiv.querySelector('#grandTotal').textContent = '0.00';
+      }
+      
+      // เพิ่มหน้าใหม่ลงใน body
+      document.body.appendChild(newPageDiv);
+    }
+  }
+}
+
+// ฟังก์ชันสำหรับดาวน์โหลด PDF
+function downloadPDF() {
+  const elements = document.querySelectorAll(".a4-sheet");
+  
+  // ดึงข้อมูล tx 
+  const txElement = document.getElementById('quotationNumber');
+  const txValue = txElement ? txElement.textContent : '';
+  const filename = `ใบเสนอราคา${txValue}.pdf`;
+  
+  // สร้าง PDF ใหม่
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF('p', 'mm', 'a4');
+  
+  let pageIndex = 0;
+  
+  // ฟังก์ชันสำหรับประมวลผลหน้าต่อไป
+  function processNextPage(index) {
+    if (index >= elements.length) {
+      // บันทึก PDF เมื่อประมวลผลทุกหน้าเสร็จ
+      pdf.save(filename);
+
+      return;
+    }
+    
+    const element = elements[index];
+    
+    // สร้าง canvas จาก element
+    html2canvas(element, {
+      scale: 2,
+      useCORS: true,
+      allowTaint: true,
+      scrollX: 0,
+      scrollY: 0,
+      height: 1100,
+      windowHeight: 1100
+    }).then(function(canvas) {
+      const imgData = canvas.toDataURL('image/jpeg', 1.0);
+      
+      // เพิ่มหน้าใหม่ใน PDF (ยกเว้นหน้าแรก)
+      if (index > 0) {
+        pdf.addPage();
+      }
+      
+      const imgWidth = 210; // A4 width in mm
+      const pageHeight = 297; // A4 height in mm
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+      
+      pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+      
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+      
+      // ประมวลผลหน้าต่อไป
+      processNextPage(index + 1);
+    }).catch(function(error) {
+      console.error('เกิดข้อผิดพลาดในการสร้าง canvas:', error);
+      alert('เกิดข้อผิดพลาดในการสร้าง PDF: ' + error.message);
+    });
+  }
+  
+  // เริ่มประมวลผลทุกหน้า
+  processNextPage(0);
+}
+
+// ฟังก์ชันสำหรับพิมพ์
+function printDocument() {
+    // ซ่อนปุ่มพิมพ์และดาวน์โหลดก่อนพิมพ์
+    const buttons = document.querySelectorAll('.print-button, .download-button, .button-container');
+    buttons.forEach(button => {
+        button.style.display = 'none';
+    });
+    
+    // เรียกใช้ฟังก์ชันพิมพ์ของเบราว์เซอร์
+    window.print();
+    
+    // แสดงปุ่มกลับมาหลังพิมพ์เสร็จ
+    setTimeout(() => {
+        buttons.forEach(button => {
+            button.style.display = '';
+        });
+    }, 1000);
+}
+
+
+// เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเสร็จ
+$(document).ready(function() {
+    // อัปเดตการแสดงชื่อผู้จัดทำตามสถานะ checkbox
+    updateCreatorDisplay();
+    
+    const Id = getUrlParameter('id');
+    if (Id) {
+        console.log('ได้รับ ID :', Id);
+        // เรียกใช้ฟังก์ชันดึงข้อมูลจาก API
+        loadReceiptData(Id);
+    } else {
+        console.log('ไม่พบ ID');
+    }
+});
+</script>
+</body>
+</html>

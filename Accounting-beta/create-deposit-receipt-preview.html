@@ -1,0 +1,2718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ใบรับเงินมัดจำ</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Noto+Sans+Thai:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="head-box"> <!--กล่องใหญ่-->
+        <div id="sidemenuacc"></div> <!--กล่อง sidebar-->
+        <div class="main-project"><!--กล่อง main-->
+            <div class="navbar">
+                <div style="width: 100%;height: 100%; padding: 24px;">
+                    <div style=" width: 100%; height: 100%;display: flex;justify-content: space-between; ">
+                        <div style="width: 530px; height: 40px; padding: 6.5px 0;">
+                            <div class="nav-menu">
+                                <div style="background-color: #FFFFFF; display: flex;width: 400px; border-radius: 32px;height: 100%;display: flex;align-items: center;justify-content: center; gap: 8px;">
+                                <div class="text-nav">หน้าหลัก</div>
+                                <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                <div class="text-nav">ขาย</div>
+                                <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                <div class="text-nav">ใบรับเงินมัดจำ</div>
+                                <img src="picture/arrow-right-nav.png" style="width: 12px;height: 12px;">
+                                <div class="text-nav">สร้างใบรับเงินมัดจำ</div>
+                                </div>
+                                <div style="width: 135px;display: flex;justify-content: center;align-items: center;">
+                                    <div style="color: #FFFFFF; font-weight: 700; font-size: 14px;" id="headerDocumentNumber"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style=" width: 30%; height: 100%; display: flex; justify-content: end; gap: 8px;">
+                            <div class="nav-pic-right" id="printf" onclick="goToPaperDepositReceipt()"><img src="picture/print.png"  class="nav-pic"></div>
+                            <div class="nav-pic-right" id="download" onclick="downloadQuotationPDF()"><img src="picture/upload.png"  class="nav-pic"></div>
+                            <div class="nav-pic-right"><img src="picture/send.png"  class="nav-pic"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="head-work">
+                <div class="deposit-receipt-box">
+                    <div class="deposit-receipt-head-box">
+                        <div class="deposit-receipt-head-box-title" id="quotationTitle">ใบรับเงินมัดจำ</div>
+                        <div class="deposit-receipt-head-box-title" id="historyTitle" style="display: none;"></div>
+                        <div class="deposit-receipt-head-box-title"  id="approveTitle">อนุมัติใบรับเงินมัดจำ</div>
+                        <div class="deposit-receipt-box-mini">
+                            <div class="deposit-receipt-box-mini-in">
+                                <div class="deposit-receipt-box-mini-deposit">เลขที่ใบรับเงินมัดจำ</div>
+                                <div class="deposit-receipt-box-mini-number"  id="customerDepositReceiptNumberDisplay">AI-202501130001</div>
+                            </div>
+                            <div class="deposit-receipt-box-mini-in-back">
+                                <div class="deposit-receipt-box-mini-deposit-in">มูลค่าสุทธิ (บาท)</div>
+                                <div class="deposit-receipt-box-mini-number-in">21,100.00</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+<div class="tabs-3" >
+    <input type="radio" id="radio-1" name="tabs" checked />
+    <label class="tab-3" for="radio-1">ข้อมูลเอกสาร<span></span></label>
+    <input type="radio" id="radio-2" name="tabs" />
+    <label class="tab-3" for="radio-2">ข้อมูลการหักเงินมัดจำ</label>
+    <input type="radio" id="radio-3" name="tabs" />
+    <label class="tab-3" for="radio-3">ข้อมูลประวัติ</label>
+    <span class="glider-3"></span>
+</div>
+                    <!--ข้อมูลเอกสาร-->
+                    <div id="pagepreviewdeposit1" class="tab-content-new active">
+                        <div class="head-second">
+                            <div class="head-second-box">
+                            <div class="second-box-in">
+                                    <div class="document-title">ข้อมูลลูกค้า</div>
+                                    <div class="data-box">
+                                        <div class="data-box-1">
+                                            <div class="data-customer-box">
+                                                <div class="text-thin">ชื่อลูกค้า</div>
+                                                <div class="text-bold" id="customerNameDisplay">ลูกค้าทดสอบ1</div>
+                                            </div>
+                                            <div class="address-customer-box">
+                                                <div class="text-thin">ที่อยู่ลูกค้า</div>
+                                                <div class="text-bold"  id="customerAddressDisplay">90 อาคารซีดับเบิ้ลยู ทาวเวอร์ ชั้น 3 ห้อง 310 ถนนรัชดาภิเษก แขวงห้วยขวาง เขตห้วยขวาง กรุงเทพมหานคร 10310</div>
+                                            </div>
+                                            <div class="email-customer-box">
+                                                <div class="text-thin">อีเมล</div>
+                                                <div class="text-bold" id="customerGmailDisplay">Test_customer@test.co.th1</div>
+                                            </div>
+                                            <div class="office-customer-box">
+                                                <div class="text-thin">สำนักงาน / สาขา</div>
+                                                <div class="office-customer-two-box">
+                                                <div class="text-bold" id="customerSubbranchDisplay">สาขาย่อย:</div>
+                                                 <div class="text-bold" id="customerBranchCodeDisplay">nt1234</div>
+                                                <div class="text-bold" id="customerBranchNameDisplay">สาขาทดสอบ1</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cover-data-box-2-3">
+                                        <div class="data-box-2">
+                                            <div class="password-customer-box">
+                                            <div class="text-thin">รหัสลูกค้า</div>
+                                                <div class="text-bold" id="customerCodeDisplay">BB-0000000000</div>
+                                            </div>
+                                            <div class="address-office-box">
+                                            <div class="text-thin">ที่ตั้งธุรกิจ</div>
+                                                <div class="text-bold" id="customerHeadOfficeDisplay">ไทย</div>
+                                            </div>
+                                            <div class="refer-data-box">
+                                            <div class="text-thin">อ้างอิง</div>
+                                                <div class="text-bold"id="customerReferDisplay">จากPO-0000000000</div>
+                                            </div>
+                                        </div>
+                                        <div class="data-box-3">
+                                            <div class="phone-number-box">
+                                            <div class="text-thin">เบอร์โทร</div>
+                                                <div class="text-bold" id="customerPhoneDisplay">02-1234-0000</div>
+                                            </div>
+                                            <div class="contact-customer">
+                                            <div class="text-thin">ชื่อผู้ติดต่อ</div>
+                                                <div class="text-bold" id="customerContactNameDisplay">ผู้ติดต่อทดสอบ1</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="head-three">
+                                    <div class="document-title">ข้อมูลเอกสาร</div>
+                                    <div class="sales-order-box">
+                                        <div class="text-thin">ใบสั่งขาย</div>
+                                        <div class="text-bold"id="salesOrderRefDisplay"></div>
+                                    </div>
+                                    <div class="credit-box">
+                                        <div class="credit-box-in">
+                                            <div class="text-thin">เครดิตจากประวัติชำระเงินของ</div>
+                                            <div class="text-bold" id="customerCredithistoryDisplay">บริษัท ตัวอย่าง จำจัด</div>
+                                        </div>
+                                        <div class="credit-box-day">
+                                            <div class="text-thin">เครดิต (วัน)</div>
+                                            <div class="text-bold" id="customerDueDateDisplay" >2</div>
+                                        </div>
+                                    </div>
+                                    <div class="date-due-date-box">
+                                        <div class="date-box-in">
+                                            <div class="text-thin">วันที่</div>
+                                            <div class="text-bold" id="customerDayDisplay">13/01/2025</div>
+                                        </div>
+                                        <div class="due-date-box">
+                                            <div class="text-thin">ครบกำหนดวันที่</div>
+                                            <div class="text-bold" id="customerDayfullyDisplay">27/01/2025</div>
+                                        </div>
+                                        </div>
+                                    <div class="data-price-tax-currency-box">
+                                        <div class="data-price-tax-box">
+                                            <div class="text-thin">แผนก</div>
+                                            <div class="text-bold" id="customerDepartmentDisplay">UXUI Designer</div>
+                                        </div>
+                                        <div class="cuurrency-box">
+                                            <div class="text-thin">พนักงานขาย</div>
+                                            <div class="text-bold" id="customerSalesperson">พนักงานขาย 1</div>
+                                        </div>
+                                    </div>
+                                    <div class="data-price-tax-currency-box">
+                                        <div class="data-price-tax-box">
+                                            <div class="text-thin">ข้อมูลราคาและภาษี</div>
+                                            <div class="text-bold" id="customerPriceandTaxDisplay">รวมภาษี</div>
+                                        </div>
+                                        <div class="cuurrency-box">
+                                            <div class="text-thin">สกุลเงิน</div>
+                                            <div class="text-bold" id="customerCurrencyDisplay">THB - บาท</div>
+                                        </div>
+                                    </div>
+                                    <div class="issuance-of-tax-invoices-box">
+                                        <div class="text-thin">การออกใบกำกับภาษี</div>
+                                        <div class="text-bold">เป็นใบกำกับภาษี</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="head-four">
+                            <div class="list-bar-box">
+                                <div class="list-bar-title">
+                                    รายการ
+                                </div>
+                                <div class="list-bar-text">
+                                    บริการ
+                                </div>
+                                <div class="list-bar-box-in">
+                                    <div class="list-bar-data-box">
+                                        <div class="list-bar-number">
+                                            <div class="order-list-box">
+                                                <div class="data5-table">
+                                                    <table class="data-table-preview-deposit">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ลำดับ</th>
+                                                                <th>เอกสารที่ตัด</th>
+                                                                <th>ชื่อรายการ</th>
+                                                                <th>รายละเอียด</th>
+                                                                <th>ยอดหลังหักส่วนลด</th>
+                                                                <th>ราคามัดจำ</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="data-row">
+                                                                <td>1</td>
+                                                                <td>SO-202501100001</td>
+                                                                <td>ระบบจัดเก็บข้อมูลภายในสำนักงาน</td>
+                                                                <td>รับเงินมัดจำล่วงหน้า</td>
+                                                                <td>43,100.00</td>
+                                                                <td>20,000.00</td>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- ถ้ามีข้อมูลเกิน 5 ตางรางจะขึ้นหน้าใหม่ -->
+                                                <!-- <div class="pagination"> 
+                                        <span class="page-info">1 of 5 pages</span>
+                                        <a class="active" href="#">1</a>
+                                        <a href="#">2</a>
+                                        <a href="#">3</a>
+                                        <span class="dots">...</span>
+                                        <a href="#">5</a>
+                                        <a href="#" class="next"><img
+                                                src="picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png"></a>
+                                                </div> -->
+                                                <!-- ถ้ามีข้อมูลเกิน 5 ตางรางจะขึ้นหน้าใหม่ -->
+                                                <div class="amount-money-box-kk">
+                                                    <div class="amount-money-box">
+                                                        <div class="amount-box-in-one">
+                                                            <div class="amount-box-in-text-number">
+                                                                <div class="amount-box-in-text">จำนวนเงิน
+                                                                </div>
+                                                                <div class="amount-money-box-in-number-box">
+                                                                    <div class="amount-money-box-in-number" id="product-totalAllProducts">
+                                                                        0.00</div>
+                                                                    <div class="amount-money-box-in-number-bart">บาท
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="amount-money-box-in-tax-seven">
+                                                                <div class="checkbox-box-disableb">
+                                                                    <div class="checkbox-box-1-force-seven">
+                                                                        <input type="checkbox" name="visits"
+                                                                            id="list-tax" class="checkbox-input-disableb" checked
+                                                                            disabled>
+                                                                        <label for="list-tax"></label>
+                                                                    </div>
+                                                                    <div class="seven-percent-box">
+                                                                        <div class="checkbox-box-1-text-seven">
+                                                                            รายการภาษี
+                                                                        </div>
+                                                                        <div class="seven-percent"> 7%</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="amount-money-box-in-tax-number-box">
+                                                                    <div class="amount-money-box-in-tax-number"  id="product-totalTax" >
+                                                                        1,400.00
+                                                                    </div>
+                                                                    <div class="amount-money-box-in-tax-number-bart">
+                                                                        บาท
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="amount-money-box-in-tax-seven-drop">
+                                                                <div class="checkbox-box-disableb-drop">
+                                                                    <div class="checkbox-box-1-force-seven-drop">
+                                                                        <input type="checkbox" name="visits"
+                                                                            id="list-tax" class="checkbox-input-disableb" checked
+                                                                            disabled>
+                                                                        <label for="list-tax"></label>
+                                                                    </div>
+                                                                    <div class="seven-percent-box">
+                                                                        <div class="checkbox-box-1-text-seven">
+                                                                            ภาษีถูกหัก ณ ที่จ่าย
+                                                                        </div>
+                                                                        <!-- <div class="seven-percent">
+                                                                        <div class="dropdown-box-percentage-disableb">
+                                                                            <select name="unit5" id="percentage-items-disableb" disabled>
+                                                                                <option hidden selected>1.5%</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        </div> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="amount-money-box-in-tax-number-box">
+                                                                    <div class="amount-money-box-in-tax-number" id="product-withholdingTax">
+                                                                        300.00
+                                                                    </div>
+                                                                    <div class="amount-money-box-in-tax-number-bart">
+                                                                        บาท
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="amount-money-box-in-tax-seven-toggle">
+                                                                <div class="amount-box-in-text">
+                                                                    ตัดมัดจำเรียบร้อย</div>
+                                                                <label class="toggle-switch">
+                                                                    <input type="checkbox" id="deposit_deduction" disabled>
+                                                                    <span class="slider round"></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sell-all-box">
+                                                            <div class="sell-all-box-in-text-number">
+                                                                <div class="sell-all-box-in-text">
+                                                                    จำนวนเงินรวมทั้งสิ้น</div>
+                                                                <div class="sell-all-box-in-box">
+                                                                    <div class="sell-all-box-in-number" id="product-totalAll">
+                                                                        46,117.00</div>
+                                                                    <div class="sell-all-box-in-number-bart">บาท
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cover-signature">
+                        <div class="signature-eltc-box">
+                            <div class="signature-eltc-box-in-one">
+                                <div class="checkbox-box-1">         
+                                        <input type="checkbox" name="visits" id="list-tax-1" class="checkbox-input-1"
+                                            disabled>
+                                        <label for="list-tax-1"></label>                              
+                                    <div class="checkbox-box-1-text">
+                                        ลายเซ็นต์อิเล็กทรอนิกและตารายาง
+                                    </div>
+                                </div>
+                                <div class=" footnote-box">
+                                    <div class="footnote-text-title">หมายเหตุ</div>
+                                    <div class="footnote-text" id="customerNoteunderDisplay">ฟรีค่าจัดส่ง พร้อมอุปกรณ์ติดตั้ง</div>
+                                </div>
+                            </div>
+                            <div class="signature-eltc-box-in-two">
+                                <div class="signature-eltc-box-in-two-in">
+                                    <div class="signature-eltc-text-title">ผู้จัดทำ</div>
+                                    <div class="signature-eltc-text" id="name-Creator">ธิติรัตน์ สตาปรณ์ศิริ</div>
+                                </div>
+                                <div class="checkbox-container">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="visits" id="not-show-name"
+                                            class="my-checkbox-input" >
+                                        <label for="not-show-name">ไม่แสดงชื่อผู้จัดทำ</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="signature" id="signature-option"
+                                            class="my-checkbox-input" checked >
+                                        <label for="signature-option">ลายเซ็นต์อิเล็กทรอนิก</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="attach-file">
+                                    <div class="attach-file-text-title">แนบไฟล์</div>
+                                    <div class="attach-file-box" id="customerFileDisplay">
+                                        <!-- <div class="attach-file-box-pdf">
+                                            <div class="attach-file-box-pdf-img">
+                                                <img src="picture/file-pdf-fill.png" alt="PDF" />
+                                            </div>
+                                            <div class="document-pdf">document1</div>
+                                            <div class="mb-pdf">(32 MB)</div>
+                                        </div>
+                                        <div class="attach-file-box-word">
+                                            <div class="attach-file-box-word-img">
+                                                <img src="picture/file-word-fill.png" alt="word" />
+                                            </div>
+                                            <div class="document-word">document2</div>
+                                            <div class="mb-word">(10 MB)</div>
+                                        </div>
+                                        <div class="attach-file-box-image">
+                                            <div class="attach-file-box-image-img">
+                                                <img src="picture/file-image-fill.png" alt="image" />
+                                            </div>
+                                            <div class="document-image">document3</div>
+                                            <div class="mb-image">(24 MB)</div>
+                                        </div>
+                                        <div class="attach-file-box-subtract">
+                                            <div class="attach-file-box-subtract-img">
+                                                <img src="picture/xfile.png" alt="subtract" />
+                                            </div>
+                                            <div class="document-subtract">document4</div>
+                                            <div class="mb-subtract">(39 MB)</div>
+                                        </div>                                  -->
+                                    </div>
+                                </div>
+                    </div> 
+                    <div class="tree-button"><!-- กล่องใหญ่ของ3ปุ่ม -->
+                            <div class="cover-box-home-edit-approve">
+                        <div class="Homepage-button" id="btnHome"> <!-- กล่องกลับไปหน้าหลัก -->
+                            <a href="create-deposit-receipt-table.html"><div class="word-Homepage-button">กลับไปหน้าหลัก
+                            </div></a>
+                        </div>
+                            <div class="edit-button" id="btnEdit"> <!-- กล่องแก้ไข -->
+                           <a href="#" onclick="editQuotation()"><div class="word-edit-button">แก้ไข</div></a>
+                                </div>
+                            <div class="approve-button" id="btnApprove">
+                                <a href="#" onclick="approveQuotation()"><div class="word-appvrove-button">อนุมัติ</div></a>
+                                </div>
+                                <div class="Homepage-button"  id="goBack" style="display:none;"> <!-- กล่องกลับไปหน้าหลัก -->
+                                    <a href="create-deposit-receipt-table.html"  class="word-Homepage-button">กลับไปหน้าหลัก</a>
+                                </div>
+                        </div>
+                        </div>
+                </div>
+                    <!--ข้อมูลเอกสาร-->
+                    <!--ข้อมูลการหักเงินมัดจำ-->
+                    <div id="pagepreviewdeposit2" class="tab-content-new ">
+                        <!-- อันนีคือข้อมูลที่ชำระแล้ว-->
+                         <!--  invisible-one -->
+                        <div class="deposittwo invisible-one">
+                            <div class="depo-hub">
+                                <div>
+                                    <div class="depo-hub-text1">รอหักมัดจำ</div>
+                                    <div>สินค้า/บริการ</div>
+                                </div>
+                                <div>
+                                    <div class="depo-hub-text3">ชำระมัดจำแล้ว</div>
+                                    <div class="depo-hub-text4">รับชำระครบเมื่อวันที่: 27/01/2025</div>
+                                </div>
+                            </div>
+                            <div class="minus-deposit">
+                                <div class="deposit-top">
+                                    <div class="deposit-payment">มูลค่ารวมภาษี</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">21,400.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-normal">
+                                    <div class="deposit-payment">ภาษีถูกหัก ณ ที่จ่าย</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">300.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-normal">
+                                    <div class="deposit-payment">ยอดคงค้าง</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">20,000.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-normal">
+                                    <div class="deposit-payment">ยอดที่ตัดไปแล้ว</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">20,000.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-buttom">
+                                    <div class="deposit-payment">ยอดชำระจริง</div>
+                                    <div class="deposit-gap">
+                                        <div class="money">21,100.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="line-1"></div>
+                            <div class="depo-hub">
+                                <div>
+                                    <div class="depo-hub-text1">การรับเงิน</div>
+                                    <div class="depo-hub-text2">การชำระครั้งที่1</div>
+                                </div>
+                                <div>
+                                    <div class="depo-hub-text3">ยังไม่ออกใบเสร็จ</div>
+                                    <div class="depo-hub-text4">รับชำระครบเมื่อวันที่: 27/01/2025</div>
+                                </div>
+                            </div>
+                            <div class="bank-box">
+                                <div class="bank-box-in">
+                                    <div class="choice-sell-tilte">ช่องทางการชำระเงิน</div>
+                                    <div class="bank-title">ธนาคาร</div>
+                                    <div class="bank-box-name">
+                                        <div class="bank-box-name-page-two">
+                                        </div>
+                                        <div class="bank-box-name-page-two-in">
+                                            <div class="bank-name-text">ธ.ไทยพาณิชย์ ออมทรัพย์ -</div>&nbsp;
+                                            <div class="number-bank-pagetwo">xxx-x-x0004-x Test company</div>
+                                        </div>
+                                    </div>
+                                    <div class="time-box">
+                                        <div>
+                                            <div class="time-text">วันที่ชำระ</div>
+                                            <div class="time-number-text">27/01/2025</div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <div class="time-text">เวลา</div>
+                                                <div class="time-number-text">13:45</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="time-text">แนบรูปสลิป</div>
+                                    <div class="document-page-box">
+                                        <div class="document-page-two">Slip1.jpg</div>
+                                        <div class="mb-page-two">(32 MB)</div>
+                                    </div>
+                                </div>
+                                <div class="minus-deposit-sum-box">
+                                    <div class="minus-deposit-sum">
+                                        <div class="deposit-normal1">
+                                            <div class="deposit-payment">มูลค่ารวมภาษี</div>
+                                            <div class="deposit-gap">
+                                                <div class="money">21,400.00</div>
+                                                <div class="baht">บาท</div>
+                                            </div>
+                                        </div>
+                                        <div class="deposit-normal">
+                                            <div class="deposit-payment">ภาษีถูกหัก ณ ที่จ่าย 1.5%</div>
+                                            <div class="deposit-gap">
+                                                <div class="money">300.00</div>
+                                                <div class="baht">บาท</div>
+                                            </div>
+                                        </div>
+                                        <div class="sell-all-box">
+                                            <div class="sell-all-box-in-text-number">
+                                                <div class="sell-all-box-in-text">
+                                                    ชำระรวมทั้งสิ้น</div>
+                                                <div class="sell-all-box-in-box">
+                                                    <div class="sell-all-box-in-number">
+                                                        20,000.00</div>
+                                                    <div class="sell-all-box-in-number-bart">บาท
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#" onclick="goToIssueReceipt()"><div class="receipt-box">
+                                    <div class="receipt-box-in">ออกใบเสร็จ</div>
+                                </div></a>
+                            </div>
+                        </div>
+                        <!-- อันนีคือข้อมูลที่ยังไม่ชำระ-->
+                        <div class="box-deposittree " >
+                        <div class="deposittree">
+                            <div class="depo-hub">
+                                <div>
+                                    <div class="depo-hub-text1">รอหักมัดจำ</div>
+                                    <div class="word-list">สินค้า/บริการ</div><!--หัวข้อ-->
+                                </div>
+                                <div class="box-depo">
+                                    <div class="depo-hub-text3">ยอดรอรับชำระครั้งที่ 1</div>
+                                    <div class="depo-hub-text4" id="deposit-due-date">รับชำระครบได้ถึงวันที่: 20/01/2025</div>
+                                </div>
+                            </div>
+                            <div class="minus-deposit01">
+                                <div class="deposit-top">
+                                    <div class="deposit-payment">มูลค่ารวมภาษี</div>
+                                    <div class="deposit-gap">
+                                        <div class="money" id="deposit-total-with-tax">21,400.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-normal">
+                                    <div class="deposit-payment">ภาษีถูกหัก ณ ที่จ่าย</div>
+                                    <div class="deposit-gap">
+                                        <div class="money" id="deposit-withholding-tax">300.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                                <div class="deposit-buttom">
+                                    <div class="deposit-payment">ยอดชำระจริง</div>
+                                    <div class="deposit-gap">
+                                        <div class="money" id="deposit-actual-payment">21,100.00</div>
+                                        <div class="baht">บาท</div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="pay-box">
+                            <div class="pay-box-in" onclick="goToPayOffDeposit();">
+                                รับชำระเงิน
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                    <!--ข้อมูลการหักเงินมัดจำ-->
+                    <!--ข้อมูลประวัติ-->
+                    <div id="pagepreviewdeposit3" class="tab-content-new">
+                        <div class="page-three-box">
+                            <div class="page-three-box-in">
+                                <!-- <ul class="timeline">
+                                    <li>
+                                        <div class="timestamp">
+                                            <div class="text-date">27/01/25</div>
+                                            <div class="text-time">16:09:12</div>
+                                        </div>
+                                        <div class="dot-line">
+                                            <div class="dot active"></div>
+                                            <div class="line"></div>
+                                        </div>
+                                        <div class="content">
+                                            <div class="user-box-in">
+                                                <div class="user-title">User test 02</div>
+                                                <div class="save-test">อนุมัติใบรับเงินมัดจำ</div>
+                                            </div>
+                                            <div class="day-box">
+                                                <div class="note-text">หมายเหตุ: รอเอกสารเพิ่มเติมจากลูกค้า</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="timestamp">
+                                            <div class="text-date">17/01/25</div>
+                                            <div class="text-time">11:09:14</div>
+                                        </div>
+                                        <div class="dot-line">
+                                            <div class="dot"></div>
+                                            <div class="line"></div>
+                                        </div>
+                                        <div class="content">
+                                            <div class="user-box-in">
+                                                <div class="user-title">User test 01</div>
+                                                <div class="save-test">บันทึกใบเสนอราคา</div>
+                                            </div>
+                                            <div class="day-box">
+                                                <div class="note-text">หมายเหตุ: รอเอกสารเพิ่มเติมจากลูกค้า</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="timestamp">
+                                            <div class="text-date">12/01/25</div>
+                                            <div class="text-time">10:12:34</div>
+                                        </div>
+                                        <div class="dot-line">
+                                            <div class="dot"></div>
+                                            <div class="line"></div>
+                                        </div>
+                                        <div class="content">
+                                            <div class="user-box-in">
+                                                <div class="user-title">User test 01</div>
+                                                <div class="save-test">ดูเอกสาร</div>
+                                            </div>
+                                            <div class="day-box">
+                                                <div class="note-text">หมายเหตุ: รอเอกสารเพิ่มเติมจากลูกค้า</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="timestamp">
+                                            <div class="text-date">02/01/25</div>
+                                            <div class="text-time">10:45:34</div>
+                                        </div>
+                                        <div class="dot-line">
+                                            <div class="dot"></div>
+                                        </div>
+                                        <div class="content">
+                                            <div class="user-box-in">
+                                                <div class="user-title">User test 01</div>
+                                                <div class="save-test">เริ่มสร้างใบเสนอราคา</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul> -->
+                                <ul class="timeline" id="quotationTimeline">
+                                    <!-- Timeline จะถูกสร้างโดย JavaScript -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--ข้อมูลประวัติ-->
+                
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="sidebarmain.js"></script>
+    <script>
+    const endpoint = 'http://localhost:3000';
+
+    // ตัวแปรสำหรับ pagination
+    let allProductData = [];
+    let currentPage = 1;
+    let itemsPerPage = 5;
+
+    $(document).ready(function () {
+     // โหลดข้อมูลใบเสนอราคา
+     loadQuotationPreviewData();
+    // โหลดข้อมูลสินค้า
+    loadProductData();
+    // สร้าง timeline
+    createQuotationTimeline();
+    
+    // โหลดและแสดงเวลาสถานะที่บันทึกไว้
+    loadStatusTime();
+    
+    // ตรวจสอบว่ามาจากการแก้ไขหรือไม่
+    const urlParams = new URLSearchParams(window.location.search);
+    const fromEdit = urlParams.get('fromEdit');
+    if (fromEdit === 'true') {
+        // ถ้ามาจากการแก้ไข ให้อัปเดต timeline ทันที
+        setTimeout(() => {
+            createQuotationTimeline();
+        }, 1000); // รอ 1 วินาทีเพื่อให้ข้อมูลในฐานข้อมูลอัปเดต
+    }
+    
+    let isApproved = false;
+
+    const $tabRadios = $('input[name="tabs"]');
+    const $tabContents = $('.tab-content-new');
+
+    const displaySelectedTabContent = () => {
+        const selectedRadioId = $tabRadios.filter(':checked').attr('id');
+        const tabNumber = selectedRadioId.split('-')[1];
+        const tabIdMap = {
+            '1': 'pagepreviewdeposit1',
+            '2': 'pagepreviewdeposit2',
+            '3': 'pagepreviewdeposit3'
+        };
+        $tabContents.removeClass('active');
+        $(`#${tabIdMap[tabNumber]}`).addClass('active');
+    };
+
+    $tabRadios.on('change', displaySelectedTabContent);
+    displaySelectedTabContent();
+
+    // -------------------------------
+    // จัดการหัวข้อแสดงผล
+    // -------------------------------
+    $('#quotationTitle').show();
+    $('#approveTitle').hide();
+    $('#historyTitle').hide();
+
+    $('#radio-1').on('click', function () {
+        if (isApproved) {
+            $('#quotationTitle').hide();
+            $('#historyTitle').hide();
+            $('#approveTitle').show();
+        } else {
+            $('#quotationTitle').show();
+            $('#historyTitle').hide();
+            $('#approveTitle').hide();
+        }
+    });
+
+    $('#radio-2').on('click', function () {
+        $('#quotationTitle').hide();
+        $('#approveTitle').hide();
+        $('#historyTitle').text('ข้อมูลการหักเงินมัดจำ').show();
+    });
+
+    $('#radio-3').on('click', function () {
+        $('#quotationTitle').hide();
+        $('#approveTitle').hide();
+        $('#historyTitle').text('ประวัติการใช้งานใบหักเงินมัดจำ').show();
+    });
+
+    $('#btnApprove').on('click', function () {
+        isApproved = true;
+        $('#quotationTitle').hide();
+        $('#historyTitle').hide();
+        $('#approveTitle').show();
+    });
+});
+
+                            let totalPages = 5;
+                            function createPagination(current, total) {
+                                const pagination = $('.pagination');
+                                pagination.empty();
+                                // สร้าง page info
+                                const pageInfo = `<span class="page-info">${current} of ${total} pages</span>`;
+                                pagination.append(pageInfo);
+                                // สร้างลอจิกสำหรับการแสดงหน้า
+                                let pages = [];
+                                // แสดงเฉพาะหน้าปัจจุบันและหน้าข้างเคียง พร้อม ...
+                                if (current <= 2) {
+                                    // ถ้าอยู่หน้าต้นๆ: 1, 2, 3, ..., 5
+                                    pages = [1, 2, 3, '...', 5];
+                                } else if (current >= 4) {
+                                    // ถ้าอยู่หน้าท้ายๆ: 1, ..., 3, 4, 5
+                                    pages = [1, '...', 3, 4, 5];
+                                } else {
+                                    // ถ้าอยู่กลางๆ (หน้า 3): 1, 2, 3, 4, 5
+                                    pages = [1, 2, 3, 4, 5];
+                                }
+                                // สร้าง links
+                                pages.forEach(page => {
+                                    if (page === '...') {
+                                        const dots = '<span class="dots">...</span>';
+                                        pagination.append(dots);
+                                    } else {
+                                        const activeClass = page === current ? ' class="active"' : '';
+                                        const link = `<a href="#"${activeClass}>${page}</a>`;
+                                        pagination.append(link);
+                                    }
+                                });
+                                // สร้าง next button
+                                const nextBtn = '<a href="#" class="next"><img src="picture/subtract-1--button-delete-buttons-subtract-horizontal-remove-line-add-mathematics-math-minus.png"></a>';
+                                pagination.append(nextBtn);
+                            }
+                            function changePage(page) {
+                                currentPage = page;
+                                createPagination(currentPage, totalPages);
+                            }
+                            $(document).ready(function () {
+                                // Event delegation สำหรับ pagination links
+                                $('.pagination').on('click', 'a:not(.next)', function (e) {
+                                    e.preventDefault();
+                                    const pageNum = parseInt($(this).text());
+                                    if (pageNum && pageNum !== currentPage) {
+                                        changePage(pageNum);
+                                    }
+                                });
+                                // Event สำหรับ next button
+                                $('.pagination').on('click', '.next', function (e) {
+                                    e.preventDefault();
+                                    if (currentPage < totalPages) {
+                                        changePage(currentPage + 1);
+                                    }
+                                });
+                                // เริ่มต้น
+                                createPagination(currentPage, totalPages);
+                            });
+        $(document).ready(function() {
+    // ซ่อนแถวที่เกิน 5
+    $('#tableBody .data-row:gt(4)').hide();
+    // หรือลบทิ้งเลย
+    // $('#tableBody .data-row:gt(4)').remove();
+});
+document.addEventListener('DOMContentLoaded', () => {
+        // เปลี่ยนชื่อคลาสใน JavaScript ให้ตรงกับที่แก้ไขใน HTML/CSS
+        const tabsContainer = document.querySelector('.tabs-3, .tabs');
+        const glider = document.querySelector('.glider-3, .glider');
+        const radioButtons = document.querySelectorAll('input[name="tabs"]');
+        function updateGlider() {
+            const checkedRadio = document.querySelector('input[name="tabs"]:checked');
+            if (checkedRadio) {
+                // เปลี่ยนการอ้างอิงถึง label ให้ใช้ .tab-3 หรือ .tab
+                const correspondingTab = document.querySelector(`label.tab-3[for="${checkedRadio.id}"], label.tab[for="${checkedRadio.id}"]`);
+                if (correspondingTab) {
+                    const tabRect = correspondingTab.getBoundingClientRect();
+                    const tabsContainerRect = tabsContainer.getBoundingClientRect();
+                    const translateX = tabRect.left - tabsContainerRect.left;
+                    
+                    glider.style.transform = `translateX(${translateX - 4}px)`; 
+                    glider.style.width = `${tabRect.width}px`;
+                }
+            }
+        }
+        updateGlider();
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', updateGlider);
+        });
+        window.addEventListener('resize', updateGlider);
+    });
+   //อันนี้จะติ้กได้แค่หน้าก่อนอนุมัติ
+        $(document).ready(function () {
+    function updateSignatureBox() {
+        const showSignature = $('#signature-option').is(':checked');
+        const showMaker = $('#not-show-name').is(':checked');
+
+        if (showMaker) {
+            $('#signature-maker-box').hide();
+        } else if (showSignature) {
+            $('#signature-maker-box').show();
+        } else {
+            $('#signature-maker-box').hide();
+        }
+    }
+
+    // ตั้งค่าตั้งต้น: ให้ติ๊ก "แสดงลายเซ็น"
+    $('#signature-option').prop('checked', true);
+    $('#not-show-name').prop('checked', false);
+    updateSignatureBox();
+
+    $('#not-show-name').on('change', function () {
+        if ($(this).is(':checked')) {
+            $('#signature-option').prop('checked', false);
+        }
+        updateSignatureBox();
+    });
+
+    $('#signature-option').on('change', function () {
+        if ($(this).is(':checked')) {
+            $('#not-show-name').prop('checked', false);
+        }
+        updateSignatureBox();
+    });
+
+    // จัดการการแสดง/ซ่อน elements ตามสถานะ deposit_deduction
+    $('#deposit_deduction').on('change', function () {
+        if ($(this).is(':checked')) {
+            // แสดง deposittwo invisible-one และซ่อน box-deposittree
+            $('.deposittwo.invisible-one').show();
+            $('.box-deposittree').hide();
+        } else {
+            // ซ่อน deposittwo invisible-one และแสดง box-deposittree
+            $('.deposittwo.invisible-one').hide();
+            $('.box-deposittree').show();
+        }
+    });
+});
+$(document).ready(function () {
+     const customerNoteunder = localStorage.getItem('customerNoteunder') || '';
+    $('#customerNoteunderDisplay').text(customerNoteunder);
+    
+    const customerCode = localStorage.getItem('customerCode') || '';
+$('#customerCodeDisplay').text(customerCode);
+
+    const customerName = localStorage.getItem('customerName') || '';
+    $('#customerNameDisplay').text(customerName);
+
+    const customerAddress = localStorage.getItem('customerAddress') || '';
+    $('#customerAddressDisplay').text(customerAddress); 
+
+    const customerPhone = localStorage.getItem('customerPhone') || '';
+    $('#customerPhoneDisplay').text(customerPhone); 
+
+    const customerHeadOffice = localStorage.getItem('customerHeadOffice') || '';
+    $('#customerHeadOfficeDisplay').text(customerHeadOffice); 
+
+    const customerContactName = localStorage.getItem('customerContactName') || '';
+    $('#customerContactNameDisplay').text(customerContactName); 
+
+    const customerGmail = localStorage.getItem('customerGmail') || '';
+    $('#customerGmailDisplay').text(customerGmail); 
+
+    const customerRefer = localStorage.getItem('customerRefer') || '';
+    $('#customerReferDisplay').text(customerRefer);
+
+    const customerBranchCode = localStorage.getItem('customerBranchCode') || '';
+    $('#customerBranchCodeDisplay').text(customerBranchCode);
+
+    const customerBranchName = localStorage.getItem('customerBranchName') || '';
+    $('#customerBranchNameDisplay').text(customerBranchName);
+
+    const customerStatus = localStorage.getItem('customerStatus') || '';
+    $('#customerStatusDisplay').text(customerStatus);
+
+   
+function normalizeDate(dateStr) {
+  if (!dateStr) return '';
+  if (dateStr.includes('-')) {
+    const [year, month, day] = dateStr.split('-');
+    return `${day}/${month}/${year}`;
+  }
+  return dateStr;
+}
+const customerDay = normalizeDate(localStorage.getItem('customerDay') || '');
+$('#customerDayDisplay').text(customerDay);
+const customerDayfully = normalizeDate(localStorage.getItem('customerDayfully') || '');
+$('#customerDayfullyDisplay').text(customerDayfully);
+const customerDayBill = normalizeDate(localStorage.getItem('customerDayBill') || '');
+$('#customerDayBillDisplay').text(customerDayBill);
+const customerDayget = normalizeDate(localStorage.getItem('customerDayget') || '');
+$('#customerDaygetDisplay').text(customerDayget);
+
+    const customerDueDate = localStorage.getItem('customerDueDate') || '';
+    $('#customerDueDateDisplay').text(customerDueDate);
+
+    const customerDepartment = localStorage.getItem('customerDepartment') || '';
+    $('#customerDepartmentDisplay').text(customerDepartment);
+
+    const customerSalesperson = localStorage.getItem('customerSalesperson') || '';
+    $('#customerSalespersonDisplay').text(customerSalesperson);
+
+    const customerPriceandTax = localStorage.getItem('customerPriceandTax') || '';
+    $('#customerPriceandTaxDisplay').text(customerPriceandTax);
+
+    const customerDepositReceiptNumber = localStorage.getItem('customerDepositReceiptNumber') || '';
+    $('#customerDepositReceiptNumberDisplay').text(customerDepositReceiptNumber);
+
+     const customerCurrency = localStorage.getItem('customerCurrency') || '';
+    $('#customerCurrencyDisplay').text(customerCurrency);
+
+    const customerCredithistory = localStorage.getItem('customerCredithistory') || '';
+    $('#customerCredithistoryDisplay').text(customerCredithistory);
+
+     const customerEmployee = localStorage.getItem('customerEmployee') || '';
+    $('#customerEmployeeDisplay').text(customerEmployee);
+
+     const customerCounty = localStorage.getItem('customerCounty') || '';
+    $('#customerCountyDisplay').text(customerCounty);
+
+     const customerExpress = localStorage.getItem('customerExpress') || '';
+    $('#customerExpressDisplay').text(customerExpress);
+
+     const customerClaim = localStorage.getItem('customerClaim') || '';
+    $('#customerClaimDisplay').text(customerClaim);
+
+      const customerRemark = localStorage.getItem('customerRemark') || '';
+    $('#customerRemarkDisplay').text(customerRemark);
+
+      const customerDayPay = localStorage.getItem('customerDayPay') || '';
+    $('#customerDayPayDisplay').text(customerDayPay);
+
+     const customerSubbranch = localStorage.getItem('ccustomerSubbranch') || '';
+    $('#customerSubbranchPayDisplay').text(customerSubbranch);
+
+    }); 
+    
+    $(document).ready(function() {
+    // ซ่อนปุ่ม goBack ตอนโหลดหน้า
+    $('#goBack').hide();
+
+    // เมื่อกดปุ่ม อนุมัติ
+    $('#btnApprove a').click(function(e) {
+        e.preventDefault(); // กันลิงก์ไปหน้าจริง (ถ้าต้องการเปลี่ยนลิงก์แทน ให้แก้ที่นี่)
+
+        // ซ่อน 3 ปุ่มบน
+        $('#btnHome, #btnEdit, #btnApprove').hide();
+
+        // แสดงปุ่ม goBack
+        $('#goBack').show();
+    });
+});
+$(document).ready(function() {
+  // ซ่อนข้อความ "อนุมัติใบรับเงินมัดจำ" ตอนโหลดหน้า
+  $('#approveTitle').hide();
+
+  // เมื่อกดปุ่ม btnApprove
+  $('#btnApprove').click(function() {
+    $('#quotationTitle').hide();   // ซ่อน "ใบรับเงินมัดจำ"
+    $('#approveTitle').show();     // แสดง "อนุมัติใบรับเงินมัดจำ"
+  });
+})
+$('#goBack').click(function () {
+      localStorage.setItem('hasData', 'true'); // ตั้งให้แสดงข้อมูลเมื่อย้อนกลับ
+      window.location.href = 'create-deposit-receipt-table.html'; // กลับไปหน้าแรก
+    });
+    function formatDateToDDMMYYYY(dateStr) {
+        if (!dateStr || !dateStr.includes('-')) return dateStr;
+        const [year, month, day] = dateStr.split('-');
+        return `${day}/${month}/${year}`;
+    }
+    // แปลงและแสดงผล
+    const formattedDate = formatDateToDDMMYYYY(rawDate);
+    $('#buyReceivedDateDisplay').text(formattedDate);
+
+        const buyPriceexcludingtax = localStorage.getItem('buyPriceexcludingtax') || 'รวมภาษี';
+    $('#buyPriceexcludingtaxDisplay').text(buyPriceexcludingtax);
+
+    const buyCurrency = localStorage.getItem('buyCurrency') || 'THB - บาท';
+    $('#buyCurrencyDisplay').text(buyCurrency);
+
+    const buyInvoiceNo = localStorage.getItem('buyInvoiceNo') || 'BB-0000000000';
+    $('#buyInvoiceNoDisplay').text(buyInvoiceNo);
+
+    const buySubmitWorkPhase = localStorage.getItem('buySubmitWorkPhase') || '01/25';
+    $('#buySubmitWorkPhaseDisplay').text(buySubmitWorkPhase);
+
+
+   const customerDayRaw = localStorage.getItem('customerDay') || '2025-01-13';
+
+// ฟังก์ชันแปลงวันที่จาก YYYY-MM-DD ➜ DD/MM/YYYY
+function formatDateToDDMMYYYY(dateStr) {
+    if (!dateStr || !dateStr.includes('-')) return dateStr;
+    const [year, month, day] = dateStr.split('-');
+    return `${day}/${month}/${year}`;
+}
+
+// แสดงผลลง element id="customerDay"
+document.getElementById('customerDay').innerText = formatDateToDDMMYYYY(customerDayRaw);
+
+
+// แปลงแล้วแสดงผล
+const formattedBuyDated = formatDateToDDMMYYYY(buyDatedRaw);
+$('#buyDatedDisplay').text(formattedBuyDated);
+
+const buyRemarks = localStorage.getItem('buyRemarks') || 'หมายเหตุ';
+$('#buyRemarksDisplay').text(buyRemarks);
+
+const buyTaxburden = localStorage.getItem('buyTaxburden') || 'เกณฑ์สิทธิ์'; 
+$('#buyTaxburdenDisplay').text(buyTaxburden);
+
+function setVendorName() {
+    // ตรวจสอบก่อนว่ามีค่าหรือไม่ (ไม่จำเป็นก็ได้)
+    const customerName = document.getElementById('customerNameDisplay')?.innerText || '';
+    localStorage.setItem('customerName', customerName);
+    
+    const customerCode = document.getElementById('customerCodeDisplay')?.innerText || '';
+localStorage.setItem('customerCode', customerCode);
+
+    const customerDepartment = document.getElementById('customerDepartmentDisplay')?.innerText || '';
+    localStorage.setItem('customerDepartment', customerDepartment);
+
+       const currentEmployee = document.getElementById('customerEmployeeDisplay')?.innerText || '';
+localStorage.setItem('customerEmployee', currentEmployee);
+
+    const buyPurchaseOrderNo = document.getElementById('buyPurchaseOrderNoDisplay')?.innerText || '';
+    localStorage.setItem('buyPurchaseOrderNo',buyPurchaseOrderNo);
+
+    const buyDepartment = document.getElementById('buyDepartmentDisplay')?.innerText || '';
+    localStorage.setItem('buyDepartment',buyDepartment);
+
+// สมมุติว่า buyDayDisplay เป็น "13/01/2025" ➜ ต้องแปลงก่อน
+function convertDDMMYYYYToYYYYMMDD(dateStr) {
+    const [day, month, year] = dateStr.split('/');
+    return `${year}-${month}-${day}`;
+}
+
+let rawCustomerDay = document.getElementById('customerDayDisplay')?.innerText || '';
+if (rawCustomerDay.includes('/')) {
+    rawCustomerDay = convertDDMMYYYYToYYYYMMDD(rawCustomerDay);
+}
+
+localStorage.setItem('customerDay', rawCustomerDay);
+
+    const customerBranchCode = document.getElementById('customerBranchCodeDisplay')?.innerText || '';
+    localStorage.setItem('customerBranchCode',customerBranchCode);
+
+    const buyBranchName = document.getElementById('customerBranchNameDisplay')?.innerText || '';
+    localStorage.setItem('customerBranchName',customerBranchName);
+    
+    const formattedBuyDated = formatDateToDDMMYYYY('buyDatedRawDisplay')?.innerText || '';
+    localStorage.setItem('buyDatedRaw',buyDatedRaw);
+
+    const buyPhone = document.getElementById('buyPhoneDisplay')?.innerText || '';
+    localStorage.setItem('buyPhone',buyPhone);
+
+    const buyAddress = document.getElementById('buyAddressDisplay')?.innerText || '';
+    localStorage.setItem('buyAddress',buyAddress);
+
+    const buyLocation = document.getElementById('buyLocationDisplay')?.innerText || '';
+    localStorage.setItem('buyLocation',buyLocation);
+
+    const buyContactName = document.getElementById('buyContactNameDisplay')?.innerText || '';
+    localStorage.setItem('buyContactName',buyContactName);
+
+    const buyGmail = document.getElementById('buyGmailDisplay')?.innerText || '';
+    localStorage.setItem('buyGmail',buyGmail)?.innerText || '';
+
+    const buyInvoiceNo = document.getElementById('buyInvoiceNoDisplay')?.innerText || '';
+    localStorage.setItem('buyInvoiceN',buyInvoiceN);
+
+    const buySubmitWorkPhase = document.getElementById('buySubmitWorkPhaseDisplay')?.innerText || '';
+    localStorage.setItem('buySubmitWorkPhase',buySubmitWorkPhase); 
+}
+
+
+
+
+// ฟังก์ชันสำหรับสร้าง timeline ประวัติการทำงาน
+function createQuotationTimeline() {
+    // ดึง ID จาก URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const quotationId = urlParams.get('id');
+    
+    if (!quotationId) {
+        console.log('No quotation ID found, showing sample timeline');
+        createSampleTimeline();
+        return;
+    }
+    
+    console.log('Loading timeline data for quotation ID:', quotationId);
+    
+    // ดึงข้อมูล timeline จากฐานข้อมูล
+    $.ajax({
+        url: `${endpoint}/api/get_quotation_timeline`,
+        method: 'POST',
+        dataType: 'json',
+        data: {
+            id: quotationId,
+            com_id: localStorage.getItem('com_id') || 3
+        },
+        success: function(response) {
+            console.log('Timeline API Response:', response);
+            if (response.code === 200 && response.result) {
+                displayTimelineData(response.result);
+            } else {
+                console.log('No timeline data found, showing sample timeline');
+                createSampleTimeline();
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Error loading timeline data:', error);
+            console.log('Falling back to sample timeline');
+            createSampleTimeline();
+        }
+    });
+}
+
+// ฟังก์ชันสำหรับแสดงข้อมูล timeline จากฐานข้อมูล
+function displayTimelineData(timelineData) {
+    // เรียงลำดับ: อนุมัติอยู่บนสุด, เริ่มสร้างอยู่ล่างสุดเสมอ, บันทึกอยู่ก่อนเริ่มสร้าง, ส่วนอื่นเรียงตามวันที่
+    timelineData.sort((a, b) => {
+        // ถ้าเป็น approve ให้อยู่บนสุดเสมอ
+        if (a.action_type === 'approve' && b.action_type !== 'approve') {
+            return -1; // a อยู่ก่อน b
+        }
+        if (b.action_type === 'approve' && a.action_type !== 'approve') {
+            return 1; // b อยู่ก่อน a
+        }
+        
+        // ถ้าเป็น create_start ให้อยู่ล่างสุดเสมอ
+        if (a.action_type === 'create_start' && b.action_type !== 'create_start') {
+            return 1; // a อยู่หลัง b
+        }
+        if (b.action_type === 'create_start' && a.action_type !== 'create_start') {
+            return -1; // b อยู่หลัง a
+        }
+        
+        // ถ้าเป็น create ให้อยู่ก่อน create_start แต่หลัง save/edit/approve
+        if (a.action_type === 'create' && b.action_type !== 'create' && b.action_type !== 'create_start') {
+            return 1; // a อยู่หลัง b
+        }
+        if (b.action_type === 'create' && a.action_type !== 'create' && a.action_type !== 'create_start') {
+            return -1; // b อยู่หลัง a
+        }
+        
+        // ถ้าเป็น save ให้อยู่ก่อน create/create_start แต่หลัง edit/approve
+        if (a.action_type === 'save' && b.action_type !== 'create' && b.action_type !== 'create_start' && b.action_type !== 'save') {
+            return 1; // a อยู่หลัง b
+        }
+        if (b.action_type === 'save' && a.action_type !== 'create' && a.action_type !== 'create_start' && a.action_type !== 'save') {
+            return -1; // b อยู่หลัง a
+        }
+        
+        // ถ้าทั้งคู่เป็น create หรือทั้งคู่ไม่ใช่ create ให้เรียงตามวันที่
+        const dateA = new Date(a.created_at || a.updated_at);
+        const dateB = new Date(b.created_at || b.updated_at);
+        return dateB - dateA; // เรียงจากใหม่ไปเก่า
+    });
+
+    // สร้าง HTML สำหรับ timeline
+    const timelineContainer = $('#quotationTimeline');
+    timelineContainer.empty();
+
+    timelineData.forEach((item, index) => {
+        const isLast = index === timelineData.length - 1;
+        const isActive = index === 0; // รายการแรก (บนสุด) เท่านั้นที่ active
+        const dotClass = isActive ? 'dot active' : 'dot';
+        const lineHtml = isLast ? '' : '<div class="line"></div>';
+        
+        // แปลงวันที่และเวลา
+        let dateTime;
+        let date, time;
+        
+        // ใช้เวลาจากฐานข้อมูลสำหรับทุก action
+                dateTime = new Date(item.created_at || item.updated_at);
+                date = dateTime.toLocaleDateString('th-TH', { 
+                    day: '2-digit', 
+                    month: '2-digit', 
+                    year: '2-digit' 
+                });
+                time = dateTime.toLocaleTimeString('th-TH', { 
+                    hour: '2-digit', 
+                    minute: '2-digit', 
+                    second: '2-digit' 
+                });
+        
+        // กำหนด action text ตาม type
+        let actionText = '';
+        if (item.action_type === 'create_start') {
+            actionText = 'เริ่มสร้างใบรับเงินมัดจำ';
+        } else if (item.action_type === 'create') {
+            actionText = 'บันทึกใบรับเงินมัดจำ';
+        } else if (item.action_type === 'save') {
+            actionText = 'บันทึกใบรับเงินมัดจำ';
+        } else if (item.action_type === 'edit') {
+            actionText = 'แก้ไขใบรับเงินมัดจำ';
+        } else if (item.action_type === 'approve') {
+            actionText = 'อนุมัติใบรับเงินมัดจำ';
+        } else {
+            actionText = item.action_type || 'ดำเนินการ';
+        }
+        
+        const noteHtml = item.note ? `
+            <div class="day-box">
+                <div class="note-text">${item.note}</div>
+            </div>
+        ` : '';
+
+        const timelineItem = `
+            <li>
+                <div class="timestamp">
+                    <div class="text-date">${date}</div>
+                    <div class="text-time">${time}</div>
+                </div>
+                <div class="dot-line">
+                    <div class="${dotClass}"></div>
+                    ${lineHtml}
+                </div>
+                <div class="content">
+                    <div class="user-box-in">
+                        <div class="user-title">${item.user_name || item.created_by || 'Unknown User'}</div>
+                        <div class="save-test">${actionText}</div>
+                    </div>
+                    ${noteHtml}
+                </div>
+            </li>
+        `;
+        
+        timelineContainer.append(timelineItem);
+    });
+}
+
+// ฟังก์ชันสำหรับสร้าง timeline ตัวอย่าง (fallback)
+function createSampleTimeline() {
+    const timelineData = [
+        {
+            type: 'create',
+            date: '02/01/25',
+            time: '10:45:34',
+            user: 'User test 01',
+            action: 'เริ่มสร้างใบเสนอราคา',
+            note: ''
+        },
+        {
+            type: 'save',
+            date: '02/01/25',
+            time: '10:45:34',
+            user: 'User test 01',
+            action: 'บันทึกใบเสนอราคา',
+            note: ''
+        },
+        {
+            type: 'edit',
+            date: '12/01/25',
+            time: '10:12:34',
+            user: 'User test 01',
+            action: 'แก้ไข',
+            note: 'หมายเหตุ: รอเอกสารเพิ่มเติมจากลูกค้า'
+        },
+        {
+            type: 'edit',
+            date: '17/01/25',
+            time: '11:09:14',
+            user: 'User test 01',
+            action: 'แก้ไข',
+            note: ''
+        },
+        {
+            type: 'approve',
+            date: '27/01/25',
+            time: '16:09:12',
+            user: 'User test 02',
+            action: 'อนุมัติใบรับเงินมัดจำ',
+            note: 'หมายเหตุ: รอเอกสารเพิ่มเติมจากลูกค้า'
+        }
+    ];
+
+    // เรียงลำดับ: อนุมัติอยู่บนสุด, เริ่มสร้างอยู่ล่างสุดเสมอ, บันทึกอยู่ก่อนเริ่มสร้าง, ส่วนอื่นเรียงตามวันที่
+    timelineData.sort((a, b) => {
+        // ถ้าเป็น approve ให้อยู่บนสุดเสมอ
+        if (a.type === 'approve' && b.type !== 'approve') {
+            return -1; // a อยู่ก่อน b
+        }
+        if (b.type === 'approve' && a.type !== 'approve') {
+            return 1; // b อยู่ก่อน a
+        }
+        
+        // ถ้าเป็น create ให้อยู่ล่างสุดเสมอ
+        if (a.type === 'create' && b.type !== 'create') {
+            return 1; // a อยู่หลัง b
+        }
+        if (b.type === 'create' && a.type !== 'create') {
+            return -1; // b อยู่หลัง a
+        }
+        
+        // ถ้าเป็น save ให้อยู่ก่อน create แต่หลัง edit/approve
+        if (a.type === 'save' && b.type !== 'create' && b.type !== 'save') {
+            return 1; // a อยู่หลัง b
+        }
+        if (b.type === 'save' && a.type !== 'create' && a.type !== 'save') {
+            return -1; // b อยู่หลัง a
+        }
+        
+        // ถ้าทั้งคู่เป็น create หรือทั้งคู่ไม่ใช่ create ให้เรียงตามวันที่
+        const dateA = new Date(a.date.split('/').reverse().join('-') + ' ' + a.time);
+        const dateB = new Date(b.date.split('/').reverse().join('-') + ' ' + b.time);
+        return dateB - dateA; // เรียงจากใหม่ไปเก่า
+    });
+
+    // สร้าง HTML สำหรับ timeline
+    const timelineContainer = $('#quotationTimeline');
+    timelineContainer.empty();
+
+    timelineData.forEach((item, index) => {
+        const isLast = index === timelineData.length - 1;
+        const isActive = index === 0; // รายการแรก (บนสุด) เท่านั้นที่ active
+        const dotClass = isActive ? 'dot active' : 'dot';
+        const lineHtml = isLast ? '' : '<div class="line"></div>';
+        const noteHtml = item.note ? `
+            <div class="day-box">
+                <div class="note-text">${item.note}</div>
+            </div>
+        ` : '';
+
+        // กำหนด action text ตาม type
+        let actionText = '';
+        if (item.type === 'create') {
+            actionText = 'เริ่มสร้างใบเสนอราคา';
+        } else if (item.type === 'save') {
+            actionText = 'บันทึกใบเสนอราคา';
+        } else if (item.type === 'edit') {
+            actionText = 'แก้ไขใบเสนอราคา';
+        } else if (item.type === 'approve') {
+            actionText = 'อนุมัติใบเสนอราคา';
+        } else {
+            actionText = item.action || 'ดำเนินการ';
+        }
+
+        const timelineItem = `
+            <li>
+                <div class="timestamp">
+                    <div class="text-date">${item.date}</div>
+                    <div class="text-time">${item.time}</div>
+                </div>
+                <div class="dot-line">
+                    <div class="${dotClass}"></div>
+                    ${lineHtml}
+                </div>
+                <div class="content">
+                    <div class="user-box-in">
+                        <div class="user-title">${item.user}</div>
+                        <div class="save-test">${actionText}</div>
+                    </div>
+                    ${noteHtml}
+                </div>
+            </li>
+        `;
+        
+        timelineContainer.append(timelineItem);
+    });
+}
+
+// ฟังก์ชันสำหรับโหลดข้อมูลสินค้า
+function loadProductData() {
+    // ดึง ID จาก URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const quotationId = urlParams.get('id');
+    
+    if (quotationId) {
+        // ถ้ามี ID ใน URL ให้โหลดข้อมูลจากใบเสนอราคา
+        console.log('Loading product data from quotation ID:', quotationId);
+        
+        $.ajax({
+            url: `${endpoint}/api/get_quotation_by_id`,
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                id: quotationId,
+                com_id: localStorage.getItem('com_id') || 3
+            },
+            success: function(response) {
+                console.log('Quotation data API Response:', response);
+                if (response.code === 200 && response.result.product_byuser) {
+                    // แปลง product_byuser จาก JSON string เป็น array
+                    let productData = [];
+                    try {
+                        if (typeof response.result.product_byuser === 'string') {
+                            productData = JSON.parse(response.result.product_byuser);
+                        } else if (Array.isArray(response.result.product_byuser)) {
+                            productData = response.result.product_byuser;
+                        }
+                        displayProductData(productData);
+                    } catch (e) {
+                        console.error('Error parsing product_byuser:', e);
+                        displaySampleProductData();
+                    }
+                } else {
+                    console.error('No product data found in quotation');
+                    displaySampleProductData();
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error loading quotation data:', error);
+                displaySampleProductData();
+            }
+        });
+    } else {
+        // ถ้าไม่มี ID ให้แสดงข้อมูลตัวอย่าง
+        console.log('No quotation ID found, showing sample data');
+        displaySampleProductData();
+    }
+}
+
+// ตัวแปรสำหรับ pagination (moved to top of script)
+
+// ฟังก์ชันสำหรับแสดงข้อมูลสินค้าในตาราง (พร้อม pagination)
+function displayProductData(products) {
+    allProductData = products || [];
+    currentPage = 1;
+    
+    if (!allProductData || allProductData.length === 0) {
+        const tbody = $('tbody');
+        tbody.empty();
+        tbody.html('<tr><td colspan="10" style="text-align: center; color: #999;">ไม่มีข้อมูลสินค้า</td></tr>');
+        $('.pagination').hide();
+        return;
+    }
+    
+    // แสดงข้อมูลตามหน้า
+    displayProductPage();
+    
+    // แสดง pagination
+    updatePagination();
+}
+
+// ฟังก์ชันสำหรับแสดงข้อมูลสินค้าตัวอย่าง
+function displaySampleProductData() {
+    const sampleData = [
+        {
+            product_code: 'P001',
+            name: 'สินค้าตัวอย่าง 1',
+            description: 'รายละเอียดสินค้าตัวอย่าง 1',
+            quantity: 1,
+            unit_price: 1000.00,
+            total_price: 1000.00,
+            unit: 'ชิ้น'
+        },
+        {
+            product_code: 'P002',
+            name: 'สินค้าตัวอย่าง 2',
+            description: 'รายละเอียดสินค้าตัวอย่าง 2',
+            quantity: 2,
+            unit_price: 500.00,
+            total_price: 1000.00,
+            unit: 'ชิ้น'
+        }
+    ];
+    
+    displayProductData(sampleData);
+}
+
+// ฟังก์ชันแสดงข้อมูลสินค้าตามหน้าที่เลือก
+function displayProductPage() {
+    const tbody = $('tbody');
+    tbody.empty(); // ล้างข้อมูลเก่า
+    
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const pageData = allProductData.slice(startIndex, endIndex);
+    
+    pageData.forEach((product, index) => {
+        const globalIndex = startIndex + index;
+        const row = `
+            <tr class="data-row">
+                <td>${globalIndex + 1}</td>
+                <td>${product.product_code || ''}</td>
+                <td>${product.name || ''}</td>
+                <td>${product.desc_product || ''}</td>
+                <td>${product.total|| ''}</td>
+                <td>${product.deposit_amount || ''}</td>
+                <td>
+                </td>
+            </tr>
+        `;
+        tbody.append(row);
+    });
+}
+
+// ฟังก์ชันอัปเดต pagination
+function updatePagination() {
+    const totalPages = Math.ceil(allProductData.length / itemsPerPage);
+    const paginationContainer = $('.pagination');
+    
+    // ตรวจสอบว่ามีข้อมูลมากกว่า 5 รายการหรือไม่
+    if (allProductData.length <= 5) {
+        paginationContainer.hide();
+        return;
+    }
+    
+    // แสดง pagination container
+    paginationContainer.show();
+    
+    // สร้าง pagination HTML
+    let paginationHTML = `<span class="page-info">${currentPage} of ${totalPages} pages</span>`;
+    
+    // สร้างปุ่ม pagination แบบใหม่
+    const paginationButtons = $('<div class="pagination-buttons" style="display: flex; justify-content: center; align-items: center;"></div>');
+    
+    // helper สร้างปุ่มเลขหน้า
+    const addBtn = (i) => {
+        const buttonClass = i === currentPage ? 'active' : '';
+        const textColor = i === currentPage ? 'color: black;' : 'color: var(--text-color400);';
+        paginationButtons.append(`<a class="num-btn ${buttonClass}" style="${textColor}
+    text-decoration: none;
+    padding: 2px 6px;
+    cursor: pointer;" href="#" data-page="${i}">${i}</a>`);
+    };
+    
+    const addDots = () => paginationButtons.append('<span class="dots">...</span>');
+    
+    // ปุ่ม Previous (แสดงตลอด)
+    const prevPage = currentPage > 1 ? currentPage - 1 : 1;
+    paginationButtons.append(`<a href="#" class="prev" style="width: 16px; height: 16px; display: flex; justify-content: center; align-items: center;" data-page="${prevPage}"><img src="picture/arrow-left.png" style="width: 16px; height: 16px;"></a>`);
+    
+    // เลือกเลขที่จะโชว์ 3 ตัว + ... + กล่องค้นหา
+    let pagesToShow = [];
+    if (totalPages <= 3) {
+        for (let i = 1; i <= totalPages; i++) pagesToShow.push(i);
+    } else if (currentPage <= 2) {
+        pagesToShow = [1, 2, 3];
+    } else if (currentPage >= totalPages - 1) {
+        pagesToShow = [Math.max(1, totalPages - 2), totalPages - 1, totalPages];
+    } else {
+        pagesToShow = [currentPage - 1, currentPage, currentPage + 1];
+    }
+    
+    // ใส่เลข 3 ตัว
+    pagesToShow.forEach(addBtn);
+    
+    // ถ้าหน้ามากกว่า 3 และยังมีหน้าที่ซ่อนไว้ด้านขวา ค่อยใส่ "..."
+    if (totalPages > 3) addDots();
+    
+    // กล่องค้นหาหน้า (ค่าในช่องคือหน้าสุดท้าย เริ่มต้นพิมพ์ได้ทันที)
+    const jumpHtml = `
+        <div class="page-jump-wrap">
+            <input
+                type="text"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                class="page-jump"
+                id="pageJump"
+                placeholder="${totalPages}"
+                aria-label="ไปหน้าที่..."
+            />
+        </div>`;
+    paginationButtons.append(jumpHtml);
+    
+    // ปุ่ม Next (แสดงตลอด)
+    const nextPage = currentPage < totalPages ? currentPage + 1 : totalPages;
+    paginationButtons.append(`<a href="#" class="next" data-page="${nextPage}"><img src="picture/arrow-right.png" style="width: 16px; height: 16px;"></a>`);
+    
+    // รวม pagination HTML
+    paginationHTML += paginationButtons.prop('outerHTML');
+    
+    // แทนที่เนื้อหาทั้งหมดของ pagination container
+    paginationContainer.html(paginationHTML);
+    
+    // เพิ่ม event listeners สำหรับปุ่ม pagination
+    attachPaginationEvents();
+}
+
+// ฟังก์ชันเพิ่ม event listeners สำหรับ pagination
+function attachPaginationEvents() {
+    // events ปุ่มเลข
+    $('.pagination a.num-btn').off('click').on('click', function (e) {
+        e.preventDefault();
+        const page = parseInt($(this).data('page'));
+        goToPage(page);
+    });
+    
+    // events ปุ่ม Previous และ Next
+    $('.pagination a.prev, .pagination a.next').off('click').on('click', function (e) {
+        e.preventDefault();
+        const page = parseInt($(this).data('page'));
+        goToPage(page);
+    });
+    
+    // events กล่องค้นหา (Enter/blur เพื่อกระโดดหน้า)
+    (function attachJumpHandlers() {
+        const commit = () => {
+            const totalPages = Math.ceil(allProductData.length / itemsPerPage);
+            const last = totalPages;
+            let v = parseInt($('#pageJump').val(), 10);
+            if (isNaN(v)) v = last;
+            v = Math.max(1, Math.min(last, v));
+            goToPage(v);
+        };
+        
+        $('#pageJump').off('keypress blur').on('keypress blur', function (e) {
+            if (e.type === 'keypress' && e.which !== 13) return;
+            e.preventDefault();
+            commit();
+        });
+    })();
+}
+
+// ฟังก์ชันไปหน้าที่กำหนด
+function goToPage(page) {
+    const totalPages = Math.ceil(allProductData.length / itemsPerPage);
+    if (page >= 1 && page <= totalPages) {
+        currentPage = page;
+        displayProductPage();
+        updatePagination();
+    }
+}
+
+
+// ฟังก์ชันสำหรับโหลดและแสดงเวลาสถานะที่บันทึกไว้
+function loadStatusTime() {
+    // โหลดเวลาสถานะจาก localStorage
+    const savedStatusTime = localStorage.getItem('quotationStatusTime');
+    const savedStatusValue = localStorage.getItem('quotationStatusValue');
+    
+    // ถ้ามีเวลาสถานะที่เลือก ให้แสดงเวลานั้น
+    // ถ้าไม่มี ให้แสดงเวลาปัจจุบัน
+    if (savedStatusTime) {
+        $('.status-thin').text(`สถานะล่าสุด: ${savedStatusTime}`);
+    } else {
+        const now = new Date();
+        const timeString = now.toLocaleDateString('th-TH', { 
+            day: '2-digit', 
+            month: '2-digit', 
+            year: '2-digit' 
+        }) + ' ' + now.toLocaleTimeString('th-TH', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        });
+        $('.status-thin').text(`สถานะล่าสุด: ${timeString}`);
+    }
+    
+    if (savedStatusValue) {
+        // อัปเดตสถานะที่เลือก
+        $('#customerStatusDisplay').text(savedStatusValue);
+    }
+}
+
+// ฟังก์ชันสำหรับโหลดข้อมูลใบเสนอราคา
+function loadQuotationPreviewData() {
+    // ดึง ID จาก URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const quotationId = urlParams.get('id');
+    
+    // ตรวจสอบว่ามีข้อมูลใน localStorage หรือไม่
+    const localQuotationData = localStorage.getItem('quotationData');
+    const localQuotationId = localStorage.getItem('quotationId');
+    
+    if (quotationId) {
+        // ถ้ามี ID ใน URL ให้โหลดจากฐานข้อมูล
+        console.log('Loading quotation data for ID:', quotationId);
+        
+        $.ajax({
+            url: `${endpoint}/api/get_quotation_by_id`,
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                id: quotationId,
+                com_id: localStorage.getItem('com_id') || 3
+            },
+            success: function(response) {
+                console.log('Quotation preview API Response:', response);
+                if (response.code === 200) {
+                    displayQuotationPreviewData(response.result);
+                } else {
+                    console.error('Error loading quotation data:', response.result);
+                    // ถ้าโหลดจาก API ไม่ได้ ให้ลองใช้ข้อมูลจาก localStorage
+                    if (localQuotationData) {
+                        console.log('Falling back to localStorage data');
+                        const parsedData = JSON.parse(localQuotationData);
+                        displayQuotationPreviewData(parsedData);
+                    } else {
+                        alert('ไม่พบข้อมูลใบเสนอราคา');
+                    }
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error loading quotation data:', error);
+                // ถ้าโหลดจาก API ไม่ได้ ให้ลองใช้ข้อมูลจาก localStorage
+                if (localQuotationData) {
+                    console.log('Falling back to localStorage data due to API error');
+                    const parsedData = JSON.parse(localQuotationData);
+                    displayQuotationPreviewData(parsedData);
+                } else {
+                    alert('เกิดข้อผิดพลาดในการโหลดข้อมูล');
+                }
+            }
+        });
+    } else if (localQuotationData) {
+        // ถ้าไม่มี ID ใน URL แต่มีข้อมูลใน localStorage ให้ใช้ข้อมูลจาก localStorage
+        console.log('Loading quotation data from localStorage');
+        const parsedData = JSON.parse(localQuotationData);
+        displayQuotationPreviewData(parsedData);
+    } else {
+        console.error('No quotation ID found in URL and no data in localStorage');
+        alert('ไม่พบข้อมูลใบเสนอราคา');
+    }
+}
+
+// ฟังก์ชันสำหรับแสดงข้อมูลใบเสนอราคา
+function displayQuotationPreviewData(data) {
+    console.log('Displaying quotation data:', data);
+    
+    // ตรวจสอบว่าข้อมูลมาจาก localStorage หรือไม่
+    let cusDetail = {};
+    let docDetail = {};
+    
+    // ถ้าข้อมูลมาจาก localStorage จะมีโครงสร้างที่แตกต่าง
+    if (data.cus_detail && typeof data.cus_detail === 'string') {
+        try {
+            cusDetail = JSON.parse(data.cus_detail);
+        } catch (e) {
+            console.error('Error parsing cus_detail:', e);
+            cusDetail = {};
+        }
+    } else if (data.cus_detail && typeof data.cus_detail === 'object') {
+        cusDetail = data.cus_detail;
+    }
+    
+    if (data.doc_detail && typeof data.doc_detail === 'string') {
+        try {
+            docDetail = JSON.parse(data.doc_detail);
+        } catch (e) {
+            console.error('Error parsing doc_detail:', e);
+            docDetail = {};
+        }
+    } else if (data.doc_detail && typeof data.doc_detail === 'object') {
+        docDetail = data.doc_detail;
+    }
+    
+    // แสดงข้อมูลพื้นฐาน
+    if (data.net_amount) {
+        $('.deposit-receipt-box-mini-number-in').text(formatCurrency(data.net_amount));
+    }
+    
+    // แสดงข้อมูลลูกค้า
+    if (data.tx) {
+        $('#customerDepositReceiptNumberDisplay').text(data.tx);
+        $('#headerDocumentNumber').text(data.tx);
+    }
+    if (data.cus_name) $('#customerNameDisplay').text(data.cus_name);
+    if (data.cus_no) $('#customerCodeDisplay').text(data.cus_no);
+    
+    // แสดงเบอร์โทรศัพท์
+    if (cusDetail.cus_phone) {
+        let phoneNumber = cusDetail.cus_phone;
+        // แปลงเบอร์โทรศัพท์ให้เป็นรูปแบบ 080-870-5488
+        if (phoneNumber && phoneNumber.length >= 10) {
+            // ลบตัวอักษรที่ไม่ใช่ตัวเลขออก
+            let cleanNumber = phoneNumber.replace(/\D/g, '');
+            if (cleanNumber.length >= 10) {
+                // แปลงเป็นรูปแบบ 080-870-5488
+                phoneNumber = cleanNumber.substring(0, 3) + '-' + 
+                             cleanNumber.substring(3, 6) + '-' + 
+                             cleanNumber.substring(6, 10);
+            }
+        }
+        $('#customerPhoneDisplay').text(phoneNumber);
+    }
+    
+    // แสดงที่อยู่ลูกค้า
+    if (cusDetail.cus_addr) {
+        $('#customerAddressDisplay').text(cusDetail.cus_addr);
+    }
+    
+    // แสดงที่ตั้งธุรกิจ
+    if (cusDetail.cus_business_location) {
+        $('#customerHeadOfficeDisplay').text(cusDetail.cus_business_location);
+    }
+    
+    // แสดงชื่อผู้ติดต่อ
+    if (cusDetail.cus_contact_name) {
+        $('#customerContactNameDisplay').text(cusDetail.cus_contact_name);
+    }
+    
+    // แสดงอีเมล
+    if (cusDetail.cus_email) {
+        $('#customerGmailDisplay').text(cusDetail.cus_email);
+    }
+    
+    // แสดงอ้างอิง
+    if (cusDetail.cus_refer) {
+        $('#customerReferDisplay').text(cusDetail.cus_refer);
+    }
+    
+    // แสดงประเภทสำนักงาน
+    if (cusDetail.cus_head_office !== undefined) {
+        $('#customerSubbranchDisplay').text(cusDetail.cus_head_office ? 'สำนักงานใหญ่ :' : 'สาขาย่อย :');
+    }
+    
+    // แสดงรหัสสาขา
+    if (cusDetail.cus_branch_no) {
+        $('#customerBranchCodeDisplay').text(cusDetail.cus_branch_no);
+    }
+    
+    // แสดงชื่อสาขา
+    if (cusDetail.cus_branch_name) {
+        $('#customerBranchNameDisplay').text(cusDetail.cus_branch_name);
+    }
+
+    // แสดงข้อมูลเอกสาร
+    if (data.doc_status) {
+        let statusText = data.doc_status;
+        if (data.doc_status === 'pending') {
+            statusText = 'รออนุมัติ';
+        } else if (data.doc_status === 'approved') {
+            statusText = 'อนุมัติ';
+        } else if (data.doc_status === 'rejected') {
+            statusText = 'ไม่อนุมัติ';
+        }
+        $('#customerStatusDisplay').text(data.status);
+        
+        // จัดการการแสดงปุ่มตามสถานะ
+        handleButtonDisplayByStatus(data.doc_status);
+    }
+    
+    // แสดงวันที่เอกสาร
+    if (data.doc_date) {
+        $('#customerDayDisplay').text(formatDateForDisplay(data.doc_date));
+    }
+    
+    // แสดงวันครบกำหนด
+    if (data.due_date) {
+        $('#customerDayfullyDisplay').text(formatDateForDisplay(data.due_date));
+    }
+    
+    // แสดงกำหนดยื่น
+    if (docDetail.deadline) {
+        $('#customerDueDateDisplay').text(docDetail.deadline);
+    }
+    
+    // แสดงแผนก
+    if (docDetail.department) {
+        $('#customerDepartmentDisplay').text(docDetail.department);
+    }
+    
+    // แสดงพนักงานขาย
+    if (docDetail.salesman) {
+        $('#customerSalesperson').text(docDetail.salesman);
+    }
+    
+    // แสดงรหัสใบสั่งขาย
+    if (docDetail.sales_order_code) {
+        $('#salesOrderRefDisplay').text(docDetail.sales_order_code);
+    }
+    
+    // แสดงเครดิตจากประวัติชำระเงิน
+    if (docDetail.credit_history) {
+        $('#customerCredithistoryDisplay').text(docDetail.credit_history);
+    }
+    
+    // แสดง/ซ่อนการออกใบกำกับภาษี
+    if (docDetail.tax_invoice !== undefined) {
+        if (docDetail.tax_invoice === true || docDetail.tax_invoice === 'true') {
+            $('.issuance-of-tax-invoices-box').show();
+            $('.head-three').css('height', '515px');
+        } else {
+            $('.issuance-of-tax-invoices-box').hide();
+            $('.head-three').css('height', 'auto');
+        }
+    } else {
+        $('.issuance-of-tax-invoices-box').hide();
+        $('.head-three').css('height', 'auto');
+    }
+    
+    // แสดงข้อมูลราคาและภาษี
+    if (docDetail.data_price_tax) {
+        $('#customerPriceandTaxDisplay').text(docDetail.data_price_tax);
+    }
+    
+    // แสดงสกุลเงิน
+    if (docDetail.currency) {
+        $('#customerCurrencyDisplay').text(docDetail.currency);
+    }
+    
+    // แสดงหมายเหตุ
+    if (data.remark) {
+        $('#customerNoteunderDisplay').text(data.remark);
+    }
+    
+    // แสดงไฟล์
+    if (data.file && Array.isArray(data.file)) {
+        displayFileList(data.file);
+    } else if (data.file) {
+        // รองรับกรณีที่ file เป็น object เดียว
+        $('#customerFileDisplay').text(data.file.name);
+    }
+    
+    // แสดงสถานะ checkbox ลายเซ็นต์อิเล็กทรอนิกและตรายาง
+    if (cusDetail.cus_visits === true || cusDetail.cus_visits === 'true') {
+        $('#list-tax-1').prop('checked', true);
+    } else {
+        $('#list-tax-1').prop('checked', false);
+    }
+
+    // แสดงข้อมูลราคาและภาษี
+    if (data.product_detail) {
+        $('#product-totalAllProducts').text(formatCurrency(data.product_detail.product_totalAllProducts));
+        $('#product-totalDiscount').text(formatCurrency(data.product_detail.product_totalDiscount));
+        $('#product-totalAfterDiscount').text(formatCurrency(data.product_detail.product_totalAfterDiscount));
+        $('#product-totalTax').text(formatCurrency(data.product_detail.product_totalTax));
+        
+        // คำนวณรวม withholdingTax ทั้ง 3 อัน
+        const withholdingTax1 = parseFloat(data.product_detail.product_withholdingTax) || 0;
+        const withholdingTax2 = parseFloat(data.product_detail.product_withholdingTax2) || 0;
+        const withholdingTax3 = parseFloat(data.product_detail.product_withholdingTax3) || 0;
+        const totalWithholdingTax = withholdingTax1 + withholdingTax2 + withholdingTax3;
+        
+        $('#product-withholdingTax').text(formatCurrency(totalWithholdingTax));
+        $('#product-totalAll').text(formatCurrency(data.product_detail.product_totalAll));
+        $('#product-totalAll-2').text(formatCurrency(data.product_detail.product_totalAll));
+        
+        // คำนวณและแสดงผลในส่วน "รอหักมัดจำ"
+        const productTotalAllProducts = parseFloat(data.product_detail.product_totalAllProducts) || 0;
+        const productTotalTax = parseFloat(data.product_detail.product_totalTax) || 0;
+        
+        // มูลค่ารวมภาษี = product_totalAllProducts + product_totalTax
+        const depositTotalWithTax = productTotalAllProducts + productTotalTax;
+        
+        // ยอดชำระจริง = มูลค่ารวมภาษี - ภาษีถูกหัก ณ ที่จ่าย
+        const depositActualPayment = depositTotalWithTax - totalWithholdingTax;
+        
+        $('#deposit-total-with-tax').text(formatCurrency(depositTotalWithTax));
+        $('#deposit-withholding-tax').text(formatCurrency(totalWithholdingTax));
+        $('#deposit-actual-payment').text(formatCurrency(depositActualPayment));
+        
+        // อัปเดตวันที่รับชำระครบให้ใช้ค่าเดียวกันกับ customerDayfullyDisplay
+        const dueDateText = $('#customerDayfullyDisplay').text();
+        if (dueDateText) {
+            $('#deposit-due-date').text('รับชำระครบได้ถึงวันที่: ' + dueDateText);
+        }
+        
+        // แสดงสถานะ checkbox ภาษีมูลค่าเพิ่ม 7%
+        if (data.product_detail.vat7_checked !== undefined) {
+            $('#list-tax').prop('checked', data.product_detail.vat7_checked);
+            // ควบคุมการแสดง/ซ่อนจำนวนเงินภาษีมูลค่าเพิ่ม 7%
+            if (data.product_detail.vat7_checked) {
+                $('#product-totalTax').parent().parent().show();
+            } else {
+                $('#product-totalTax').parent().parent().hide();
+            }
+        } else {
+            // ถ้าไม่มีข้อมูล checkbox ให้ซ่อนจำนวนเงิน
+            $('#product-totalTax').parent().parent().hide();
+        }
+        
+        // แสดงสถานะ checkbox ภาษีถูกหัก ณ ที่จ่าย
+        if (data.product_detail.withholding_tax_checked !== undefined) {
+            $('#list-tax-2').prop('checked', data.product_detail.withholding_tax_checked);
+            // ควบคุมการแสดง/ซ่อน dropdown และจำนวนเงิน
+            if (data.product_detail.withholding_tax_checked) {
+                $('#withholding-tax-rate').parent().show();
+                $('#product-withholdingTax').parent().parent().show();
+            } else {
+                $('#withholding-tax-rate').parent().hide();
+                $('#product-withholdingTax').parent().parent().hide();
+            }
+        } else {
+            // ถ้าไม่มีข้อมูล checkbox ให้ซ่อน dropdown และจำนวนเงิน
+            $('#withholding-tax-rate').parent().hide();
+            $('#product-withholdingTax').parent().parent().hide();
+        }
+        
+        // แสดงสถานะ checkbox ตัดมัดจำเรียบร้อย
+        if (data.payment_detail.deposit_deduction !== undefined) {
+            $('#deposit_deduction').prop('checked', data.payment_detail.deposit_deduction);
+            // เปิดใช้งาน checkbox เมื่อ deposit_deduction เป็น true
+            if (data.payment_detail.deposit_deduction) {
+                $('#deposit_deduction').prop('disabled', true);
+                // เปลี่ยนสี background เมื่อเป็น true
+                $('#deposit_deduction').next('.slider').css('background-color', 'var(--toggle-color400)');
+                // แสดง deposittwo invisible-one และซ่อน box-deposittree
+                $('.deposittwo.invisible-one').show();
+                $('.box-deposittree').hide();
+            } else {
+                $('#deposit_deduction').prop('disabled', true);
+                // ซ่อน deposittwo invisible-one และแสดง box-deposittree
+                $('.deposittwo.invisible-one').hide();
+                $('.box-deposittree').show();
+                
+                // เปลี่ยน tabs structure เมื่อ deposit_deduction ไม่ใช่ true
+                $('.tabs-3').removeClass('tabs-3').addClass('tabs');
+                $('.tab-3').removeClass('tab-3').addClass('tab');
+                $('.glider-3').removeClass('glider-3').addClass('glider');
+                $('label.tab[for="radio-2"]').text('ข้อมูลการชำระ');
+            }
+        } else {
+            // ถ้าไม่มีข้อมูล deposit_deduction ให้ปิดใช้งาน checkbox
+            $('#deposit_deduction').prop('disabled', true);
+            // แสดง box-deposittree เป็นค่าเริ่มต้น
+            $('.deposittwo.invisible-one').hide();
+            $('.box-deposittree').show();
+            
+            // เปลี่ยน tabs structure เมื่อไม่มีข้อมูล deposit_deduction
+            $('.tabs-3').removeClass('tabs-3').addClass('tabs');
+            $('.tab-3').removeClass('tab-3').addClass('tab');
+            $('.glider-3').removeClass('glider-3').addClass('glider');
+            $('label.tab[for="radio-2"]').text('ข้อมูลการชำระ');
+        }
+        
+        // แสดงข้อมูลสรุปการชำระเงินจาก payment_detail.payment_summary
+        if (data.payment_detail.payment_summary) {
+            const paymentSummary = data.payment_detail.payment_summary;
+            
+            // แปลงค่าจาก string เป็น number และจัดรูปแบบเป็น currency
+            const formatCurrency = (value) => {
+                const numValue = parseFloat(value) || 0;
+                return numValue.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            };
+            
+            // อัปเดตค่าสรุปการชำระเงินในส่วน deposittwo
+            if (paymentSummary.total_with_tax) {
+                $('.deposittwo .deposit-gap .money').eq(0).text(formatCurrency(paymentSummary.total_with_tax)); // มูลค่ารวมภาษี
+            }
+            if (paymentSummary.withholding_tax) {
+                $('.deposittwo .deposit-gap .money').eq(1).text(formatCurrency(paymentSummary.withholding_tax)); // ภาษีถูกหัก ณ ที่จ่าย
+            }
+            if (paymentSummary.remaining_amount) {
+                $('.deposittwo .deposit-gap .money').eq(2).text(formatCurrency(paymentSummary.remaining_amount)); // ยอดคงค้าง
+            }
+            if (paymentSummary.paid_amount) {
+                $('.deposittwo .deposit-gap .money').eq(3).text(formatCurrency(paymentSummary.paid_amount)); // ยอดที่ตัดไปแล้ว
+            }
+            if (paymentSummary.total_payment) {
+                $('.deposittwo .deposit-gap .money').eq(4).text(formatCurrency(paymentSummary.total_payment)); // ยอดชำระจริง
+            }
+            
+            // อัปเดตค่าสรุปการชำระเงินในส่วน bank-box
+            if (paymentSummary.total_with_tax) {
+                $('.bank-box .deposit-gap .money').eq(0).text(formatCurrency(paymentSummary.total_with_tax)); // มูลค่ารวมภาษี
+            }
+            if (paymentSummary.withholding_tax) {
+                $('.bank-box .deposit-gap .money').eq(1).text(formatCurrency(paymentSummary.withholding_tax)); // ภาษีถูกหัก ณ ที่จ่าย
+            }
+            if (paymentSummary.total_payment) {
+                $('.bank-box .sell-all-box-in-number').text(formatCurrency(paymentSummary.total_payment)); // ชำระรวมทั้งสิ้น
+            }
+            
+            // อัปเดตค่าสรุปการชำระเงินในส่วน box-deposittree
+            if (paymentSummary.total_with_tax) {
+                $('#deposit-total-with-tax').text(formatCurrency(paymentSummary.total_with_tax)); // มูลค่ารวมภาษี
+            }
+            if (paymentSummary.withholding_tax) {
+                $('#deposit-withholding-tax').text(formatCurrency(paymentSummary.withholding_tax)); // ภาษีถูกหัก ณ ที่จ่าย
+            }
+            if (paymentSummary.total_payment) {
+                $('#deposit-actual-payment').text(formatCurrency(paymentSummary.total_payment)); // ยอดชำระจริง
+            }
+        }
+        
+        // แสดงวันที่รับชำระครบจาก payment_detail.deposit_due_date
+        if (data.payment_detail.deposit_due_date) {
+            const depositDueDate = data.payment_detail.deposit_due_date;
+            
+            // แปลงวันที่เป็นรูปแบบ DD/MM/YYYY
+            const formatDate = (dateString) => {
+                if (!dateString) return '';
+                const date = new Date(dateString);
+                if (isNaN(date.getTime())) return dateString; // ถ้าแปลงไม่ได้ให้คืนค่าเดิม
+                
+                const day = String(date.getDate()).padStart(2, '0');
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const year = date.getFullYear();
+                return `${day}/${month}/${year}`;
+            };
+            
+            const formattedDate = formatDate(depositDueDate);
+            $('.depo-hub-text4').text('รับชำระครบเมื่อวันที่: ' + formattedDate);
+            $('#deposit-due-date').text('รับชำระครบได้ถึงวันที่: ' + formattedDate);
+        }
+        
+        // แสดงข้อมูลการชำระเงินตาม selected_payment_method
+        if (data.payment_detail.selected_payment_method === "page2") {
+            // ธนาคาร
+            // แสดงชื่อธนาคารและโลโก้
+            if (data.payment_detail.bank_name) {
+                $('.bank-name-text').text(data.payment_detail.bank_name);
+                
+                // แสดงโลโก้ธนาคารตามชื่อ
+                const getBankLogo = (bankName) => {
+                    const bank = bankName.toLowerCase();
+                    let logoHtml = '';
+                    
+                    if (bank.includes('ไทยพาณิชย์')) {
+                        logoHtml = '<img src="picture/ไทยพาณิช.png" alt="ไทยพาณิชย์" style="width: 28px; height: 28px; object-fit: contain; border-radius: 28px;">';
+                    } else if (bank.includes('กสิกร')) {
+                        logoHtml = '<img src="picture/กสิกร.png" alt="กสิกรไทย" style="width: 28px; height: 28px; object-fit: contain; border-radius: 28px;">';
+                    } else if (bank.includes('กรุงไทย')) {
+                        logoHtml = '<img src="picture/กรุงไทย.png" alt="กรุงไทย" style="width: 28px; height: 28px; object-fit: contain; border-radius: 28px;">';
+                    }
+                    
+                    return logoHtml;
+                };
+                
+                $('.bank-box-name-page-two').html(getBankLogo(data.payment_detail.bank_name));
+            }
+            
+            // แสดงหมายเลขบัญชีธนาคารในรูปแบบ 123-4-XXXXX-0
+            if (data.payment_detail.bank_account_number) {
+                const formatBankAccount = (accountNumber) => {
+                    if (!accountNumber) return '';
+                    // ลบตัวอักษรที่ไม่ใช่ตัวเลขออก
+                    const numbers = accountNumber.replace(/\D/g, '');
+                    if (numbers.length < 3) return accountNumber;
+                    
+                    // แบ่งเป็นส่วนๆ ตามรูปแบบ 123-4-XXXXX-0
+                    let formatted = numbers.substring(0, 3); // 123
+                    if (numbers.length > 3) {
+                        formatted += '-' + numbers.substring(3, 4); // -4
+                    }
+                    if (numbers.length > 4) {
+                        const middlePart = numbers.substring(4, numbers.length - 1);
+                        const xCount = Math.min(5, middlePart.length);
+                        formatted += '-' + 'X'.repeat(xCount); // -XXXXX
+                    }
+                    if (numbers.length > 1) {
+                        formatted += '-' + numbers.substring(numbers.length - 1); // -0
+                    }
+                    
+                    return formatted;
+                };
+                
+                $('.number-bank-pagetwo').text(formatBankAccount(data.payment_detail.bank_account_number));
+            }
+
+            // แสดงวันที่และเวลาการชำระเงินธนาคาร
+            if (data.payment_detail.bank_payment_date) {
+                // แปลงวันที่เป็นรูปแบบ DD/MM/YYYY
+                const formatDate = (dateString) => {
+                    if (!dateString) return '';
+                    const date = new Date(dateString);
+                    if (isNaN(date.getTime())) return dateString;
+                    
+                    const day = String(date.getDate()).padStart(2, '0');
+                    const month = String(date.getMonth() + 1).padStart(2, '0');
+                    const year = date.getFullYear();
+                    return `${day}/${month}/${year}`;
+                };
+                
+                const formattedDate = formatDate(data.payment_detail.bank_payment_date);
+                $('.time-number-text').eq(0).text(formattedDate);
+            }
+            
+            if (data.payment_detail.bank_payment_time) {
+                $('.time-number-text').eq(1).text(data.payment_detail.bank_payment_time);
+            }
+            
+        } else if (data.payment_detail.selected_payment_method === "page1") {
+            // เงินสด
+            $('.bank-title').text('เงินสด');
+            $('.bank-box-name-page-two').html('<img src="picture/user.png" alt="เงินสด" style="width: 28px; height: 28px; object-fit: contain;">');
+           
+            // แสดงชื่อผู้จ่าย
+            if (data.payment_detail.payment_payee_name) {
+                $('.bank-name-text').text(data.payment_detail.payment_payee_name);
+            }
+
+            // แสดงรายละเอียด
+            if (data.payment_detail.payment_description) {
+                $('.number-bank-pagetwo').text(data.payment_detail.payment_description);
+            }
+
+            // แสดงวันที่และเวลา
+            if (data.payment_detail.payment_date) {
+                // แปลงวันที่เป็นรูปแบบ DD/MM/YYYY
+                const formatDate = (dateString) => {
+                    if (!dateString) return '';
+                    const date = new Date(dateString);
+                    if (isNaN(date.getTime())) return dateString;
+                    
+                    const day = String(date.getDate()).padStart(2, '0');
+                    const month = String(date.getMonth() + 1).padStart(2, '0');
+                    const year = date.getFullYear();
+                    return `${day}/${month}/${year}`;
+                };
+                
+                const formattedDate = formatDate(data.payment_detail.payment_date);
+                $('.time-number-text').eq(0).text(formattedDate);
+            }
+            
+            if (data.payment_detail.payment_time) {
+                $('.time-number-text').eq(1).text(data.payment_detail.payment_time);
+            }
+        }
+        
+        // แสดงอัตราภาษีถูกหัก ณ ที่จ่าย
+        if (data.product_detail.withholding_tax_rate) {
+            $('#withholding-tax-rate').val(data.product_detail.withholding_tax_rate);
+        }
+    }
+
+}
+
+// ฟังก์ชันสำหรับแสดงรายการไฟล์
+function displayFileList(fileArray) {
+    const fileContainer = $('#customerFileDisplay');
+    fileContainer.empty();
+    
+    if (!fileArray || fileArray.length === 0) {
+        fileContainer.html('<div style="color: #999; font-style: italic;">ไม่มีไฟล์แนบ</div>');
+        return;
+    }
+    
+    fileArray.forEach((file, index) => {
+        const fileExtension = getFileExtension(file.new_imge_name);
+        const fileSize = formatFileSize(file.size);
+        const fileIcon = getFileIcon(fileExtension);
+        const fileClass = getFileClass(fileExtension);
+        
+        const fileHtml = `
+            <div class="attach-file-box-${fileClass}">
+                <div class="attach-file-box-${fileClass}-img">
+                    <img src="picture/${fileIcon}" alt="${fileExtension}" />
+                </div>
+                <div class="document-${fileClass}">${file.new_imge_name}</div>
+                <div class="mb-${fileClass}">(${fileSize})</div>
+            </div>
+        `;
+        
+        fileContainer.append(fileHtml);
+    });
+}
+
+// ฟังก์ชันสำหรับดึงนามสกุลไฟล์
+function getFileExtension(filename) {
+    return filename.split('.').pop().toLowerCase();
+}
+
+// ฟังก์ชันสำหรับจัดรูปแบบขนาดไฟล์
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+// ฟังก์ชันสำหรับกำหนดไอคอนไฟล์
+function getFileIcon(extension) {
+    const iconMap = {
+        'pdf': 'file-pdf-fill.png',
+        'doc': 'file-word-fill.png',
+        'docx': 'file-word-fill.png',
+        'jpg': 'file-image-fill.png',
+        'jpeg': 'file-image-fill.png',
+        'png': 'file-image-fill.png',
+        'gif': 'file-image-fill.png',
+        'xls': 'xfile.png',
+        'xlsx': 'xfile.png',
+        'txt': 'file-text-fill.png'
+    };
+    return iconMap[extension] || 'file-generic-fill.png';
+}
+
+// ฟังก์ชันสำหรับกำหนด CSS class ของไฟล์
+function getFileClass(extension) {
+    const classMap = {
+        'pdf': 'pdf',
+        'doc': 'word',
+        'docx': 'word',
+        'jpg': 'image',
+        'jpeg': 'image',
+        'png': 'image',
+        'gif': 'image',
+        'xls': 'subtract',
+        'xlsx': 'subtract',
+        'txt': 'text'
+    };
+    return classMap[extension] || 'generic';
+}
+
+// ฟังก์ชันสำหรับจัดการการแสดงปุ่มตามสถานะ
+function handleButtonDisplayByStatus(docStatus) {
+    console.log('Handling button display for status:', docStatus);
+    
+    if (docStatus === 'approved') {
+        // ถ้าอนุมัติแล้ว ให้ซ่อนปุ่มแก้ไขและอนุมัติ แสดงปุ่มกลับ
+        $('#btnEdit').hide();
+        $('#btnApprove').hide();
+        //$('#goBack').show();
+        
+        // เปลี่ยนหัวข้อเป็น "อนุมัติใบเสนอราคา"
+        $('#quotationTitle').hide();
+        $('#approveTitle').show();
+        $('#historyTitle').hide();
+        
+        // ซ่อนปุ่มใน navbar
+        $('#btnnone').hide();
+        
+    } else {
+        // ถ้ายังรออนุมัติ ให้แสดงปุ่มแก้ไขและอนุมัติ ซ่อนปุ่มกลับ
+        $('#btnEdit').show();
+        $('#btnApprove').show();
+       // $('#goBack').show();
+        
+        // แสดงหัวข้อปกติ
+        $('#quotationTitle').show();
+        $('#approveTitle').hide();
+        $('#historyTitle').hide();
+        
+        // แสดงปุ่มใน navbar
+        $('#btnnone').show();
+
+        
+    } 
+    // else if (docStatus === 'rejected') {
+    //     // ถ้าไม่อนุมัติ ให้ซ่อนปุ่มอนุมัติ แสดงปุ่มแก้ไขและกลับ
+    //     $('#btnEdit').show();
+    //     $('#btnApprove').hide();
+    //     $('#goBack').show();
+        
+    //     // เปลี่ยนหัวข้อเป็น "ไม่อนุมัติใบเสนอราคา"
+    //     $('#quotationTitle').hide();
+    //     $('#approveTitle').hide();
+    //     $('#historyTitle').text('ไม่อนุมัติใบเสนอราคา').show();
+}
+
+// ฟังก์ชันสำหรับแปลงรูปแบบวันที่สำหรับแสดงผล
+function formatDateForDisplay(dateStr) {
+    if (!dateStr) return '-';
+    
+    // ถ้าเป็นรูปแบบ DD/MM/YY หรือ DD/MM/YYYY
+    if (dateStr.includes('/')) {
+        return dateStr;
+    }
+    
+    // ถ้าเป็นรูปแบบ YYYY-MM-DD
+    if (dateStr.includes('-') && dateStr.split('-')[0].length === 4) {
+        const [year, month, day] = dateStr.split('-');
+        return `${day}/${month}/${year}`;
+    }
+    
+    return dateStr;
+}
+
+// ฟังก์ชันสำหรับแปลงรูปแบบเงิน
+function formatCurrency(amount) {
+    if (!amount) return '0.00';
+    return new Intl.NumberFormat('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(amount);
+}
+
+// ฟังก์ชันสำหรับแก้ไขใบเสนอราคา
+function editQuotation() {
+    // ดึง ID จาก URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const quotationId = urlParams.get('id');
+    
+    // ตรวจสอบว่ามีข้อมูลใน localStorage หรือไม่
+    const localQuotationData = localStorage.getItem('quotationData');
+    
+    if (quotationId) {
+        // ถ้ามี ID ใน URL ให้โหลดข้อมูลจากฐานข้อมูล
+        console.log('Loading quotation data for editing, ID:', quotationId);
+        
+        $.ajax({
+            url: `${endpoint}/api/get_quotation_by_id`,
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                id: quotationId,
+                com_id: localStorage.getItem('com_id') || 3
+            },
+            success: function(response) {
+                console.log('Quotation edit API Response:', response);
+                if (response.code === 200) {
+                    // เก็บข้อมูลสำหรับการแก้ไข
+                    localStorage.setItem('editQuotationId', quotationId);
+                    localStorage.setItem('editQuotationData', JSON.stringify(response.result));
+                    
+                    // ไปยังหน้าแก้ไข
+                    window.location.href = 'create-deposit-receipt.html';
+                } else {
+                    console.error('Error loading quotation data for editing:', response.result);
+                    // ถ้าโหลดจาก API ไม่ได้ ให้ลองใช้ข้อมูลจาก localStorage
+                    if (localQuotationData) {
+                        console.log('Falling back to localStorage data for editing');
+                        const parsedData = JSON.parse(localQuotationData);
+                        localStorage.setItem('editQuotationId', quotationId);
+                        localStorage.setItem('editQuotationData', JSON.stringify(parsedData));
+                        window.location.href = 'create-deposit-receipt.html';
+                    } else {
+                        alert('ไม่พบข้อมูลใบเสนอราคาสำหรับการแก้ไข');
+                    }
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error loading quotation data for editing:', error);
+                // ถ้าโหลดจาก API ไม่ได้ ให้ลองใช้ข้อมูลจาก localStorage
+                if (localQuotationData) {
+                    console.log('Falling back to localStorage data for editing due to API error');
+                    const parsedData = JSON.parse(localQuotationData);
+                    localStorage.setItem('editQuotationId', quotationId);
+                    localStorage.setItem('editQuotationData', JSON.stringify(parsedData));
+                    window.location.href = 'create-deposit-receipt.html';
+                } else {
+                    alert('เกิดข้อผิดพลาดในการโหลดข้อมูลสำหรับการแก้ไข');
+                }
+            }
+        });
+    } else if (localQuotationData) {
+        // ถ้าไม่มี ID ใน URL แต่มีข้อมูลใน localStorage ให้ใช้ข้อมูลจาก localStorage
+        console.log('Using localStorage data for editing');
+        const parsedData = JSON.parse(localQuotationData);
+        const localQuotationId = localStorage.getItem('quotationId');
+        
+        localStorage.setItem('editQuotationId', localQuotationId || '');
+        localStorage.setItem('editQuotationData', JSON.stringify(parsedData));
+        window.location.href = 'create-deposit-receipt.html';
+    } else {
+        console.error('No quotation ID found in URL and no data in localStorage for editing');
+        alert('ไม่พบข้อมูลใบเสนอราคาสำหรับการแก้ไข');
+    }
+}
+
+// ฟังก์ชันสำหรับอัปเดต timeline เมื่อมีการแก้ไข
+function updateTimelineOnEdit() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const quotationId = urlParams.get('id');
+    
+    if (!quotationId) {
+        console.log('No quotation ID found for timeline update');
+        return;
+    }
+    
+    // บันทึกข้อมูลการแก้ไขลงฐานข้อมูล
+    $.ajax({
+        url: `${endpoint}/api/create_quotation_timeline`,
+        method: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            id: quotationId,
+            action_type: 'edit',
+            note: '',
+            com_id: localStorage.getItem('com_id') || 3
+        }),
+        success: function(response) {
+            console.log('Timeline edit API Response:', response);
+            if (response.code === 200) {
+                // อัปเดต timeline ใหม่จากฐานข้อมูลทันที
+                createQuotationTimeline();
+                console.log('Timeline updated after edit');
+            } else {
+                console.error('Error creating timeline entry:', response.result);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Error creating timeline entry:', error);
+        }
+    });
+}
+
+// ฟังก์ชันสำหรับอัปเดต timeline เมื่อมีการอนุมัติ
+function updateTimelineOnApprove() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const quotationId = urlParams.get('id');
+    
+    if (!quotationId) {
+        console.log('No quotation ID found for timeline update');
+        return;
+    }
+    
+    // บันทึกข้อมูลการอนุมัติลงฐานข้อมูล
+    $.ajax({
+        url: `${endpoint}/api/create_quotation_timeline`,
+        method: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            id: quotationId,
+            action_type: 'approve',
+            note: 'หมายเหตุ: รอเอกสารเพิ่มเติมจากลูกค้า',
+            com_id: localStorage.getItem('com_id') || 3
+        }),
+        success: function(response) {
+            console.log('Timeline approve API Response:', response);
+            if (response.code === 200) {
+                // อัปเดต timeline ใหม่จากฐานข้อมูลทันที
+                createQuotationTimeline();
+                console.log('Timeline updated after approve');
+            } else {
+                console.error('Error creating timeline entry:', response.result);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Error creating timeline entry:', error);
+        }
+    });
+}
+
+// ฟังก์ชันสำหรับสร้าง timeline entry เมื่อสร้างใบเสนอราคาใหม่
+function createTimelineEntry(quotationId, actionType, note = '') {
+    if (!quotationId) {
+        console.log('No quotation ID found for timeline entry creation');
+        return;
+    }
+    
+    $.ajax({
+        url: `${endpoint}/api/create_quotation_timeline`,
+        method: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            quotation_id: quotationId,
+            action_type: actionType,
+            note: note,
+            com_id: localStorage.getItem('com_id') || 3
+        }),
+        success: function(response) {
+            console.log('Timeline entry created:', response);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error creating timeline entry:', error);
+        }
+    });
+}
+
+// ฟังก์ชันสำหรับอนุมัติใบเสนอราคา
+function approveQuotation() {
+    // ยืนยันการอนุมัติ
+    // if (!confirm('คุณต้องการอนุมัติใบเสนอราคานี้หรือไม่?')) {
+    //     return;
+    // }
+    
+    // ดึง ID จาก URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const quotationId = urlParams.get('id');
+    
+    if (!quotationId) {
+        alert('ไม่พบ ID ของใบเสนอราคา');
+        return;
+    }
+    
+    console.log('Approving quotation, ID:', quotationId);
+    
+    // ส่งข้อมูลไปยัง API เพื่ออัปเดตสถานะเป็น approved
+    $.ajax({
+        url: `${endpoint}/api/update_quotation_status`,
+        method: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            id: quotationId,
+            doc_status: 'approved',
+            com_id: localStorage.getItem('com_id') || 3
+        }),
+        success: function(response) {
+            console.log('Quotation approval API Response:', response);
+            if (response.code === 200) {
+                // alert('อนุมัติใบเสนอราคาเรียบร้อยแล้ว');
+                
+                // อัปเดตสถานะในหน้าแสดงผล
+                $('#customerStatusDisplay').text(response.result.status);
+                
+                // ซ่อนปุ่มอนุมัติและแสดงปุ่มกลับ
+                $('#btnApprove').hide();
+                $('#goBack').show();
+                
+                // อัปเดตหัวข้อ
+                $('#quotationTitle').hide();
+                $('#approveTitle').show();
+                
+                // อัปเดต timeline ทันทีโดยไม่ต้องรีเฟรช
+                createQuotationTimeline();
+                
+            } else {
+                console.error('Error approving quotation:', response.result);
+                alert('เกิดข้อผิดพลาดในการอนุมัติ: ' + (response.result || 'ไม่ทราบสาเหตุ'));
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Error approving quotation:', error);
+            alert('เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์');
+        }
+    });
+}
+
+// ฟังก์ชันสำหรับไปยังหน้า issue-receipt-deposit-preview.html พร้อมส่ง ID
+function goToIssueReceipt() {
+    // ดึง ID จาก URL parameter (เลขเอกสาร)
+    const urlParams = new URLSearchParams(window.location.search);
+    const quotationId = urlParams.get('id');
+    
+    if (quotationId) {
+        // ส่ง ID (เลขเอกสาร) ไปยังหน้า issue-receipt-deposit-preview.html
+        window.location.href = `issue-receipt-deposit-preview.html?id=${encodeURIComponent(quotationId)}`;
+    } else {
+        console.error('ไม่พบ ID');
+        alert('ไม่พบ ID ของเอกสาร');
+    }
+}
+
+// ฟังก์ชันสำหรับไปยังหน้า pay-off-deposit.html พร้อมส่ง ID
+function goToPayOffDeposit() {
+    // ดึง ID จาก URL parameter (เลขเอกสาร)
+    const urlParams = new URLSearchParams(window.location.search);
+    const quotationId = urlParams.get('id');
+    
+    if (quotationId) {
+        // ส่ง ID (เลขเอกสาร) ไปยังหน้า pay-off-deposit.html
+        window.location.href = `pay-off-deposit.html?id=${encodeURIComponent(quotationId)}`;
+    } else {
+        console.error('ไม่พบ ID');
+        alert('ไม่พบ ID ของเอกสาร');
+    }
+}
+
+// ฟังก์ชันสำหรับไปยังหน้า paperdepositreceiptSPV.html พร้อมส่ง ID
+function goToPaperDepositReceipt() {
+    // ดึง ID จาก URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const quotationId = urlParams.get('id');
+    
+    // ดึงชื่อผู้จัดทำจากหน้าเว็บ
+    const creatorName = document.getElementById('name-Creator').textContent;
+    
+    // ดึงสถานะ checkbox
+    const notShowName = document.getElementById('not-show-name').checked;
+    const signatureOption = document.getElementById('signature-option').checked;
+    
+    // เก็บข้อมูลใน localStorage
+    localStorage.setItem('quotationCreatorName', creatorName);
+    localStorage.setItem('quotationNotShowName', notShowName);
+    localStorage.setItem('quotationSignatureOption', signatureOption);
+    
+    // เปิดหน้าใหม่ paperdepositreceiptSPV.html พร้อมส่ง ID
+    window.open(`paperdepositreceiptSPV.html?id=${quotationId}`, '_blank');
+}
+    </script>
+</body>
+</html>
